@@ -3,8 +3,8 @@
 ## Meeting Objective
 
 
-**Date:**
-**Time:**
+**Date:**  
+**Time:**  
 **Attendees (Name, Role):**
   1.
   1.
