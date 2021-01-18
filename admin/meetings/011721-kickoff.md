@@ -77,6 +77,7 @@
     * intro: everyone together on zoom saying welcome
     * individual intros: 12 sec clip of team member introducing themselves (name, year, major, where you're from, fun fact) while doing something subtly funny/random
     * outro: together on zoom again
+  * After every meeting, Sydney will push the meeting minutes to the repo and send a message in Slack recapping the meeting and linking the minutes
 
 ## TODOs:
   * Upload contract to repo
