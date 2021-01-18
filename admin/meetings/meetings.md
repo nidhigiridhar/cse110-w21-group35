@@ -27,7 +27,7 @@
   *
   *
 
-## Tasks to be completed: 
+## Agenda Items: 
   * Task name
     * Task Owner
   *
@@ -36,5 +36,10 @@
 ## Notes, Decisions, Issues: 
   *
   *
+
+## TODOs: 
   *
+  *
+
+
   
