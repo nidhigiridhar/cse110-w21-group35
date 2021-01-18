@@ -27,12 +27,6 @@
   *
   *
 
-## Agenda Items: 
-  * Task name
-    * Task Owner
-  *
-  *
-
 ## Notes, Decisions, Issues: 
   *
   *
