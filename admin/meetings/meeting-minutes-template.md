@@ -13,6 +13,8 @@
 **Absent (Name, Role)**:  
 1. 1
 
+## Agenda: 
+  
 ## Completed Tasks (from previous meeting):
   * Task name
     * Task Owner
