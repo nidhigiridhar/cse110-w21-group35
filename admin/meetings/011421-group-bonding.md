@@ -1,6 +1,6 @@
 # CSE 110 W20 Team 35 Meeting Minutes
 
-## Meeting Objective:  
+## Meeting Objective: Introductions and Group Bonding
 
 **Date: Thursday 1/14/2021**  
 **Start Time: Zoom 4 pm PT**  
