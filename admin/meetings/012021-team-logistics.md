@@ -4,7 +4,7 @@
 
 **Date: Tuesday 1/19/2021**  
 **Start Time: Zoom 1 pm PT**  
-**End Time:**  
+**End Time: 1:45 pm PT**  
 **Attendees (Name, Role):**  
 1. Nidhi Giridhar
 2. Sydney Wong
