@@ -41,7 +41,7 @@
   * Current role interests
     * Nidhi: UI/UX, database/networking
     * Sydney: database, pipeline
-    * Alejandro: testings, database
+    * Alejandro Marquez: testings, database
     * Jasmine: familiar with datebase, UI/UX
     * Zachary: database
   * For next meeting, poll people's interests/desired roles
