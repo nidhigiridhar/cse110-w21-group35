@@ -6,10 +6,17 @@
 **Start Time: Zoom 2 pm PT**  
 **End Time:**  
 **Attendees (Name, Role):**  
-1. 
+1. Sydney Wong
+2. Nidhi Giridhar
+3. Chad Hayen
+4. Ian Rebmann
+5. Alejandro Malanche
+6. Alejandro Marquez
+7. Jasmine Chen
+8. Samuel Burkholder
 
 **Absent (Name, Role)**:  
-1. 
+1. Zachary Chan
 
 ## Agenda: 
   1. Share brainstorming document and Miro with Chad
@@ -26,7 +33,31 @@
   *
 
 ## Notes, Decisions, Issues: 
-  * 
+  * Statistical weekly summaries - make sure it is actual useful/used
+    * save weekly summary for end of project
+    * 2nd or 3rd sprint feature
+  * Continue fleshing out user stories/persona
+    * think about different types of students (college vs high school, research vs homework)
+  * Make sure focus is developing a pomodoro timer
+    * Don't make task planner is not primary feature
+    * Would a student actually input planner into app? Or keep track of this somewhere else?
+    * Instead, group together pomos
+  * We need to have a good argument for why we are deciding to doa feature one way
+  * Customizability
+    * app architecture will need to allow for customizable (will be more complicated)
+    * will need to do more than static hex code
+  * Creating user profiles
+    * probably a lot to include initial, MVP sprint
+    * need to justify creating user profiles
+  * We are one track so far
+  * Standup
+    * We can make brief standup meeting minutes
+  * Sprints
+    * a little early to start planning sprints
+    * we could make high level plan right now
+  * Next week
+    * UI
+    * mockups
 
 ## TODOs: 
   * Add roles to rules
