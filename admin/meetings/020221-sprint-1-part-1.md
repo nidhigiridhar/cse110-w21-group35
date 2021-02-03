@@ -34,15 +34,12 @@
     * Everyone
 
 ## Pending Business (from previous meeting):
-  * System Designs: Alejandro Malanche, Ian Rebmann, Nidhi, Samuel Burkholder
-  * Interface: Alejandro Marquez, Zachary Chen, Sydney Wong
-  * Documentation: Jasmine
   
 
 ## Notes, Decisions, Issues: 
-  * System Designs: Alejandro Malanche, Ian Rebmann, Nidhi, Samuel Burkholder
-  * Interface: Alejandro Marquez, Zachary Chen, Sydney Wong
-  * Documentation: Jasmine
+  * System Designs: Alejandro Malanche, Zachary Chan, Nidhi, Samuel Burkholder
+  * Interface: Alejandro Marquez, Ian Rebmann, Sydney Wong
+  * Documentation: Jasmine Chen
   * Plan for Wednesday's discussion
     * Roadmap - Sydney
     * Wireframes - Ian
