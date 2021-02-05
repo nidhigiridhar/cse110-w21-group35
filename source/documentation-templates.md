@@ -56,7 +56,7 @@
         --color-light: #FFFFFF;
         --color-base: #E0E0E0;
         --color-accent: #6246EA;
-        
+
         --font1: 'Raleway', sans-serif;
     }
     /******** General Styles ********/
@@ -90,8 +90,6 @@
     #footer {
 
     }
-
-
 
 # Javascript
     
