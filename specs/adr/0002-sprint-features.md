@@ -1,6 +1,6 @@
 # Feature Decisions for Other Sprints
 
-* Status: accepted
+* Status: rejected
 * Deciders: Nidhi Giridhar, Sydney Wong, Jasmine Chen, Alejandro Malanche, Alejandro Marquez, Ian Rebmann, Zachary Chan, Samuel Burkholder
 * Date: 2021-01-28
   
