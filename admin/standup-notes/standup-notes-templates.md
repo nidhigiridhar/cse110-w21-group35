@@ -4,12 +4,6 @@
 ### Start Time:
 ### End Time:
 ### Attendees:
-# Standup Notes Template 
-
-### Date:
-### Start Time:
-### End Time:
-### Attendees:
 1. name 
 2. name 
 3. name  
