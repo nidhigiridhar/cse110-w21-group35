@@ -51,6 +51,48 @@
 
 # CSS
 
+    /******** Variables ********/
+    :root {
+        --color-light: #FFFFFF;
+        --color-base: #E0E0E0;
+        --color-accent: #6246EA;
+        
+        --font1: 'Raleway', sans-serif;
+    }
+    /******** General Styles ********/
+    body {
+
+    }
+    h1, h2, h3 {
+
+    }
+    p {
+
+    }
+    a {
+
+    }
+    /******** Utilities ********/
+    .nobullets {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    /******** Header Style ********/
+    #header {
+
+    }
+    /******** Navigation Style ********/
+    #nav {
+
+    }
+    /******** Footer Style ********/
+    #footer {
+
+    }
+
+
+
 # Javascript
     
     /*
