@@ -26,7 +26,4 @@ Education: MS
 Windows Desktop, Macbook Pro, iPhone 8
 
 ## User story:
-Features that I would like in a Pomodoro Timer:
-* keyboard shortcuts so I can start, stop, reset the timer easier
-* audio buzzer or notification so I know when a pomo/break is over
-* friendly UI
+As someone who is very familiar with technology and used to navigating using the keyboard, it would be great to have keyboard shortcuts so I can start and reset the timer without using the touchpad. I'd like an audible alarm so that even if I'm not looking at the timer, I know when a pomo is over. The UI should be clean and not too distracting.
