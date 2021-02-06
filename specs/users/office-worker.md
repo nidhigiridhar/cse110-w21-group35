@@ -25,7 +25,4 @@ Education: MS
 Windows laptop, Android phone
 
 ## User story:
-Features that I would like in a Pomodoro Timer:
-* I'm not very familiar with technology so I would like it to be easy to use
-* audio buzzer or notification so I know when a pomo/break is over
-* reset button in case my kids distract me and I can't finish a pomo
+As someone who doesn't use technology very often and is unfamiliar with it, I would like the timer to be simple and easy to use and maybe have some sort of instructions on how to use it. Also, as a parent working from home, I may need to stop working in the middle of a pomo to take care of my kids so it would be great to be able to reset a pomo in those cases.
