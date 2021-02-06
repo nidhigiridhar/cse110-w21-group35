@@ -15,7 +15,7 @@ Kids: No
 
 Occupation: Part-time worker at Starbucks
 
-Education: BS
+Education: Computer Science BS
 ## Hobbies:
   * soccer
   * video games
@@ -26,7 +26,4 @@ Education: BS
 Laptop (Macbook Air), iPhone X
 
 ## User story:
-Features that I would like in a Pomodoro Timer:
-* clean, simple theme so I don't get distracted
-* reminders to walk around or exercise during breaks so I'm not sitting for too long
-* audio buzzer or notification so I know when a pomo/break is over
+As a student, I would like the timer to have clean, simple theme so I don't get distracted by extra features or bright colors. Also, because I am a CS major and spend a lot of time sitting in front of my computer, it would be helpful to have reminders to walk around or exercise during breaks so I'm not sedentary for too long. It would also be nice to be able to keep track of how many pomos an assignment took so I know how much time I should set aside for similar future assignments.
