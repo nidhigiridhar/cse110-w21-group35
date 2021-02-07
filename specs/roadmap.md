@@ -1,4 +1,4 @@
-## Pomodoro Timer Project Roadmap
+# Pomodoro Timer Project Roadmap
 ### Created by: Dream Team 
 
 ## Sprint 1 Tasks:
@@ -14,42 +14,33 @@
     * High fidelity prototype
 
 ## Sprint 2 - MVP Features:
-  * Timer (25 min for pomo, 5 min for break) with
-    * Start
-    * Reset (restarts current pomo)
+The associated GitHub issues are below each feature
+  * Timer (25 min for pomo, 5 min for break)
+    1. Implement working clock that automatically follows this order: 25 min pomo -> 5 min break (with a 25 min long break every four pomos)
+    2. Implement counters that keep track of the number of pomos completed in a row (without clicking reset) and in a day
+       * story points: big (for both parts)
+       * should be assigned to at least two people
+ * Start and Reset (restarts current pomo) buttons
+   1. Implement start and reset buttons which begin a countdown from 25 minutes  
+      * story points: big
+      * should be assigned to at least two people
   * Notifications
-    * Banner notifications
-    * Audio notifications (one tone signaling end of pomo, one tone signaling end of break)
-  * Static counter on the side of the screen tracking how many pomos were completed that day
-  * Static counter on the side of the screen tracking how many pomos were completed in a row (without clicking reset)
+    1. Implement banner notifications notifying the beginning of a short break and the beginning of a long break  
+       * story points: medium
+    2. Implement audio notifications notifying the beginning of a short break and the beginning of a long break (with 2 different tones)  
+       * story points: medium
   * Static instructions explaining how to use the timer
-
-## Sprint 2 - GitHub Issues
-  * Implement working clock that automatically follows this order: 25 min pomo -> 5 min break (with a 25 min break every four pomos)
-    * story points:
-  * Implement start button which begins a countdown from 25 min
-    * story points:
-  * Implement reset button which resets the timer to 25 min and stays at 25 min
-    * story points:
-  * Implement the banner notification notifying beginning of a short break
-    * story points:
-  * Implement the banner notification notifying beginning of a long break
-    * story points:
-  * Implement the audio notification notifying beginning of a short break
-    * story points
-  * Implement the audio notification notifying beginning of a long break
-  * Create displayed counter showing number of pomos completed in a row (without pressing reset)
-    * story points
-  * Create displayed counter showing number of pomos completed for the day (in one browser session)
-    * story points
-  * Use CSS to set background font color
-    * story points:
-  * Use CSS to style start and reset button
-    * story points:
-  * Use CSS to style timer
-    * story points
-  * Use CSS to create tomato icon to hold counters
-    * story points
+    1. Implement instructions text box below the timer and buttons  
+       * story points: medium
+  * CSS/Styling (at least two people should be assigned to each CSS issue)
+    1. Use CSS to set background and font color  
+       * story points: medium
+    2. Use CSS to style start and reset button  
+       * story points: big
+    3. Use CSS to style timer  
+       * story points: big
+    4. Use CSS to create tomato icon to hold counters
+       * story points: big
 
 ## Sprint 3 Features:
   * Non-static instructions
