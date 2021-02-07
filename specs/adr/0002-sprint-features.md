@@ -31,7 +31,7 @@ We want to prioritize the rest of the features that we want to include down the 
   * make instructions non-static (move to different tab)
 
   ### Medium
-  * keyboard shortcuts (start, stop, reset, finished)
+  * keyboard shortcuts (start, reset, finished)
   * different colors for pomo and break
   * customizable time limits
   * reminder to step away from screen during breaks
