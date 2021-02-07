@@ -1,6 +1,6 @@
 ---
 name: Task
-about: Task for Sprint 1
+about: Task for Sprint
 title: ''
 labels: ''
 assignees: ''
