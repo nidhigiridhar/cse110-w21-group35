@@ -25,7 +25,7 @@ User personas and stories:
 ## The Appetite
 The reality of our team's situation is that we have a limited 10 weeks to create a Pomodoro application, and about five of those weeks must be spent on technical development. Therefore, we must narrow our application's focus to, foremost, developing a functional Pomodoro timer that can be intuitively understood by a user.
 
-While our user stories show a desire for a product that can increase productivity and focus, we must not stray away from the main purpose of our application: a Pomodoro timer. We do not want to distract users from timer element of our application with feature fatigue such as elaborate task lists planners. Due to the time constraint and our desire to steer away from feature fatigue, we have narrowed Productoro to primarily function as a Pomodoro timer.
+While our user stories show a desire for a product that can increase productivity and focus, we must not stray away from the main purpose of our application: a Pomodoro timer. We do not want to distract users from the timer element of our application with unnecessary features such as elaborate task lists. Due to the time constraint and our desire to avoid feature fatigue, we have narrowed Productoro to primarily function as a Pomodoro timer.
 
 ## Our Solution: Productoro
 To address our problem, user personas, and appetite, we planned our [minimum viable product](../adr/0001-mvp.md) (MVP). Our MVP features will include:
@@ -38,9 +38,19 @@ To address our problem, user personas, and appetite, we planned our [minimum via
   * Static instructions explaining how to use the timer
   * Static tomato icon displaying the pomo streak and pomos comletely in one day
 
-We began designing by considering the user stories and the features we wanted for our MVP. We drew fat marker sketches to brainstorm a interface that is functional, user friendly, and aesthetic:
+We began designing our **interface** by considering the user stories and the features we wanted for our MVP. 
 
-Next, we narrowed down our brainstormed designs by developing wireframes:
+We drew fat marker sketches to brainstorm a interface that is functional, user friendly, and aesthetic.
+
+MVP sketch:
+![MVP sketch](/specs/interface/rough/mvp-sketch.png)
+
+Beyond MVP sketches:
+![Beyond MVP 1](/specs/interface/rough/beyond-mvp-1.png)
+![Beyond MVP 2](/specs/interface/rough/beyond-mvp-2.png)
+![Beyond MVP Instructions](/specs/interface/rough/instructions.png)
+
+Next, we narrowed down our designs by developing wireframes:
 
 MVP wireframes:  
 ![MVP wireframe](/specs/interface/wireframes/mvp.jpg)
@@ -53,7 +63,7 @@ Beyond MVP wireframes:
 
 Finally, we developed a high fidelity prototype to visualize our timer's intended functionality: [view here](https://www.figma.com/proto/t4hjtf1Mjf2cT3ixRSMBpV/Pomodoro-Timer?node-id=16%3A14&scaling=min-zoom)
 
-Additionally, we developed system diagrams to accompany the interface designs. The system diagrams detail how different parts of our web app will interact with each other at three different levels.
+Additionally, we developed **system diagrams** to accompany the interface designs. The system diagrams detail how different parts of our web app will interact with each other at three different levels.
 
 C4 Component Diagram:
 ![C4 Component Diagram](../system-diagrams/C4-ComponentDiagram-MVP.jpg)
@@ -67,23 +77,23 @@ Event Modeling Diagram:
 ![Event Modeling Diagram](../system-diagrams/EventModelDiagram.jpg)
 
 ## Rabbit Holes
-A major rabbit hole is our tasks list features. The tasks feature is not central to our application nor the Pomodoro technical. As such, we must make sure Productoro does not transform into a planner application mid-development.
+A major rabbit hole is our tasks list feature. The tasks feature is not central to our application nor the Pomodoro technique. As such, we must make sure Productoro does not transform into a planner application mid-development.
 
-We have explained more reasoning regarding the addition of the task feature at [task.md](../adr/0003-tasks.md)
+We have explain more reasoning regarding the addition of the tasks feature at [task.md](../adr/0003-tasks.md)
 
 ## No-gos
 We will not be implementing a pause function since a pause feature directly contradicts the Pomodoro technique. The Pomodoro technique is a time management technique that breaks work down into intervals that should be completed without interruptions. The ability to pause in the middle of an interval and continue the interval when the user pleases does not align with the Pomodoro technique.
 
-Realistically, we understand a user might need to *restart* a pomo or break, so have created a reset button that restarts a pomo to the 25 minute makr. We have provided more explanation in our [start_stop_reset.md](./../adr/0004-start_stop_reset.md).
+Realistically, we understand a user might need to *restart* a pomo or break, so created a reset button that restarts a pomo to the 25 minute mark. We provided more explanation in our [start_stop_reset.md](./../adr/0004-start_stop_reset.md).
 
 ## Our Implementation Plan
 We have broken down Productoro's features into  different sprints. Our main goal is to implement the MVP features during sprint 2, and a detailed outline of our implementation plan can be seen on our [project roadmap](../roadmap.md).
 
 Furthermore, we will be using a Github repository and its features to develop Productoro.
 
-The issues for the sprint 2 features can be viewed on our repository **TODO: LINK!!!**
+The issues for the sprint 2 features can be viewed on our repository and [project board](https://github.com/nidhigiridhar/cse110-w21-group35/projects/2).
 
-Within our repository, we will use multiple development branches beginning at the start of sprint 2. For our branching structure, our team will develop a feature on a feature-specific branch and then push the branch to master. We will create the following branches:
+Within our repository, we will use multiple development branches beginning at the start of sprint 2. For our branching structure, our team will develop features on feature-specific branches and then push the branch to master. We will create the following branches:
    * timer
    * buttons
    * notifications
@@ -95,7 +105,7 @@ Within our repository, we will use multiple development branches beginning at th
    * tasks
    * ui
 
-Beginning with sprint 2, everyone one will use pull requests to push their development branch to master. Everyone must also link their pull requests to the corresponding issue from the project board. During a pull request, if a conflict is found while merging, the person(s) assigned to the develop issue must work and coordinate with the team to resolve the conflicts.
+Beginning with sprint 2, everyone will use pull requests to push their development branch to master. Everyone must also link their pull requests to the corresponding issue from the project board. During a pull request, if a conflict is found while merging, the person(s) assigned to the development issue must work and coordinate with the team to resolve the conflicts.
 
 Roles of team members:
    * Nidhi Giridhar: primary coordinator, UI/UX
