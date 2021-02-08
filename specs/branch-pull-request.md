@@ -30,4 +30,4 @@ Before adding and committing changes,
 
 ## Resources
 
-![Branching and pull requests from github.com](https://guides.github.com/activities/hello-world/)
+[Branching and pull requests from github.com](https://guides.github.com/activities/hello-world/)
