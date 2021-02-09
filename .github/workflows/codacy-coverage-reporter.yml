@@ -12,4 +12,3 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.GITHUB_TOKEN }}
-          coverage-reports: cobertura.xml
