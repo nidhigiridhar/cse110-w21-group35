@@ -1,0 +1,40 @@
+/******** Variables ********/
+:root {
+  --clr-light: #FFFFFF;
+  --clr-base: #a9c7f5;
+  --clr-accent: #192d84;
+  --clr-dark: #464646;
+  --clr-gray: #a8a8a8;
+
+  --ff-timer: 'Helvetica Neue', sans-serif; 
+  --ff1: 'Raleway', sans-serif;
+  --ff2: 'Roboto', sans-serif;
+
+  --fs-timer: 250pt;
+  --fs1: 130pt;
+  --fs2: 80pt;
+  --fs3: 60pt;
+  --fs4: 30pt;
+}
+/******** General Styles ********/
+body {
+  background-color: var(--clr-base);
+}
+h1, h2, h3 {
+
+}
+p {
+
+}
+a {
+
+}
+/******** Utilities ********/
+
+/******** Header Style ********/
+#header {
+
+}
+/******** Navigation Style ********/
+
+/******** Footer Style ********/
