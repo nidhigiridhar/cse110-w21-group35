@@ -92,20 +92,21 @@
     }
 
 # Javascript
-    
-    /*
+VSCode can understand JSDoc annotations so typing /** and hitting enter should provide a function header template.
+
+    /**
      * Function name:
      * Description:
-     * @param [type] [name]: [description] 
-     * @return [type]:
+     * @param {type} [name]: [description] 
+     * @return {type}:
      */
 
 Example
     
-    /*
+    /**
      * Function name: add
      * Description: Adds the two values passed in
-     * @param int a: first value to add
-     * @param int b: second value to add
-     * @return int sum: Value of the two numbers added together
+     * @param {int} a: first value to add
+     * @param {int} b: second value to add
+     * @return {int} sum: Value of the two numbers added together
      */
