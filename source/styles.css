@@ -7,14 +7,14 @@
   --clr-gray: #a8a8a8;
 
   --ff-timer: 'Helvetica Neue', sans-serif; 
-  --ff1: 'Raleway', sans-serif;
-  --ff2: 'Roboto', sans-serif;
+  --ff-primary: 'Raleway', sans-serif;
+  --ff-secondary: 'Roboto', sans-serif;
 
   --fs-timer: 250pt;
-  --fs1: 130pt;
-  --fs2: 80pt;
-  --fs3: 60pt;
-  --fs4: 30pt;
+  --fs-title: 130pt;
+  --fs-mode-button: 80pt;
+  --fs-instructions: 60pt;
+  --fs-counter: 30pt;
 }
 /******** General Styles ********/
 body {
@@ -29,12 +29,42 @@ p {
 a {
 
 }
-/******** Utilities ********/
+/******** Title ********/
+#title {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-title);
+}
+/******** Mode ********/
+#mode {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-mode-button);
+}
+/******** Timer ********/
+#timer {
+  font-family: var(--ff-timer);
+  font-size: var(--fs-timer);
+}
+/******** Buttons ********/
+.button {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-mode-button);
+}
 
-/******** Header Style ********/
-#header {
+.button-enabled {
 
 }
-/******** Navigation Style ********/
 
-/******** Footer Style ********/
+.button-disabled {
+
+}
+
+/******** Instructions ********/
+#instructions {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-instructions);
+}
+/******** Counter ********/
+#counter {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-counter);
+}
