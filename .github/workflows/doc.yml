@@ -26,4 +26,4 @@ jobs:
 
       - name: Deploy
         run: |
-          jsdoc test.js
+          npm jsdoc test.js
