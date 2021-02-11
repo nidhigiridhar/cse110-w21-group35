@@ -23,3 +23,7 @@ jobs:
           config_file: conf.json
           template: minami
           front_page: doc.md
+
+      - name: Deploy
+        run: |
+          jsdoc test.js
