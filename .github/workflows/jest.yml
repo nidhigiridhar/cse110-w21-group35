@@ -11,6 +11,5 @@ jobs:
       - uses: actions/checkout@v1
       - name: Run Tests
         run: |
-          cd pipeline
           npm install
-          npm jest subtraction.test.js
+          npm test subtraction.test.js
