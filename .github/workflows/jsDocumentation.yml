@@ -3,7 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - master
+      - pipeline
 
 jobs:
   deploy:
@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build
-        uses: nidhigiridhar/cse110-w21-group35@v1
+        uses: nidhigiridhar/cse110-w21-group35@v0
         with:
           source_dir: ./src
           output_dir: ./out
