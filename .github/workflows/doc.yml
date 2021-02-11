@@ -19,15 +19,16 @@ jobs:
         uses: nidhigiridhar/cse110-w21-group35@v0.1
         with:
           source_dir: ./src
+          recurse: true
           output_dir: ./out
           config_file: conf.json
           template: minami
           front_page: doc.md
       
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: ./out
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     publish_dir: ./out
 
       # - name: Deploy
       #   run: |
