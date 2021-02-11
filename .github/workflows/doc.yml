@@ -26,5 +26,5 @@ jobs:
 
       - name: Deploy
         run: |
-          npm install -g jsdoc
+          npm install jsdoc
           npm jsdoc test.js
