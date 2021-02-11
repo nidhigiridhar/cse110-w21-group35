@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v0
+        uses: actions/checkout@v1
 
       - name: Build
         uses: nidhigiridhar/cse110-w21-group35@v0
