@@ -1,9 +1,6 @@
 name: Unit Tests
 
 on:
-  push:
-    branches:
-      - pipeline
   pull_request:
     branches: [master]
 
@@ -16,5 +13,3 @@ jobs:
         run: |
           npm install 
           npm test
-      # with: 
-      #   jestArgs: /pipeline/subtraction.test.js
