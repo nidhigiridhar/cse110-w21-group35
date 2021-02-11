@@ -13,4 +13,4 @@ jobs:
         run: |
           cd pipeline
           npm install
-          npm test
+          npm jest subtraction.test.js
