@@ -10,6 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run Tests
-        run: |
-          npm install 
-          npm test
+      - with:
+          jestArgs: /pipeline/subtraction.js 
