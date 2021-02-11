@@ -9,9 +9,8 @@ on:
 jobs:
   Jest:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /cse110-w21-group/pipeline
     steps:
       - uses: actions/checkout@v1
       - name: Run Tests
+        with:
+          working-directory: ./pipeline
