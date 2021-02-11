@@ -1,0 +1,16 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: [pipeline]
+  pull_request:
+    branches: [master]
+
+jobs:
+  Jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run Tests
+        with:
+          working-directory: "pipeline"
