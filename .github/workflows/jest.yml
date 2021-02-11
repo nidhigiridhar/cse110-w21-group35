@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /pipeline
+        working-directory: /cse110-w21-group/pipeline
     steps:
       - uses: actions/checkout@v1
       - name: Run Tests
