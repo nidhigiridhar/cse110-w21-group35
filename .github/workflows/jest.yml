@@ -13,4 +13,4 @@ jobs:
       - uses: actions/checkout@v1
       - name: Run Tests
         with:
-          working-directory: "pipeline"
+          working-directory: pipeline
