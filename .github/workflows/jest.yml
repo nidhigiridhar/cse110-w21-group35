@@ -1,9 +1,6 @@
 name: Unit Tests
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches: [master]
 
@@ -13,6 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run Tests
-        run: |
-          npm install 
-          npm test
+        with:
+          working-directory: "pipeline"
