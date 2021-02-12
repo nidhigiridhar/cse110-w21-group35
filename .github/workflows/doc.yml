@@ -24,7 +24,12 @@ jobs:
           config_file: conf.json
           template: minami
           front_page: doc.md
-      
+
+      - name: Deploy
+        run: |
+          npm install --save-dev jsdoc
+          jsdoc test.js  
+              
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
