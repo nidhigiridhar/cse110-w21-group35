@@ -28,7 +28,7 @@ jobs:
       - name: Deploy
         run: |
           npm install --save-dev jsdoc
-          jsdoc test.js  
+          ./node_modules/.bin/jsdoc test.js
               
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
