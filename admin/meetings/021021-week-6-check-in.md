@@ -19,7 +19,10 @@
 **Absent (Name, Role)**:  
 
 ## Agenda: 
-   1. 
+   1. provide overview of sprint planning meeting
+   2. how are we holding daily standups?
+   3. describe testing strategy
+   4. describe documentation process
 
 ## Completed Tasks (from previous meeting):
 
