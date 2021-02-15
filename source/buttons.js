@@ -1,2 +1,4 @@
-document.getElementById("startButton").addEventListener("click",    );
-document.getElementById("resetButton").addEventListener("click",    );
+// startButton calls onStart() when clicked
+document.getElementById("startButton").addEventListener("click", onStart);
+// resetButton calls onReset() when clicked
+document.getElementById("resetButton").addEventListener("click", onReset);
