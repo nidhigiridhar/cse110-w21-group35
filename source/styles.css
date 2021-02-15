@@ -25,7 +25,8 @@
 
 body {
   background-color: var(--clr-base-pomo);
-  display:flexbox;
+  color: var(--clr-dark);
+  display: flexbox;
 }
 p {
 
@@ -82,8 +83,8 @@ button {
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
   border-radius: 15px;
-  /* border: var(--clr-accent-pomo) 3px solid; */
-  box-shadow: 2px 2px 2px 1px var(--clr-dark) ;
+  border: none;
+  box-shadow: 2px 3px 2px 2px var(--clr-dark);
 }
 #startButton { 
   position: absolute;
