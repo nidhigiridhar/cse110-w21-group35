@@ -1,9 +1,22 @@
 //The alarm we will use for the auditorial notifications of transitions
 var alarm = new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg');
 
+
+/**
+ * Function name: playSound
+ * Description: plays tone to notfiy the user that the break or pomo has ended 
+ * @param none
+ * @return none
+ */
+
+ function playSound(){
+    //Play the alarm
+    alarm.play();
+ }
+
 /**
  * Function name: showPomoNotif
- * Description: notifies user that their break is over and a new pomo begins 
+ * Description: displays banner to notify user that their break is over and a new pomo begins 
  * @param none
  * @return none
  */
@@ -12,17 +25,15 @@ function showPomoNotif(){
     //Set the title, icon, and body for the creation of the notification
     let title = "Productoro";
     let body = "Your break has ended. A new pomo begins now :)";
-    let icon = 'https://bit.ly/2DYqRrh';
+    let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
 
     //Create the notification and it automatically displays
-    let workNotif = new Notification(title,{body, icon});   
-    //Play the alarm
-    alarm.play();
+    let workNotif = new Notification(title,{body, icon});    
 }
 
 /**
  * Function name: showLongBreakNotif
- * Description: notifies user that the pomo is over and their long break begins 
+ * Description: displays banner to notify user that the pomo is over and their long break begins 
  * @param none
  * @return none
  */
@@ -31,17 +42,15 @@ function showLongBreakNotif(){
     //Set the title, icon, and body for the creation of the notification
     let title = "Productoro";
     let body = "You have completed a pomo! Your long break begins now :)";
-    let icon = 'https://bit.ly/2DYqRrh';
+    let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
 
     //Create the notification and it automatically displays
     let workNotif = new Notification(title,{body, icon});    
-    //Play the alarm
-    alarm.play();
 }
 
 /**
  * Function name: showShortBreakNotif
- * Description: notifies user that the pomo is over and their short break begins 
+ * Description: displays banner to notify user that the pomo is over and their short break begins 
  * @param none
  * @return none 
  */
@@ -50,20 +59,18 @@ function showShortBreakNotif(){
     //Set the title, icon, and body for the creation of the notification
     let title = "Productoro";
     let body = "You have completed a pomo! Your short break begins now :)";
-    let icon = 'https://bit.ly/2DYqRrh';
+    let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
 
     //Create the notification and it automatically displays
     let workNotif = new Notification(title,{body, icon});
-    //Play the alarm
-    alarm.play();
 }
 
 /**
  * Function name: getNotificationStatus
- * Description: returns a boolean representing the notifaction setttings of user
- *              false -> don't send notifcations, true -> send notifcations
+ * Description: gets the notifaction preferences of user or asks for preferences if not yet set
  * @param none
- * @return {boolean} permissionStatus: Value of the two numbers added together
+ * @return {boolean} permissionStatus: boolean representing notifcation preference: 
+ *                                     false -> don't send notifcations, true -> send notifcations
  */
 
 function getNotificationStatus(){
