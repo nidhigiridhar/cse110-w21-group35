@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto:wght@300&display=swap');
 /******** Variables ********/
 :root {
   --clr-light: #FFFFFF;
@@ -81,8 +82,8 @@ button {
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
   border-radius: 15px;
-  border: var(--clr-accent-pomo) 3px solid;
-  box-shadow: var(--clr-dark);
+  /* border: var(--clr-accent-pomo) 3px solid; */
+  box-shadow: 2px 2px 2px 1px var(--clr-dark) ;
 }
 #startButton { 
   position: absolute;
