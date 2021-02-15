@@ -14,18 +14,17 @@
   --ff-primary: 'Raleway', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
 
-  --fs-timer: 200px;
-  --fs-title: 100px;
-  --fs-mode-button: 50px;
+  --fs-timer: 180px;
+  --fs-title: 70px;
+  --fs-mode-button: 30px;
   --fs-instructions: 30px;
   --fs-counter: 30px;
 }
 /******** General Styles ********/
-body {
-  background-color: var(--clr-base);
-}
-h1, h2, h3 {
 
+body {
+  background-color: var(--clr-base-pomo);
+  display:flexbox;
 }
 p {
 
@@ -34,48 +33,109 @@ a {
 
 }
 /******** Title ********/
-#title {
+h1 {
   font-family: var(--ff-primary);
   font-size: var(--fs-title);
+  text-align: center;
+  /*border: black 3px solid;*/
+}
+
+/******** Timer ********/
+#timer-container {
+  /* border: black 3px solid; */
 }
 /******** Mode ********/
-.mode {
+#state {
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
+  /* border: black 3px solid; */
+  text-align: center;
 }
-.mode-pomo {
+.state-pomo {
 
 }
-.mode-short {
+.state-short {
 
 }
-.mode-long {
+.state-long {
 
 }
-/******** Timer ********/
 #timer-display {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer);
+  text-align: center;
+  border: var(--clr-accent-pomo) 3px solid;
+  border-radius: 30px;
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  width: 600px;
+  margin: auto;
+  margin-bottom: 50px;
 }
+
 /******** Buttons ********/
-.button {
+button {
+  margin: auto;
+  width: 170px;
+  height: 60px;
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
+  border-radius: 15px;
+  border: var(--clr-accent-pomo) 3px solid;
+  box-shadow: var(--clr-dark);
+}
+#startButton { 
+  position: absolute;
+  right: 52%;
+}
+#resetButton {
+  position: absolute;
+  left: 52%;
+  
+  
+  
+}
+#button-container {
+  /*border: black 3px solid;*/
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
 }
 .button-enabled {
 
 }
 .button-disabled {
 
-}
+} 
 
 /******** Instructions ********/
 #instructions {
   font-family: var(--ff-secondary);
   font-size: var(--fs-instructions);
+  /* border: black 3px solid; */
+  text-align: center;
+  padding-top: 20%;
+  padding-right: 20%;
+  padding-bottom: 20%;
+  padding-left: 20%; 
 }
 /******** Counter ********/
-#counter {
+#counter-container {
   font-family: var(--ff-secondary);
   font-size: var(--fs-counter);
+  /* border: black 3px solid; */
+}
+#streak-counter {
+  display : block;
+  height: 50px;
+  text-align: right;
+  padding: 10px; 
+
+}
+#total-counter {
+  display : block;
+  height: 50px;
+  text-align: right;
+  padding: 10px; 
+
 }
