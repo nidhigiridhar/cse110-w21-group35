@@ -1,8 +1,12 @@
 /******** Variables ********/
 :root {
   --clr-light: #FFFFFF;
-  --clr-base: #a9c7f5;
-  --clr-accent: #192d84;
+  --clr-base-pomo: #a9c7f5;
+  --clr-base-short: #eaa478;
+  --clr-base-long: #88b9ae;
+  --clr-accent-pomo: #0047c3;
+  --clr-accent-short: #ff5300;
+  --clr-accent-long: #009876;
   --clr-dark: #464646;
   --clr-gray: #a8a8a8;
 
@@ -10,11 +14,11 @@
   --ff-primary: 'Raleway', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
 
-  --fs-timer: 250pt;
-  --fs-title: 130pt;
-  --fs-mode-button: 80pt;
-  --fs-instructions: 60pt;
-  --fs-counter: 30pt;
+  --fs-timer: 200px;
+  --fs-title: 100px;
+  --fs-mode-button: 50px;
+  --fs-instructions: 30px;
+  --fs-counter: 30px;
 }
 /******** General Styles ********/
 body {
@@ -35,12 +39,21 @@ a {
   font-size: var(--fs-title);
 }
 /******** Mode ********/
-#mode {
+.mode {
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
 }
+.mode-pomo {
+
+}
+.mode-short {
+
+}
+.mode-long {
+
+}
 /******** Timer ********/
-#timer {
+#timer-display {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer);
 }
@@ -49,11 +62,9 @@ a {
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
 }
-
 .button-enabled {
 
 }
-
 .button-disabled {
 
 }
