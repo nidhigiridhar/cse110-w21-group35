@@ -28,7 +28,11 @@ function showPomoNotif(){
     let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
 
     //Create the notification and it automatically displays
-    let workNotif = new Notification(title,{body, icon});    
+    let workNotif = new Notification(title,{body, icon});
+    //After 5 seconds close the notification
+    setTimeout(() => {
+        workNotif.close()
+        }, 5000);    
 }
 
 /**
@@ -45,7 +49,11 @@ function showLongBreakNotif(){
     let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
 
     //Create the notification and it automatically displays
-    let workNotif = new Notification(title,{body, icon});    
+    let workNotif = new Notification(title,{body, icon});
+    //After 5 seconds close the notification
+    setTimeout(() => {
+        workNotif.close()
+        }, 5000);    
 }
 
 /**
@@ -63,6 +71,10 @@ function showShortBreakNotif(){
 
     //Create the notification and it automatically displays
     let workNotif = new Notification(title,{body, icon});
+    //After 5 seconds close the notification
+    setTimeout(() => {
+        workNotif.close()
+        }, 5000);
 }
 
 /**
