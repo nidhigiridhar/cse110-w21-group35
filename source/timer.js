@@ -5,7 +5,7 @@ const MS = 1000, NUM_SEC = 60;
 
 const STATE_MOD = 2, LONG_MOD = 4;
         
-let timer = {
+var timer = {
     timerState : {
         pomoMin: POMO_MINS,
         shortBrk: SHORT_MINS,
@@ -56,7 +56,9 @@ function updateTimer(){
         // increment counters after work session is completed
         if(timer.currState === WORK_STATE){
             timer.counter.streak++;
+            document.getElementById("streak").innerHTML = timer.counter.streak;
             timer.counter.totalPomos++;
+            document.getElementById("total").innerHTML = timer.counter.totalPomos;
         }
         timer.counter.stateCtr++; 
         }
@@ -89,7 +91,6 @@ function checkState(){
             document.getElementById("state").innerHTML = SHORT_STATE;
         }
     }
-
 }
 
 // startButton calls onStart() when clicked
