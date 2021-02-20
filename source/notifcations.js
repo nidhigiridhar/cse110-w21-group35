@@ -42,14 +42,17 @@ function showNotif(typeOfNotif){
         //when a new pomo starts then the body says the following
         body = "Your break has ended. A new pomo begins now :)";
     }
-    //Create the notification with the values above and it automatically displays
-    let workNotif = new Notification(title,{body, icon});
-    //After 5 seconds close the notification
-    setTimeout(() => {
-        workNotif.close()
-        }, 5000);
-    
-    return workNotif.body;
+
+    if (typeof Notification !== 'undefined') {
+        //Create the notification with the values above and it automatically displays
+        let workNotif = new Notification(title,{body, icon});
+        //After 5 seconds close the notification
+        setTimeout(() => {
+            workNotif.close()
+            }, 5000);
+    }
+
+    return body;
 }
 
 /**
@@ -94,3 +97,11 @@ function getNotificationStatus(){
         return false;
     }
 }
+
+
+//module.exports = notifications;
+module.exports = showNotif;
+//module.exports = getNotificationStatus;
+//module.exports = playSound;
+
+//export { showNotif, getNotificationStatus }
