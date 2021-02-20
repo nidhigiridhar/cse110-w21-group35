@@ -20,7 +20,7 @@ var alarm = new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.o
  * @param {string} typeOfNotif: describes what notification we should create and display. Depending
  *                              on its typeOfNotif, the notifcation body will have different text 
  *                              correspodning to typeOfNotif
- * @return none 
+ * @return {string} the message body of the notifcation we just displayed on screen 
  */
 
 function showNotif(typeOfNotif){
@@ -48,6 +48,8 @@ function showNotif(typeOfNotif){
     setTimeout(() => {
         workNotif.close()
         }, 5000);
+    
+    return workNotif.body;
 }
 
 /**
