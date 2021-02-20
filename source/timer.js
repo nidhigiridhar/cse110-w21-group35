@@ -18,7 +18,13 @@ var timer = {
         },
     currState: WORK_STATE,
     minutes:POMO_MINS ,
-    seconds: NUM_SEC*POMO_MINS
+    seconds: NUM_SEC*POMO_MINS,
+    get totalPomos() {
+        return totalPomos;
+    },
+    set totalPomos(total) {
+        totalPomos = total;
+    },
 };
 
 var timerId;
@@ -93,7 +99,12 @@ function checkState(){
     }
 }
 
-// startButton calls onStart() when clicked
-document.getElementById("startButton").addEventListener("click", onStart);
-// resetButton calls onReset() when clicked
-document.getElementById("resetButton").addEventListener("click", onReset);
+document.addEventListener('DOMContentLoaded', function () {
+    // startButton calls onStart() when clicked
+    document.getElementById("startButton").addEventListener("click", onStart);
+    // resetButton calls onReset() when clicked
+    document.getElementById("resetButton").addEventListener("click", onReset);
+});
+
+
+module.exports = {checkState, timer}; 
