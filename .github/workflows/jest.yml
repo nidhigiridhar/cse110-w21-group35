@@ -1,0 +1,16 @@
+name: Unit Tests
+
+on:
+  pull_request:
+    branches: [ master ]
+    branches: [ timer ]
+
+jobs:
+  Jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run Tests
+        run: |
+          npm install
+          npm test *.test.js
