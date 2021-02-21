@@ -1,4 +1,4 @@
-const {showNotif} = require("./notifcations");
+const {showNotif} = require("./notifications");
 
 test("Check notifications is long break", () => {
     let body = showNotif("longBreak");
