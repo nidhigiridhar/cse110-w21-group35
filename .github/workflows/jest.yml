@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - master
-      - timer
 
 jobs:
   Jest:
@@ -14,4 +13,5 @@ jobs:
       - name: Run Tests
         run: |
           npm install
-          npm test *.test.js
+          npm test timer.test.js
+          npm test notifications.test.js
