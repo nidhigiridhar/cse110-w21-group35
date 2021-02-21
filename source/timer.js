@@ -40,16 +40,14 @@ function onStart() {
  */
 function onReset() {
     document.getElementById("startButton").disabled = false;
+    document.getElementById("state").innerHTML = IDLE_STATE;  
     if (timer.currState === WORK_STATE) {
         clearInterval(timerId);
         document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
-        timer.currState = IDLE_STATE;
     } else if (timer.currState === SHORT_STATE) {
         document.getElementById("timer-display").innerHTML = `${SHORT_MINS}:00`;
-        timer.currState = IDLE_STATE;
     } else {
         document.getElementById("timer-display").innerHTML = `${LONG_MINS}:00`;
-        timer.currState = IDLE_STATE;
     }
     timer.seconds = NUM_SEC*POMO_MINS;
 }       
