@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"></link>
+    <title>Productoro</title>
+</head>
+<header>
+    <h1>Productoro</h1>
+    <div id="counter-container">
+        <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+        <div id="total-counter"><b>Total Pomos Completed:</b> <span id="total">0</span></div>
+    </div>
+</header>
+<body>
+    
+    <div id="timer-container">
+        <h2 id="state">Idle Mode</h2> <!-- mode name changes based on state of timer -->
+        <div id="timer-display">25:00</div> <!-- displays the timer countdown -->
+    </div>
+    <div id="button-container"> <!-- container for start and reset buttons-->
+        <button type=button class="timer-button" id="startButton">Start</button>
+        <button type=button class="timer-button" id="resetButton">Reset</button>
+    </div>
+    <div id="instructions">
+        <h3>What is a Pomodoro Timer?</h3>
+        <p>A Pomodoro Timer is a time management tool that breaks down work into intervals (pomos).  
+           Work intervals are typically 25 minutes long with five minute breaks between each interval. 
+           A longer 15 minute break occurs between every fourth and fifth interval.</p>
+        <p>The Pomodoro technique increases productivity, enhances focus while working, and can be used by anyone!</p>
+        <h3>How to use Productoro:</h3>
+        <ol>
+            <li>Press <b>Start</b> to begin your pomodoro timer. Your first pomo will begin and the timer will begin counting down from 25 minutes.</li>
+            <li>After 25 minutes, the timer will automatically begin your five minute break and, afterwards, automatically begin your second pomo.</li>
+            <li>The pomos and breaks will continue to automatically begin until you press <b>Reset</b>. <b>Reset</b> restarts the current pomo or break. <b>Start</b> must be pressed again to begin the countdown on the timer.</li>
+        </ol>
+    </div>
+    <footer>
+        <img src="img/DT2 (Final).png" alt="Dream Team logo">
+        <p>Made by the Dream Team</p>
+    </footer>
+    <script src="./timer.js"></script>
+
+</body>
+</html>
