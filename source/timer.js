@@ -48,7 +48,7 @@ function onReset() {
     } else {
         document.getElementById("timer-display").innerHTML = `${LONG_MINS}:00`;
     }
-    seconds: NUM_SEC*POMO_MINS
+    timer.seconds = NUM_SEC*POMO_MINS;
 }       
 
 function updateTimer(){
