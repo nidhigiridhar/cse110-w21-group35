@@ -1,4 +1,4 @@
-const {getNotificationStatus, playSound, getAlarm} = require("./notifcations");
+const {getNotificationStatus, playSound, getAlarm} = require("./notifications");
 
 test("Check alarm exists", () => {
     expect(getAlarm()).not.toBeNull();
