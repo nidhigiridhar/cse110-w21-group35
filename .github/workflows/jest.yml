@@ -4,11 +4,6 @@ on:
   pull_request:
     branches:
       - master
-      - timer
-  push:
-    branches:
-      - master
-      - button
 
 jobs:
   Jest:
@@ -18,4 +13,7 @@ jobs:
       - name: Run Tests
         run: |
           npm install
+
           npm test timer.test.js
+          npm test notifications.test.js
+

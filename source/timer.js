@@ -5,7 +5,8 @@ const MS = 1000, NUM_SEC = 60;
 
 const STATE_MOD = 2, LONG_MOD = 4;
         
-var timer = {
+
+let timer = {
     timerState : {
         pomoMin: POMO_MINS,
         shortBrk: SHORT_MINS,
@@ -47,7 +48,8 @@ function onReset() {
     } else {
         document.getElementById("timer-display").innerHTML = `${LONG_MINS}:00`;
     }
-}
+    seconds: NUM_SEC*POMO_MINS
+}       
 
 function updateTimer(){
     let secTimer = timer.seconds % NUM_SEC; // secs counter that will show up on html page
@@ -56,6 +58,7 @@ function updateTimer(){
     } else {
         document.getElementById("timer-display").innerHTML = `${timer.minutes}:${secTimer}`;
     }
+
     //stops the timer
     if(timer.seconds === 0 && timer.minutes === 0){
         clearInterval(timerId);
@@ -108,3 +111,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // export functions and variables for testing
 module.exports = {onStart, onReset, checkState, timer, timerId}; 
+
