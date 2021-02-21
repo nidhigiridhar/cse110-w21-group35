@@ -18,4 +18,4 @@ jobs:
       - name: Run Tests
         run: |
           npm install
-          npm test *.test.js
+          npm test timer.test.js
