@@ -2,8 +2,9 @@ name: Unit Tests
 
 on:
   pull_request:
-    branches: [ master ]
-    branches: [ timer ]
+    branches:
+      - master
+      - timer
 
 jobs:
   Jest:
