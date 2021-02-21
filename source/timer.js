@@ -19,24 +19,19 @@ var timer = {
     currState: WORK_STATE,
     minutes:POMO_MINS ,
     seconds: NUM_SEC*POMO_MINS,
-    get totalPomos() {
-        return totalPomos;
-    },
-    set totalPomos(total) {
-        totalPomos = total;
-    },
 };
 
 var timerId;
     
 // call this function when start button is pressed
 function onStart() {
-    checkState();
     document.getElementById("startButton").disabled = true;
+    checkState();
     timerId = setInterval(updateTimer, MS);              
 }
 
 function onReset() {
+    document.getElementById("startButton").disabled = false;
     if (timer.currState === WORK_STATE) {
         clearInterval(timerId);
         document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
@@ -45,7 +40,6 @@ function onReset() {
     } else {
         document.getElementById("timer-display").innerHTML = `${LONG_MINS}:00`;
     }
-    document.getElementById("startButton").disabled = false;
 }
 
 function updateTimer(){
@@ -99,12 +93,12 @@ function checkState(){
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // startButton calls onStart() when clicked
     document.getElementById("startButton").addEventListener("click", onStart);
     // resetButton calls onReset() when clicked
     document.getElementById("resetButton").addEventListener("click", onReset);
 });
 
-
-module.exports = {checkState, timer}; 
+// export functions and variables for testing
+module.exports = {onStart, onReset, checkState, timer, timerId}; 
