@@ -3,11 +3,9 @@ name: Unit Tests
 on:
   pull_request:
     branches:
-      - master
       - timer
   push:
     branches:
-      - master
       - notifications
 
 jobs:
@@ -19,3 +17,4 @@ jobs:
         run: |
           npm install
           npm test notifications.test.js
+          npm test notifications.showNotif.test.js
