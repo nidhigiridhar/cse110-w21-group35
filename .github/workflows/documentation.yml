@@ -3,13 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - timer
-      - button
-      - notifications
-      - style
-  pull_request:
-    branches: [master]
-    
+      - master
 
 jobs:
   deploy:
@@ -31,4 +25,5 @@ jobs:
       - name: Deploy
         run: |
           npm install --save-dev jsdoc
-          ./node_modules/.bin/jsdoc ./src/*.js
+          ./node_modules/.bin/jsdoc ./src/timer.js
+          ./node_modules/.bin/jsdoc ./src/notifications.js
