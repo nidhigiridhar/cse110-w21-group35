@@ -17,4 +17,5 @@ jobs:
           
           npm test timer.test.js
           npm test notifications.test.js
+          npm test notifications.showNotif.js
 
