@@ -42,28 +42,35 @@ describe("Test onReset function", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <h2 id="state">Idle Mode</h2>
         `;
         timer.currState = "Short";
         onReset();
         let timerDisplay = document.getElementById("timer-display").innerHTML;
+        let state = document.getElementById("state").innerHTML;
         expect(timerDisplay).toBe("5:00");
+        expect(state).toBe("Idle");
     }),
 
     test("Check onReset during long break state", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <h2 id="state">Idle Mode</h2>
         `;
         timer.currState = "Long";
         onReset();
         let timerDisplay = document.getElementById("timer-display").innerHTML;
+        let state = document.getElementById("state").innerHTML;
         expect(timerDisplay).toBe("15:00");
+        expect(state).toBe("Idle");
     })
 
     test("Check onReset disables enables start button", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <h2 id="state">Idle Mode</h2>
         `;
         onReset();
         let disabled = document.getElementById("startButton").disabled;
