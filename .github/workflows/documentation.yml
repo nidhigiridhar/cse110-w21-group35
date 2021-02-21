@@ -25,5 +25,5 @@ jobs:
       - name: Deploy
         run: |
           npm install --save-dev jsdoc
-          ./node_modules/.bin/jsdoc ./src/timer.js
-          ./node_modules/.bin/jsdoc ./src/notifications.js
+          ./node_modules/.bin/jsdoc ./source/timer.js
+          ./node_modules/.bin/jsdoc ./source/notifications.js
