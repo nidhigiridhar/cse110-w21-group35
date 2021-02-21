@@ -5,6 +5,10 @@ on:
     branches:
       - master
       - timer
+  push:
+    branches:
+      - master
+      - button
 
 jobs:
   Jest:
