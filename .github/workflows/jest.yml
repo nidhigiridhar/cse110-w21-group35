@@ -18,4 +18,4 @@ jobs:
           npm install
           npm test timer.test.js
           npm test notifications.test.js
-          npm test notifications.showNotif.js
+          npm test notifications.showNotif.test.js
