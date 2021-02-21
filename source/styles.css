@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+/******** Variables ********/
+:root {
+  --clr-light: #FFFFFF;
+  --clr-base-pomo: #a9c7f5;
+  --clr-base-short: #eaa478;
+  --clr-base-long: #88b9ae;
+  --clr-accent-pomo: #0047c3;
+  --clr-accent-short: #ff5300;
+  --clr-accent-long: #009876;
+  --clr-dark: #464646;
+  --clr-gray: #a8a8a8;
+
+  --ff-timer: 'Helvetica Neue', sans-serif; 
+  --ff-primary: 'Raleway', sans-serif;
+  --ff-secondary: 'Roboto', sans-serif;
+
+  --fs-timer: 180px;
+  --fs-title: 70px;
+  --fs-mode-button: 40px;
+  --fs-instructions: 30px;
+  --fs-counter: 20px;
+  --fs-footer: 20px;
+
+  --fw-bold: 700; 
+}
+
+/******** General Styles ********/
+body {
+  background-color: var(--clr-base-pomo);
+  color: var(--clr-dark);
+  display: flexbox;
+}
+
+/******** Title ********/
+h1 {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-title);
+  text-align: center;
+  position: relative;
+  /*border: black 3px solid;*/
+}
+img {
+  width: 50px;
+  float: right;
+  border-radius: 10px;
+}
+footer {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-footer);
+}
+footer > p {
+  float: right;
+  margin-right: 10px;
+}
+b {
+  font-weight: var(--fw-bold);
+}
+
+/******** Counter ********/
+#counter-container {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-counter);
+  color: var(--clr-light);
+  background-image: url('img/tomato.png');
+  background-repeat: no-repeat;
+  height: 210px;
+  background-position: right;
+  position: relative;
+  /* border: black 3px solid; */
+}
+#streak-counter {
+  display : block;
+  position: absolute;
+  height: 30px;
+  width: 150px;
+  text-align: center;
+  padding: 10px; 
+  padding-top: 100px;
+  right: 30px;
+  /* border: black 3px solid; */
+}
+#total-counter {
+  display : block;
+  position: absolute;
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  padding-top: 130px;
+  right: 30px;
+  /* border: black 3px solid; */
+}
+
+/******** Timer ********/
+#timer-container {
+  /* border: black 3px solid; */
+}
+/**** Mode ****/
+#state {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-mode-button);
+  /* border: black 3px solid; */
+  text-align: center;
+}
+.mode-pomo {
+  color: var(--clr-base-pomo);
+  border-color: var(--clr-accent-pomo);
+}
+.mode-short {
+  color: var(--clr-base-short);
+  border-color: var(--clr-accent-short);
+}
+.mode-long {
+  color: var(--clr-base-long);
+  border-color: var(--clr-accent-long);
+}
+#timer-display {
+  font-family: var(--ff-timer);
+  font-size: var(--fs-timer);
+  text-align: center;
+  border: var(--clr-accent-pomo) 3px solid;
+  border-radius: 30px;
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  width: 600px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+/******** Buttons ********/
+button {
+  margin: auto;
+  width: 170px;
+  height: 60px;
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-mode-button);
+  border-radius: 15px;
+  border: none;
+  box-shadow: 2px 3px 2px 2px var(--clr-dark);
+}
+#startButton { 
+  position: absolute;
+  right: 52%;
+}
+#resetButton {
+  position: absolute;
+  left: 52%;
+}
+#button-container {
+  /*border: black 3px solid;*/
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+.button-enabled {
+
+}
+.button-disabled {
+
+} 
+
+/******** Instructions ********/
+#instructions {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-instructions);
+  /* border: black 3px solid; */
+  text-align: center;
+  padding-top: 20%;
+  padding-right: 20%;
+  padding-bottom: 20%;
+  padding-left: 20%; 
+}
+
