@@ -87,22 +87,13 @@ function getNotificationStatus(){
     }
     //If the user has not set notifications preferences then ask user
     else if(Notification.permission === "default"){
-        //boolean to detect user input of notification preference within inner function below
-        var status = false;
+        
         //Ask the user if they would like to be sent notifcations
-        Notification.requestPermission().then(function(permission) {
-            //If they do set status to true
-            if(permission === "granted"){
-                status = true;
-            }
-            //Otherwise set status to false
-            else{
-                status = false;
-            }
-        });
+        Notification.requestPermission();
+        //once the user has picked a preference then run the method agian and we are ensured
+        //the second call will enter either the denied or granted block
+        return getNotificationStatus();
 
-        //return status once we received the user's preference 
-        return status;
     }
     //If the user has their notifcations disabled, return false
     else{

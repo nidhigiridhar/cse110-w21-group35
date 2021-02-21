@@ -25,9 +25,9 @@ test("Check premission denied", () => {
     expect(permiss).toBe(false);
 });
 
-// Cant test the default permission due to Jest complications
-//test("Check premission received", () => {
-//    Notification.permission = "default"
-//    let permiss = getNotificationStatus();
-//    expect(permiss).toBeTruthy();
-//});
+
+test("Check premission received", () => {
+    Notification.permission = "default"
+    let permiss = getNotificationStatus();
+    expect(permiss).toBeTruthy();
+});
