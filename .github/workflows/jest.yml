@@ -13,5 +13,7 @@ jobs:
       - name: Run Tests
         run: |
           npm install
+
           npm test timer.test.js
           npm test notifications.test.js
+

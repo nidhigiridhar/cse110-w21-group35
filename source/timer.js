@@ -5,6 +5,7 @@ const MS = 1000, NUM_SEC = 60;
 
 const STATE_MOD = 2, LONG_MOD = 4;
         
+
 let timer = {
     timerState : {
         pomoMin: POMO_MINS,
@@ -18,24 +19,46 @@ let timer = {
         },
     currState: WORK_STATE,
     minutes:POMO_MINS ,
-    seconds: NUM_SEC*POMO_MINS
+    seconds: NUM_SEC*POMO_MINS,
 };
 
 var timerId;
-        
-    // call this function when start button is pressed
-    function onStart() {
-    checkState();
+    
+/**
+ * Function name: onStart
+ * Description: Begins the timer when the start button is clicked
+ */
+function onStart() {
     document.getElementById("startButton").disabled = true;
-    timerId = setInterval(updateTimer, MS);  
-             
+    checkState();
+    timerId = setInterval(updateTimer, MS);              
 }
+
+/**
+ * Function name: onReset
+ * Description: Resets the timer to its original state when the reset button is clicked
+ */
+function onReset() {
+    document.getElementById("startButton").disabled = false;
+    if (timer.currState === WORK_STATE) {
+        clearInterval(timerId);
+        document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
+    } else if (timer.currState === SHORT_STATE) {
+        document.getElementById("timer-display").innerHTML = `${SHORT_MINS}:00`;
+    } else {
+        document.getElementById("timer-display").innerHTML = `${LONG_MINS}:00`;
+    }
+    seconds: NUM_SEC*POMO_MINS
+}       
 
 function updateTimer(){
     let secTimer = timer.seconds % NUM_SEC; // secs counter that will show up on html page
     if(secTimer < 10 || secTimer == 0){
         document.getElementById("timer-display").innerHTML = `${timer.minutes}:0${secTimer}`;
-    } else {document.getElementById("timer-display").innerHTML = `${timer.minutes}:${secTimer}`;}
+    } else {
+        document.getElementById("timer-display").innerHTML = `${timer.minutes}:${secTimer}`;
+    }
+
     //stops the timer
     if(timer.seconds === 0 && timer.minutes === 0){
         clearInterval(timerId);
@@ -43,7 +66,9 @@ function updateTimer(){
         // increment counters after work session is completed
         if(timer.currState === WORK_STATE){
             timer.counter.streak++;
+            document.getElementById("streak").innerHTML = timer.counter.streak;
             timer.counter.totalPomos++;
+            document.getElementById("total").innerHTML = timer.counter.totalPomos;
         }
         timer.counter.stateCtr++; 
         }
@@ -76,5 +101,14 @@ function checkState(){
             document.getElementById("state").innerHTML = SHORT_STATE;
         }
     }
-
 }
+
+// event handlers for clicking the start and reset buttons
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("startButton").addEventListener("click", onStart);
+    document.getElementById("resetButton").addEventListener("click", onReset);
+});
+
+// export functions and variables for testing
+module.exports = {onStart, onReset, checkState, timer, timerId}; 
+
