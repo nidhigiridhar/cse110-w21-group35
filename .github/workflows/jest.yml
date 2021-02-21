@@ -4,11 +4,9 @@ on:
   pull_request:
     branches:
       - master
-      - timer
   push:
     branches:
       - master
-      - button
 
 jobs:
   Jest:
