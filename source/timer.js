@@ -23,13 +23,20 @@ var timer = {
 
 var timerId;
     
-// call this function when start button is pressed
+/**
+ * Function name: onStart
+ * Description: Begins the timer when the start button is clicked
+ */
 function onStart() {
     document.getElementById("startButton").disabled = true;
     checkState();
     timerId = setInterval(updateTimer, MS);              
 }
 
+/**
+ * Function name: onReset
+ * Description: Resets the timer to its original state when the reset button is clicked
+ */
 function onReset() {
     document.getElementById("startButton").disabled = false;
     if (timer.currState === WORK_STATE) {
@@ -93,10 +100,9 @@ function checkState(){
     }
 }
 
+// event handlers for clicking the start and reset buttons
 document.addEventListener('DOMContentLoaded', function() {
-    // startButton calls onStart() when clicked
     document.getElementById("startButton").addEventListener("click", onStart);
-    // resetButton calls onReset() when clicked
     document.getElementById("resetButton").addEventListener("click", onReset);
 });
 
