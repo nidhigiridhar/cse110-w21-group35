@@ -1,0 +1,81 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@sywong888 
+nidhigiridhar
+/
+cse110-w21-group35
+Private
+1
+1
+0
+Code
+Issues
+9
+Pull requests
+2
+Actions
+Projects
+3
+Wiki
+Security
+Insights
+cse110-w21-group35/action.yml
+@sywong888
+sywong888 add action.yml
+Latest commit 5852f14 11 days ago
+ History
+ 1 contributor
+34 lines (34 sloc)  1.02 KB
+  
+name: 'JSDoc Action'
+description: 'GitHub Action to build JSDoc documentation'
+author: 'André Storhaug'
+branding:
+  icon: 'file-text'  
+  color: 'yellow'
+inputs:
+  source_dir:
+    description: 'Source directory to build documentation from'
+    required: false
+  output_dir:
+    description: 'Output folder for the generated documentation'
+    required: false
+  recurse:
+    description: 'Recurse into subdirectories when scanning for source files'
+    required: false
+  config_file:
+    description: 'The path to a JSDoc configuration file'
+    required: false
+  template:
+    description: 'The JSDoc template to install'
+    required: false
+  template_name:
+    description: 'This input variable is deprecated in favour of "template"'
+    required: false
+  template_dir:
+    description: 'The relative location of the template files within the template package'
+    required: false
+  front_page:
+    description: 'The path to a Markdown file to be used as a the front page'
+    required: false
+runs:
+  using: 'node12'
+  main: 'src/test.js'
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
