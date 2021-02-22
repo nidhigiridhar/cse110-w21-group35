@@ -1,7 +1,7 @@
 {
   "name": "cse110-w21-group35",
   "version": "1.0.0",
-  "main": "timer.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
