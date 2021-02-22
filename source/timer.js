@@ -30,6 +30,7 @@ var timerId;
  */
 function onStart() {
     document.getElementById("startButton").disabled = true;
+    document.getElementById("resetButton").disabled = false;
     checkState();
     timerId = setInterval(updateTimer, MS);              
 }
@@ -40,6 +41,7 @@ function onStart() {
  */
 function onReset() {
     document.getElementById("startButton").disabled = false;
+    document.getElementById("resetButton").disabled = true;
     document.getElementById("state").innerHTML = IDLE_STATE;  
     if (timer.currState === WORK_STATE) {
         clearInterval(timerId);

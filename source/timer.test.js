@@ -5,6 +5,7 @@ describe("Test onStart function", () => {
         document.body.innerHTML = `
             <h2 id="state">Idle Mode</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
         timer.counter.stateCtr = 0;
         onStart();
@@ -16,10 +17,22 @@ describe("Test onStart function", () => {
         document.body.innerHTML = `
             <h2 id="state">Idle Mode</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
         onStart();
         let disabled = document.getElementById("startButton").disabled;
         expect(disabled).toBeTruthy();
+    }),
+
+    test("Check onStart enables reset button", () => {
+        document.body.innerHTML = `
+            <h2 id="state">Idle Mode</h2>
+            <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+        `;
+        onStart();
+        let disabled = document.getElementById("resetButton").disabled;
+        expect(disabled).toBeFalsy();
     })
 });
 
@@ -28,6 +41,7 @@ describe("Test onReset function", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Idle Mode</h2>
         `;
         timer.currState = "Work";
@@ -42,6 +56,7 @@ describe("Test onReset function", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Idle Mode</h2>
         `;
         timer.currState = "Short";
@@ -56,6 +71,7 @@ describe("Test onReset function", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Idle Mode</h2>
         `;
         timer.currState = "Long";
@@ -66,15 +82,28 @@ describe("Test onReset function", () => {
         expect(state).toBe("Idle");
     })
 
-    test("Check onReset disables enables start button", () => {
+    test("Check onReset enables start button", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Idle Mode</h2>
         `;
         onReset();
         let disabled = document.getElementById("startButton").disabled;
         expect(disabled).toBeFalsy();
+    }),
+
+    test("Check onReset disables reset button", () => {
+        document.body.innerHTML = `
+            <div id = "timer-display">14:00</div>
+            <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <h2 id="state">Idle Mode</h2>
+        `;
+        onReset();
+        let disabled = document.getElementById("resetButton").disabled;
+        expect(disabled).toBeTruthy();
     })
 });
 
