@@ -1,38 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@sywong888 
-nidhigiridhar
-/
-cse110-w21-group35
-Private
-1
-1
-0
-Code
-Issues
-9
-Pull requests
-2
-Actions
-Projects
-3
-Wiki
-Security
-Insights
-cse110-w21-group35/action.yml
-@sywong888
-sywong888 add action.yml
-Latest commit 5852f14 11 days ago
- History
- 1 contributor
-34 lines (34 sloc)  1.02 KB
-  
 name: 'JSDoc Action'
 description: 'GitHub Action to build JSDoc documentation'
 author: 'André Storhaug'
@@ -66,16 +31,4 @@ inputs:
     required: false
 runs:
   using: 'node12'
-  main: 'src/test.js'
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+  main: 'index.js'
