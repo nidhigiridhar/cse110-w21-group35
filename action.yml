@@ -32,5 +32,5 @@ inputs:
 runs:
   using: 'node12'
   main: 
-    - 'timer.js'
-    - 'notifications.js'
+    - 'source/timer.js'
+    - 'source/notifications.js'
