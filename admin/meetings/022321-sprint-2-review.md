@@ -51,6 +51,10 @@
       * was able to complete the notification testing
       * had to refactor notification javascript code multiple timers
       * proud of everyone for coming together in the final hour
+      * Notitifcation Screenshots:
+        * [Mini Banner](https://raw.githubusercontent.com/Alex-942/CSE110-Lab2/main/Screen%20Shot%202021-02-23%20at%202.42.09%20PM.png)
+        * [Full Banner](https://raw.githubusercontent.com/Alex-942/CSE110-Lab2/main/Screen%20Shot%202021-02-23%20at%202.43.09%20PM.png)
+      * Sound demonstration will be included in the demo video posted in our repo at /admin/videos/statusvideo1.mp4
     * Jasmine
       * worked on css and final integration
       * css was straightforward
