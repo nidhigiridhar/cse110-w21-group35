@@ -45,7 +45,11 @@
     * in the future, everyone needs to turn on their slack notifications so that they get reminders about meetings
   * push more frequently to the repo
     * everyone should push to the repo after every ~100 lines of code
-  * note: a lot of items discuessed at the retrospective are on Retrium
+  * note: a lot of items discussed at the retrospective are on Retrium
+  * Here are some screenshots of Retrospective created on Retrium
+    * We used the Start,Stop,Continue method where we listed down things we want to start doing, things we should stop doing and things we should continue doing. ![Start,Stop,Continue](retrospective-images/Retro1-RetriumThink.png)
+    * We then grouped similar ideas together and then proceeded to vote on the ones that we wanted to discuss. ![Group1](retrospective-images/Retro1-RetriumGroup1.png) ![Group2](retrospective-images/Retro1-RetriumGroup2.png)
+    * Then, we discussed each group (starting with the one with the highest votes) and came up with an action plan to address each issue. ![ActionPlan1](retrospective-images/Retro1-RetriumActionPlan1.png) ![ActionPlan2](retrospective-images/Retro1-RetriumActionPlan2.png)
 
 ## TODOs: 
 
