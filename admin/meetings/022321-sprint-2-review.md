@@ -44,7 +44,7 @@
       * faced some problems with css -> researched online
       * learned a lot through standups and seeing what other people completed
       * proud of what the team accomplishments
-      * Researched, experiential programing and Implemented css styling
+      * Researched, Experimental programing and Implemented css styling
       * Above done for the following features 
       * [Counters](https://github.com/nidhigiridhar/cse110-w21-group35/blob/master/admin/meetings/retrospective-images/t1.PNG)
       * Streak counter 
