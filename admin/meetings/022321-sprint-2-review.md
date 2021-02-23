@@ -44,6 +44,14 @@
       * faced some problems with css -> researched online
       * learned a lot through standups and seeing what other people completed
       * proud of what the team accomplishments
+      * Researched, experiential programing and Implemented css styling
+      * Above done for the following features 
+      * Streak counter 
+      * Total counter 
+      * Start button 
+      * Reset button 
+      * Instructions 
+
     * Alejandro Marquez
       * worked on notifications part of timer
       * though the implementation was straightforward
@@ -60,11 +68,6 @@
       * css was straightforward
       * faced initial problems with vsCode Live Share
       * is currently researching how we can improve our workflow to avoid sprint 2's integration problems
-      * [CSS for timer and buttons](retrospective-images/timer-css.png)
-      * [Footer](retrospective-images/footer.png)
-      * [Variables](retrospective-images/variables.png)
-      * [Timer CSS code](retrospective-images/timer-css-code.png)
-      * [Button CSS code](retrospective-images/button-css-code.png)
     * Alejandro Malanche
       * intially thought timer implementation was straightforward
       * Alejandro Marquez revealed some problems with the timer
