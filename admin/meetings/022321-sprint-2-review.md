@@ -88,6 +88,7 @@
       * is still facing problems with the GitHub action for documentation (although documentation was created locally and pushed for now)
     * Nidhi
       * worked on timer
+      * Realized that the timer does not count down the seconds correctly after Alejandro Marquez pointed it out, so Alejandro and I had to re-write the timer using a different implementation. 
       * faced problems with testing timer and exporting timer.js to timer.test.js
       * also worked on documentation part of pipeline which had a lot of problems
   * Planning Sprint 3 [(board found here)](https://github.com/nidhigiridhar/cse110-w21-group35/projects/3)
