@@ -46,8 +46,10 @@
       * proud of what the team accomplishments
       * Researched, experiential programing and Implemented css styling
       * Above done for the following features 
+      * [Counters](https://github.com/nidhigiridhar/cse110-w21-group35/blob/master/admin/meetings/retrospective-images/t1.PNG)
       * Streak counter 
-      * Total counter 
+      * Total counter
+      * [Buttons and Instructions](https://github.com/nidhigiridhar/cse110-w21-group35/blob/master/admin/meetings/retrospective-images/t2.PNG)  
       * Start button 
       * Reset button 
       * Instructions 
