@@ -107,7 +107,7 @@ function checkState(){
 }
 
 // event handlers for clicking the start and reset buttons
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
     document.getElementById("startButton").addEventListener("click", onStart);
     document.getElementById("resetButton").addEventListener("click", onReset);
 });
