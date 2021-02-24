@@ -90,6 +90,8 @@
     * Zachary
       * worked on notifications
       * main obstacle was testing the notifications
+      * [Notifications Code Part-1](retrospective-images/notifications-code-part1.png)
+      * [Notifications Code Part-2](retrospective-images/notifications-code-part2.png)
     * Sydney
       * worked on the start and reset buttons (HTML and Javascript)
       * added event listeners to the buttons
