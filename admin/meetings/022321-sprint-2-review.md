@@ -83,9 +83,10 @@
       * however, it was helpful to see how javascript interacts with different types of browser
       * [Timer Code](retrospective-images/timer_code_1.png)
     * Sam
-      * worked on button implementation and starting the jest testing
-      * faced some initially difficulties with vsCode Live Share
-      * it was difficulty to coordinate with other people who were working on other parts of the project (timer people coordinating with button people)
+      * worked on implementing the start and reset buttons
+      * Helped get Jest set up and unit testing figured out
+      * faced some initial difficulties with vsCode Live Share
+      * it was difficult to coordinate with other people who were working on other parts of the project (timer people coordinating with button people)
     * Zachary
       * worked on notifications
       * main obstacle was testing the notifications
