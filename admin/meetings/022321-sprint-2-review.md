@@ -104,6 +104,7 @@
       * Realized that the timer does not count down the seconds correctly after Alejandro Marquez pointed it out, so Alejandro and I had to re-write the timer using a different implementation. 
       * faced problems with testing timer and exporting timer.js to timer.test.js
       * also worked on documentation part of pipeline which had a lot of problems
+      * Screenshots of the timer running in different states: ![timer-work](retrospective-images/Timer-workcountdown.png) ![timer-break](retrospective-images/Timer-breakcountdown.png)
   * Planning Sprint 3 [(board found here)](https://github.com/nidhigiridhar/cse110-w21-group35/projects/3)
     * fixing the inaccurate timer - Nidhi, Alejandro Malanche
     * figure out the automation of the timer - Nidhi, Alejandro Malanche
