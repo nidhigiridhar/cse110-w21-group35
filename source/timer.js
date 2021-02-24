@@ -1,3 +1,4 @@
+
 const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;  
 const WORK_STATE = "Work", SHORT_STATE = "Short", LONG_STATE = "Long", IDLE_STATE = "Idle";
 
@@ -6,7 +7,7 @@ const MS = 1000, NUM_SEC = 60;
 const STATE_MOD = 2, LONG_MOD = 4;
         
 
-let timer = {
+var timer = {
     timerState : {
         pomoMin: POMO_MINS,
         shortBrk: SHORT_MINS,
@@ -89,7 +90,8 @@ function checkState(){
         timer.currState = WORK_STATE;
         timer.minutes = POMO_MINS;
         timer.seconds = NUM_SEC * timer.minutes;
-        document.getElementById("state").innerHTML = WORK_STATE;     
+        document.getElementById("state").innerHTML = WORK_STATE;
+        colorChange();     
     } else {
         if(timer.counter.totalPomos % LONG_MOD === 0){    
             timer.currState = LONG_STATE;
@@ -113,5 +115,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // export functions and variables for testing
-module.exports = {onStart, onReset, checkState, timer, timerId}; 
+module.exports = { onStart, onReset, checkState, timer, timerId }; 
 
