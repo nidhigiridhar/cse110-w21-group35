@@ -79,7 +79,7 @@
       * intially thought timer implementation was straightforward
       * Alejandro Marquez revealed some problems with the timer
       * however, it was helpful to see how javascript interacts with different types of browser
-      * [Timer Code](retrospective-images/timer_1_code.png)
+      * [Timer Code](retrospective-images/timer_code_1.png)
     * Sam
       * worked on button implementation and starting the jest testing
       * faced some initially difficulties with vsCode Live Share
