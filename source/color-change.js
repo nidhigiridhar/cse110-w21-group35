@@ -1,16 +1,26 @@
-import { timer, WORK_STATE, SHORT_STATE, LONG-STATE } from './timer.js';
-
-let state = timer.currState;
-state.addEventListener("change", colorChange());
 
 /**
- * 
- * 
+ * Name: colorChange
+ * Description: Changes the color of the background and border of timer display when state changes
  */
 function colorChange() {
-  switch(state) {
+  switch(timer.currState) {
     case WORK_STATE:
-
-    case SHORT_STATE
+      document.body.setAttribute('state',"pomo");
+      document.body.style.backgroundColor = "#a9c7f5";
+      break;
+    case SHORT_STATE:
+      document.body.setAttribute('state',"short");
+      document.body.style.backgroundColor = "#eaa478";
+      break;
+    case LONG_STATE:
+      document.body.setAttribute('state',"long");
+      document.body.style.backgroundColor = "#88b9ae";
+      break;
+    default:
+      document.body.setAttribute('state',"pomo");
+      break;
   }
 }
+
+module.exports = { colorChange };
