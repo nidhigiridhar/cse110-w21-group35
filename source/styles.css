@@ -163,7 +163,12 @@ button {
 } 
 
 /******** Instructions ********/
-#instructions {
+#instructionsButton { 
+  /* position: absolute; */
+  right: 52%;
+}
+#visible-instructions {
+  display: none;
   font-family: var(--ff-secondary);
   font-size: var(--fs-instructions);
   /* border: black 3px solid; */

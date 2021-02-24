@@ -110,6 +110,10 @@ function checkState(){
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("startButton").addEventListener("click", onStart);
     document.getElementById("resetButton").addEventListener("click", onReset);
+    document.getElementById("instructionsButton").addEventListener("click", {
+        instructions = document.getElementById("visible-instructions");
+        instructions.style.display = "block";recordForm.style.display = "block";
+    })
 });
 
 // export functions and variables for testing
