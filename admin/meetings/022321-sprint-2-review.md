@@ -98,7 +98,7 @@
       * added methods that were called once the buttons are clicked (internal logic of disabling buttons and reseting the state of the timer on the app)
       * faced problems with JUnit testing and figureing out the DOM manipulation
       * got the Jest tests working on the pipeline using the GitHub actions
-      * is still facing problems with the GitHub action for documentation (although documentation was created locally and pushed for now)
+      * is still facing problems with the GitHub action for documentation (although she  created documentation locally and pushed for now)
     * Nidhi
       * worked on timer
       * Realized that the timer does not count down the seconds correctly after Alejandro Marquez pointed it out, so Alejandro and I had to re-write the timer using a different implementation. 
