@@ -35,7 +35,7 @@ function checkState() {
     // work state
     if (timer.counter.stateCtr % STATE_MOD === 0) {
         timer.currState = WORK_STATE;
-        timer.seconds = NUM_SEC * POMO_MINS;
+        timer.currDuration = NUM_SEC * POMO_MINS;
         document.getElementById("state").innerHTML = WORK_STATE;
         document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
     } 
@@ -43,7 +43,7 @@ function checkState() {
         // long break state
         if (timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
-            timer.seconds = NUM_SEC * LONG_MINS;
+            timer.currDuration = NUM_SEC * LONG_MINS;
             document.getElementById("state").innerHTML = LONG_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${LONG_MINS}:00`;
@@ -53,7 +53,7 @@ function checkState() {
         // short break state
         else {
             timer.currState = SHORT_STATE;
-            timer.seconds = NUM_SEC * SHORT_MINS;
+            timer.currDuration = NUM_SEC * SHORT_MINS;
             document.getElementById("state").innerHTML = SHORT_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${SHORT_MINS}:00`;
@@ -73,12 +73,14 @@ function updateState() {
     if(timer.currState === WORK_STATE) {
         // if next state is long break 
         if(timer.counter.totalPomos % LONG_MOD === 0) {
+            timer.currState = LONG_STATE;
             document.getElementById("state").innerHTML = LONG_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${LONG_MINS}:00`;
         }
         // if next state is short break 
         else {
+            timer.currState = SHORT_STATE;
             document.getElementById("state").innerHTML = SHORT_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${SHORT_MINS}:00`;
@@ -89,6 +91,7 @@ function updateState() {
     }
     // if current state is a break, next state will be work
     else {
+        timer.currState = WORK_STATE;
         document.getElementById("state").innerHTML = WORK_STATE;
         document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
         // disable reset button in break state
