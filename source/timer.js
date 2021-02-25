@@ -60,7 +60,9 @@ function checkState() {
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
         }
-    }    
+    }
+    // change screen color for different states
+    colorChange();         
 }
 
 /**
@@ -97,6 +99,8 @@ function updateState() {
         // disable reset button in break state
         document.getElementById("resetButton").disabled = true; 
     }
+    // change screen color for different states
+    colorChange();     
 }
 
 /**
@@ -121,6 +125,7 @@ function updateTimer(duration) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
+        console.log(minutes + ':' + seconds);
         document.getElementById("timer-display").innerHTML = 
             `${minutes}:${seconds}`;
 
@@ -154,7 +159,8 @@ function updateTimer(duration) {
     };
     // we don't want to wait a full second before the timer starts
     timerCountdown();
-    timerId = setInterval(timerCountdown, 1000);
+    // fire set interval often to give enough time to update
+    timerId = setInterval(timerCountdown, 10); 
 }
 
 /**
@@ -168,30 +174,6 @@ function onStart() {
     document.getElementById("resetButton").disabled = false; 
     checkState(); // set the correct state 
     updateTimer(timer.currDuration); // start the timer
-}
-// check the current state of the timer and set the values for minutes and seconds accordingly
-function checkState() {
-    // handle initial case for when start is pressed the first time
-    if(timer.counter.stateCtr % STATE_MOD === 0) {
-        timer.currState = WORK_STATE;
-        timer.minutes = POMO_MINS;
-        timer.seconds = NUM_SEC * timer.minutes;
-        document.getElementById("state").innerHTML = WORK_STATE;
-    } else {
-        if(timer.counter.totalPomos % LONG_MOD === 0){    
-            timer.currState = LONG_STATE;
-            timer.minutes = LONG_MINS;
-            timer.seconds = NUM_SEC * timer.minutes;
-            document.getElementById("state").innerHTML = LONG_STATE;
-        } else {
-            
-            timer.currState = SHORT_STATE;
-            timer.minutes = SHORT_MINS;
-            timer.seconds = NUM_SEC * timer.minutes;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-        }
-    }
-    colorChange();     
 }
 
 /**
