@@ -13,11 +13,11 @@
         <div id="total-counter"><b>Total Pomos Completed:</b> <span id="total">0</span></div>
     </div>
 </header>
-<body>
+<body state="pomo">
     
     <div id="timer-container">
         <h2 id="state">Idle Mode</h2> <!-- mode name changes based on state of timer -->
-        <div id="timer-display">25:00</div> <!-- displays the timer countdown -->
+        <div id="timer-display" state="state-pomo">25:00</div> <!-- displays the timer countdown -->
     </div>
     <div id="button-container"> <!-- container for start and reset buttons-->
         <button type=button class="timer-button" id="startButton">Start</button>
@@ -51,8 +51,11 @@
         <img src="img/DT2 (Final).png" alt="Dream Team logo">
         <p>Made by the Dream Team</p>
     </footer>
+
+    <!-- JS files -->
     <script src="./timer.js"></script>
     <script src="./notifications.js"></script>
     <script src="./help.js"></script>
+    <script src="./color-change.js"></script>
 </body>
 </html>

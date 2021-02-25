@@ -29,9 +29,17 @@
 
 /******** General Styles ********/
 body {
-  background-color: var(--clr-base-pomo);
   color: var(--clr-dark);
   display: flexbox;
+}
+body[state="pomo"] {
+  background-color: var(--clr-base-pomo);
+}
+body[state="short"] {
+  background-color: var(--clr-base-short);
+}
+body[state="long"] {
+  background-color: var(--clr-base-long);
 }
 
 /******** Title ********/
@@ -69,6 +77,7 @@ b {
   height: 210px;
   background-position: right;
   position: relative;
+ 
   /* border: black 3px solid; */
 }
 #streak-counter {
@@ -105,18 +114,6 @@ b {
   /* border: black 3px solid; */
   text-align: center;
 }
-.mode-pomo {
-  color: var(--clr-base-pomo);
-  border-color: var(--clr-accent-pomo);
-}
-.mode-short {
-  color: var(--clr-base-short);
-  border-color: var(--clr-accent-short);
-}
-.mode-long {
-  color: var(--clr-base-long);
-  border-color: var(--clr-accent-long);
-}
 #timer-display {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer);
@@ -128,6 +125,15 @@ b {
   width: 600px;
   margin: auto;
   margin-bottom: 50px;
+}
+#timer-display[state="pomo"] {
+  border-color: var(--clr-accent-pomo);
+}
+#timer-display[state="short"] {
+  border-color: var(--clr-accent-short);
+}
+#timer-display[state="long"] {
+  background-color: var(--clr-accent-long);
 }
 
 /******** Buttons ********/
