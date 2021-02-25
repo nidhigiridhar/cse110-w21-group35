@@ -1,5 +1,6 @@
-const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;  
-const WORK_STATE = "Work", SHORT_STATE = "Short", LONG_STATE = "Long", IDLE_STATE = "Idle";
+const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;
+const WORK_STATE = "Work State", SHORT_STATE = "Short Break", 
+    LONG_STATE = "Long Break", IDLE_STATE = "Idle";
 
 const MS = 1000, NUM_SEC = 60;
 
