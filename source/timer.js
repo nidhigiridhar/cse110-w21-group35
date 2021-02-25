@@ -166,6 +166,30 @@ function onStart() {
     checkState(); // set the correct state 
     updateTimer(timer.currDuration); // start the timer
 }
+// check the current state of the timer and set the values for minutes and seconds accordingly
+function checkState() {
+    // handle initial case for when start is pressed the first time
+    if(timer.counter.stateCtr % STATE_MOD === 0) {
+        timer.currState = WORK_STATE;
+        timer.minutes = POMO_MINS;
+        timer.seconds = NUM_SEC * timer.minutes;
+        document.getElementById("state").innerHTML = WORK_STATE;
+    } else {
+        if(timer.counter.totalPomos % LONG_MOD === 0){    
+            timer.currState = LONG_STATE;
+            timer.minutes = LONG_MINS;
+            timer.seconds = NUM_SEC * timer.minutes;
+            document.getElementById("state").innerHTML = LONG_STATE;
+        } else {
+            
+            timer.currState = SHORT_STATE;
+            timer.minutes = SHORT_MINS;
+            timer.seconds = NUM_SEC * timer.minutes;
+            document.getElementById("state").innerHTML = SHORT_STATE;
+        }
+    }
+    colorChange();     
+}
 
 /**
  * @name onReset
