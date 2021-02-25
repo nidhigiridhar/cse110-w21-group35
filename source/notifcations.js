@@ -104,4 +104,4 @@ function getNotificationStatus(){
 //module.exports = getNotificationStatus;
 //module.exports = playSound;
 
-//export { showNotif, getNotificationStatus }
+module.exports = { playSound, showNotif, getNotificationStatus };
