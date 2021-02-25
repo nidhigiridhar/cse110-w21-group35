@@ -106,14 +106,22 @@ function checkState(){
     }
 }
 
+function revealHelp() {
+    helpModal = document.getElementById("help-modal");
+    helpModal.style.display = "block";
+}
+
+function hideHelp() {
+    helpModal = document.getElementById("help-modal");
+    helpModal.style.display = "none";
+}
+
 // event handlers for clicking the start and reset buttons
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("startButton").addEventListener("click", onStart);
     document.getElementById("resetButton").addEventListener("click", onReset);
-    document.getElementById("instructionsButton").addEventListener("click", {
-        instructions = document.getElementById("visible-instructions");
-        instructions.style.display = "block";recordForm.style.display = "block";
-    })
+    document.getElementById("helpButton").addEventListener("click", revealHelp);
+    document.getElementById("close-modal").addEventListener("click", hideHelp);
 });
 
 // export functions and variables for testing
