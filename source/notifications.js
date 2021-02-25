@@ -42,15 +42,15 @@ function showNotif(typeOfNotif){
     //set body to some default vaule to be filled in later
     let body = "";
     //depending on typeOfNotif we will set the body of the notifcation to have different text
-    if(typeOfNotif === "longBreak"){
+    if(typeOfNotif === "Long Break"){
         //when it is a long break then the body says the following
         body = "You have completed a pomo! Your long break begins now :)";
     }
-    else if(typeOfNotif === "shortBreak"){
+    else if(typeOfNotif === "Short Break"){
         //when it is a short break then the body says the following
         body = "You have completed a pomo! Your short break begins now :)";
     }
-    else if(typeOfNotif === "pomo"){
+    else if(typeOfNotif === "Work State"){
         //when a new pomo starts then the body says the following
         body = "Your break has ended. A new pomo begins now :)";
     }
