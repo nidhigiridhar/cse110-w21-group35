@@ -3,6 +3,18 @@ var alarm = new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.o
 
 
 /**
+ * Function name: getAlarm
+ * Description: returns the alarm audio object for testing purposes
+ * @param none
+ * @return returns the Audio element named alarm
+ */
+
+function getAlarm(){
+    //Play the alarm
+    return alarm;
+ }
+
+/**
  * Function name: playSound
  * Description: plays tone to notfiy the user that the break or pomo has ended 
  * @param none
@@ -75,22 +87,13 @@ function getNotificationStatus(){
     }
     //If the user has not set notifications preferences then ask user
     else if(Notification.permission === "default"){
-        //boolean to detect user input of notification preference within inner function below
-        var status = false;
+        
         //Ask the user if they would like to be sent notifcations
-        Notification.requestPermission().then(function(permission) {
-            //If they do set status to true
-            if(permission === "granted"){
-                status = true;
-            }
-            //Otherwise set status to false
-            else{
-                status = false;
-            }
-        });
+        Notification.requestPermission();
+        //once the user has picked a preference then run the method agian and we are ensured
+        //the second call will enter either the denied or granted block
+        return getNotificationStatus();
 
-        //return status once we received the user's preference 
-        return status;
     }
     //If the user has their notifcations disabled, return false
     else{
@@ -99,9 +102,13 @@ function getNotificationStatus(){
 }
 
 
+<<<<<<< HEAD:source/notifcations.js
 //module.exports = notifications;
 //module.exports = showNotif;
 //module.exports = getNotificationStatus;
 //module.exports = playSound;
 
 module.exports = { playSound, showNotif, getNotificationStatus };
+=======
+module.exports = {showNotif, getNotificationStatus, playSound, getAlarm};
+>>>>>>> 60c0872cc9506de27a4cb4710beea551fc719ea2:source/notifications.js

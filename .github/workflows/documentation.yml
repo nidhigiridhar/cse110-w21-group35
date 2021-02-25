@@ -1,0 +1,29 @@
+name: Documentation
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Build
+        uses: nidhigiridhar/cse110-w21-group35@v0.1
+        with:
+          source_dir: ./source
+          recurse: true
+          output_dir: ./out
+          config_file: conf.json
+          template: minami
+          front_page: doc.md
+
+      - name: Deploy
+        run: |
+          npm install --save-dev jsdoc
+          ./node_modules/.bin/jsdoc ./src/timer.js
+          ./node_modules/.bin/jsdoc ./src/notifications.js
