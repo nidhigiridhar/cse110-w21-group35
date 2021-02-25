@@ -155,8 +155,8 @@ function updateTimer(duration) {
 }
 
 /**
- * Function name: onStart
- * Description: Begins the timer when the start button is clicked
+ * @name onStart
+ * @description Begins the timer when the start button is clicked
  */
 function onStart() {
     // disable start button after pressed
@@ -168,8 +168,9 @@ function onStart() {
 }
 
 /**
- * Function name: onReset
- * Description: Resets the timer to its original state when the reset 
+ * @name onReset
+ * @description Resets the timer to its original state when the reset button is
+ * clicked 
  * button is clicked
  */
 function onReset() {
@@ -180,7 +181,7 @@ function onReset() {
 }
 
 // event handlers for clicking the start and reset buttons
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
     document.getElementById("startButton").addEventListener("click", onStart);
     document.getElementById("resetButton").addEventListener("click", onReset);
 });
