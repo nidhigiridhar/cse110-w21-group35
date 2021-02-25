@@ -25,8 +25,8 @@ let timer = {
 var timerId;
     
 /**
- * Function name: onStart
- * Description: Begins the timer when the start button is clicked
+ * @name onStart
+ * @description Begins the timer when the start button is clicked
  */
 function onStart() {
     document.getElementById("startButton").disabled = true;
@@ -36,8 +36,8 @@ function onStart() {
 }
 
 /**
- * Function name: onReset
- * Description: Resets the timer to its original state when the reset button is clicked
+ * @name onReset
+ * @description Resets the timer to its original state when the reset button is clicked
  */
 function onReset() {
     document.getElementById("startButton").disabled = false;
@@ -106,22 +106,10 @@ function checkState(){
     }
 }
 
-function revealHelp() {
-    helpModal = document.getElementById("help-modal");
-    helpModal.style.display = "block";
-}
-
-function hideHelp() {
-    helpModal = document.getElementById("help-modal");
-    helpModal.style.display = "none";
-}
-
 // event handlers for clicking the start and reset buttons
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
     document.getElementById("startButton").addEventListener("click", onStart);
     document.getElementById("resetButton").addEventListener("click", onReset);
-    document.getElementById("helpButton").addEventListener("click", revealHelp);
-    document.getElementById("close-modal").addEventListener("click", hideHelp);
 });
 
 // export functions and variables for testing
