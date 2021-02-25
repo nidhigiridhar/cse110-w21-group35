@@ -113,5 +113,5 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // export functions and variables for testing
-module.exports = {onStart, onReset, checkState, timer, timerId}; 
+//module.exports = {onStart, onReset, checkState, timer, timerId}; 
 
