@@ -84,11 +84,10 @@ describe('Entire Pomo Test', () => {
 
   //May or may not work ... ONLY TIME WILL TELL ... LITERALLY
   it('Start Button Clicked: Check Timer Display', () => {
-    let time = 15000;
     cy.get('#startButton').click();
     cy.get('#state').should('have.text','Work');
     //Cypress will wait entire pomo
-    cy.wait(time*1000);
+    cy.wait(25*60*1000);
     //check if timer is updated correctly
     cy.get('#timer-display').should('have.text','0:00');
     cy.get('#timer-display').should('have.text','5:00');
