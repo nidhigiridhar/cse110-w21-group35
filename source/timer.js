@@ -91,7 +91,6 @@ function checkState(){
         timer.minutes = POMO_MINS;
         timer.seconds = NUM_SEC * timer.minutes;
         document.getElementById("state").innerHTML = WORK_STATE;
-        colorChange();     
     } else {
         if(timer.counter.totalPomos % LONG_MOD === 0){    
             timer.currState = LONG_STATE;
@@ -106,6 +105,7 @@ function checkState(){
             document.getElementById("state").innerHTML = SHORT_STATE;
         }
     }
+    colorChange();     
 }
 
 // event handlers for clicking the start and reset buttons
