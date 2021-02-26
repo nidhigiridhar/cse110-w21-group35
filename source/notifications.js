@@ -102,4 +102,4 @@ function getNotificationStatus(){
 }
 
 
-module.exports = {showNotif, getNotificationStatus, playSound, getAlarm};
+//module.exports = {showNotif, getNotificationStatus, playSound, getAlarm};
