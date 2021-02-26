@@ -22,7 +22,7 @@
   --fs-mode-button: 30px;
   --fs-instructions: 20px;
   --fs-counter: 20px;
-  --fs-footer: 20px;
+  --fs-footer: 15px;
 
   --fw-bold: 700;
   
@@ -62,6 +62,10 @@ img {
 footer {
   font-family: var(--ff-secondary);
   font-size: var(--fs-footer);
+  width: auto;
+  height: 60px;
+  padding-right: 3%;
+  padding-bottom: 1%;
 }
 footer > p {
   float: right;
