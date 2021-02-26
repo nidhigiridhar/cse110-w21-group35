@@ -1,3 +1,7 @@
+//const { getNotificationStatus } = require("./notifications.js");
+
+//onst { showNotif } = require("./notifications");
+
 const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;
 const WORK_STATE = "Work State", SHORT_STATE = "Short Break", 
     LONG_STATE = "Long Break", IDLE_STATE = "Idle";
@@ -149,6 +153,8 @@ function updateTimer(duration) {
 
             // transition to the next state
             updateState();
+            showNotif(timer.currState);
+            playSound();
         }
 
         if (diff <= 0) {
@@ -168,6 +174,7 @@ function updateTimer(duration) {
  * @description Begins the timer when the start button is clicked
  */
 function onStart() {
+    getNotificationStatus();
     // disable start button after pressed
     document.getElementById("startButton").disabled = true; 
     //enable reset button
