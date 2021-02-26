@@ -94,6 +94,7 @@ function updateState() {
         // disable reset button in break state
         document.getElementById("resetButton").disabled = true; 
     }
+    colorChange(); 
 }
 
 /**
@@ -188,7 +189,7 @@ function checkState() {
             document.getElementById("state").innerHTML = SHORT_STATE;
         }
     }
-    colorChange();     
+        
 }
 
 /**
