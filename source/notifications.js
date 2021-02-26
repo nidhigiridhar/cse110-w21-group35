@@ -101,5 +101,5 @@ function getNotificationStatus(){
     }
 }
 
-
-//module.exports = {showNotif, getNotificationStatus, playSound, getAlarm};
+var module = module || {};
+module.exports = {showNotif, getNotificationStatus, playSound, getAlarm};

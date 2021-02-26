@@ -1,10 +1,12 @@
 //const { getNotificationStatus } = require("./notifications.js");
 
-//onst { showNotif } = require("./notifications");
+//const { showNotif } = require("./notifications");
+
+//import { colorChange } from './color-change.js';
 
 const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;
-const WORK_STATE = "Work State", SHORT_STATE = "Short Break", 
-    LONG_STATE = "Long Break", IDLE_STATE = "Idle";
+const WORK_STATE = "Work State", SHORT_STATE = "Short Break State", 
+    LONG_STATE = "Long Break State";
 
 const MS = 1000, NUM_SEC = 60;
 
@@ -25,7 +27,7 @@ let timer = {
                    // when reset button is pressed
         totalPomos: 0 // increments after work state is completed
     },
-    currState: IDLE_STATE,
+    currState: WORK_STATE,
     currDuration: POMO_MINS * NUM_SEC,
 };
 
@@ -185,13 +187,12 @@ function onStart() {
 
 /**
  * @name onReset
- * @description Resets the timer to its original state when the reset button is
- * clicked 
- * button is clicked
+ * @description Resets the timer to its original state when the reset button is clicked
  */
 function onReset() {
     document.getElementById("resetButton").disabled = true;
     document.getElementById("startButton").disabled = false;
+    timer.counter.streak = 0;
     clearInterval(timerId);
     checkState();
 }
@@ -203,5 +204,6 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // export functions and variables for testing
-module.exports = { onStart, onReset, checkState, timer, timerId }; 
+var module = module || {};
+module.exports = {onStart, onReset, checkState,updateState, timer }; 
 

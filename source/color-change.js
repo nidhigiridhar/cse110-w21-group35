@@ -22,4 +22,5 @@ function colorChange() {
   }
 }
 
+var module = module || {};
 module.exports = { colorChange };
