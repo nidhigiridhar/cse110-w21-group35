@@ -4,7 +4,7 @@
 
 //import { colorChange } from './color-change.js';
 
-const POMO_MINS = 1, SHORT_MINS = 1, LONG_MINS = 1;
+const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;
 const WORK_STATE = "Work State", SHORT_STATE = "Short Break State", 
     LONG_STATE = "Long Break State";
 
@@ -23,7 +23,7 @@ let timer = {
     },
     counter: {
         stateCtr: 0, // increments after each state is completed
-        streak: 3, // increments after work state is completed, gets reset 
+        streak: 0, // increments after work state is completed, gets reset 
                    // when reset button is pressed
         totalPomos: 0 // increments after work state is completed
     },

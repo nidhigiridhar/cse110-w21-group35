@@ -51,7 +51,7 @@ describe('Fresh Entry, No Activity Tests', () => {
 //Start Button Tests
 describe('Start Button Tests', () => {
     beforeEach(() => {
-      cy.visit('http://127.0.0.1:5500/source/productoro.html');
+      cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
     });
 
     it('Start Button Clicked: Check Timer Display', () => {
@@ -114,7 +114,7 @@ describe('Start Button Tests', () => {
 
 describe('Reset Button Tests', () => {
   beforeEach(() => {
-    cy.visit('http://127.0.0.1:5500/source/productoro.html');
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
   });
 
   it('Reset Button Clicked: Timer Resets', () => {
@@ -183,7 +183,7 @@ describe('Reset Button Tests', () => {
 //Not Sure how to test TBH
 describe('Help Button Tests', () => {
   beforeEach(() => {
-    cy.visit('http://127.0.0.1:5500/source/productoro.html');
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
   });
 
   it('Help Butto Clicked: Instructions Appear', () => {
@@ -209,7 +209,7 @@ describe('Help Button Tests', () => {
 //Not Sure how to test TBH
 describe('Dynamic Background Tests', () => {
   beforeEach(() => {
-    cy.visit('http://127.0.0.1:5500/source/productoro.html');
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
   });
 
   it('Color Chnages: Short Break', () => {
@@ -227,7 +227,7 @@ describe('Dynamic Background Tests', () => {
 
 describe('Entire Pomo Test', () => {
   beforeEach(() => {
-    cy.visit('http://127.0.0.1:5500/source/productoro.html');
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
   });
 
   //May or may not work ... ONLY TIME WILL TELL ... LITERALLY
@@ -284,7 +284,7 @@ describe('Entire Pomo Test', () => {
 
 describe('Full Cycle Test', () => {
   beforeEach(() => {
-    cy.visit('http://127.0.0.1:5500/source/productoro.html');
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
   });
 
   it('Testing Four Pomos Along with Short and Long Breaks', () => {
