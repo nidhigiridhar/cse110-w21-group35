@@ -3,30 +3,30 @@
 
 /******** Variables ********/
 :root {
-  --clr-light: #FFFFFF;
-  --clr-base-pomo: #a9c7f5;
+  --clr-light: #ffffff;
+  --clr-base-pomo: #77a4e9;
   --clr-base-short: #eaa478;
   --clr-base-long: #88b9ae;
   --clr-accent-pomo: #032e77c9;
   --clr-accent-short: #923201;
   --clr-accent-long: #01795f;
-  --clr-dark: #464646;
+  --clr-dark: #424242;
   --clr-gray: #a8a8a8;
 
   --ff-timer: 'Helvetica Neue', sans-serif; 
   --ff-primary: 'Raleway', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
 
-  --fs-timer: 180px;
-  --fs-title: 70px;
-  --fs-mode-button: 40px;
-  --fs-instructions: 30px;
+  --fs-timer: 160px;
+  --fs-title: 50px;
+  --fs-mode-button: 30px;
+  --fs-instructions: 20px;
   --fs-counter: 20px;
   --fs-footer: 20px;
 
   --fw-bold: 700;
   
-  --transition-time: 1.5s;
+  --transition-time: 1s;
 }
 
 /******** General Styles ********/
@@ -124,8 +124,9 @@ b {
   text-align: center;
   border: var(--clr-accent-pomo) 10px solid;
   border-radius: 30px;
-  background-color: var(--clr-light);
   color: var(--clr-dark);
+  color: var(--clr-light);
+  text-shadow: 4px 5px var(--clr-dark) ;
   width: 600px;
   margin: auto;
   margin-bottom: 50px;
@@ -148,6 +149,7 @@ button {
   height: 60px;
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
+  color: var(--clr-dark);
   border-radius: 15px;
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
