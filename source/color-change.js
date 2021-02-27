@@ -18,6 +18,7 @@ function colorChange() {
       break;
     default:
       document.body.setAttribute('state',"pomo");
+      document.getElementById('timer-display').setAttribute('state',"pomo");
       break;
   }
 }
