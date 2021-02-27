@@ -12,6 +12,7 @@
   --clr-accent-long: #01795f;
   --clr-dark: #424242;
   --clr-gray: #a8a8a8;
+  --clr-faded-black: rgba(0,0,0,0.4);
 
   --ff-timer: 'Helvetica Neue', sans-serif; 
   --ff-primary: 'Raleway', sans-serif;
@@ -203,16 +204,17 @@ button.help-button {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.2);
+  background-color: var(--clr-faded-black);
 }
 .modal-content {
-  background-color: #a9c1f5;
+  background-color: var(--clr-base-pomo);
   font-family: var(--ff-secondary);
   font-size: 20px;
   text-align: center;
   padding: 20px;
   margin: auto;
-  border: 1px solid var(--clr-accent-pomo);
+  border: var(--clr-accent-pomo) 10px solid;
+  border-radius: 15px;
   width: 80%;
 }
 

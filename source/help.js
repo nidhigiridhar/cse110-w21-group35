@@ -5,6 +5,8 @@
 function revealHelp() {
     helpModal = document.getElementById("help-modal");
     helpModal.style.display = "block";
+    document.getElementById("helpButton").disabled = true; 
+    document.getElementById("close-modal").disabled = false; 
 }
 
 /**
@@ -18,6 +20,8 @@ function hideHelp(event) {
     if (event.target == helpModal || event.target == closeModal) {
         helpModal.style.display = "none";
     }
+    document.getElementById("helpButton").disabled = false; 
+    document.getElementById("close-modal").disabled = true; 
 }
 
 // event handlers for opening and closing the help modal
