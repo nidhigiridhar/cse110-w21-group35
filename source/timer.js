@@ -1,6 +1,12 @@
+//const { getNotificationStatus } = require("./notifications.js");
+
+//const { showNotif } = require("./notifications");
+
+//import { colorChange } from './color-change.js';
+
 const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;
-const WORK_STATE = "Work State", SHORT_STATE = "Short Break", 
-    LONG_STATE = "Long Break", IDLE_STATE = "Idle";
+const WORK_STATE = "Work State", SHORT_STATE = "Short Break State", 
+    LONG_STATE = "Long Break State";
 
 const MS = 1000, NUM_SEC = 60;
 
@@ -21,7 +27,7 @@ let timer = {
                    // when reset button is pressed
         totalPomos: 0 // increments after work state is completed
     },
-    currState: IDLE_STATE,
+    currState: WORK_STATE,
     currDuration: POMO_MINS * NUM_SEC,
 };
 
@@ -35,7 +41,7 @@ function checkState() {
     // work state
     if (timer.counter.stateCtr % STATE_MOD === 0) {
         timer.currState = WORK_STATE;
-        timer.seconds = NUM_SEC * POMO_MINS;
+        timer.currDuration = NUM_SEC * POMO_MINS;
         document.getElementById("state").innerHTML = WORK_STATE;
         document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
     } 
@@ -43,7 +49,7 @@ function checkState() {
         // long break state
         if (timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
-            timer.seconds = NUM_SEC * LONG_MINS;
+            timer.currDuration = NUM_SEC * LONG_MINS;
             document.getElementById("state").innerHTML = LONG_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${LONG_MINS}:00`;
@@ -53,14 +59,16 @@ function checkState() {
         // short break state
         else {
             timer.currState = SHORT_STATE;
-            timer.seconds = NUM_SEC * SHORT_MINS;
+            timer.currDuration = NUM_SEC * SHORT_MINS;
             document.getElementById("state").innerHTML = SHORT_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${SHORT_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
         }
-    }    
+    }
+    // change screen color for different states
+    colorChange();         
 }
 
 /**
@@ -73,12 +81,14 @@ function updateState() {
     if(timer.currState === WORK_STATE) {
         // if next state is long break 
         if(timer.counter.totalPomos % LONG_MOD === 0) {
+            timer.currState = LONG_STATE;
             document.getElementById("state").innerHTML = LONG_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${LONG_MINS}:00`;
         }
         // if next state is short break 
         else {
+            timer.currState = SHORT_STATE;
             document.getElementById("state").innerHTML = SHORT_STATE;
             document.getElementById("timer-display").innerHTML = 
                 `${SHORT_MINS}:00`;
@@ -89,12 +99,14 @@ function updateState() {
     }
     // if current state is a break, next state will be work
     else {
+        timer.currState = WORK_STATE;
         document.getElementById("state").innerHTML = WORK_STATE;
         document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
         // disable reset button in break state
         document.getElementById("resetButton").disabled = true; 
     }
-    colorChange(); 
+    // change screen color for different states
+    colorChange();     
 }
 
 /**
@@ -119,6 +131,7 @@ function updateTimer(duration) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
+        //console.log(minutes + ':' + seconds);
         document.getElementById("timer-display").innerHTML = 
             `${minutes}:${seconds}`;
 
@@ -142,6 +155,8 @@ function updateTimer(duration) {
 
             // transition to the next state
             updateState();
+            showNotif(timer.currState);
+            playSound();
         }
 
         if (diff <= 0) {
@@ -152,14 +167,16 @@ function updateTimer(duration) {
     };
     // we don't want to wait a full second before the timer starts
     timerCountdown();
-    timerId = setInterval(timerCountdown, 1000);
+    // fire set interval often to give enough time to update
+    timerId = setInterval(timerCountdown, 10); 
 }
 
 /**
- * Function name: onStart
- * Description: Begins the timer when the start button is clicked
+ * @name onStart
+ * @description Begins the timer when the start button is clicked
  */
 function onStart() {
+    getNotificationStatus();
     // disable start button after pressed
     document.getElementById("startButton").disabled = true; 
     //enable reset button
@@ -167,49 +184,28 @@ function onStart() {
     checkState(); // set the correct state 
     updateTimer(timer.currDuration); // start the timer
 }
-// check the current state of the timer and set the values for minutes and seconds accordingly
-function checkState() {
-    // handle initial case for when start is pressed the first time
-    if(timer.counter.stateCtr % STATE_MOD === 0) {
-        timer.currState = WORK_STATE;
-        timer.minutes = POMO_MINS;
-        timer.seconds = NUM_SEC * timer.minutes;
-        document.getElementById("state").innerHTML = WORK_STATE;
-    } else {
-        if(timer.counter.totalPomos % LONG_MOD === 0){    
-            timer.currState = LONG_STATE;
-            timer.minutes = LONG_MINS;
-            timer.seconds = NUM_SEC * timer.minutes;
-            document.getElementById("state").innerHTML = LONG_STATE;
-        } else {
-            
-            timer.currState = SHORT_STATE;
-            timer.minutes = SHORT_MINS;
-            timer.seconds = NUM_SEC * timer.minutes;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-        }
-    }
-        
-}
 
 /**
- * Function name: onReset
- * Description: Resets the timer to its original state when the reset 
- * button is clicked
+ * @name onReset
+ * @description Resets the timer to its original state when the reset button is clicked
  */
 function onReset() {
     document.getElementById("resetButton").disabled = true;
     document.getElementById("startButton").disabled = false;
+    timer.counter.streak = 0;
+    document.getElementById("streak").innerHTML = 
+                    timer.counter.streak;
     clearInterval(timerId);
     checkState();
 }
 
 // event handlers for clicking the start and reset buttons
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
     document.getElementById("startButton").addEventListener("click", onStart);
     document.getElementById("resetButton").addEventListener("click", onReset);
 });
 
 // export functions and variables for testing
-module.exports = { onStart, onReset, checkState, timer, timerId }; 
+var module = module || {};
+module.exports = {onStart, onReset, checkState,updateState, timer }; 
 
