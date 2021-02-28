@@ -16,4 +16,4 @@ jobs:
       - name: Run Tests
         run: |
           npm install
-          npm test 
+          npm test notifications.test.js
