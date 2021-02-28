@@ -179,6 +179,12 @@ function onReset() {
     checkState();
 }
 
+document.addEventListener("keydown", function(event) {
+   if(event.code === 'Space' ) {
+        alert('Space Pressed');
+   }
+});
+
 // event handlers for clicking the start and reset buttons
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("startButton").addEventListener("click", onStart);
