@@ -3,7 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - master
+      - sprint3
 
 jobs:
   deploy:
