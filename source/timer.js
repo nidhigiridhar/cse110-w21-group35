@@ -183,10 +183,10 @@ function onReset() {
 // event handler for pressing space bar as a keyboard shortcut to start and reset timer
 // add keydown event listener
 document.addEventListener("keydown", function(event) {
-   // Make sure space is pressed
+   // Check space is pressed
     if(event.code === 'Space' ) {
     //If timer is static --> start it
-        if(timer.currState == IDLE_STATE || timer.currState == LONG_STATE || timer.currState == SHORT_STATE) {
+        if(document.getElementById("startButton").disabled = false ) {
             onStart();
         }
         //If timer is running --> reset it
