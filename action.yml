@@ -31,4 +31,4 @@ inputs:
     required: false
 runs:
   using: 'node12'
-  main: 'timer.js'
+  main: 'index.js'
