@@ -186,13 +186,13 @@ document.addEventListener("keydown", function(event) {
    // Make sure space is pressed
     if(event.code === 'Space' ) {
     //If timer is static --> start it
-    if(timer.currState == IDLE_STATE) {
-        onStart();
-    }
-    //If timer is running --> reset it
-    else {
-        onReset();
-    }
+        if(timer.currState == IDLE_STATE) {
+            onStart();
+        }
+        //If timer is running --> reset it
+        else {
+            onReset();
+        }
    }
 });
 
