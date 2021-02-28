@@ -25,8 +25,8 @@ let timer = {
 var timerId;
     
 /**
- * Function name: onStart
- * Description: Begins the timer when the start button is clicked
+ * @name onStart
+ * @description Begins the timer when the start button is clicked
  */
 function onStart() {
     document.getElementById("startButton").disabled = true;
