@@ -22,7 +22,8 @@
   },
   "jsdoc": {
     "globals": {
-      "window": {}
+      "window": {},
+      "document": {}
     }
   },
   "dependencies": {},
