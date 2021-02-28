@@ -18,9 +18,6 @@ jobs:
           source_dir: ./source
           recurse: true
           output_dir: ./out
-          config_file: conf.json
-          template: minami
-          front_page: doc.md
 
       - name: Deploy
         run: |
