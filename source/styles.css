@@ -86,8 +86,11 @@ b {
   height: 210px;
   background-position: right;
   position: relative;
- 
+  padding-bottom: 0px;
+  padding-top: 1px;
+  padding-right: 1px;
   /* border: black 3px solid; */
+
 }
 #streak-counter {
   display : block;
@@ -111,7 +114,19 @@ b {
   right: 30px;
   /* border: black 3px solid; */
 }
-
+/******** break reminders ********/
+#break-reminder {
+  display : block;
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+}
+#reminder {
+  display : block;
+  position: relative;
+  text-align: center;
+  padding-top: 0px;
+}
 /******** Timer ********/
 #timer-container {
   /* border: black 3px solid; */
