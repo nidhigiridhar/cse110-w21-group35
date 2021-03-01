@@ -68,7 +68,8 @@ function checkState() {
         }
     }
     // change screen color for different states
-    colorChange();         
+    colorChange();
+    breakReminders();         
 }
 
 /**
