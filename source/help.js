@@ -3,10 +3,10 @@
  * @description Opens the help modal when the help button is clicked
  */
 function revealHelp() {
-    helpModal = document.getElementById("help-modal");
+    helpModal = document.getElementById("helpModal");
     helpModal.style.display = "block";
     document.getElementById("helpButton").disabled = true; 
-    document.getElementById("close-modal").disabled = false; 
+    document.getElementById("closeModal").disabled = false; 
 }
 
 /**
@@ -15,18 +15,15 @@ function revealHelp() {
  * @param {*} event 
  */
 function hideHelp(event) {
-    helpModal = document.getElementById("help-modal");
-    closeModal = document.getElementById("close-modal");
+    helpModal = document.getElementById("helpModal");
+    closeModal = document.getElementById("closeModal");
     if (event.target == helpModal || event.target == closeModal) {
         helpModal.style.display = "none";
     }
     document.getElementById("helpButton").disabled = false; 
-    document.getElementById("close-modal").disabled = true; 
+    document.getElementById("closeModal").disabled = true; 
 }
 
-// event handlers for opening and closing the help modal
-window.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("helpButton").addEventListener("click", revealHelp);
-    document.getElementById("close-modal").addEventListener("click", hideHelp);
-    window.onclick = hideHelp;
-});
+// export functions and variables for testing
+var module = module || {};
+module.exports = { revealHelp, hideHelp }; 

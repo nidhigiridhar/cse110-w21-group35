@@ -48,6 +48,7 @@ describe("Test onReset function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Work State</h2>
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         `;
         require("./color-change.js");
         timer.currState = "Work State";
@@ -64,6 +65,7 @@ describe("Test onReset function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Work State</h2>
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         `;
         require("./color-change.js");
         onReset();
@@ -77,6 +79,7 @@ describe("Test onReset function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Work State</h2>
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         `;
         require("./color-change.js");
         onReset();
@@ -143,13 +146,9 @@ describe("Test start button", () => {
             <div id = "timer-display">25:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
         `;
-        require("./timer.js");
-        require("./color-change.js");
         let startBtn = document.getElementById("startButton");
-        let disabledOrNot = startBtn.disabled;
-        expect(disabledOrNot).toBeFalsy;
         startBtn.click();
-        expect(disabledOrNot).toBeTruthy;
+        expect(onStart).toBeCalled;
     })
 });
 
@@ -160,13 +159,9 @@ describe("Test reset button", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
-        require("./timer.js");
-        require("./color-change.js");
-        let startBtn = document.getElementById("startButton");
-        let disabledOrNot = startBtn.disabled;
         let resetBtn = document.getElementById("resetButton");
         resetBtn.click();
-        expect(disabledOrNot).toBeTruthy;
+        expect(onReset).toBeCalled;
     })
 });
 
