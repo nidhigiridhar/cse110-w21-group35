@@ -25,10 +25,10 @@
     </div>
     <div id="help-container"> <!-- container for non-static instructions-->
         <button type=button class="help-button" id=helpButton>?</button>
-        <div id="help-modal" class="modal">
+        <div id="helpModal" class="modal">
             <div class="modal-content">
                 <!-- Modal content -->
-                <span id="close-modal">&times;</span disabled>
+                <span id="closeModal">&times;</span disabled>
                 <h3>What is a Pomodoro Timer?</h3>
                 <p>A Pomodoro Timer is a time management tool that breaks down work into intervals (pomos).  
                     Work intervals are typically 25 minutes long with five minute breaks between each interval. 
@@ -57,5 +57,12 @@
     <script src="./notifications.js"></script>
     <script src="./color-change.js"></script>
     <script src="./help.js"></script>
+    <script>
+        document.getElementById("startButton").addEventListener("click", onStart);
+        document.getElementById("resetButton").addEventListener("click", onReset);
+        document.getElementById("helpButton").addEventListener("click", revealHelp);
+        document.getElementById("closeModal").addEventListener("click", hideHelp);
+        window.onclick = hideHelp;
+    </script>
 </body>
 </html>

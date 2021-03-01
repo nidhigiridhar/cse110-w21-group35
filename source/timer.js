@@ -199,12 +199,6 @@ function onReset() {
     checkState();
 }
 
-// event handlers for clicking the start and reset buttons
-window.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("startButton").addEventListener("click", onStart);
-    document.getElementById("resetButton").addEventListener("click", onReset);
-});
-
 // export functions and variables for testing
 var module = module || {};
 module.exports = {onStart, onReset, checkState,updateState, timer }; 
