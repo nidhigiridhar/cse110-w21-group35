@@ -1,4 +1,4 @@
-# Start/Stop/Reset
+# Progress Bar
 - Status: accepted
 - Deciders: Nidhi Giridhar, Sydney Wong, Jasmine Chen, Alejandro Malanche, Alejandro Marquez, Ian Rebmann, Zachary Chan, Samuel Burkholder
 - Date: Sprint 2
