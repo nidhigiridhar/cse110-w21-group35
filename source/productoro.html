@@ -7,10 +7,14 @@
     <title>Productoro</title>
 </head>
 <header>
-    <h1>Productoro</h1>
+    <div id="break-reminder"></div>
+    <div id="reminder">
+        <body onload="breakReminders()"></body></div>   <!-- ensures divs are hidden on init load-->
+ 
     <div id="counter-container">
         <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         <div id="total-counter"><b>Total Pomos Completed:</b> <span id="total">0</span></div>
+        <h1 style="color:#464646;">Productoro</h1>
     </div>
 </header>
 <body state="pomo">
@@ -64,5 +68,6 @@
         document.getElementById("closeModal").addEventListener("click", hideHelp);
         window.onclick = hideHelp;
     </script>
+    <script src="./breakReminder.js"></script>
 </body>
 </html>

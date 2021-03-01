@@ -68,7 +68,8 @@ function checkState() {
         }
     }
     // change screen color for different states
-    colorChange();         
+    colorChange();
+    breakReminders();         
 }
 
 /**
@@ -199,6 +200,32 @@ function onReset() {
     checkState();
 }
 
+<<<<<<< HEAD
+=======
+
+// event handler for pressing space bar as a keyboard shortcut to start and reset timer
+// add keydown event listener
+document.addEventListener("keydown", function(event) {
+   // Check space is pressed
+    if(event.code === 'Space' ) {
+    //If timer is static --> start it
+        if(document.getElementById("startButton").disabled == false ) {
+            onStart();
+        }
+        //If timer is running --> reset it
+        else {
+            onReset();
+        }
+   }
+});
+
+// event handlers for clicking the start and reset buttons
+window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("startButton").addEventListener("click", onStart);
+    document.getElementById("resetButton").addEventListener("click", onReset);
+});
+
+>>>>>>> sprint3
 // export functions and variables for testing
 var module = module || {};
 module.exports = {onStart, onReset, checkState,updateState, timer }; 
