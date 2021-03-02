@@ -200,9 +200,6 @@ function onReset() {
     checkState();
 }
 
-<<<<<<< HEAD
-=======
-
 // event handler for pressing space bar as a keyboard shortcut to start and reset timer
 // add keydown event listener
 document.addEventListener("keydown", function(event) {
@@ -219,13 +216,6 @@ document.addEventListener("keydown", function(event) {
    }
 });
 
-// event handlers for clicking the start and reset buttons
-window.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("startButton").addEventListener("click", onStart);
-    document.getElementById("resetButton").addEventListener("click", onReset);
-});
-
->>>>>>> sprint3
 // export functions and variables for testing
 var module = module || {};
 module.exports = {onStart, onReset, checkState,updateState, timer }; 
