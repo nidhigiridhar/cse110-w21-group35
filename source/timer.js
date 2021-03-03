@@ -4,7 +4,9 @@
 
 //import { colorChange } from './color-change.js';
 
-const POMO_MINS = 25, SHORT_MINS = 5, LONG_MINS = 15;
+var POMO_MINS = 25;
+var SHORT_MINS = 5; 
+var LONG_MINS = 15;
 const WORK_STATE = "Work State", SHORT_STATE = "Short Break State", 
     LONG_STATE = "Long Break State";
 
@@ -149,6 +151,8 @@ function updateTimer(duration) {
                 timer.counter.totalPomos++;
                 document.getElementById("total").innerHTML = 
                     timer.counter.totalPomos;
+            } else {
+                document.querySelector("#formEnabler").removeAttribute('disabled');
             }
             // enable start button after timer ends
             document.getElementById("startButton").disabled = false; 
@@ -173,11 +177,31 @@ function updateTimer(duration) {
 }
 
 /**
+ * @name setCustomTime
+ * @description Changes the times for each session based on user input
+ */
+function setCustomTime() {
+
+    let wTime = document.getElementById("workTime");
+    POMO_MINS = wTime.options[wTime.selectedIndex].text;
+
+    let sbTime = document.getElementById("shortBreakTime");
+    SHORT_MINS = sbTime.options[sbTime.selectedIndex].text;
+
+    let lbTime = document.getElementById("longBreakTime");
+    LONG_MINS = lbTime.options[lbTime.selectedIndex].text;
+}
+
+/**
  * @name onStart
  * @description Begins the timer when the start button is clicked
  */
 function onStart() {
+
+    setCustomTime();
+    console.log(POMO_MINS);
     getNotificationStatus();
+    document.querySelector("#formEnabler").disabled = 'disabled';
     // disable start button after pressed
     document.getElementById("startButton").disabled = true; 
     //enable reset button
