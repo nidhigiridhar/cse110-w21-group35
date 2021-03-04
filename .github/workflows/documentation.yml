@@ -28,4 +28,5 @@ jobs:
           ./node_modules/.bin/jsdoc ./source/notifications.js
           ./node_modules/.bin/jsdoc ./source/color-change.js
           ./node_modules/.bin/jsdoc ./source/breakReminder.js
-        publish_dir: ./out
+        with:
+          publish_dir: ./out
