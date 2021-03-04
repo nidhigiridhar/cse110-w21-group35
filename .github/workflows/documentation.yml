@@ -3,7 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - sprint3
+      - CustomTimeLimits
 
 jobs:
   deploy:
