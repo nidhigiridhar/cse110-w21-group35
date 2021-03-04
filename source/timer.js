@@ -225,7 +225,11 @@ function onReset() {
     checkState();
 }
 
-//To be called when the settings button is clicked
+/**
+ * @name revealSettings
+ * @function
+ * @description Opens the settings modal when the settings button is clicked
+ */
 function revealSettings() {
     let settingsModal = document.getElementById("settingsModal");
     settingsModal.style.display = "block";
@@ -233,12 +237,15 @@ function revealSettings() {
     document.getElementById("closeSettings").disabled = false; 
 }
 
+/**
+ * @name hideSettings
+ * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
+ * @param {*} event The state of the settings modal (open or closed)
+ */
 function hideSettings(event) {
     let settingsModal = document.getElementById("settingsModal");
     let closeSettings = document.getElementById("closeSettings");
-    if (event.target == settingsModal || event.target == closeSettings) {
-        settingsModal.style.display = "none";
-    }
+    settingsModal.style.display = "none";
     document.getElementById("settingsButton").disabled = false; 
     document.getElementById("closeSettings").disabled = true; 
 }
