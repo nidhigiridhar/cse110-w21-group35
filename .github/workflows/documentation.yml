@@ -16,7 +16,6 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./source
-          recurse: true
           output_dir: ./out
           config_file: conf.json
           template: minami
@@ -29,3 +28,4 @@ jobs:
           ./node_modules/.bin/jsdoc ./source/notifications.js
           ./node_modules/.bin/jsdoc ./source/color-change.js
           ./node_modules/.bin/jsdoc ./source/breakReminder.js
+        publish_dir: ./out
