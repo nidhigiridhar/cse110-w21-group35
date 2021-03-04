@@ -48,37 +48,49 @@
             
         </div>
     </div>
-    <div id="instructions">
+
+    <div id="settingContainer">
+        <button type=button class="settings" id="settingsButton">cog</button>
+        <div id="settingsModal" class="modal">
+            <div class="settings-content">
+            <span id="closeSettings">&times;</span disabled>
+            <form id='time-limits'>
+                <div style="display:none">Wait until the end of your next break to change the times!</div>
+                <fieldset id="formEnabler">
+                    <label id="workLabel">Select length Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="twentyFive" selected>25</option>
+                        <option value="thirty">30</option>
+                        <option value="fortyFive">45</option>
+                        <option value="sixty">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="five" selected>5</option>
+                        <option value="ten">10</option>
+                        <option value="fifteen">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="fifteen" selected>15</option>
+                        <option value="twenty">20</option>
+                        <option value="twentyFive">25</option>
+                        <option value="thirty">30</option>
+                    </select>
+                    <br>
+                </fieldset>  
+            </form>    
+            </div>
+            
+        </div>
+
+    </div>
      
-    <form id='time-limits'>
-        <div style="display:none">Wait until the end of your next break to change the times!</div>
-        <fieldset id="formEnabler">
-            <label id="workLabel">Select time for Work Session</label> 
-            <select name="workTime" id="workTime">
-                <option value="one">1</option>
-                <option value="twentyFive" selected>25</option>
-                <option value="thirty">30</option>
-                <option value="fortyFive">45</option>
-                <option value="sixty">60</option>
-            </select>
     
-            <label id="shortBreakLabel">Select time for Short Break</label>
-            <select name="shortBreakTime" id="shortBreakTime">
-                <option value="one">1</option>
-                <option value="five" selected>5</option>
-                <option value="ten">10</option>
-                <option value="fifteen">15</option>
-            </select>
-    
-            <label id="longBreakLabel">Select time for Short Break</label>
-            <select name="longBreakTime" id="longBreakTime">
-                <option value="fifteen" selected>15</option>
-                <option value="twenty">20</option>
-                <option value="twentyFive">25</option>
-                <option value="thirty">30</option>
-            </select>
-        </fieldset>      
-    </form>
     </div>
     <footer>
         <img src="img/DT2 (Final).png" alt="Dream Team logo">
@@ -95,8 +107,12 @@
         document.getElementById("resetButton").addEventListener("click", onReset);
         document.getElementById("helpButton").addEventListener("click", revealHelp);
         document.getElementById("closeModal").addEventListener("click", hideHelp);
+        document.getElementById("settingsButton").addEventListener("click", revealSettings);
+        document.getElementById("closeSettings").addEventListener("click", hideSettings);
         window.onclick = hideHelp;
+        window.onclick = hideSettings;
     </script>
     <script src="./breakReminder.js"></script>
 </body>
 </html>
+<!---->

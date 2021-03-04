@@ -224,6 +224,24 @@ function onReset() {
     checkState();
 }
 
+//To be called when the settings button is clicked
+function revealSettings() {
+    let settingsModal = document.getElementById("settingsModal");
+    settingsModal.style.display = "block";
+    document.getElementById("settingsButton").disabled = true; 
+    document.getElementById("closeSettings").disabled = false; 
+}
+
+function hideSettings(event) {
+    let settingsModal = document.getElementById("settingsModal");
+    let closeSettings = document.getElementById("closeSettings");
+    if (event.target == settingsModal || event.target == closeSettings) {
+        settingsModal.style.display = "none";
+    }
+    document.getElementById("settingsButton").disabled = false; 
+    document.getElementById("closeSettings").disabled = true; 
+}
+
 // event handler for pressing space bar as a keyboard shortcut to start and reset timer
 // add keydown event listener
 document.addEventListener("keydown", function(event) {
