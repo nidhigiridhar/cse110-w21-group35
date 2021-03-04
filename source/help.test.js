@@ -35,7 +35,7 @@ describe("Test when nothing is clicked", () => {
         const closeBtn = document.getElementById("closeModal");
         let closeBtnDisabled = closeBtn.disabled;
         expect(closeBtnDisabled).toBeTruthy;
-    })
+    });
 })
 
  describe("Test revealHelp function", () => {
@@ -67,7 +67,7 @@ describe("Test when nothing is clicked", () => {
         const closeBtn = document.getElementById("closeModal");
         let closeBtnDisabled = closeBtn.disabled;
         expect(closeBtnDisabled).toBeFalsy;
-    })
+    });
 });
 
 describe("Test hideHelp function", () => {
@@ -99,7 +99,7 @@ describe("Test hideHelp function", () => {
         const closeBtn = document.getElementById("closeModal");
         let closeBtnDisabled = closeBtn.disabled;
         expect(closeBtnDisabled).toBeTruthy;
-    })
+    });
 });
 
 describe("Test help button", () => {
@@ -115,7 +115,7 @@ describe("Test help button", () => {
         const helpBtn = document.getElementById("helpButton");
         helpBtn.click();
         expect(revealHelp).toBeCalled;
-    })
+    });
 });
 
 describe("Test closing the help modal", () => {
@@ -131,18 +131,5 @@ describe("Test closing the help modal", () => {
         const closeBtn = document.getElementById("helpButton");
         closeBtn.click();
         expect(hideHelp).toBeCalled;
-    }),
-
-    test("is triggered by clicking the window button", () => {
-        document.body.innerHTML = `
-            <button type=button class="help-button" id=helpButton>?</button disabled>
-            <div id="helpModal" class="modal">
-                <div class="modal-content">
-                <span id="closeModal">&times;</span>
-                </div>
-            </div>
-        `;
-        window.click();
-        expect(hideHelp).toBeCalled;
-    })
+    });
 });

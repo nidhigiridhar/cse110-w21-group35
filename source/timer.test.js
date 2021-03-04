@@ -3,7 +3,7 @@ const {onStart, onReset, checkState, updateState, timer} = require("./timer");
 //const {getNotificationStatus} = require("./notifications");
 
 describe("Test onStart function", () => {
-    test("Check onStart updates state to work state", () => {
+    test("updates state to work state", () => {
         document.body.innerHTML = `
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -16,7 +16,7 @@ describe("Test onStart function", () => {
         expect(state).toBe("Work State");
     }),
 
-    test("Check onStart disables start button", () => {
+    test("disables the start button", () => {
         document.body.innerHTML = `
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -28,7 +28,7 @@ describe("Test onStart function", () => {
         expect(disabled).toBeTruthy();
     }),
 
-    test("Check onStart enables reset button", () => {
+    test("enables the reset button", () => {
         document.body.innerHTML = `
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -38,11 +38,11 @@ describe("Test onStart function", () => {
         onStart();
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeFalsy();
-    })
+    });
 });
 
 describe("Test onReset function", () => {
-    test("Check onReset during work state", () => {
+    test("resets correctly during work state", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -50,7 +50,6 @@ describe("Test onReset function", () => {
             <h2 id="state">Work State</h2>
             <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         `;
-        require("./color-change.js");
         timer.currState = "Work State";
         onReset();
         let timerDisplay = document.getElementById("timer-display").innerHTML;
@@ -59,7 +58,7 @@ describe("Test onReset function", () => {
         expect(state).toBe("Work State");
     }),
 
-    test("Check onReset enables start button", () => {
+    test("enables the start button", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -67,13 +66,12 @@ describe("Test onReset function", () => {
             <h2 id="state">Work State</h2>
             <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         `;
-        require("./color-change.js");
         onReset();
         let disabled = document.getElementById("startButton").disabled;
         expect(disabled).toBeFalsy();
     }),
 
-    test("Check onReset disables reset button", () => {
+    test("disables the reset button", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -81,21 +79,19 @@ describe("Test onReset function", () => {
             <h2 id="state">Work State</h2>
             <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         `;
-        require("./color-change.js");
         onReset();
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy();
-    })
+    });
 });
 
 describe("Test checkState function", () => {
-    test("Check state updates to work state", () => {
+    test("correctly updates to the work state", () => {
         document.body.innerHTML = `
             <div id="total-counter">Total Pomos Completed: <span id="total">0</span></div>
             <h2 id="state">Work State</h2>
             <div id = "timer-display">25:00</div>
         `;
-        require("./color-change.js");
         timer.counter.totalPomos = 0;
         timer.counter.stateCtr = 0;
         checkState();
@@ -103,7 +99,7 @@ describe("Test checkState function", () => {
         expect(state).toBe("Work State");
     }),
 
-    test("Check state updates to short break state", () => {
+    test("correctly updates to the short break state", () => {
         document.body.innerHTML = `
             <div id="total-counter">Total Pomos Completed: <span id="total">0</span></div>
             <h2 id="state">Work State</h2>
@@ -111,7 +107,6 @@ describe("Test checkState function", () => {
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <div id = "timer-display">25:00</div>
         `;
-        require("./color-change.js");
         timer.counter.totalPomos = 1;
         timer.counter.stateCtr = 1;
         checkState();
@@ -121,7 +116,7 @@ describe("Test checkState function", () => {
         expect(disabled).toBeTruthy(); // reset is disabled during break state
     }),
 
-    test("Check state updates to long break state", () => {
+    test("correctly updates to the long break state", () => {
         document.body.innerHTML = `
             <div id="total-counter">Total Pomos Completed: <span id="total">0</span></div>
             <h2 id="state">Work State</h2>
@@ -129,7 +124,6 @@ describe("Test checkState function", () => {
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <div id = "timer-display">25:00</div>
         `;
-        require("./color-change.js");
         timer.counter.totalPomos = 4;
         timer.counter.stateCtr = 7;
         checkState();
@@ -137,11 +131,11 @@ describe("Test checkState function", () => {
         expect(state).toBe("Long Break State"); 
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy(); // reset is disabled during break state
-    })
+    });
 });
 
 describe("Test start button", () => {
-    test("Check start button works", () => {
+    test("calls onStart function when clicked", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -149,11 +143,11 @@ describe("Test start button", () => {
         let startBtn = document.getElementById("startButton");
         startBtn.click();
         expect(onStart).toBeCalled;
-    })
+    });
 });
 
 describe("Test reset button", () => {
-    test("Check reset button works", () => {
+    test("calls onReset function when clicked", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
@@ -165,16 +159,13 @@ describe("Test reset button", () => {
     })
 });
 
-// testing updateState function
 describe("Test updateState function", () => {
-    test("Check if state get set to work if curr state is short break", () => {
+    test("sets state to work state if current state is short break state", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
-        require("./timer.js");
-        require("./color-change.js");
         timer.currState = "Short Break State";
         updateState();
         let state = timer.currState;
@@ -187,14 +178,12 @@ describe("Test updateState function", () => {
         expect(disabled).toBeTruthy();
     }),
 
-    test("Check if state get set to work if curr state is long break", () => {
+    test("sets state to work state if current state is long break state", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
-        require("./timer.js");
-        require("./color-change.js");
         timer.currState = "Long Break State";
         updateState();
         let state = timer.currState;
@@ -207,14 +196,12 @@ describe("Test updateState function", () => {
         expect(disabled).toBeTruthy();
     }),
 
-    test("Check if state get set to short break after work", () => {
+    test("sets state to short break state if current state is work state", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
-        require("./timer.js");
-        require("./color-change.js");
         timer.counter.totalPomos = 2;
         timer.currState = "Work State";
         updateState();
@@ -226,14 +213,12 @@ describe("Test updateState function", () => {
         expect(htmlTime).toBe("5:00");
     }),
 
-    test("Check if state get set to long break after work", () => {
+    test("sets state to long break state if current state is work state", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
-        require("./timer.js");
-        require("./color-change.js");
         timer.counter.totalPomos = 2;
         timer.currState = "Work State";
         updateState();
@@ -243,5 +228,5 @@ describe("Test updateState function", () => {
         expect(htmlState).toBe("Short Break State");
         let htmlTime = document.getElementById("timer-display").innerHTML;
         expect(htmlTime).toBe("5:00");
-    })
+    });
 });

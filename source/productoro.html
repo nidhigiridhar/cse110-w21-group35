@@ -8,8 +8,7 @@
 </head>
 <header>
     <div id="break-reminder"></div>
-    <div id="reminder">
-        <body onload="breakReminders()"></body></div>   <!-- ensures divs are hidden on init load-->
+    <div id="reminder" onload="breakReminders()"></div>   <!-- ensures divs are hidden on init load-->
  
     <div id="counter-container">
         <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
@@ -61,13 +60,14 @@
     <script src="./notifications.js"></script>
     <script src="./color-change.js"></script>
     <script src="./help.js"></script>
+    <script src="./breakReminder.js"></script>
     <script>
         document.getElementById("startButton").addEventListener("click", onStart);
         document.getElementById("resetButton").addEventListener("click", onReset);
+        document.addEventListener("keydown", keyboardShortcut);
         document.getElementById("helpButton").addEventListener("click", revealHelp);
         document.getElementById("closeModal").addEventListener("click", hideHelp);
         window.onclick = hideHelp;
     </script>
-    <script src="./breakReminder.js"></script>
 </body>
 </html>
