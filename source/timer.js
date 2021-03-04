@@ -44,16 +44,16 @@ function checkState() {
     if (timer.counter.stateCtr % STATE_MOD === 0) {
         timer.currState = WORK_STATE;
         timer.currDuration = NUM_SEC * POMO_MINS;
-        document.getElementById("state").innerHTML = WORK_STATE;
-        document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
+        document.getElementById("state").innerText = WORK_STATE;
+        document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
     } 
     else {
         // long break state
         if (timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
             timer.currDuration = NUM_SEC * LONG_MINS;
-            document.getElementById("state").innerHTML = LONG_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = LONG_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${LONG_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -62,8 +62,8 @@ function checkState() {
         else {
             timer.currState = SHORT_STATE;
             timer.currDuration = NUM_SEC * SHORT_MINS;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = SHORT_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${SHORT_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -85,15 +85,15 @@ function updateState() {
         // if next state is long break 
         if(timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
-            document.getElementById("state").innerHTML = LONG_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = LONG_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${LONG_MINS}:00`;
         }
         // if next state is short break 
         else {
             timer.currState = SHORT_STATE;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = SHORT_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${SHORT_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -103,8 +103,8 @@ function updateState() {
     // if current state is a break, next state will be work
     else {
         timer.currState = WORK_STATE;
-        document.getElementById("state").innerHTML = WORK_STATE;
-        document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
+        document.getElementById("state").innerText = WORK_STATE;
+        document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
         // disable reset button in break state
         document.getElementById("resetButton").disabled = true; 
     }
@@ -124,18 +124,18 @@ function updateTimer(duration) {
     function timerCountdown() {
         // get the number of seconds that have elapsed since updateTimer() 
         // was called
-        diff = duration - (((Date.now() - start) / 1000) | 0);
+        diff = duration - (((Date.now() - start) / MS) | 0);
 
         // does the same job as parseInt truncates the float
-        minutes = (diff / 60) | 0;
-        seconds = (diff % 60) | 0;
+        minutes = (diff / NUM_SEC) | 0;
+        seconds = (diff % NUM_SEC) | 0;
 
         // add extra 0 to minutes/seconds if they are less than 10
-        minutes = minutes < 10 ? "0" + minutes : minutes;
+       // minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         //console.log(minutes + ':' + seconds);
-        document.getElementById("timer-display").innerHTML = 
+        document.getElementById("timer-display").innerText= 
             `${minutes}:${seconds}`;
 
         // stop timer when minutes and seconds reach 0
@@ -145,11 +145,11 @@ function updateTimer(duration) {
             // if curr state is work, update the streak and total pomo timers
             if(timer.currState === WORK_STATE){                
                 timer.counter.streak++;
-                document.getElementById("streak").innerHTML = 
+                document.getElementById("streak").innerText = 
                     timer.counter.streak;
         
                 timer.counter.totalPomos++;
-                document.getElementById("total").innerHTML = 
+                document.getElementById("total").innerText = 
                     timer.counter.totalPomos;
             } else {
                 document.querySelector("#formEnabler").removeAttribute('disabled');
@@ -181,15 +181,17 @@ function updateTimer(duration) {
  * @description Changes the times for each session based on user input
  */
 function setCustomTime() {
-
     let wTime = document.getElementById("workTime");
     POMO_MINS = wTime.options[wTime.selectedIndex].text;
+    document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
 
     let sbTime = document.getElementById("shortBreakTime");
     SHORT_MINS = sbTime.options[sbTime.selectedIndex].text;
 
     let lbTime = document.getElementById("longBreakTime");
     LONG_MINS = lbTime.options[lbTime.selectedIndex].text;
+
+    
 }
 
 /**
@@ -197,8 +199,6 @@ function setCustomTime() {
  * @description Begins the timer when the start button is clicked
  */
 function onStart() {
-
-    setCustomTime();
     console.log(POMO_MINS);
     getNotificationStatus();
     document.querySelector("#formEnabler").disabled = 'disabled';
@@ -215,10 +215,11 @@ function onStart() {
  * @description Resets the timer to its original state when the reset button is clicked
  */
 function onReset() {
+    document.querySelector("#formEnabler").removeAttribute('disabled');
     document.getElementById("resetButton").disabled = true;
     document.getElementById("startButton").disabled = false;
     timer.counter.streak = 0;
-    document.getElementById("streak").innerHTML = 
+    document.getElementById("streak").innerText = 
                     timer.counter.streak;
     clearInterval(timerId);
     checkState();
@@ -257,6 +258,9 @@ document.addEventListener("keydown", function(event) {
         }
    }
 });
+
+
+
 
 // export functions and variables for testing
 var module = module || {};
