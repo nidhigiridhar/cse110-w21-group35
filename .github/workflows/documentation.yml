@@ -3,7 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - master
+      - sprint3
 
 jobs:
   deploy:
@@ -13,17 +13,10 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Build
-        uses: nidhigiridhar/cse110-w21-group35@v0.3
+        uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./source
-          recurse: true
           output_dir: ./out
           config_file: conf.json
           template: minami
           front_page: doc.md
-
-      - name: Deploy
-        run: |
-          npm install --save-dev jsdoc
-          ./node_modules/.bin/jsdoc ./source/timer.js
-          ./node_modules/.bin/jsdoc ./source/notifications.js

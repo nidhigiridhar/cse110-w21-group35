@@ -6,7 +6,7 @@ on:
       - master
   push:
     branches:
-      - master
+      - sprint3
 
 jobs:
   Jest:
@@ -19,3 +19,4 @@ jobs:
           npm test timer.test.js
           npm test notifications.test.js
           npm test notifications.showNotif.test.js
+          npm test help.test.js

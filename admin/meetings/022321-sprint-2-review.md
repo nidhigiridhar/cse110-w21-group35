@@ -62,9 +62,11 @@
       * had to refactor notification javascript code multiple timers
       * proud of everyone for coming together in the final hour
       * Notitifcation Screenshots:
-        * [Mini Banner](https://raw.githubusercontent.com/Alex-942/CSE110-Lab2/main/Screen%20Shot%202021-02-23%20at%202.42.09%20PM.png)
-        * [Full Banner](https://raw.githubusercontent.com/Alex-942/CSE110-Lab2/main/Screen%20Shot%202021-02-23%20at%202.43.09%20PM.png)
+        * [Mini Banner](retrospective-images/Mini-Banner.png)
+        * [Full Banner](retrospective-images/Full-Banner.png)
       * Sound demonstration will be included in the demo video posted in our repo at /admin/videos/statusvideo1.mp4
+      * [Notifications Code Part-1](retrospective-images/notifications-code-part1.png)
+      * [Notifications Code Part-2](retrospective-images/notifications-code-part2.png)
     * Jasmine
       * worked on css and final integration
       * css was straightforward
@@ -79,25 +81,30 @@
       * intially thought timer implementation was straightforward
       * Alejandro Marquez revealed some problems with the timer
       * however, it was helpful to see how javascript interacts with different types of browser
+      * [Timer Code](retrospective-images/timer_code_1.png)
     * Sam
-      * worked on button implementation and starting the jest testing
-      * faced some initially difficulties with vsCode Live Share
-      * it was difficulty to coordinate with other people who were working on other parts of the project (timer people coordinating with button people)
+      * worked on implementing the start and reset buttons
+      * Helped get Jest set up and unit testing figured out
+      * faced some initial difficulties with vsCode Live Share
+      * it was difficult to coordinate with other people who were working on other parts of the project (timer people coordinating with button people)
     * Zachary
       * worked on notifications
       * main obstacle was testing the notifications
+      * [Notifications Code Part-1](retrospective-images/notifications-code-part1.png)
+      * [Notifications Code Part-2](retrospective-images/notifications-code-part2.png)
     * Sydney
       * worked on the start and reset buttons (HTML and Javascript)
-      * added event listeners to the buttons
-      * added methods that were called once the buttons are clicked (internal logic of disabling buttons and reseting the state of the timer on the app)
+      * added [event listeners](retrospective-images/button-event-listeners.png) to the buttons
+      * added [methods](retrospective-images/onStart-onReset-functions.png) that were called once the buttons are clicked (internal logic of disabling buttons and reseting the state of the timer on the app)
       * faced problems with JUnit testing and figureing out the DOM manipulation
-      * got the Jest tests working on the pipeline using the GitHub actions
-      * is still facing problems with the GitHub action for documentation (although documentation was created locally and pushed for now)
+      * got the [Jest tests](retrospective-images/some-timer-tests.png) working on the pipeline using the [GitHub actions](retrospective-images/jest-github-action.png)
+      * is still facing problems with the GitHub action for documentation (although she  created [documentation](retrospective-images/html-documentation.png) locally and pushed for now)
     * Nidhi
       * worked on timer
       * Realized that the timer does not count down the seconds correctly after Alejandro Marquez pointed it out, so Alejandro and I had to re-write the timer using a different implementation. 
       * faced problems with testing timer and exporting timer.js to timer.test.js
       * also worked on documentation part of pipeline which had a lot of problems
+      * Screenshots of the timer running in different states: ![timer-work](retrospective-images/Timer-workcountdown.png) ![timer-break](retrospective-images/Timer-breakcountdown.png)
   * Planning Sprint 3 [(board found here)](https://github.com/nidhigiridhar/cse110-w21-group35/projects/3)
     * fixing the inaccurate timer - Nidhi, Alejandro Malanche
     * figure out the automation of the timer - Nidhi, Alejandro Malanche
