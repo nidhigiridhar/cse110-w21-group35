@@ -10,9 +10,9 @@
   --clr-accent-pomo: #032e77c9;
   --clr-accent-short: #923201;
   --clr-accent-long: #01795f;
-  --clr-circle-pomo: #005effc9;
-  --clr-circle-short: #c94300;
-  --clr-circle-long: #00c79c;
+  --clr-circle-pomo: #0084ff;
+  --clr-circle-short: #ff7300;
+  --clr-circle-long: #03e6b4;
   --clr-dark: #424242;
   --clr-gray: #a8a8a8;
   --clr-faded-black: rgba(0,0,0,0.4);
@@ -94,7 +94,6 @@ b {
   padding-top: 1px;
   padding-right: 1px;
   /* border: black 3px solid; */
-
 }
 #streak-counter {
   display : block;
@@ -118,6 +117,7 @@ b {
   right: 30px;
   /* border: black 3px solid; */
 }
+
 /******** break reminders ********/
 #break-reminder {
   display : block;
@@ -137,20 +137,25 @@ b {
   background-color: var(--clr-light);
   border-radius: 50%;
   border: 3px solid;
+  /* border-color: var(--clr-light); */
   height: 30px;
   width: 30px;
   display: flex;
   align-items: center;
   justify-content:center;
+  box-shadow: 3px 3px var(--clr-dark);
 }
 .circle.pomo {
   border-color: var(--clr-circle-pomo);
+  /* background-color: var(--clr-circle-pomo); */
 }
 .circle.short {
   border-color: var(--clr-circle-short);
+  /* background-color: var(--clr-circle-short); */
 }
 .circle.long {
   border-color: var(--clr-circle-long);
+  /* background-color: var(--clr-circle-long); */
 }
 .circle.deactive {
   border-color: var(--clr-gray);
@@ -180,6 +185,7 @@ b {
 .progress-container[state="long"] {
   border-color: var(--clr-accent-long);
 }
+
 /******** Timer ********/
 #timer-container {
   /* border: black 3px solid; */
@@ -240,13 +246,8 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
+  height: 100px;
 }
-.button-enabled {
-
-}
-.button-disabled {
-
-} 
 
 /******** Instructions ********/
 button.help-button { 
