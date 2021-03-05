@@ -222,15 +222,19 @@ button.help-button {
   background-color: var(--clr-faded-black);
 }
 .modal-content {
-  background-color: var(--clr-base-pomo);
+  background-color: var(--clr-light);
   font-family: var(--ff-secondary);
   font-size: 20px;
   text-align: center;
   padding: 20px;
   margin: auto;
-  border: var(--clr-accent-pomo) 10px solid;
+  border: var(--clr-dark) 10px solid;
   border-radius: 15px;
   width: 80%;
+}
+#closeModal {
+  float: left;
+  font-size: 50px;
 }
 
 /******** Settings ********/
@@ -260,15 +264,15 @@ button.settings {
   background-color: var(--clr-faded-black);
 }
 .settings-content {
-  background-color: var(--clr-base-pomo);
+  background-color: var(--clr-light);
   font-family: var(--ff-secondary);
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   padding: 20px;
   margin: auto;
-  border: var(--clr-accent-pomo) 10px solid;
+  border: var(--clr-dark) 10px solid;
   border-radius: 15px;
-  width: 40%;
+  width: 30%;
 }
 #formEnabler {
   border: 0;
@@ -280,6 +284,7 @@ select{
 }
 #closeSettings {
   float: left;
+  font-size: 40px;
 }
 
 

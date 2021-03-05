@@ -8,8 +8,7 @@
 </head>
 <header>
     <div id="break-reminder"></div>
-    <div id="reminder">
-        <body onload="breakReminders()"></body></div>   <!-- ensures divs are hidden on init load-->
+    <div id="reminder" onload="breakReminders()"></div>   <!-- ensures divs are hidden on init load-->
  
     <div id="counter-container">
         <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
@@ -56,7 +55,7 @@
             <form id='time-limits'>
                 <div style="display:none">Wait until the end of your next break to change the times!</div>
                 <fieldset id="formEnabler">
-                    <label id="workLabel">Select length Work Session</label> 
+                    <label id="workLabel">Select length for Work Session</label> 
                     <select name="workTime" id="workTime">
                         <option value="twentyFive" selected>25</option>
                         <option value="thirty">30</option>
@@ -101,16 +100,17 @@
     <script src="./notifications.js"></script>
     <script src="./color-change.js"></script>
     <script src="./help.js"></script>
+    <script src="./breakReminder.js"></script>
     <script>
         document.getElementById("formEnabler").addEventListener("change", setCustomTime);
         document.getElementById("startButton").addEventListener("click", onStart);
         document.getElementById("resetButton").addEventListener("click", onReset);
+        document.addEventListener("keydown", keyboardShortcut);
         document.getElementById("helpButton").addEventListener("click", revealHelp);
         document.getElementById("closeModal").addEventListener("click", hideHelp);
         document.getElementById("settingsButton").addEventListener("click", revealSettings);
         document.getElementById("closeSettings").addEventListener("click", hideSettings);
     </script>
-    <script src="./breakReminder.js"></script>
 </body>
 </html>
 <!---->

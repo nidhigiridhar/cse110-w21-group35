@@ -4,19 +4,54 @@
 
 //import { colorChange } from './color-change.js';
 
-var POMO_MINS = 25;
-var SHORT_MINS = 5; 
-var LONG_MINS = 15;
-const WORK_STATE = "Work State", SHORT_STATE = "Short Break State", 
+let 
+    /** @type {number} **/ 
+    POMO_MINS = 25, 
+    /** @type {number} **/ 
+    SHORT_MINS = 5, 
+    /** @type {number} **/ 
+    LONG_MINS = 15;
+
+const 
+    /** @constant @type {string} **/ 
+    WORK_STATE = "Work State", 
+    /** @constant @type {string} **/ 
+    SHORT_STATE = "Short Break State", 
+    /** @constant @type {string} **/ 
     LONG_STATE = "Long Break State";
 
-const MS = 1000, NUM_SEC = 60;
+const 
+    /** @constant @type {number} */
+    MS = 1000;
+    /** @constant @type {number} **/ 
+    NUM_SEC = 60;
 
-const STATE_MOD = 2, LONG_MOD = 4;
+const 
+    /** @constant @type {number} **/ 
+    STATE_MOD = 2,
+    /** @constant @type {string} **/ 
+    LONG_MOD = 4;
 
-var timerId; // stores the setInterval
+/** 
+ * Stores the set interval
+ * @type {number} 
+ */
+let timerId;
 
-// timer object
+/**
+ * A timer
+ * @typedef {object} Timer
+ * @property {object} timerState            - The timerState values for the timer
+ * @property {number} timerState.pomoMin    - The duration of one pomo (in minutes)
+ * @property {number} timerState.shortBrk   - The duration of one short break (in minutes)
+ * @property {number} timerState.longBrk    - The duration of one long break (in minutes)
+ * @property {object} counter               - The counter values for the timer
+ * @property {number} counter.stateCtr      - The number states the timer has cycled through
+ * @property {number} counter.streak        - The number of pomos completed in a row without clicking reset
+ * @property {number} counter.totalPomos    - The total number of pomos completed overall
+ * @property {string} currState             - The current state of timer displayed to the user
+ * @property {number} currDuration          - The total number of seconds the timer should run
+ */
 let timer = {
     timerState: {
         pomoMin: POMO_MINS,
@@ -24,19 +59,18 @@ let timer = {
         longBrk: LONG_MINS
     },
     counter: {
-        stateCtr: 0, // increments after each state is completed
-        streak: 0, // increments after work state is completed, gets reset 
-                   // when reset button is pressed
-        totalPomos: 0 // increments after work state is completed
+        stateCtr: 0,
+        streak: 0,
+        totalPomos: 0
     },
     currState: WORK_STATE,
     currDuration: POMO_MINS * NUM_SEC,
 };
 
 /**
- * Function name: checkState
- * Description: Checks what state the user is currently in. The display and the
- * timer duration are updated accordingly
+ * @name checkState
+ * @function
+ * @description Checks the current state and updates the timer display and duration accordingly
  */
 function checkState() {
 
@@ -75,9 +109,9 @@ function checkState() {
 }
 
 /**
- * Function name: updateState
- * Description: updates the state on the display to reflect the next state
- * after the timer ends for the current session. 
+ * @name updateState
+ * @function
+ * @description Updates the state on display after the timer for the current state ends
  */
 function updateState() {
     // if current state is work, next state is one of the breaks
@@ -113,8 +147,10 @@ function updateState() {
 }
 
 /**
- * Function name: updateTimer
- * Description: Decrements the timer down to 0
+ * @name updateTimer
+ * @function
+ * @description Decrements the timer down to 0
+ * @param {number} duration The total number of seconds the timer should run
  */
 function updateTimer(duration) {
     var start = Date.now(),
@@ -196,6 +232,7 @@ function setCustomTime() {
 
 /**
  * @name onStart
+ * @function
  * @description Begins the timer when the start button is clicked
  */
 function onStart() {
@@ -212,7 +249,8 @@ function onStart() {
 
 /**
  * @name onReset
- * @description Resets the timer to its original state when the reset button is clicked
+ * @function
+ * @description Resets the timer to the beginning of its current state when the reset button is clicked
  */
 function onReset() {
     document.querySelector("#formEnabler").removeAttribute('disabled');
@@ -250,24 +288,23 @@ function hideSettings(event) {
     document.getElementById("closeSettings").disabled = true; 
 }
 
-// event handler for pressing space bar as a keyboard shortcut to start and reset timer
-// add keydown event listener
-document.addEventListener("keydown", function(event) {
-   // Check space is pressed
+/** @name keyboardShortcut
+ * @function
+ * @description Starts and resets timer when the space bar is clicked
+ * @param {*} event The keyboard button that is clicked
+ */
+function keyboardShortcut(event) {
     if(event.code === 'Space' ) {
-    //If timer is static --> start it
+        // if the timer is static --> start timer
         if(document.getElementById("startButton").disabled == false ) {
             onStart();
         }
-        //If timer is running --> reset it
+        // if timer is running --> reset timer
         else {
             onReset();
         }
-   }
-});
-
-
-
+    }
+}
 
 // export functions and variables for testing
 var module = module || {};
