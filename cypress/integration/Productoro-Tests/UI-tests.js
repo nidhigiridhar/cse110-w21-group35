@@ -1,3 +1,63 @@
+describe('Break Reminders Tests', () => {
+  beforeEach(() => {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
+  });
+
+  it('Break Reminders: Check Disabled After Pressing Help', () => {
+    cy.get('#resetButton').then(($el) => {
+      expect($el).to.have.attr('disabled');
+    })
+  });
+
+  it('Break Reminders: Check Enabled After Pomo', () => {
+    cy.get('#startButton').click();
+
+    cy.wait(60*1000);
+    cy.get('#startButton').click();
+
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#break-reminder').should('not.be.empty');
+
+    cy.get('#reminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#reminder').should('not.be.empty');
+  });
+
+  it('Break Reminders: Check Disabled at New Pomo', () => {
+    cy.get('#startButton').click();
+
+    //finish pomo
+    cy.wait(60*1000);
+    cy.get('#startButton').click();
+
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#break-reminder').should('not.be.empty');
+
+    cy.get('#reminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#reminder').should('not.be.empty');
+
+    //finish break
+    cy.wait(60*1000);
+    //start new pomo
+    cy.get('#startButton').click();
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#break-reminder').should('not.be.empty');
+
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
+});
+
 //Inital No Actvity Tests
 describe('Fresh Entry, No Activity Tests', () => {
   beforeEach(() => {
@@ -41,6 +101,13 @@ describe('Fresh Entry, No Activity Tests', () => {
   it('Background Color: Blue', () => {
     cy.get('body').then(($el) => {
       expect($el).to.have.attr('state', 'pomo');
+    });
+  });
+
+  it('Break Reminders Disabled Onload', () => {
+    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
     });
   });
 });
@@ -98,10 +165,20 @@ describe('Start Button Tests', () => {
       });
     });
   
-    it('Start Button Clickd: Check Background Color Unaffected', () => {
+    it('Start Button Clicked: Check Background Color Unaffected', () => {
       cy.get('#startButton').click();
       cy.get('body').then(($el) => {
         expect($el).to.have.attr('state', 'pomo');
+      });
+    });
+
+    it('Start Button Clicked: Check Break Reminders Still Disabled', () => {
+      cy.get('#startButton').click();
+      cy.get('#break-reminder').then(($el) => {
+        expect($el).to.be.hidden;
+      });
+      cy.get('#reminder').then(($el) => {
+        expect($el).to.be.hidden;
       });
     });
 
@@ -178,6 +255,25 @@ describe('Reset Button Tests', () => {
       expect($el).to.have.attr('state', 'pomo');
     });
   });
+
+  it('Reset Button Clicked: Check Break Reminders still Disabled', () => {
+    cy.get('#startButton').click();
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+
+    cy.wait(1000*3);
+    cy.get('#resetButton').click();
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
 });
 
 
@@ -250,6 +346,17 @@ describe('Help Button Tests', () => {
     cy.get('#streak').should('have.text','0');
     cy.get('#total').should('have.text','0');
   });
+
+  it('Help Button Clicked: Check Break Reminders Still Disabled', () => {
+    cy.get('#helpButton').click();
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
+
 });
 
 
@@ -310,6 +417,25 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
       expect($el).to.have.attr('state', 'pomo');
     });
   });
+
+  it('Space Used as Start Button: Check Break Reminders Still Disabled', () => {
+    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+
+    cy.wait(1000*3);
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
+
 });
 
 
@@ -387,6 +513,26 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
       expect($el).to.have.attr('state', 'pomo');
     });
   });
+
+  it('Space Used as Reset Button: Check Break Reminders still Disabled', () => {
+    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+
+    cy.wait(1000*3);
+    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('#break-reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
+
 });
 
 
