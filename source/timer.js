@@ -6,11 +6,11 @@
 
 const 
     /** @constant @type {number} **/ 
-    POMO_MINS = 25, 
+    POMO_MINS = 1, 
     /** @constant @type {number} **/ 
-    SHORT_MINS = 5, 
+    SHORT_MINS = 1, 
     /** @constant @type {number} **/ 
-    LONG_MINS = 15;
+    LONG_MINS = 1;
 
 const 
     /** @constant @type {string} **/ 
@@ -141,7 +141,8 @@ function updateState() {
         document.getElementById("resetButton").disabled = true; 
     }
     // change screen color for different states
-    colorChange();     
+    colorChange();
+    progressBar();     
 }
 
 /**

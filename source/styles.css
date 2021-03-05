@@ -10,6 +10,9 @@
   --clr-accent-pomo: #032e77c9;
   --clr-accent-short: #923201;
   --clr-accent-long: #01795f;
+  --clr-circle-pomo: #005effc9;
+  --clr-circle-short: #c94300;
+  --clr-circle-long: #00c79c;
   --clr-dark: #424242;
   --clr-gray: #a8a8a8;
   --clr-faded-black: rgba(0,0,0,0.4);
@@ -32,6 +35,7 @@
 
 /******** General Styles ********/
 body {
+  background-color: var(--clr-base-pomo);
   color: var(--clr-dark);
   display: flexbox;
   transition-property: background-color;
@@ -126,6 +130,55 @@ b {
   position: relative;
   text-align: center;
   padding-top: 0px;
+}
+
+/******** Progress Bar ********/
+.circle {
+  background-color: var(--clr-light);
+  border-radius: 50%;
+  border: 3px solid;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.circle.pomo {
+  border-color: var(--clr-circle-pomo);
+}
+.circle.short {
+  border-color: var(--clr-circle-short);
+}
+.circle.long {
+  border-color: var(--clr-circle-long);
+}
+.circle.deactive {
+  border-color: var(--clr-gray);
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: auto;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 380px;
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+  border: 3px solid var(--clr-accent-pomo);
+  border-radius: 20px;
+}
+.progress-container[state="pomo"] {
+  border-color: var(--clr-accent-pomo);
+}
+.progress-container[state="short"] {
+  border-color: var(--clr-accent-short);
+}
+.progress-container[state="long"] {
+  border-color: var(--clr-accent-long);
 }
 /******** Timer ********/
 #timer-container {
