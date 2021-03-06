@@ -255,6 +255,7 @@ function onStart() {
  */
 function onReset() {
     document.querySelector("#formEnabler").removeAttribute('disabled');
+    document.getElementById("warning").style.display = 'none'; 
     document.getElementById("resetButton").disabled = true;
     document.getElementById("startButton").disabled = false;
     timer.counter.streak = 0;
