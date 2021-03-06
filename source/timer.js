@@ -239,6 +239,7 @@ function onStart() {
     console.log(POMO_MINS);
     getNotificationStatus();
     document.querySelector("#formEnabler").disabled = 'disabled';
+    document.getElementById("warning").style.display = 'block'; 
     // disable start button after pressed
     document.getElementById("startButton").disabled = true; 
     //enable reset button
