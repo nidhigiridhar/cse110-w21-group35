@@ -218,13 +218,30 @@ function updateTimer(duration) {
  */
 function setCustomTime() {
     let wTime = document.getElementById("workTime");
+    let sbTime = document.getElementById("shortBreakTime");
+    let lbTime = document.getElementById("longBreakTime");
+    let warning = document.getElementById("warning");
+
+    // check if the pomo duration is longer than the break durations
+    if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
+        Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
+            // enable a warning stating invalid inputs
+            warning.innerText = 'Work Periods must be greater than Break Periods';
+            warning.style.display = 'block';
+
+            // keep the drop down values the same as the current timer settings
+            wTime.value = POMO_MINS.toString();
+            sbTime.value = SHORT_MINS.toString();
+            lbTime.value = LONG_MINS.toString();
+            return;
+    }
+    // otherwise do not display a warning
+    warning.style.display = 'none';
+
+    // set the new time preferences
     POMO_MINS = wTime.options[wTime.selectedIndex].text;
     document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
-
-    let sbTime = document.getElementById("shortBreakTime");
     SHORT_MINS = sbTime.options[sbTime.selectedIndex].text;
-
-    let lbTime = document.getElementById("longBreakTime");
     LONG_MINS = lbTime.options[lbTime.selectedIndex].text;
 
     
@@ -239,6 +256,8 @@ function onStart() {
     console.log(POMO_MINS);
     getNotificationStatus();
     document.querySelector("#formEnabler").disabled = 'disabled';
+    // enable a warning if the user tries changing the time limits during a pomo
+    document.getElementById("warning").innerText = 'Wait until the end of your next break to change the times!';
     document.getElementById("warning").style.display = 'block'; 
     // disable start button after pressed
     document.getElementById("startButton").disabled = true; 
