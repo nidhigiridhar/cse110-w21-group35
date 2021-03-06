@@ -196,8 +196,10 @@ function updateTimer(duration) {
 
             // transition to the next state
             updateState();
-            showNotif(timer.currState);
-            playSound();
+            if(document.getElementById("notifToggle").checked) {
+                showNotif(timer.currState);
+                playSound();
+            }
         }
 
         if (diff <= 0) {
