@@ -251,6 +251,18 @@ button.settings {
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
 }
+
+#cog { 
+  position: relative;
+  left: 15%;
+  top: 0%;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+}
+
 .settingsModal {
   display: none;
   position: fixed;
