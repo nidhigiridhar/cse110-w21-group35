@@ -19,11 +19,4 @@ jobs:
           output_dir: ./docs
           config_file: conf.json
           template: minami
-      
-      - name: Deploy
-        run: |
-          npm install --save-dev jsdoc
-          ./node_modules/.bin/jsdoc ./source/timer.js ./docs
-          ./node_modules/.bin/jsdoc ./source/notifications.js ./docs
-          ./node_modules/.bin/jsdoc ./source/color-change.js ./docs
-          ./node_modules/.bin/jsdoc ./source/breakReminder.js ./docs
+          front_page: docs.md
