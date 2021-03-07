@@ -1,16 +1,18 @@
-const {showNotif} = require("./notifications");
+import { showNotif } from "./notifications";
 
-test("Check notifications is long break", () => {
-    let body = showNotif("Long Break State");
-    expect(body).toBe("You have completed a pomo! Your long break begins now :)");  
-});
+describe("Test notification body is correct", () => {
+    test("when a long break begins", () => {
+        let body = showNotif("Long Break State");
+        expect(body).toBe("You have completed a pomo! Your long break begins now :)");  
+    }),
 
-test("Check notification is short break", () => {
-    let body = showNotif("Short Break State");
-    expect(body).toBe("You have completed a pomo! Your short break begins now :)");
-});
+    test("when a short break begins", () => {
+        let body = showNotif("Short Break State");
+        expect(body).toBe("You have completed a pomo! Your short break begins now :)");
+    }), 
 
-test("Check notification is pomo", () => {
-    let body = showNotif("Work State");
-    expect(body).toBe("Your break has ended. A new pomo begins now :)");
+    test("when a break ends", () => {
+        let body = showNotif("Work State");
+        expect(body).toBe("Your break has ended. A new pomo begins now :)");
+    });
 });

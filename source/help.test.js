@@ -1,11 +1,5 @@
-/**
- * modal opens when button is clicked
- * modal closes when x is clicked
- * modal closes when anywhere outside of modal of clicked
- * modal does NOT close when the modal is clicked
- * modal does not open when window is clicked (only when help button is clicked)
- */
-const {revealHelp, hideHelp } = require("./help.js");
+import { revealHelp, hideHelp } from "./help.js";
+
 describe("Test when nothing is clicked", () => {
     test("help button is enabled", () => {
         document.body.innerHTML = `
@@ -48,7 +42,7 @@ describe("Test when nothing is clicked", () => {
                 </div>
             </div>
         `;
-        revealHelp;
+        revealHelp();
         const helpBtn = document.getElementById("helpButton");
         let helpBtnDisabled = helpBtn.disabled;
         expect(helpBtnDisabled).toBeTruthy;
@@ -63,7 +57,7 @@ describe("Test when nothing is clicked", () => {
                 </div>
             </div>
         `;
-        revealHelp;
+        revealHelp();
         const closeBtn = document.getElementById("closeModal");
         let closeBtnDisabled = closeBtn.disabled;
         expect(closeBtnDisabled).toBeFalsy;

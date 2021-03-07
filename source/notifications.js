@@ -1,7 +1,6 @@
 //The alarm we will use for the auditorial notifications of transitions
 var alarm = new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg');
 
-
 /**
  * @name getAlarm
  * @function

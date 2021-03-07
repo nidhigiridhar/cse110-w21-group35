@@ -1,7 +1,3 @@
-//const { getNotificationStatus } = require("./notifications.js");
-
-//const { showNotif } = require("./notifications");
-
 import { colorChange } from './color-change.js';
 import { showNotif, getNotificationStatus, playSound, getAlarm } from "./notifications.js";
 import { breakReminders } from "./breakReminder.js";
