@@ -194,8 +194,8 @@ function updateTimer(duration) {
 
             // transition to the next state
             updateState();
+            showNotif(timer.currState);
             if(document.getElementById("notifToggle").checked) {
-                showNotif(timer.currState);
                 playSound();
             }
         }
