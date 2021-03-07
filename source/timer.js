@@ -4,13 +4,13 @@
 
 //import { colorChange } from './color-change.js';
 
-const 
-    /** @constant @type {number} **/ 
-    POMO_MINS = 1, 
-    /** @constant @type {number} **/ 
-    SHORT_MINS = 1, 
-    /** @constant @type {number} **/ 
-    LONG_MINS = 1;
+let 
+    /** @type {number} **/ 
+    POMO_MINS = 25, 
+    /** @type {number} **/ 
+    SHORT_MINS = 5, 
+    /** @type {number} **/ 
+    LONG_MINS = 15;
 
 const 
     /** @constant @type {string} **/ 
@@ -21,6 +21,8 @@ const
     LONG_STATE = "Long Break State";
 
 const 
+    /** @constant @type {number} */
+    MS = 1000,
     /** @constant @type {number} **/ 
     NUM_SEC = 60;
 
@@ -159,18 +161,18 @@ function updateTimer(duration) {
     function timerCountdown() {
         // get the number of seconds that have elapsed since updateTimer() 
         // was called
-        diff = duration - (((Date.now() - start) / 1000) | 0);
+        diff = duration - (((Date.now() - start) / MS) | 0);
 
         // does the same job as parseInt truncates the float
-        minutes = (diff / 60) | 0;
-        seconds = (diff % 60) | 0;
+        minutes = (diff / NUM_SEC) | 0;
+        seconds = (diff % NUM_SEC) | 0;
 
         // add extra 0 to minutes/seconds if they are less than 10
-        minutes = minutes < 10 ? "0" + minutes : minutes;
+       // minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         //console.log(minutes + ':' + seconds);
-        document.getElementById("timer-display").innerHTML = 
+        document.getElementById("timer-display").innerText= 
             `${minutes}:${seconds}`;
 
         // stop timer when minutes and seconds reach 0
@@ -180,12 +182,14 @@ function updateTimer(duration) {
             // if curr state is work, update the streak and total pomo timers
             if(timer.currState === WORK_STATE){                
                 timer.counter.streak++;
-                document.getElementById("streak").innerHTML = 
+                document.getElementById("streak").innerText = 
                     timer.counter.streak;
         
                 timer.counter.totalPomos++;
-                document.getElementById("total").innerHTML = 
+                document.getElementById("total").innerText = 
                     timer.counter.totalPomos;
+            } else {
+                document.querySelector("#formEnabler").removeAttribute('disabled');
             }
             // enable start button after timer ends
             document.getElementById("startButton").disabled = false; 
@@ -193,8 +197,10 @@ function updateTimer(duration) {
 
             // transition to the next state
             updateState();
-            showNotif(timer.currState);
-            playSound();
+            if(document.getElementById("notifToggle").checked) {
+                showNotif(timer.currState);
+                playSound();
+            }
         }
 
         if (diff <= 0) {
@@ -210,12 +216,52 @@ function updateTimer(duration) {
 }
 
 /**
+ * @name setCustomTime
+ * @description Changes the times for each session based on user input
+ */
+function setCustomTime() {
+    let wTime = document.getElementById("workTime");
+    let sbTime = document.getElementById("shortBreakTime");
+    let lbTime = document.getElementById("longBreakTime");
+    let warning = document.getElementById("warning");
+
+    // check if the pomo duration is longer than the break durations
+    if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
+        Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
+            // enable a warning stating invalid inputs
+            warning.innerText = 'Work Periods must be greater than Break Periods';
+            warning.style.display = 'block';
+
+            // keep the drop down values the same as the current timer settings
+            wTime.value = POMO_MINS.toString();
+            sbTime.value = SHORT_MINS.toString();
+            lbTime.value = LONG_MINS.toString();
+            return;
+    }
+    // otherwise do not display a warning
+    warning.style.display = 'none';
+
+    // set the new time preferences
+    POMO_MINS = wTime.options[wTime.selectedIndex].text;
+    document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
+    SHORT_MINS = sbTime.options[sbTime.selectedIndex].text;
+    LONG_MINS = lbTime.options[lbTime.selectedIndex].text;
+
+    
+}
+
+/**
  * @name onStart
  * @function
  * @description Begins the timer when the start button is clicked
  */
 function onStart() {
+    console.log(POMO_MINS);
     getNotificationStatus();
+    document.querySelector("#formEnabler").disabled = 'disabled';
+    // enable a warning if the user tries changing the time limits during a pomo
+    document.getElementById("warning").innerText = 'Wait until the end of your next break to change the times!';
+    document.getElementById("warning").style.display = 'block'; 
     // disable start button after pressed
     document.getElementById("startButton").disabled = true; 
     //enable reset button
@@ -232,11 +278,36 @@ function onStart() {
 function onReset() {
     document.getElementById("resetButton").disabled = true;
     document.getElementById("startButton").disabled = false;
+    document.getElementById("formEnabler").removeAttribute('disabled');
     timer.counter.streak = 0;
     document.getElementById("streak").innerHTML = 
                     timer.counter.streak;
     clearInterval(timerId);
     checkState();
+}
+
+/**
+ * @name revealSettings
+ * @function
+ * @description Opens the settings modal when the settings button is clicked
+ */
+function revealSettings() {
+    let settingsModal = document.getElementById("settingsModal");
+    settingsModal.style.display = "block";
+    document.getElementById("settingsButton").disabled = true; 
+    document.getElementById("closeSettings").disabled = false; 
+}
+
+/**
+ * @name hideSettings
+ * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
+ * @param {*} event The state of the settings modal (open or closed)
+ */
+function hideSettings(event) {
+    let settingsModal = document.getElementById("settingsModal");
+    settingsModal.style.display = "none";
+    document.getElementById("settingsButton").disabled = false; 
+    document.getElementById("closeSettings").disabled = true; 
 }
 
 /**
@@ -246,14 +317,16 @@ function onReset() {
  * @param {*} event The keyboard button that is clicked
  */
 function keyboardShortcut(event) {
-    if(event.code === 'Space' ) {
-        // if the timer is static --> start timer
-        if(document.getElementById("startButton").disabled == false ) {
-            onStart();
-        }
-        // if timer is running --> reset timer
-        else {
-            onReset();
+    if (document.getElementById('keyboardToggle').checked){
+        if(event.code === 'Space' && timer.currState === WORK_STATE) {
+            // if the timer is static --> start timer
+            if(document.getElementById("startButton").disabled == false ) {
+                onStart();
+            }
+            // if timer is running --> reset timer
+            else {
+                onReset();
+            }
         }
     }
 }
