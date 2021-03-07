@@ -5,6 +5,7 @@
 import { colorChange } from './color-change.js';
 import { showNotif, getNotificationStatus, playSound, getAlarm } from "./notifications.js";
 import { breakReminders } from "./breakReminder.js";
+import { progressBar } from "./progress-bar.js";
 
 let 
     /** @type {number} **/ 
