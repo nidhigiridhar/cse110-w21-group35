@@ -4,7 +4,6 @@
 
 //import { colorChange } from './color-change.js';
 
-<<<<<<< HEAD
 let 
     /** @type {number} **/ 
     POMO_MINS = 25, 
@@ -12,15 +11,6 @@ let
     SHORT_MINS = 5, 
     /** @type {number} **/ 
     LONG_MINS = 15;
-=======
-const 
-    /** @constant @type {number} **/ 
-    POMO_MINS = 1, 
-    /** @constant @type {number} **/ 
-    SHORT_MINS = 1, 
-    /** @constant @type {number} **/ 
-    LONG_MINS = 1;
->>>>>>> sprint3
 
 const 
     /** @constant @type {string} **/ 
