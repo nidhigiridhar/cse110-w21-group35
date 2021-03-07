@@ -26,5 +26,5 @@ function reset() {
 }
 
 var module = module || {};
-module.exports = { progressBar };
+export { progressBar };
 

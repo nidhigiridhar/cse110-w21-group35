@@ -1,6 +1,4 @@
-const {onStart, onReset, checkState, updateState, timer} = require("./timer");
-//const {colorChange} = require("./color-change");
-//const {getNotificationStatus} = require("./notifications");
+import { onStart, onReset, checkState, updateState, timer } from "./timer";
 
 describe("Test onStart function", () => {
     test("updates state to work state", () => {
@@ -9,6 +7,46 @@ describe("Test onStart function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <div id="timer-display" state="pomo">25:00</div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.stateCtr = 0;
         onStart();
@@ -22,6 +60,46 @@ describe("Test onStart function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <div id="timer-display" state="pomo">25:00</div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onStart();
         let disabled = document.getElementById("startButton").disabled;
@@ -34,6 +112,46 @@ describe("Test onStart function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <div id="timer-display" state="pomo">25:00</div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+            </fieldset> 
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onStart();
         let disabled = document.getElementById("resetButton").disabled;
@@ -49,6 +167,46 @@ describe("Test onReset function", () => {
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Work State</h2>
             <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.currState = "Work State";
         onReset();
@@ -65,6 +223,46 @@ describe("Test onReset function", () => {
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Work State</h2>
             <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onReset();
         let disabled = document.getElementById("startButton").disabled;
@@ -78,6 +276,46 @@ describe("Test onReset function", () => {
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <h2 id="state">Work State</h2>
             <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onReset();
         let disabled = document.getElementById("resetButton").disabled;
@@ -91,6 +329,18 @@ describe("Test checkState function", () => {
             <div id="total-counter">Total Pomos Completed: <span id="total">0</span></div>
             <h2 id="state">Work State</h2>
             <div id = "timer-display">25:00</div>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 0;
         timer.counter.stateCtr = 0;
@@ -106,6 +356,18 @@ describe("Test checkState function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <div id = "timer-display">25:00</div>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 1;
         timer.counter.stateCtr = 1;
@@ -123,6 +385,18 @@ describe("Test checkState function", () => {
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
             <div id = "timer-display">25:00</div>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 4;
         timer.counter.stateCtr = 7;
@@ -165,6 +439,18 @@ describe("Test updateState function", () => {
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.currState = "Short Break State";
         updateState();
@@ -183,6 +469,18 @@ describe("Test updateState function", () => {
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.currState = "Long Break State";
         updateState();
@@ -201,6 +499,18 @@ describe("Test updateState function", () => {
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 2;
         timer.currState = "Work State";
@@ -218,6 +528,18 @@ describe("Test updateState function", () => {
             <div id = "timer-display">25:00</div>
             <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 2;
         timer.currState = "Work State";

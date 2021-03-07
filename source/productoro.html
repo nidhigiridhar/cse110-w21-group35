@@ -59,7 +59,66 @@
             
         </div>
     </div>
-    <div id="instructions">
+    
+
+    <div id="settingContainer">
+        <button type=button class="settings" id="settingsButton"><img id="cog" src="img/Settings_icon.png"/></button>
+        <div id="settingsModal" class="modal">
+            <div class="settings-content">
+            <span id="closeSettings">&times;</span disabled>
+            <form id='time-limits'>
+                <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+                <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset>  
+                <div id="notifReminder"> Remember to have system notifications enabled!</div>
+
+                <ul class="switches">
+                    <li>
+                      <input type="checkbox" id="notifToggle" checked>
+                      <label for="notifToggle">
+                        <span>Audio Alarm</span>
+                        <span></span>
+                      </label>
+                    </li>
+                    <br>
+                    <li>
+                        <input type="checkbox" id="keyboardToggle" checked>
+                        <label for="keyboardToggle">
+                          <span>Keyboard Shortcuts</span>
+                          <span></span>
+                        </label>
+                      </li>
+                </ul>
+            </form>    
+            </div>
+            
+        </div>
+    </div>
         
     </div>
     <footer>
@@ -68,19 +127,24 @@
     </footer>
 
     <!-- JS files -->
-    <script src="./timer.js"></script>
-    <script src="./notifications.js"></script>
-    <script src="./color-change.js"></script>
-    <script src="./help.js"></script>
-    <script src="./breakReminder.js"></script>
-    <script src="./progress-bar.js"></script>
-    <script>
+    <script type="module" src="./timer.js"></script>
+    <script type="module" src="./notifications.js"></script>
+    <script type="module" src="./color-change.js"></script>
+    <script type="module" src="./help.js"></script>
+    <script type="module" src="./breakReminder.js"></script>
+    <script type="module" src="./progress-bar.js"></script>
+    <script type="module">
+        import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from "./timer.js";
+        import {revealHelp, hideHelp} from "./help.js";
+        import {showNotif, getNotificationStatus, playSound, getAlarm} from "./notifications.js"
+        document.getElementById("formEnabler").addEventListener("change", setCustomTime);
         document.getElementById("startButton").addEventListener("click", onStart);
         document.getElementById("resetButton").addEventListener("click", onReset);
         document.addEventListener("keydown", keyboardShortcut);
         document.getElementById("helpButton").addEventListener("click", revealHelp);
         document.getElementById("closeModal").addEventListener("click", hideHelp);
-        window.onclick = hideHelp;
+        document.getElementById("settingsButton").addEventListener("click", revealSettings);
+        document.getElementById("closeSettings").addEventListener("click", hideSettings);
     </script>
 </body>
 </html>
