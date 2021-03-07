@@ -19,7 +19,9 @@ function revealHelp() {
 function hideHelp(event) {
     helpModal = document.getElementById("helpModal");
     closeModal = document.getElementById("closeModal");
-    helpModal.style.display = "none";
+    if (event.target == helpModal || event.target == closeModal) {
+        helpModal.style.display = "none";
+    }
     document.getElementById("helpButton").disabled = false; 
     document.getElementById("closeModal").disabled = true; 
 }
