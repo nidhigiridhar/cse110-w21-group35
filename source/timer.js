@@ -168,7 +168,7 @@ function updateTimer(duration) {
         seconds = (diff % NUM_SEC) | 0;
 
         // add extra 0 to minutes/seconds if they are less than 10
-       // minutes = minutes < 10 ? "0" + minutes : minutes;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         //console.log(minutes + ':' + seconds);
@@ -225,25 +225,27 @@ function setCustomTime() {
     let lbTime = document.getElementById("longBreakTime");
     let warning = document.getElementById("warning");
 
-    // check if the pomo duration is longer than the break durations
-    if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
-        Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
-            // enable a warning stating invalid inputs
-            warning.innerText = 'Work Periods must be greater than Break Periods';
-            warning.style.display = 'block';
+    // // check if the pomo duration is longer than the break durations
+    // if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
+    //     Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
+    //         // enable a warning stating invalid inputs
+    //         warning.innerText = 'Work Periods must be greater than Break Periods';
+    //         warning.style.display = 'block';
 
-            // keep the drop down values the same as the current timer settings
-            wTime.value = POMO_MINS.toString();
-            sbTime.value = SHORT_MINS.toString();
-            lbTime.value = LONG_MINS.toString();
-            return;
-    }
-    // otherwise do not display a warning
-    warning.style.display = 'none';
+    //         // keep the drop down values the same as the current timer settings
+    //         wTime.value = POMO_MINS.toString();
+    //         sbTime.value = SHORT_MINS.toString();
+    //         lbTime.value = LONG_MINS.toString();
+    //         return;
+    // }
+    // // otherwise do not display a warning
+    // warning.style.display = 'none';
 
     // set the new time preferences
     POMO_MINS = wTime.options[wTime.selectedIndex].text;
     document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
+
+    
     SHORT_MINS = sbTime.options[sbTime.selectedIndex].text;
     LONG_MINS = lbTime.options[lbTime.selectedIndex].text;
 
@@ -318,14 +320,16 @@ function hideSettings(event) {
  */
 function keyboardShortcut(event) {
     if (document.getElementById('keyboardToggle').checked){
-        if(event.code === 'Space' && timer.currState === WORK_STATE) {
+        if(event.code === 'Space') {
             // if the timer is static --> start timer
             if(document.getElementById("startButton").disabled == false ) {
                 onStart();
             }
             // if timer is running --> reset timer
             else {
-                onReset();
+                if(timer.currState === WORK_STATE) {
+                    onReset();
+                }
             }
         }
     }
