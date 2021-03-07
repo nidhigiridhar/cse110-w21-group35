@@ -16,10 +16,9 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./source
-          output_dir: ./out
+          output_dir: ./docs
           config_file: conf.json
           template: minami
-          front_page: doc.md
       
       - name: Deploy
         run: |
