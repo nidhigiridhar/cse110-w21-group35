@@ -6,19 +6,49 @@
     <link rel="stylesheet" href="styles.css"></link>
     <title>Productoro</title>
 </head>
-<header>
-    <div id="break-reminder"></div>
-    <div id="reminder" onload="breakReminders()"></div>   <!-- ensures divs are hidden on init load-->
- 
+<header>  
     <div id="counter-container">
         <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
         <div id="total-counter"><b>Total Pomos Completed:</b> <span id="total">0</span></div>
         <h1 style="color:#464646;">Productoro</h1>
+        <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>   <!-- ensures divs are hidden on init load-->
     </div>
+    
+
 </header>
 <body state="pomo">
+<<<<<<< HEAD
+=======
+    <!-- <div class="container">
+        <div class="progress-container">
+            <div class="circle active pomo"></div>
+            <div class="circle active short"></div>
+            <div class="circle active pomo"></div>
+
+            <div class="circle active short"></div>
+            <div class="circle active pomo"></div>
+            <div class="circle active short"></div>
+            <div class="circle active pomo"></div>
+            <div class="circle active long"></div>
+        </div>
+    </div>         -->
+
+>>>>>>> sprint3
     <div id="timer-container">
         <h2 id="state">Work State</h2> <!-- mode name changes based on state of timer -->
+        <div class="container">
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+        </div>        
         <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
     </div>
     <div id="button-container"> <!-- container for start and reset buttons-->
@@ -120,6 +150,7 @@
     <script src="./color-change.js"></script>
     <script src="./help.js"></script>
     <script src="./breakReminder.js"></script>
+    <script src="./progress-bar.js"></script>
     <script>
         document.getElementById("formEnabler").addEventListener("change", setCustomTime);
         document.getElementById("startButton").addEventListener("click", onStart);
