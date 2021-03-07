@@ -3,7 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - sprint3
+      - CustomTimeLimits
 
 jobs:
   deploy:
@@ -20,3 +20,14 @@ jobs:
           config_file: conf.json
           template: minami
           front_page: doc.md
+
+      - name: Deploy
+        run: |
+          npm install --save-dev jsdoc
+          ./node_modules/.bin/jsdoc ./source/timer.js
+          ./node_modules/.bin/jsdoc ./source/notifications.js
+          ./node_modules/.bin/jsdoc ./source/help.js
+          ./node_modules/.bin/jsdoc ./source/color-change.js
+          ./node_modules/.bin/jsdoc ./source/breakReminder.js
+
+          
