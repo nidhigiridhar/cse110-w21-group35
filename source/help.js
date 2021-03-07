@@ -1,10 +1,11 @@
+
 /**
  * @name revealHelp
  * @function
  * @description Opens the help modal when the help button is clicked
  */
 function revealHelp() {
-    helpModal = document.getElementById("helpModal");
+    let helpModal = document.getElementById("helpModal");
     helpModal.style.display = "block";
     document.getElementById("helpButton").disabled = true; 
     document.getElementById("closeModal").disabled = false; 
@@ -17,8 +18,8 @@ function revealHelp() {
  * @param {*} event The state of the help modal (open or closed)
  */
 function hideHelp(event) {
-    helpModal = document.getElementById("helpModal");
-    closeModal = document.getElementById("closeModal");
+    let helpModal = document.getElementById("helpModal");
+    let closeModal = document.getElementById("closeModal");
     if (event.target == helpModal || event.target == closeModal) {
         helpModal.style.display = "none";
     }
@@ -28,4 +29,4 @@ function hideHelp(event) {
 
 // export functions and variables for testing
 var module = module || {};
-module.exports = { revealHelp, hideHelp }; 
+export { revealHelp, hideHelp }; 

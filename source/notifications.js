@@ -93,4 +93,5 @@ function getNotificationStatus(){
 }
 
 var module = module || {};
-module.exports = {showNotif, getNotificationStatus, playSound, getAlarm};
+//export default {showNotif, getNotificationStatus, playSound, getAlarm};
+export {showNotif, getNotificationStatus, playSound, getAlarm};

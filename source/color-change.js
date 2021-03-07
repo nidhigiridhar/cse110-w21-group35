@@ -1,3 +1,4 @@
+import {timer, WORK_STATE, SHORT_STATE, LONG_STATE} from "./timer.js";
 /**
  * @name colorChange
  * @function
@@ -32,4 +33,4 @@ function colorChange() {
 }
 
 var module = module || {};
-module.exports = { colorChange };
+export { colorChange };

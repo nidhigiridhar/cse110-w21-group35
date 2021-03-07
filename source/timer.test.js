@@ -1,4 +1,4 @@
-const {onStart, onReset, checkState, updateState, timer} = require("./timer");
+import { onStart, onReset, checkState, updateState, timer } from "./timer";
 //const {colorChange} = require("./color-change");
 //const {getNotificationStatus} = require("./notifications");
 

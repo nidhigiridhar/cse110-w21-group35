@@ -2,7 +2,9 @@
 
 //const { showNotif } = require("./notifications");
 
-//import { colorChange } from './color-change.js';
+import { colorChange } from './color-change.js';
+import { showNotif, getNotificationStatus, playSound, getAlarm } from "./notifications.js";
+import { breakReminders } from "./breakReminder.js";
 
 let 
     /** @type {number} **/ 
@@ -162,11 +164,9 @@ function updateTimer(duration) {
         // get the number of seconds that have elapsed since updateTimer() 
         // was called
         diff = duration - (((Date.now() - start) / MS) | 0);
-
         // does the same job as parseInt truncates the float
         minutes = (diff / NUM_SEC) | 0;
         seconds = (diff % NUM_SEC) | 0;
-
         // add extra 0 to minutes/seconds if they are less than 10
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -202,13 +202,12 @@ function updateTimer(duration) {
                 playSound();
             }
         }
-
         if (diff <= 0) {
             // add one second so that the count down starts at the full duration
             // example 05:00 not 04:59
             start = Date.now() + 1000;
         }
-    };
+    }
     // we don't want to wait a full second before the timer starts
     timerCountdown();
     // fire set interval often to give enough time to update
@@ -225,21 +224,21 @@ function setCustomTime() {
     let lbTime = document.getElementById("longBreakTime");
     let warning = document.getElementById("warning");
 
-    // // check if the pomo duration is longer than the break durations
-    // if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
-    //     Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
-    //         // enable a warning stating invalid inputs
-    //         warning.innerText = 'Work Periods must be greater than Break Periods';
-    //         warning.style.display = 'block';
+    // check if the pomo duration is longer than the break durations
+    if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
+        Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
+            // enable a warning stating invalid inputs
+            warning.innerText = 'Work Periods must be greater than Break Periods';
+            warning.style.display = 'block';
 
-    //         // keep the drop down values the same as the current timer settings
-    //         wTime.value = POMO_MINS.toString();
-    //         sbTime.value = SHORT_MINS.toString();
-    //         lbTime.value = LONG_MINS.toString();
-    //         return;
-    // }
-    // // otherwise do not display a warning
-    // warning.style.display = 'none';
+            // keep the drop down values the same as the current timer settings
+            wTime.value = POMO_MINS.toString();
+            sbTime.value = SHORT_MINS.toString();
+            lbTime.value = LONG_MINS.toString();
+            return;
+    }
+    // otherwise do not display a warning
+    warning.style.display = 'none';
 
     // set the new time preferences
     POMO_MINS = wTime.options[wTime.selectedIndex].text;
@@ -247,9 +246,7 @@ function setCustomTime() {
 
     
     SHORT_MINS = sbTime.options[sbTime.selectedIndex].text;
-    LONG_MINS = lbTime.options[lbTime.selectedIndex].text;
-
-    
+    LONG_MINS = lbTime.options[lbTime.selectedIndex].text;  
 }
 
 /**
@@ -337,5 +334,5 @@ function keyboardShortcut(event) {
 
 // export functions and variables for testing
 var module = module || {};
-module.exports = {onStart, onReset, checkState,updateState, timer }; 
+export {onStart, onReset, checkState,updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, WORK_STATE}; 
 
