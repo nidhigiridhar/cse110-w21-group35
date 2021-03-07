@@ -1,4 +1,4 @@
-import { globalThis } from "globalthis/implementation";
+//import { globalThis } from "globalthis/implementation";
 import { getNotificationStatus, getAlarm } from "./notifications";
 
 describe("Test that the alarm object", () => {
@@ -12,19 +12,19 @@ describe("Test that the alarm object", () => {
 })
 
 //Mock the Notification API
-globalThis.Notification = ({
+global.Notification = ({
     requestPermission: function(){this.permission = "granted"},
     permission: "granted",
 });
 
-describe("Test the notification", () => {
-    test("permissions are granted", () => {
+describe("Test that notification permissions", () => {
+    test("are granted", () => {
         let permiss = getNotificationStatus();
         expect(permiss).toBe(true);
     }),
     
-    test("permissions are denied", () => {
-        Notification.permission = "denied"
+    test("are denied", () => {
+        Notification.permission = "denied";
         let permiss = getNotificationStatus();
         expect(permiss).toBe(false);
     }),
