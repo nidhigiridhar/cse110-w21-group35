@@ -23,7 +23,7 @@ jobs:
       - name: Deploy
         run: |
           npm install --save-dev jsdoc
-          ./node_modules/.bin/jsdoc ./source/timer.js
-          ./node_modules/.bin/jsdoc ./source/notifications.js
-          ./node_modules/.bin/jsdoc ./source/color-change.js
-          ./node_modules/.bin/jsdoc ./source/breakReminder.js
+          ./node_modules/.bin/jsdoc ./source/timer.js ./docs
+          ./node_modules/.bin/jsdoc ./source/notifications.js ./docs
+          ./node_modules/.bin/jsdoc ./source/color-change.js ./docs
+          ./node_modules/.bin/jsdoc ./source/breakReminder.js ./docs
