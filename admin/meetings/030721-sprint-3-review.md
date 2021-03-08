@@ -74,7 +74,8 @@
       * implemented javascript for keyboard shortcuts
       * implmented the html, css and javascript for the progress bar
     * Zachary
-      * worked on html, css for the toggle features in the custom time limits modal
+      * worked on [html](sprint-3-images/toggle-html.png), [css](sprint-3-images/toggle-css.png) [more css](sprint-3-images/toggle-css2.png) for the toggle features in the custom time limits modal
+      * worked on [js](sprint-3-images/notif-toggle-js.png) for turning on and off notifications
       * integrated the notifications methods into timer.js file
       * worked on UI team for custom time limits (part of html, css, and javascript)
     * Sydney
