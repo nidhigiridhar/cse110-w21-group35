@@ -349,9 +349,10 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Check Break Reminders Still Disabled', () => {
     cy.get('#helpButton').click();
-    cy.get('#break-reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
+    cy.get('#break-reminder').should('be.empty');
+    //cy.get('#break-reminder').then(($el) => {
+    //  expect($el).to.be.hidden;
+    //});
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
