@@ -68,7 +68,8 @@
       * [Progress bar](sprint-3-images/progress-bar.png)
     * Alejandro Malanche
       * correct issues with slow timer and the initial delay when start button was clicked
-      * worked on html and javascript for custom time limits
+      * worked on [html](sprint-3-images/custom-time-limits-html.png) and [javascript](sprint-3-images/custom-time-limits-js.png) for custom time limits
+      * added an [eventlistener](sprint-3-images/html-eventlisteners.png) for the form for the custom time limits that changes the html upon changing the value
       * faced problems with JUnit testing and needed to do research on es6 but finally got it working
     * Sam
       * implemented javascript for keyboard shortcuts
