@@ -50,9 +50,13 @@
       * implemented the html and javascript for the break reminders
       * had to do a lot of research for the responsive design (to be done in the final sprint)
     * Alejandro Marquez
-      * implemented all of the Cypress tests
-      * faced problems with JUnit testing and needed to do research on es6 but finally got it working
-      * completed part of the html and css for the custom time limits modal
+      * Implemented all of the Cypress UI tests as seen in [Test Cases](sprint-3-images/test-cases.png) and will continue test creation by implementating tests which will span real pomo cycle durations.
+      * Faced problems with JUnit testing and needed to do research on es6 but finally got JUnit tests working.
+      * Assited in the completion of the html and css for the [Settings Modal](sprint-3-images/settings-modal.png) which encompases the [Custom Time limits Feature](sprint-3-images/custom-time.png) which I also helped implement.
+      * I helped implement Custom Limits such that users can now choose from a list of time intervals, but if any break duration is longer than the pomo duration than they recieve an [Error Message](sprint-3-images/error-message.png).
+      * [Test Cases Code](sprint-3-images/cypress-test-cases-code.gif)
+      * [Settings Button Code](sprint-3-images/settings-button-code.png)
+      * [Custom Time Limits Sanity Check Code](sprint-3-images/custom-time-limits-check-code.png)
     * Jasmine
       * implmented the html, css and javascript for the progress bar
       * implemented the html, css and javascript for the background color changes
