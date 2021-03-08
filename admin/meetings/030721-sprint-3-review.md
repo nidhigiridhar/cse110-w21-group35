@@ -59,9 +59,13 @@
       * [Custom Time Limits Sanity Check Code](sprint-3-images/custom-time-limits-check-code.png)
     * Jasmine
       * implmented the html, css and javascript for the progress bar
-      * implemented the html, css and javascript for the background color changes
+      * implemented the html, css and javascript for the background and timer display border color changes
       * implemented the html and javascript for the break reminders
       * completed multiple progress bar mocks for the team to look at
+      * [Color change - Work state](sprint-3-images/color-pomo.png)
+      * [Color change - Short break state](sprint-3-images/color-short.png)
+      * [Color change - Long break state](sprint-3-images/color-long.png)
+      * [Progress bar](sprint-3-images/progress-bar.png)
     * Alejandro Malanche
       * correct issues with slow timer and the initial delay when start button was clicked
       * worked on html and javascript for custom time limits
