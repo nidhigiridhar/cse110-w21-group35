@@ -49,8 +49,8 @@
       * implemented the html, css and javascript for the background color changes
       * implemented the html and javascript for the break reminders
       * research for the responsive design (to be done in the final sprint)
-      * [progress bar](cse110-w21-group35/admin/meetings/sprint-3-images/pbar.png)
-      * [break reminders](cse110-w21-group35/admin/meetings/sprint-3-images/bremindSS.png)
+      * [progress bar](cse110-w21-group35/admin/meetings/sprint-3-images/pbar.PNG)
+      * [break reminders](cse110-w21-group35/admin/meetings/sprint-3-images/bremindSS.PNG)
     * Alejandro Marquez
       * Implemented all of the Cypress UI tests as seen in [Test Cases](sprint-3-images/test-cases.gif) and will continue test creation by implementating tests which will span real pomo cycle durations.
       * Faced problems with JUnit testing and needed to do research on es6 but finally got JUnit tests working.
