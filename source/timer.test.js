@@ -210,8 +210,8 @@ describe("Test onReset function", () => {
         `;
         timer.currState = "Work State";
         onReset();
-        let timerDisplay = document.getElementById("timer-display").innerHTML;
-        let state = document.getElementById("state").innerHTML;
+        let timerDisplay = document.getElementById("timer-display").innerText;
+        let state = document.getElementById("state").innerText;
         expect(timerDisplay).toBe("25:00");
         expect(state).toBe("Work State");
     }),
@@ -372,7 +372,7 @@ describe("Test checkState function", () => {
         timer.counter.totalPomos = 1;
         timer.counter.stateCtr = 1;
         checkState();
-        state = document.getElementById("state").innerHTML;
+        state = document.getElementById("state").innerText;
         expect(state).toBe("Short Break State");
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy(); // reset is disabled during break state
@@ -401,7 +401,7 @@ describe("Test checkState function", () => {
         timer.counter.totalPomos = 4;
         timer.counter.stateCtr = 7;
         checkState();
-        state = document.getElementById("state").innerHTML;
+        state = document.getElementById("state").innerText;
         expect(state).toBe("Long Break State"); 
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy(); // reset is disabled during break state
@@ -456,9 +456,9 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Work State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Work State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
+        let htmlTime = document.getElementById("timer-display").innerText;
         expect(htmlTime).toBe("25:00");
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy();
@@ -486,9 +486,9 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Work State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Work State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
+        let htmlTime = document.getElementById("timer-display").innerText;
         expect(htmlTime).toBe("25:00");
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy();
@@ -517,9 +517,9 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Short Break State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Short Break State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
+        let htmlTime = document.getElementById("timer-display").innerText;
         expect(htmlTime).toBe("5:00");
     }),
 
@@ -546,9 +546,9 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Short Break State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Short Break State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
+        let htmlTime = document.getElementById("timer-display").innerText;
         expect(htmlTime).toBe("5:00");
     });
 });
