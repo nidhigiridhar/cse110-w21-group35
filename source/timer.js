@@ -252,7 +252,6 @@ function setCustomTime() {
  * @description Begins the timer when the start button is clicked
  */
 function onStart() {
-    console.log(POMO_MINS);
     getNotificationStatus();
     document.querySelector("#formEnabler").disabled = 'disabled';
     // enable a warning if the user tries changing the time limits during a pomo
@@ -331,5 +330,7 @@ function keyboardShortcut(event) {
 
 // export functions and variables for testing
 var module = module || {};
-export {onStart, onReset, checkState,updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, WORK_STATE}; 
+export {onStart, onReset, checkState,updateState, timer, setCustomTime, 
+    keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, 
+    WORK_STATE, POMO_MINS, SHORT_MINS, LONG_MINS}; 
 
