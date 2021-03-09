@@ -222,6 +222,154 @@ describe('Reset Button Tests', () => {
 
 
 
+describe('Counters Tests', () => {
+  beforeEach(() => {
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+
+    //DOM Maninpulation to get short pomo/break times :)
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    //Pomo: 9 Seconds
+    //SB: 6 seconds
+    //LB: 6 seconds
+  });
+
+  it('Counters: Streak and Total at 2 After 2 Pomos', () => {
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    cy.get('#streak').should('have.text','2');
+    cy.get('#total').should('have.text','2');
+  });
+
+  it('Counters: Streak and Total at 4 After 4 Pomos', () => {
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+    
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+
+    cy.get('#streak').should('have.text','4');
+    cy.get('#total').should('have.text','4');
+  });
+
+  it('Counters: Streak 0 and Total at 1 After Reset at Second Pomo', () => {
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //start pomo
+    cy.get('#startButton').click();
+    cy.get('#resetButton').click();
+
+    cy.get('#streak').should('have.text','0');
+    cy.get('#total').should('have.text','1');
+  });
+
+  it('Counters: Streak 2 and Total at 3 After Reset at Second Pomo', () => {
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //start pomo
+    cy.get('#startButton').click();
+    //reset pomo
+    cy.get('#resetButton').click();
+
+    cy.get('#streak').should('have.text','0');
+    cy.get('#total').should('have.text','1');
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+
+    cy.get('#streak').should('have.text','2');
+    cy.get('#total').should('have.text','3');
+  });
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -456,7 +604,7 @@ describe('Help Button Tests', () => {
 });
 
 
-/*
+/* WILL NOT WORK YET NEED FIX
 describe('Break Reminders Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
