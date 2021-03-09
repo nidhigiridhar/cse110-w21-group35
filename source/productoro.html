@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="styles.css"></link>
     <title>Productoro</title>
 </head>
@@ -66,8 +67,9 @@
             <span id="closeSettings">&times;</span disabled>
             <form id='time-limits'>
                 <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+                <p><b>Select lengths for </b></p>
                 <fieldset id="formEnabler">
-                    <label id="workLabel">Select length for Work Session</label> 
+                    <label id="workLabel">Work Session</label> 
                     <select name="workTime" id="workTime">
                         <option value="25" selected>25</option>
                         <option value="30">30</option>
@@ -76,7 +78,7 @@
                     </select>
                     <br>
             
-                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <label id="shortBreakLabel">Short Break</label>
                     <select name="shortBreakTime" id="shortBreakTime">
                         <option value="5" selected>5</option>
                         <option value="10">10</option>
@@ -84,7 +86,7 @@
                     </select>
                     <br>
             
-                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <label id="longBreakLabel">Long Break</label>
                     <select name="longBreakTime" id="longBreakTime">
                         <option value="15" selected>15</option>
                         <option value="20">20</option>
