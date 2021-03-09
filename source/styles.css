@@ -10,9 +10,9 @@
   --clr-accent-pomo: #032e77c9;
   --clr-accent-short: #923201;
   --clr-accent-long: #01795f;
-  --clr-circle-pomo: #005effc9;
-  --clr-circle-short: #c94300;
-  --clr-circle-long: #00c79c;
+  --clr-circle-pomo: #0084ff;
+  --clr-circle-short: #ff7300;
+  --clr-circle-long: #03e6b4;
   --clr-dark: #424242;
   --clr-gray: #a8a8a8;
   --clr-faded-black: rgba(0,0,0,0.4);
@@ -57,7 +57,6 @@ h1 {
   font-size: var(--fs-title);
   text-align: center;
   position: relative;
-  /*border: black 3px solid;*/
 }
 img {
   width: 50px;
@@ -93,8 +92,6 @@ b {
   padding-bottom: 0px;
   padding-top: 1px;
   padding-right: 1px;
-  /* border: black 3px solid; */
-
 }
 #streak-counter {
   display : block;
@@ -105,7 +102,6 @@ b {
   padding: 10px; 
   padding-top: 100px;
   right: 30px;
-  /* border: black 3px solid; */
 }
 #total-counter {
   display : block;
@@ -116,8 +112,8 @@ b {
   padding: 10px;
   padding-top: 130px;
   right: 30px;
-  /* border: black 3px solid; */
 }
+
 /******** break reminders ********/
 #break-reminder {
   display : block;
@@ -132,16 +128,22 @@ b {
   padding-top: 0px;
 }
 
+.container {
+  margin: auto;
+  margin-bottom: 50px;
+  width: 600px;
+}
 /******** Progress Bar ********/
 .circle {
   background-color: var(--clr-light);
   border-radius: 50%;
   border: 3px solid;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   display: flex;
   align-items: center;
   justify-content:center;
+  box-shadow: 3px 3px var(--clr-dark);
 }
 .circle.pomo {
   border-color: var(--clr-circle-pomo);
@@ -155,7 +157,6 @@ b {
 .circle.deactive {
   border-color: var(--clr-gray);
 }
-
 .progress-container {
   display: flex;
   justify-content: space-between;
@@ -164,31 +165,18 @@ b {
   margin-bottom: 30px;
   max-width: 100%;
   width: 380px;
-  padding-top: 25px;
   padding-right: 30px;
-  padding-bottom: 25px;
   padding-left: 30px;
-  border: 3px solid var(--clr-accent-pomo);
+  transition-property: border-color;
+  transition-duration: var(--transition-time);
   border-radius: 20px;
 }
-.progress-container[state="pomo"] {
-  border-color: var(--clr-accent-pomo);
-}
-.progress-container[state="short"] {
-  border-color: var(--clr-accent-short);
-}
-.progress-container[state="long"] {
-  border-color: var(--clr-accent-long);
-}
+
 /******** Timer ********/
-#timer-container {
-  /* border: black 3px solid; */
-}
 /**** Mode ****/
 #state {
   font-family: var(--ff-secondary);
   font-size: var(--fs-mode-button);
-  /* border: black 3px solid; */
   text-align: center;
 }
 #timer-display {
@@ -199,11 +187,13 @@ b {
   border-radius: 30px;
   color: var(--clr-dark);
   color: var(--clr-light);
-  text-shadow: 4px 5px var(--clr-dark) ;
-  width: 600px;
+  text-shadow: 4px 5px var(--clr-dark);
+  width:500px;
+  min-width: 500px;
+  max-width: 120%;
   margin: auto;
-  margin-bottom: 50px;
-  transition: border-color var(--transition-time);
+  transition-property: border-color;
+  transition-duration: var(--transition-time);
 }
 #timer-display[state="pomo"] {
   border-color: var(--clr-accent-pomo);
@@ -240,13 +230,8 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
+  height: 100px;
 }
-.button-enabled {
-
-}
-.button-disabled {
-
-} 
 
 /******** Instructions ********/
 button.help-button { 
