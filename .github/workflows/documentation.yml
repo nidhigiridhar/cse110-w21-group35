@@ -4,9 +4,6 @@ on:
   push:
     branches: 
       - sprint3
-  pull request:
-    branches:
-      - master
 
 jobs:
   deploy:
