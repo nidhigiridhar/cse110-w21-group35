@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css"></link>
     <title>Productoro</title>
 </head>
@@ -14,8 +15,6 @@
         <div id="break-reminder" style="color:#464646;" style="visibility: hidden"></div>
         <div id="reminder" onload="breakReminders()" style="color:#464646;" style="visibility: hidden"></div>   <!-- ensures divs are hidden on init load-->
     </div>
-    
-
 </header>
 <body state="pomo">
     <div id="timer-container">
@@ -31,8 +30,9 @@
                 <div class="circle pomo"></div>
                 <div class="circle long"></div>
             </div>
-        </div>        
-        <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
+            <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
+        </div>
+        
     </div>
     <div id="button-container"> <!-- container for start and reset buttons-->
         <button type=button class="timer-button" id="startButton">Start</button>
