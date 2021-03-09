@@ -17,9 +17,6 @@ jobs:
         with:
           source_dir: ./source
           output_dir: ./docs
-          config_file: conf.json
-          template: minami
-          front_page: docs.md
 
       - name: Build
         uses: andstor/jsdoc-action@v1

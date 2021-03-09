@@ -77,16 +77,16 @@ function checkState() {
     if (timer.counter.stateCtr % STATE_MOD === 0) {
         timer.currState = WORK_STATE;
         timer.currDuration = NUM_SEC * POMO_MINS;
-        document.getElementById("state").innerHTML = WORK_STATE;
-        document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
+        document.getElementById("state").innerText = WORK_STATE;
+        document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
     } 
     else {
         // long break state
         if (timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
             timer.currDuration = NUM_SEC * LONG_MINS;
-            document.getElementById("state").innerHTML = LONG_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = LONG_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${LONG_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -95,8 +95,8 @@ function checkState() {
         else {
             timer.currState = SHORT_STATE;
             timer.currDuration = NUM_SEC * SHORT_MINS;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = SHORT_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${SHORT_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -118,15 +118,15 @@ function updateState() {
         // if next state is long break 
         if(timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
-            document.getElementById("state").innerHTML = LONG_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = LONG_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${LONG_MINS}:00`;
         }
         // if next state is short break 
         else {
             timer.currState = SHORT_STATE;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = SHORT_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${SHORT_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -136,8 +136,8 @@ function updateState() {
     // if current state is a break, next state will be work
     else {
         timer.currState = WORK_STATE;
-        document.getElementById("state").innerHTML = WORK_STATE;
-        document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
+        document.getElementById("state").innerText = WORK_STATE;
+        document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
         // disable reset button in break state
         document.getElementById("resetButton").disabled = true; 
     }
@@ -275,7 +275,7 @@ function onReset() {
     document.getElementById("startButton").disabled = false;
     document.getElementById("formEnabler").removeAttribute('disabled');
     timer.counter.streak = 0;
-    document.getElementById("streak").innerHTML = 
+    document.getElementById("streak").innerText = 
                     timer.counter.streak;
     clearInterval(timerId);
     checkState();
