@@ -104,7 +104,7 @@ function checkState() {
     }
     // change screen color for different states
     colorChange();
-    breakReminders();         
+            
 }
 
 /**
@@ -143,6 +143,7 @@ function updateState() {
     }
     // change screen color for different states
     colorChange();
+    breakReminders(); 
     progressBar();     
 }
 
