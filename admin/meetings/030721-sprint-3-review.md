@@ -74,8 +74,11 @@
       * added an [eventlistener](sprint-3-images/html-eventlisteners.png) for the form for the custom time limits that changes the html upon changing the value
       * faced problems with JUnit testing and needed to do research on es6 but finally got it working
     * Sam
-      * implemented javascript for keyboard shortcuts
-      * implmented the html, css and javascript for the progress bar
+      * Added event listener attached to keyDown object.
+      * Implemented Javascript checking that the keyDown was space and dealing with it properly if so.
+      * Implemented multiple mockups of the progress bar with the CSS team (Ian and Jasmine) for group to ultimately decide between.
+      *  [Progress Bar MockUp1] (sprint-3-images/progress-mock-1.png)
+      *  [Progress Bar MockUp2] (sprint-3-images/progress-mock-2.png)
     * Zachary
       * worked on [html](sprint-3-images/toggle-html.png), [css](sprint-3-images/toggle-css.png) [more css](sprint-3-images/toggle-css2.png) for the toggle features in the custom time limits modal
       * worked on [js](sprint-3-images/notif-toggle-js.png) for turning on and off notifications
