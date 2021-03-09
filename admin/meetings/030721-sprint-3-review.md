@@ -77,8 +77,8 @@
       * Added event listener attached to keyDown object.
       * Implemented Javascript checking that the keyDown was space and dealing with it properly if so.
       * Implemented multiple mockups of the progress bar with the CSS team (Ian and Jasmine) for group to ultimately decide between.
-      *  [Progress Bar MockUp1] (sprint-3-images/progress-mock-1.png)
-      *  [Progress Bar MockUp2] (sprint-3-images/progress-mock-2.png)
+      *  [Progress Bar MockUp1](sprint-3-images/progress-mock-1.png)
+      *  [Progress Bar MockUp2](sprint-3-images/progress-mock-2.png)
     * Zachary
       * worked on [html](sprint-3-images/toggle-html.png), [css](sprint-3-images/toggle-css.png) [more css](sprint-3-images/toggle-css2.png) for the toggle features in the custom time limits modal
       * worked on [js](sprint-3-images/notif-toggle-js.png) for turning on and off notifications
