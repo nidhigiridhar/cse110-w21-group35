@@ -38,6 +38,12 @@ describe('Fresh Entry, No Activity Tests', () => {
     });
   });
 
+  it('Settings Not displayed', () => {
+    cy.get('#settingsModal').then(($el) => {
+      expect($el).to.be.hidden
+    });
+  });
+
   it('Initial Background Color: Blue', () => {
     cy.get('body').then(($el) => {
       expect($el).to.have.attr('state', 'pomo');
@@ -49,6 +55,12 @@ describe('Fresh Entry, No Activity Tests', () => {
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
+  });
+
+  it('Progress Bar Fully Lit', () =>{
+    cy.get('.circle.pomo').should('have.length', 4);
+    cy.get('.circle.short').should('have.length', 3);
+    cy.get('.circle.long').should('have.length', 1);
   });
 });
 
@@ -113,9 +125,7 @@ describe('Start Button Tests', () => {
 
     it('Start Button Clicked: Check Break Reminders Still Disabled', () => {
       cy.get('#startButton').click();
-      cy.get('#break-reminder').then(($el) => {
-        expect($el).to.be.hidden;
-      });
+      cy.get('#break-reminder').should('have.text', '');
       cy.get('#reminder').then(($el) => {
         expect($el).to.be.hidden;
       });
@@ -197,18 +207,14 @@ describe('Reset Button Tests', () => {
 
   it('Reset Button Clicked: Check Break Reminders still Disabled', () => {
     cy.get('#startButton').click();
-    cy.get('#break-reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
 
     cy.wait(1000*3);
     cy.get('#resetButton').click();
-    cy.get('#break-reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -750,11 +756,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Check Break Reminders Still Disabled', () => {
     cy.get('#helpButton').click();
-    cy.get('#break-reminder').should('be.empty');
-    // CHECK AFTER FIX
-    //cy.get('#break-reminder').then(($el) => {
-    //  expect($el).to.be.hidden;
-    //});
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -769,7 +771,7 @@ describe('Help Button Tests', () => {
 });
 
 
-/* WILL NOT WORK YET NEED FIX
+
 describe('Break Reminders Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
@@ -801,7 +803,6 @@ describe('Break Reminders Tests', () => {
     //Complete the pomo
 
     cy.wait(9*1000);
-    // Will fail rn but will work after fix
     cy.get('#break-reminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
@@ -936,7 +937,7 @@ describe('Break Reminders Tests', () => {
       expect($el).to.be.hidden;
     });
   });
-});*/
+});
 
 
 
@@ -1005,22 +1006,11 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
 
   it('Space Used as Start Button: Check Break Reminders Still Disabled', () => {
     cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
-    cy.get('#reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
-
-    cy.wait(1000*3);
-    cy.get('#break-reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
   });
-
 });
 
 
@@ -1101,18 +1091,14 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
 
   it('Space Used as Reset Button: Check Break Reminders still Disabled', () => {
     cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
 
     cy.wait(1000*3);
     cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').then(($el) => {
-      expect($el).to.be.hidden;
-    });
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -1198,11 +1184,7 @@ describe('Settings Button Tests (Pressibility)', () => {
       expect($el).to.be.not.hidden
     });
 
-    cy.get('#break-reminder').should('be.empty');
-    // CHECK AFTER FIX
-    //cy.get('#break-reminder').then(($el) => {
-    //  expect($el).to.be.hidden;
-    //});
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -1216,9 +1198,158 @@ describe('Settings Button Tests (Pressibility)', () => {
   });
 });
 
-/* TODO
-
 describe('Custom Time Limits and Warning Tests', () => {
+  beforeEach(() => {
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+
+    //DOM Maninpulation to get short pomo/break times :)
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    //Pomo: 9 Seconds
+    //SB: 6 seconds
+    //LB: 6 seconds
+  });
+
+  it('Custom Time Limits: Set New Times and Ensure Timer and Display is reflected', () => {
+    cy.get('#state').should('have.text','Work State');
+    //display is what ever the custom time is with :00 appended at the end 
+    //no leading 0 since the pomo without maniplulation is always >= 10 
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    //Cypress will wait a 9 seconds to finish pomo
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Short Break State');
+    //display is what ever the custom time is with :00 appended at the end and extra 0 appened since < 10
+    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#startButton').click();
+    //Cypress will wait a 9 seconds to finish break
+    cy.wait(6*1000);
+
+    //repeat 3 more times
+    //2nd Pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Short Break State');
+    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+
+    //3rd Pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Short Break State');
+    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+
+    //4th Pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Long Break State');
+    //display is what ever the custom time is with :00 appended at the end 
+    //no leading 0 since in real code we are assure LB > 10 
+    cy.get('#timer-display').should('have.text','.1:00');
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+
+    //Back to first pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+  });
+
+  it('Custom Time Limits: Test Invalid Options', () => {
+    //Current
+    //Pomo: 9 Seconds Out of: [.15,25,30,45]
+    //SB: 6 seconds Out of: [.1,5,10]
+    //LB: 6 seconds Out of: [.1,20,25,30]
+
+    cy.get('#settingsButton').click();
+    //try to set these times but times will not actually change
+    cy.get('#shortBreakTime').select('5');
+    cy.get('#longBreakTime').select('20');
+    cy.get('#closeSettings').click();
+
+    //repeat previous tests
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    //Cypress will wait a 9 seconds to finish pomo
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Short Break State');
+    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#startButton').click();
+    //Cypress will wait a 9 seconds to finish break
+    cy.wait(6*1000);
+
+    //repeat 3 more times
+    //2nd Pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Short Break State');
+    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+
+    //3rd Pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Short Break State');
+    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+
+    //4th Pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+
+    cy.get('#state').should('have.text','Long Break State');
+    //display is what ever the custom time is with :00 appended at the end 
+    //no leading 0 since in real code we are assure LB > 10 
+    cy.get('#timer-display').should('have.text','.1:00');
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+
+    //Back to first pomo
+    cy.get('#state').should('have.text','Work State');
+    cy.get('#timer-display').should('have.text','.15:00');
+  });
+});
+
+/*
+describe('Banner Notifications Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
   });
@@ -1226,6 +1357,16 @@ describe('Custom Time Limits and Warning Tests', () => {
   it('Testing Four Pomos Along with Short and Long Breaks', () => {
   });
 });
+
+describe('Alarm Notifications Tests', () => {
+  beforeEach(() => {
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+  });
+
+  it('Testing Four Pomos Along with Short and Long Breaks', () => {
+  });
+});
+
 
 describe('Audio Slider Tests', () => {
   beforeEach(() => {
@@ -1288,6 +1429,13 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
     });
   });
 
+  it('Keyboard Shortcuts Disabled: Space Clicked, Check Settings Not displayed', () => {
+    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('#settingsModal').then(($el) => {
+      expect($el).to.be.hidden
+    });
+  });
+
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Background Color Unaffected', () => {
     cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
     cy.get('body').then(($el) => {
@@ -1297,45 +1445,138 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Break Reminders Still Disabled', () => {
     cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').then(($el) => {
-      //expect($el).to.be.hidden; WONT WORK RN
-    });
+    cy.get('#break-reminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
   });
+
+  it('Keyboard Shortcuts Disabled: Space Clicked, Progress Bar Unaffected', () => {
+    cy.get('.circle.pomo').should('have.length', 4);
+    cy.get('.circle.short').should('have.length', 3);
+    cy.get('.circle.long').should('have.length', 1);
+  });
 });
 
 
-/*
+
 describe('Progress Bar Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+
+    //DOM Maninpulation to get short pomo/break times :)
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    //Pomo: 9 Seconds
+    //SB: 6 seconds
+    //LB: 6 seconds
   });
 
-  it('Testing Four Pomos Along with Short and Long Breaks', () => {
+  //UNSURE HOW TO TEST IF CICLES DEACTIVATED IN CORRECT ORDER :: NEEDS WORK
+  it('Testing Four Pomos with Short/Long Breaks and Check if Bar Resets After Long Break', () => {
+    //cy.get('.circle.pomo').should('have.length', 4);
+    //cy.get('.circle.short').should('have.length', 3);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 0);
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 3);
+    //cy.get('.circle.short').should('have.length', 3);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 1);
+
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 3);
+    //cy.get('.circle.short').should('have.length', 2);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 2);
+
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 2);
+    //cy.get('.circle.short').should('have.length', 2);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 3);
+
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 2);
+    //cy.get('.circle.short').should('have.length', 1);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 4);
+
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 1);
+    //cy.get('.circle.short').should('have.length', 1);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 5);
+
+    //start break
+    cy.get('#startButton').click();
+    //finish break
+    cy.wait(6*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 1);
+    //cy.get('.circle.short').should('have.length', 0);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 6);
+
+    //start pomo
+    cy.get('#startButton').click();
+    //finish pomo
+    cy.wait(9*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 0);
+    //cy.get('.circle.short').should('have.length', 0);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 7);
+
+    //start Long break
+    cy.get('#startButton').click();
+    //finish Long break
+    cy.wait(6*1000);
+
+    //cy.get('.circle.pomo').should('have.length', 4);
+    //cy.get('.circle.short').should('have.length', 3);
+    //cy.get('.circle.long').should('have.length', 1);
+    cy.get('.circle.deactive').should('have.length', 0);
   });
 });
 
-describe('Banner Notifications Tests', () => {
-  beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
-  });
-
-  it('Testing Four Pomos Along with Short and Long Breaks', () => {
-  });
-});
-
-describe('Alarm Notifications Tests', () => {
-  beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
-  });
-
-  it('Testing Four Pomos Along with Short and Long Breaks', () => {
-  });
-});
-
-*/
 
 
 
