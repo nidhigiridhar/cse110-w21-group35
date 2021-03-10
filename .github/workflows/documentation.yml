@@ -4,6 +4,9 @@ on:
   push:
     branches: 
       - sprint3
+  pull_request:
+    branches:
+      - sprint3
 
 jobs:
   deploy:
