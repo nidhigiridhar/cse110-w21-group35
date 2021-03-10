@@ -289,6 +289,7 @@ function onStart() {
 function onReset() {
     document.getElementById("resetButton").disabled = true;
     document.getElementById("startButton").disabled = false;
+    document.getElementById("warning").style.display = "none";
     document.getElementById("formEnabler").removeAttribute('disabled');
     timer.counter.streak = 0;
     document.getElementById("streak").innerText = 
@@ -317,6 +318,9 @@ function revealSettings() {
 function hideSettings(event) {
     let settingsModal = document.getElementById("settingsModal");
     settingsModal.style.display = "none";
+    if(document.getElementById("warning").innerText === "Work Periods must be greater than Break Periods"){
+        document.getElementById("warning").style.display = "none";
+    }
     document.getElementById("settingsButton").disabled = false; 
     document.getElementById("closeSettings").disabled = true; 
 }
