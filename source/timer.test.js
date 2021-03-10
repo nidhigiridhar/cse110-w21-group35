@@ -520,7 +520,7 @@ describe("Test updateState function", () => {
         let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Short Break State");
         let htmlTime = document.getElementById("timer-display").innerText;
-        expect(htmlTime).toBe("5:00");
+        expect(htmlTime).toBe("05:00");
     }),
 
     test("sets state to long break state if current state is work state", () => {
@@ -549,7 +549,7 @@ describe("Test updateState function", () => {
         let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Short Break State");
         let htmlTime = document.getElementById("timer-display").innerText;
-        expect(htmlTime).toBe("5:00");
+        expect(htmlTime).toBe("05:00");
     });
 });
 
