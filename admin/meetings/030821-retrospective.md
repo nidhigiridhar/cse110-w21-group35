@@ -44,9 +44,9 @@
   * break reminders
     * they should appear as the background color is changed (before the start button is clicked)
   * Here are some screenshots of Retrospective created on Retrium
-    * We used the Start,Stop,Continue method where we listed down things we want to start doing, things we should stop doing and things we should continue doing. ![Start,Stop,Continue](retrospective-images/Retro1-RetriumThink.png)
-    * We then grouped similar ideas together and then proceeded to vote on the ones that we wanted to discuss. ![Group1](retrospective-images/Retro1-RetriumGroup1.png) ![Group2](retrospective-images/Retro1-RetriumGroup2.png)
-    * Then, we discussed each group (starting with the one with the highest votes) and came up with an action plan to address each issue. ![ActionPlan1](retrospective-images/Retro1-RetriumActionPlan1.png) ![ActionPlan2](retrospective-images/Retro1-RetriumActionPlan2.png)
+    * We used the Start,Stop,Continue method where we listed down things we want to start doing, things we should stop doing and things we should continue doing.
+    * We then grouped similar ideas together and then proceeded to vote on the ones that we wanted to discuss. ![Grouping](sprint-3-images/retro2-group.png)
+    * Then, we discussed each group (starting with the one with the highest votes) and came up with an action plan to address each issue.  ![Discussion](sprint-3-images/retro2-discussion.png) ![ActionPlan](sprint-3-images/retro2-actionPlan.png)
 
 ## TODOs: 
 
