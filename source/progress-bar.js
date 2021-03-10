@@ -1,18 +1,18 @@
 const progress = document.getElementById("progress");
 const circles = document.querySelectorAll(".circle");
-let currentActive = 0;
+let currentDeactive = 0;
 
 function progressBar() {
-  currentActive++;
+  currentDeactive++;
   update();
-  if(currentActive == circles.length) {
+  if(currentDeactive == circles.length) {
     reset();
   }
 }
 
 function update() {
   circles.forEach((circle,idx) => {
-    if(idx < currentActive) {
+    if(idx < currentDeactive) {
       circle.classList.add("deactive");
     }
   });
@@ -22,9 +22,9 @@ function reset() {
   circles.forEach((circle,idx) => {
     circle.classList.remove("deactive");
   });
-  currentActive = 0;
+  currentDeactive = 0;
 }
 
 var module = module || {};
-export { progressBar };
+export { progress, circles, currentDeactive, progressBar, update, reset };
 
