@@ -40,6 +40,6 @@ describe("Test colorChange function", () =>{
         colorChange();
         expect(document.body.getAttribute('state')).toBe("pomo");
         expect(document.getElementById("timer-display").getAttribute('state')).toBe("pomo");
-    })
+    }) 
 
 })
