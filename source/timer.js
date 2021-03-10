@@ -96,8 +96,14 @@ function checkState() {
             timer.currState = SHORT_STATE;
             timer.currDuration = NUM_SEC * SHORT_MINS;
             document.getElementById("state").innerText = SHORT_STATE;
+            
             document.getElementById("timer-display").innerText = 
+            
                 `${SHORT_MINS}:00`;
+            let time = document.getElementById("timer-display").innerText 
+            if(SHORT_MINS < 10) {
+                time = '0' + time;
+            } 
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
         }
@@ -128,6 +134,13 @@ function updateState() {
             document.getElementById("state").innerText = SHORT_STATE;
             document.getElementById("timer-display").innerText = 
                 `${SHORT_MINS}:00`;
+            let time = document.getElementById("timer-display").innerText 
+            if(SHORT_MINS < 10) {
+                console.log(SHORT_MINS);
+                time = '0' + time;
+                document.getElementById("timer-display").innerText = time;
+            } 
+            
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
 
@@ -221,14 +234,16 @@ function setCustomTime() {
     let sbTime = document.getElementById("shortBreakTime");
     let lbTime = document.getElementById("longBreakTime");
     let warning = document.getElementById("warning");
+    
 
-    // check if the pomo duration is longer than the break durations
+  //  check if the pomo duration is longer than the break durations
     if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
         Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
             // enable a warning stating invalid inputs
             warning.innerText = 'Work Periods must be greater than Break Periods';
             warning.style.display = 'block';
 
+              
             // keep the drop down values the same as the current timer settings
             wTime.value = POMO_MINS.toString();
             sbTime.value = SHORT_MINS.toString();
