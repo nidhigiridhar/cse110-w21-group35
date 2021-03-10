@@ -102,8 +102,13 @@
       * kept ADRs updated
       * approved pull requests made by team from feature branches to sprint3 branch
       * faced problems with JUnit testing and needed to do research on es6 but finally got it working
-  * Planning Sprint 3 [(board found here TODO SYD!!!)](https://github.com/nidhigiridhar/cse110-w21-group35/projects/3)
-    * TODO SYD!!!
+  * Planning Sprint 4 [(board found here](https://github.com/nidhigiridhar/cse110-w21-group35/projects/5)
+    * more unit testing
+    * more integration testing
+    * clean code/repo
+    * finalize documentation
+    * create readme
+    * responsive design
 
 ## TODOs: 
 
