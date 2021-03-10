@@ -62,6 +62,13 @@ describe('Fresh Entry, No Activity Tests', () => {
     cy.get('.circle.short').should('have.length', 3);
     cy.get('.circle.long').should('have.length', 1);
   });
+
+  it('Warning Message: Not Displayed Initally', () => {
+    cy.get('#settingsButton').click();
+    cy.get('#warning').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
 });
 
 
@@ -772,6 +779,16 @@ describe('Help Button Tests', () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
 describe('Break Reminders Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
@@ -948,6 +965,13 @@ describe('Break Reminders Tests', () => {
 
 
 
+
+
+
+
+
+
+
 describe('KeyBoard Shortcut: Using Space to Start Button', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
@@ -1020,6 +1044,14 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
 
 
 
+
+
+
+
+
+
+
+
 describe('Keyboard Shortcut: Using Space as Reset Button', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
@@ -1068,7 +1100,7 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
   it('Space Used as Reset Button: Check State is Work State', () => {
     //start
     cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    //restart
+    //reset
     cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
     cy.get('#state').should('have.text','Work State');
   });
@@ -1104,6 +1136,13 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
     });
   });
 });
+
+
+
+
+
+
+
 
 
 
@@ -1198,6 +1237,24 @@ describe('Settings Button Tests (Pressibility)', () => {
   });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 describe('Custom Time Limits and Warning Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
@@ -1291,6 +1348,18 @@ describe('Custom Time Limits and Warning Tests', () => {
     //try to set these times but times will not actually change
     cy.get('#shortBreakTime').select('5');
     cy.get('#longBreakTime').select('20');
+
+    //Check that the text didnt change
+    cy.get('#workOption60').then(($el) => {
+      expect($el).to.have.prop('selected', true);
+    });
+    cy.get('#sbOption15').then(($el) => {
+      expect($el).to.have.prop('selected', true);
+    });
+    cy.get('#lbOption15').then(($el) => {
+      expect($el).to.have.prop('selected', true);
+    });
+
     cy.get('#closeSettings').click();
 
     //repeat previous tests
@@ -1348,6 +1417,135 @@ describe('Custom Time Limits and Warning Tests', () => {
   });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+describe('Warning Messages Tests', () => {
+  beforeEach(() => {
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+  });
+
+  it('Warning Message: Check Warning When Timer is Running', () => {
+    cy.get('#startButton').click();
+    cy.get('#settingsButton').click();
+    //checks displayed
+    cy.get('#warning').then(($el) => {
+      expect($el).to.not.be.hidden;
+    });
+    //checks correct message
+    cy.get('#warning').should('have.text', 'Wait until the end of your next break to change the times!');
+    cy.get('#closeSettings').click();
+
+    //repeat a few times to check persistence
+    cy.get('#settingsButton').click();
+    cy.get('#warning').then(($el) => {
+      expect($el).to.not.be.hidden;
+    });
+    cy.get('#warning').should('have.text', 'Wait until the end of your next break to change the times!');
+    cy.get('#closeSettings').click();
+
+
+    cy.get('#settingsButton').click();
+    cy.get('#warning').then(($el) => {
+      expect($el).to.not.be.hidden;
+    });
+    cy.get('#warning').should('have.text', 'Wait until the end of your next break to change the times!');
+    cy.get('#closeSettings').click();
+  });
+
+  it('Warning Message: Check Warning When Input Invalid Time', () => {
+    // Current Pomo: 25 min
+    // Current SB : 5 mim
+    // Current LB: 15 min
+    //INPUT INVALID LB TIME
+    cy.get('#settingsButton').click();
+    cy.get('#longBreakTime').select('30');
+    
+    
+
+    //checks displayed
+    cy.get('#warning').then(($el) => {
+      expect($el).to.not.be.hidden;
+    });
+    //checks correct message
+    cy.get('#warning').should('have.text', 'Work Periods must be greater than Break Periods');
+  });
+
+  it('Warning Message: Check Timer Warning Disappears After Reset', () => {
+    cy.get('#startButton').click();
+    cy.get('#settingsButton').click();
+    //Warning will appear as seen in last tests
+    cy.get('#closeSettings').click();
+    //hit reset
+    cy.get('#resetButton').click();
+
+    cy.get('#settingsButton').click();
+    //checks not displayed
+    cy.get('#warning').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
+
+  it('Warning Message: Check Invalid Times Warning Disappears After Closing', () => {
+    // Current Pomo: 25 min
+    // Current SB : 5 mim
+    // Current LB: 15 min
+    //INPUT INVALID TIME
+    cy.get('#settingsButton').click();
+    cy.get('#longBreakTime').select('30');
+    //Warning will appear as seen in last tests
+    cy.get('#closeSettings').click();
+    
+    //Reopen Settings
+    cy.get('#settingsButton').click();
+    //checks not displayed
+    cy.get('#warning').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
+
+  it('Warning Message: Check Invalid Times Warning Disappears After Putting Valid Time', () => {
+    // Current Pomo: 25 min
+    // Current SB : 5 mim
+    // Current LB: 15 min
+    //INPUT INVALID TIME
+    cy.get('#settingsButton').click();
+    cy.get('#longBreakTime').select('30');
+    //Warning will appear as seen in last tests
+    
+    //Input Valid Time
+    cy.get('#workTime').select('45');
+    cy.get('#warning').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 describe('Banner Notifications Tests', () => {
   beforeEach(() => {
@@ -1376,6 +1574,19 @@ describe('Audio Slider Tests', () => {
   it('Testing Four Pomos Along with Short and Long Breaks', () => {
   });
 });*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 describe('Keyboard Shortcuts Disabled Tests', () => {
@@ -1457,6 +1668,19 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
     cy.get('.circle.long').should('have.length', 1);
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1601,7 +1825,7 @@ describe('Full Test', () => {
     cy.get('#startButton').then(($el) => {
       expect($el).to.have.attr('disabled');
     });
-    //Checks that the restart button gets enabled
+    //Checks that the reset button gets enabled
     cy.get('#resetButton').then(($el) => {
       expect($el).to.not.have.attr('disabled');
     });
@@ -1733,7 +1957,7 @@ describe('Full Test', () => {
     cy.get('#startButton').then(($el) => {
       expect($el).to.not.have.attr('disabled');
     });
-    //Checks that the restart button gets disabled
+    //Checks that the reset button gets disabled
     cy.get('#resetButton').then(($el) => {
       expect($el).to.have.attr('disabled');
     });
