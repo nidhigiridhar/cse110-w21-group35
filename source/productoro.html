@@ -135,6 +135,7 @@
         import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from "./timer.js";
         import {revealHelp, hideHelp} from "./help.js";
         import {showNotif, getNotificationStatus, playSound, getAlarm} from "./notifications.js"
+        import {colorChange} from "./color-change.js";
         document.getElementById("formEnabler").addEventListener("change", setCustomTime);
         document.getElementById("startButton").addEventListener("click", onStart);
         document.getElementById("resetButton").addEventListener("click", onReset);
