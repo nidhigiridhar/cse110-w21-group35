@@ -1,33 +1,37 @@
-const {getNotificationStatus, playSound, getAlarm} = require("./notifications");
+//import { globalThis } from "globalthis/implementation";
+import { getNotificationStatus, getAlarm } from "./notifications";
 
-test("Check alarm exists", () => {
-    expect(getAlarm()).not.toBeNull();
-});
-
-test("Check alarm has valid url", () => {
-    expect(getAlarm().src).not.toBeNull();
-});
+describe("Test that the alarm object", () => {
+    test("correctly exists", () => {
+        expect(getAlarm()).not.toBeNull();
+    }),
+    
+    test("has a valid url", () => {
+        expect(getAlarm().src).not.toBeNull();
+    });
+})
 
 //Mock the Notification API
-globalThis.Notification = ({
+global.Notification = ({
     requestPermission: function(){this.permission = "granted"},
     permission: "granted",
-  });
-
-test("Check premission granted", () => {
-    let permiss = getNotificationStatus();
-    expect(permiss).toBe(true);
 });
 
-test("Check premission denied", () => {
-    Notification.permission = "denied"
-    let permiss = getNotificationStatus();
-    expect(permiss).toBe(false);
-});
-
-
-test("Check premission received", () => {
-    Notification.permission = "default"
-    let permiss = getNotificationStatus();
-    expect(permiss).toBeTruthy();
+describe("Test that notification permissions", () => {
+    test("are granted", () => {
+        let permiss = getNotificationStatus();
+        expect(permiss).toBe(true);
+    }),
+    
+    test("are denied", () => {
+        Notification.permission = "denied";
+        let permiss = getNotificationStatus();
+        expect(permiss).toBe(false);
+    }),
+    
+    test("permissions are received", () => {
+        Notification.permission = "default"
+        let permiss = getNotificationStatus();
+        expect(permiss).toBeTruthy();
+    });
 });

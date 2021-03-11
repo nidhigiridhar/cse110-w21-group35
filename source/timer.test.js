@@ -1,177 +1,645 @@
-const {onStart, onReset, checkState, timer, timerId} = require("./timer");
+import { onStart, onReset, checkState, updateState, timer, hideSettings, revealSettings, setCustomTime, POMO_MINS, SHORT_MINS, LONG_MINS} from "./timer";
 
 describe("Test onStart function", () => {
-    test("Check onStart updates state to work state", () => {
+    test("updates state to work state", () => {
         document.body.innerHTML = `
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div id="timer-display" state="pomo">25:00</div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.stateCtr = 0;
         onStart();
         let state = document.getElementById("state").innerHTML;
-        expect(state).toBe("Work");
+        expect(state).toBe("Work State");
     }),
 
-    test("Check onStart disables start button", () => {
+    test("disables the start button", () => {
         document.body.innerHTML = `
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div id="timer-display" state="pomo">25:00</div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onStart();
         let disabled = document.getElementById("startButton").disabled;
         expect(disabled).toBeTruthy();
     }),
 
-    test("Check onStart enables reset button", () => {
+    test("enables the reset button", () => {
         document.body.innerHTML = `
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div id="timer-display" state="pomo">25:00</div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+            </fieldset> 
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onStart();
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeFalsy();
-    })
+    });
 });
 
 describe("Test onReset function", () => {
-    test("Check onReset during work state", () => {
+    test("resets correctly during work state", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
-        timer.currState = "Work";
+        timer.currState = "Work State";
         onReset();
-        let timerDisplay = document.getElementById("timer-display").innerHTML;
-        let state = document.getElementById("state").innerHTML;
+        let timerDisplay = document.getElementById("timer-display").innerText;
+        let state = document.getElementById("state").innerText;
         expect(timerDisplay).toBe("25:00");
-        expect(state).toBe("Idle");
+        expect(state).toBe("Work State");
     }),
 
-    test("Check onReset during short break state", () => {
+    test("enables the start button", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
-            <h2 id="state">Idle Mode</h2>
-        `;
-        timer.currState = "Short";
-        onReset();
-        let timerDisplay = document.getElementById("timer-display").innerHTML;
-        let state = document.getElementById("state").innerHTML;
-        expect(timerDisplay).toBe("5:00");
-        expect(state).toBe("Idle");
-    }),
-
-    test("Check onReset during long break state", () => {
-        document.body.innerHTML = `
-            <div id = "timer-display">14:00</div>
-            <button type=button class="timer-button" id="startButton">Start</button>
-            <button type=button class="timer-button" id="resetButton">Reset</button>
-            <h2 id="state">Idle Mode</h2>
-        `;
-        timer.currState = "Long";
-        onReset();
-        let timerDisplay = document.getElementById("timer-display").innerHTML;
-        let state = document.getElementById("state").innerHTML;
-        expect(timerDisplay).toBe("15:00");
-        expect(state).toBe("Idle");
-    })
-
-    test("Check onReset enables start button", () => {
-        document.body.innerHTML = `
-            <div id = "timer-display">14:00</div>
-            <button type=button class="timer-button" id="startButton">Start</button>
-            <button type=button class="timer-button" id="resetButton">Reset</button>
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onReset();
         let disabled = document.getElementById("startButton").disabled;
         expect(disabled).toBeFalsy();
     }),
 
-    test("Check onReset disables reset button", () => {
+    test("disables the reset button", () => {
         document.body.innerHTML = `
             <div id = "timer-display">14:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option value="25" selected>25</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset> 
+                <div class="progress-container" state="pomo">
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle short"></div>
+                    <div class="circle pomo"></div>
+                    <div class="circle long"></div>
+                </div>
+                <div id="break-reminder" style="color:#464646;"></div>
+                <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         onReset();
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy();
-    })
+    });
 });
 
 describe("Test checkState function", () => {
-    test("Check state updates to work state", () => {
+    test("correctly updates to the work state", () => {
         document.body.innerHTML = `
             <div id="total-counter">Total Pomos Completed: <span id="total">0</span></div>
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
+            <div id = "timer-display">25:00</div>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 0;
         timer.counter.stateCtr = 0;
         checkState();
         let state = document.getElementById("state").innerHTML;
-        expect(state).toBe("Work");
+        expect(state).toBe("Work State");
     }),
 
-    test("Check state updates to short break state", () => {
+    test("correctly updates to the short break state", () => {
         document.body.innerHTML = `
             <div id="total-counter">Total Pomos Completed: <span id="total">0</span></div>
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div id = "timer-display">25:00</div>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 1;
         timer.counter.stateCtr = 1;
         checkState();
-        state = document.getElementById("state").innerHTML;
-        expect(state).toBe("Short");
+        state = document.getElementById("state").innerText;
+        expect(state).toBe("Short Break State");
+        let disabled = document.getElementById("resetButton").disabled;
+        expect(disabled).toBeTruthy(); // reset is disabled during break state
     }),
 
-    test("Check state updates to long break state", () => {
+    test("correctly updates to the long break state", () => {
         document.body.innerHTML = `
             <div id="total-counter">Total Pomos Completed: <span id="total">0</span></div>
-            <h2 id="state">Idle Mode</h2>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="startButton">Start</button>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div id = "timer-display">25:00</div>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
         `;
         timer.counter.totalPomos = 4;
         timer.counter.stateCtr = 7;
         checkState();
-        state = document.getElementById("state").innerHTML;
-        expect(state).toBe("Long"); 
-    })
+        state = document.getElementById("state").innerText;
+        expect(state).toBe("Long Break State"); 
+        let disabled = document.getElementById("resetButton").disabled;
+        expect(disabled).toBeTruthy(); // reset is disabled during break state
+    });
 });
 
 describe("Test start button", () => {
-    test("Check start button works", () => {
+    test("calls onStart function when clicked", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
         `;
-        require("./timer.js");
         let startBtn = document.getElementById("startButton");
-        let disabledOrNot = startBtn.disabled;
-        expect(disabledOrNot).toBeFalsy;
         startBtn.click();
-        expect(disabledOrNot).toBeTruthy;
-    })
+        expect(onStart).toBeCalled;
+    });
 });
 
 describe("Test reset button", () => {
-    test("Check reset button works", () => {
+    test("calls onReset function when clicked", () => {
         document.body.innerHTML = `
             <div id = "timer-display">25:00</div>
             <button type=button class="timer-button" id="startButton">Start</button>
             <button type=button class="timer-button" id="resetButton">Reset</button>
         `;
-        require("./timer.js");
-        let startBtn = document.getElementById("startButton");
-        let disabledOrNot = startBtn.disabled;
         let resetBtn = document.getElementById("resetButton");
         resetBtn.click();
-        expect(disabledOrNot).toBeTruthy;
+        expect(onReset).toBeCalled;
+    })
+});
+
+describe("Test updateState function", () => {
+    test("sets state to work state if current state is short break state", () => {
+        document.body.innerHTML = `
+            <div id = "timer-display">25:00</div>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
+        `;
+        timer.currState = "Short Break State";
+        updateState();
+        let state = timer.currState;
+        expect(state).toBe("Work State");
+        let htmlState = document.getElementById("state").innerText;
+        expect(htmlState).toBe("Work State");
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("25:00");
+        let disabled = document.getElementById("resetButton").disabled;
+        expect(disabled).toBeTruthy();
+    }),
+
+    test("sets state to work state if current state is long break state", () => {
+        document.body.innerHTML = `
+            <div id = "timer-display">25:00</div>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
+        `;
+        timer.currState = "Long Break State";
+        updateState();
+        let state = timer.currState;
+        expect(state).toBe("Work State");
+        let htmlState = document.getElementById("state").innerText;
+        expect(htmlState).toBe("Work State");
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("25:00");
+        let disabled = document.getElementById("resetButton").disabled;
+        expect(disabled).toBeTruthy();
+    }),
+
+    test("sets state to short break state if current state is work state", () => {
+        document.body.innerHTML = `
+            <div id = "timer-display">25:00</div>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
+        `;
+        timer.counter.totalPomos = 2;
+        timer.currState = "Work State";
+        updateState();
+        let state = timer.currState;
+        expect(state).toBe("Short Break State");
+        let htmlState = document.getElementById("state").innerText;
+        expect(htmlState).toBe("Short Break State");
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("05:00");
+    }),
+
+    test("sets state to long break state if current state is work state", () => {
+        document.body.innerHTML = `
+            <div id = "timer-display">25:00</div>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
+        `;
+        timer.counter.totalPomos = 2;
+        timer.currState = "Work State";
+        updateState();
+        let state = timer.currState;
+        expect(state).toBe("Short Break State");
+        let htmlState = document.getElementById("state").innerText;
+        expect(htmlState).toBe("Short Break State");
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("05:00");
+    });
+});
+
+describe("Test settings modal", () => {
+    test("calls revealSettings function when modal is opened", () => {
+        document.body.innerHTML = `
+            <button type=button class="settings" id="settingsButton"><img id="cog" src="img/Settings_icon.png"/></button>
+            <div id="settingsModal" class="modal">
+                <div class="settings-content">
+                <span id="closeSettings">&times;</span disabled>
+                </div>
+            </div>
+        `;
+        let settingsBtn = document.getElementById("settingsButton");
+        settingsBtn.click();
+        expect(revealSettings).toBeCalled;
+    }),
+
+    test("calls hideSettings function when modal is closed", () => {
+        document.body.innerHTML = `
+            <button type=button class="settings" id="settingsButton"><img id="cog" src="img/Settings_icon.png"/></button>
+            <div id="settingsModal" class="modal">
+                <div class="settings-content">
+                <span id="closeSettings">&times;</span disabled>
+                </div>
+            </div>
+        `;
+        let closeSettingsBtn = document.getElementById("closeSettings");
+        closeSettingsBtn.click();
+        expect(hideSettings).toBeCalled;
+    });
+});
+
+describe("Test setCustomTime function", () => {
+    test("updates the timer display for a user's input", () => {
+        document.body.innerHTML = `
+            <div id="timer-display">25:00</div>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option id="workOption25" value="25" selected>25</option>
+                        <option id="workOption30" value="30">30</option>
+                        <option id="workOption45" value="45">45</option>
+                        <option id="workOption60" value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option id="sbOption5"  value="5" selected>5</option>
+                        <option id="sbOption10" value="10">10</option>
+                        <option id="sbOption15" value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option id="lbOption15" value="15" selected>15</option>
+                        <option id="lbOption20" value="20">20</option>
+                        <option id="lbOption25" value="25">25</option>
+                        <option id="lbOption30" value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
+        `;
+
+        document.getElementById("workTime").selectedIndex = 1;
+        document.getElementById("shortBreakTime").selectedIndex = 1;
+        document.getElementById("longBreakTime").selectedIndex = 1;
+        setCustomTime();
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("30:00");
+        
+        expect(POMO_MINS).toBe("30");
+        expect(SHORT_MINS).toBe("10");
+        expect(LONG_MINS).toBe("20");
     })
 });
