@@ -1546,16 +1546,215 @@ describe('Warning Messages Tests', () => {
 
 
 
-/*
+
 describe('Banner Notifications Tests', () => {
-  beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+  //Will get warnings but they are expected. The test will pass
+  it('Banner Notif Test: Permission Granted, Check Banner Appears at the End of Every State', () => {
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+      onBeforeLoad (win) {
+        //set permissions
+        cy.stub(win.Notification, 'permission', 'granted');
+        cy.stub(win, 'Notification').as('Notification');
+      },
+    });
+
+    //DOM Maninpulation to get short pomo/break times :)
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    let body = 'You have completed a pomo! Your short break begins now :)'; 
+    let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
+    let title = 'Productoro';
+
+    //1st Pomo
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
+
+    cy.on('uncaught:exception', (err, runnable) => {
+      expect(err.message).to.include('something about the error')
+      //Cypress doesnt like the notif.close() so we prevent the error from stopping tests
+      done();
+    });
+
+    
+
+    //1st SB
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+    body = 'Your break has ended. A new pomo begins now :)';
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
+
+    //2nd Pomo
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+    body = 'You have completed a pomo! Your short break begins now :)'; 
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
+    
+
+    //2nd SB
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+    body = 'Your break has ended. A new pomo begins now :)';
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
+
+    //3rd Pomo
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+    body = 'You have completed a pomo! Your short break begins now :)'; 
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
+
+    //3rd SB
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+    body = 'Your break has ended. A new pomo begins now :)';
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
+
+    //4th Pomo
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+    body = 'You have completed a pomo! Your long break begins now :)';
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
+
+    //LB
+    cy.get('#startButton').click();
+    cy.wait(6*1000);
+    body = 'Your break has ended. A new pomo begins now :)';
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
   });
 
-  it('Testing Four Pomos Along with Short and Long Breaks', () => {
+  it('Banner Notif Test: Check Banners Dont Appear when Not Supported', () => {
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+      onBeforeLoad (win) {
+        //mock browser not supporting 
+        cy.stub(win, 'Notification').as('Notification');
+        delete win.Notification
+      },
+    });
+    //DOM Manipulation
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    //Test begins
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+    cy.get('@Notification').should('not.have.been.called');
+  });
+
+  it('Banner Notif Test: Check Banners Dont Appear when Denied Permissions', () => {
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+      onBeforeLoad (win) {
+        //set permissions
+        cy.stub(win.Notification, 'permission', 'denied');
+        cy.stub(win.Notification, 'requestPermission').resolves('denied').as('ask');
+        cy.stub(win, 'Notification').as('Notification');
+      },
+    });
+    //DOM Maninpulation to get short pomo/break times :)
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    //Test Begins
+    //set permissions
+    
+    cy.get('#startButton').click();
+    cy.get('@Notification').should('not.have.been.called');
+    
+    
+  });
+
+  it('Banner Notif Test: Check Asked User When on Default',() =>{
+    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+      onBeforeLoad (win) {
+        //set permissions
+        cy.stub(win.Notification, 'permission', 'denied');
+        cy.stub(win.Notification, 'requestPermission').resolves('granted').as('ask')
+        cy.stub(win, 'Notification').as('Notification');
+      },
+    });
+    //DOM Maninpulation to get short pomo/break times :)
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    let body = 'You have completed a pomo! Your short break begins now :)'; 
+    let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
+    let title = 'Productoro';
+
+    //Test Begins
+    cy.get('#startButton').click();
+    cy.wait(9*1000);
+    //since request permissions resolves in granted we should get a notification
+    cy.get('@Notification').should('have.been.calledWithNew').and('have.been.calledWithExactly', title, {body, icon});
   });
 });
 
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+/*
 describe('Alarm Notifications Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
