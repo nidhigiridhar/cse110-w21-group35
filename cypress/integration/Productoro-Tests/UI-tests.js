@@ -1,3 +1,5 @@
+import { getAlarm, playSound } from "../../../source/notifications";
+
 //Inital No Actvity Tests
 describe('Fresh Entry, No Activity Tests', () => {
   beforeEach(() => {
@@ -1754,25 +1756,197 @@ describe('Banner Notifications Tests', () => {
 
 
 
-/*
 describe('Alarm Notifications Tests', () => {
   beforeEach(() => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+
+    //DOM Maninpulation to get short pomo/break times :)
+    cy.get('#settingsButton').click();
+    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    
+    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+    cy.get('#shortBreakTime').select('.1');
+    cy.get('#longBreakTime').select('.1');
+    cy.get('#workTime').select('.15');
+
+    cy.get('#closeSettings').click();
+
+    //Pomo: 9 Seconds
+    //SB: 6 seconds
+    //LB: 6 seconds
   });
 
-  it('Testing Four Pomos Along with Short and Long Breaks', () => {
+  it('Alarm Test, Slider On: Check Alarm Plays for Each Pomo and Break', () => {
+    //function checks if the pased in noise is muted, ended, or pasued
+    function tester(noise){
+      return (!noise.muted && !noise.paused && (noise.currentTime != 0) && !noise.ended);
+    }
+    //Check alarm is heard on Pomo 1
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+
+    //Check alarm is heard on SB 1
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+
+    //Check alarm is heard on Pomo 2
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+
+    //Check alarm is heard on SB 2
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+
+    //Check alarm is heard on Pomo 3
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+
+    //Check alarm is heard on SB 3
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+
+    //Check alarm is heard on Pomo 4
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+
+    //Check alarm is heard on LB
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    cy.get(getAlarm()).then(($el) => {
+      //check that the alarm isnt muted or pasued or finished
+      expect(tester($el)).to.be.true;
+    });
+  });
+
+  it('Alarm Test, Slider Off: Check Alarm Disabled for Each Pomo and Break', () => {
+    //function checks if the pased in noise is muted, ended, or pasued
+    function tester(noise){
+      return (noise.muted || noise.paused);
+    }
+
+     //Disable the Notifications
+     cy.get('#settingsButton').click();
+     cy.get('#notifToggle').invoke('attr', 'checked', false);
+     cy.get('#closeSettings').click();
+
+    //Check alarm is heard on Pomo 1
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
+
+
+    //Check alarm is heard on SB 1
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
+
+    //Check alarm is heard on Pomo 2
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
+
+    //Check alarm is heard on SB 2
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
+
+    //Check alarm is heard on Pomo 3
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
+
+    //Check alarm is heard on SB 3
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
+
+    //Check alarm is heard on Pomo 4
+    cy.get('#startButton').click();
+    //Wait Pomo time plus 2 seconds
+    cy.wait(11*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
+
+    //Check alarm is heard on LB
+    cy.get('#startButton').click();
+    //wait SB time plus 2 seconds
+    cy.wait(8*1000);
+    //get the Alarm object we use in notifications
+    //check that the alarm isnt muted or pasued or finished
+    expect(tester(getAlarm())).to.be.true;
   });
 });
 
 
-describe('Audio Slider Tests', () => {
-  beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
-  });
-
-  it('Testing Four Pomos Along with Short and Long Breaks', () => {
-  });
-});*/
 
 
 
