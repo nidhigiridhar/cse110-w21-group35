@@ -30,4 +30,5 @@ function colorChange() {
   }
 }
 
+// export functions for testing
 export { colorChange };

@@ -91,4 +91,5 @@ function getNotificationStatus(){
     }
 }
 
-export {showNotif, getNotificationStatus, playSound, getAlarm};
+// export functions for testing
+export { showNotif, getNotificationStatus, playSound, getAlarm };

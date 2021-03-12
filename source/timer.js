@@ -96,12 +96,10 @@ function checkState() {
             timer.currDuration = NUM_SEC * SHORT_MINS;
             document.getElementById('state').innerText = SHORT_STATE;
             
-            document.getElementById('timer-display').innerText = 
-            
-                `${SHORT_MINS}:00`;
+            document.getElementById('timer-display').innerText = `${SHORT_MINS}:00`;
             if(SHORT_MINS < 10) {
                 let time = document.getElementById('timer-display').innerText; 
-                time = '0' + time;
+                document.getElementById('timer-display').innerText = '0' + time;
             } 
             // disable reset button in break state
             document.getElementById('resetButton').disabled = true; 
@@ -346,8 +344,6 @@ function keyboardShortcut(event) {
 }
 
 // export functions and variables for testing
-var module = module || {};
 export {onStart, onReset, checkState,updateState, setCustomTime, 
     keyboardShortcut, revealSettings, hideSettings, timer, 
     SHORT_STATE, LONG_STATE, WORK_STATE, POMO_MINS, SHORT_MINS, LONG_MINS}; 
-

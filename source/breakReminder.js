@@ -46,9 +46,8 @@ function breakReminders(){
             document.getElementById('break-reminder').style.visibility = 'hidden';
             document.getElementById('reminder').style.visibility = 'hidden';
             break;    
-    
     }
-  
 }
 
+// export functions for testing
 export { breakReminders };

@@ -26,5 +26,5 @@ function hideHelp(event) {
     document.getElementById('closeModal').disabled = true; 
 }
 
-// export functions and variables for testing
+// export functions for testing
 export { revealHelp, hideHelp }; 

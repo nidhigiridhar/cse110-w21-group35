@@ -40,5 +40,6 @@ function reset() {
   currentDeactive = 0;
 }
 
+// export functions and variables for testing
 export { progress, circles, currentDeactive, progressBar, update, reset };
 
