@@ -1,22 +1,22 @@
 module.exports = {
-    "plugins": ["jasmine"],
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jasmine": true,
-        "jest": true
+    'plugins': ['jasmine'],
+    'env': {
+        'browser': true,
+        'es2021': true,
+        'jasmine': true,
+        'jest': true
     },
-    "globals": {
-        "global": "writable"
+    'globals': {
+        'global': 'writable'
     },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
+    'extends': 'eslint:recommended',
+    'parserOptions': {
+        'ecmaVersion': 12,
+        'sourceType': 'module'
     },
-    "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "single"],
-        "no-unused-vars": "error"
+    'rules': {
+        'semi': ['error', 'always'],
+        'quotes': ['error', 'single'],
+        'no-unused-vars': 'error'
     }
 };
