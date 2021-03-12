@@ -7,16 +7,16 @@
     <title>Productoro</title>
 </head>
 <header>  
-    <div id='counter-container'>
-        <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
-        <div id='total-counter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
+    <div id='counterContainer'>
+        <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
+        <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
         <h1 style='color:#464646;'>Productoro</h1>
-        <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
+        <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
     </div>
 </header>
 <body state='pomo'>
-    <div id='timer-container'>
+    <div id='timerContainer'>
         <h2 id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
         <div class='container'>
             <div class='progress-container'>
@@ -29,16 +29,16 @@
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
         </div>
     </div>
 
-    <div id='button-container'> <!-- container for start and reset buttons-->
+    <div id='buttonContainer'> <!-- container for start and reset buttons-->
         <button type=button class='timer-button' id='startButton'>Start</button>
         <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
     </div>
 
-    <div id='help-container'> <!-- container for non-static instructions-->
+    <div id='helpContainer'> <!-- container for non-static instructions-->
         <button type=button class='help-button' id=helpButton>?</button>
         <div id='helpModal' class='modal'>
             <div class='modal-content'>
@@ -61,11 +61,11 @@
     </div>
 
     <div id='settingContainer'>
-        <button type=button class='settings' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
+        <button type=button class='settings-button' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
         <div id='settingsModal' class='modal'>
             <div class='settings-content'>
             <span id='closeSettings'>&times;</span disabled>
-            <form id='time-limits'>
+            <form id='timeLimits'>
                 <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
                 <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 

@@ -1,13 +1,13 @@
-import { getAlarm, playSound } from "../../../source/notifications";
+import { getAlarm } from '../../../source/notifications';
 
 //Inital No Actvity Tests
 describe('Fresh Entry, No Activity Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Timer Display at 25 minutes', () => {
-    cy.get('#timer-display').should('have.text','25:00');
+    cy.get('#timerDisplay').should('have.text','25:00');
   });
 
   it('Start Button avialable', () => {
@@ -50,7 +50,7 @@ describe('Fresh Entry, No Activity Tests', () => {
   });
 
   it('Break Reminders Disabled Onload', () => {
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -82,14 +82,14 @@ describe('Fresh Entry, No Activity Tests', () => {
 //Start Button Tests
 describe('Start Button Tests', () => {
     beforeEach(() => {
-      cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+      cy.visit('http://127.0.0.1:5500/source/productoro.html');
     });
 
     it('Start Button Clicked: Check Timer Display 24:50', () => {
       cy.get('#startButton').click();
       //Cypress will wait a 10 seconds after the click
       cy.wait(10000);
-      cy.get('#timer-display').should('have.text','24:50');
+      cy.get('#timerDisplay').should('have.text','24:50');
     });
 
     it('Start Button Clicked: Check Start Button Gets Disabled', () => {
@@ -137,7 +137,7 @@ describe('Start Button Tests', () => {
 
     it('Start Button Clicked: Check Break Reminders Still Disabled', () => {
       cy.get('#startButton').click();
-      cy.get('#break-reminder').should('have.text', '');
+      cy.get('#breakReminder').should('have.text', '');
       cy.get('#reminder').then(($el) => {
         expect($el).to.be.hidden;
       });
@@ -180,16 +180,16 @@ describe('Start Button Tests', () => {
 
 describe('Reset Button Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Reset Button Clicked: Timer Display Resets', () => {
     cy.get('#startButton').click();
     //Cypress will wait a 10 seconds after the click
     cy.wait(10000);
-    cy.get('#timer-display').should('have.text','24:50');
+    cy.get('#timerDisplay').should('have.text','24:50');
     cy.get('#resetButton').click();
-    cy.get('#timer-display').should('have.text','25:00');
+    cy.get('#timerDisplay').should('have.text','25:00');
   });
 
   it('Reset Button Clicked: Check Reset Button Gets Disabled', () => {
@@ -249,14 +249,14 @@ describe('Reset Button Tests', () => {
 
   it('Reset Button Clicked: Check Break Reminders still Disabled', () => {
     cy.get('#startButton').click();
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
 
     cy.wait(1000*3);
     cy.get('#resetButton').click();
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -307,7 +307,7 @@ describe('Reset Button Tests', () => {
 
 describe('Counters Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -457,7 +457,7 @@ describe('Counters Tests', () => {
 
 describe('State Label and Timer Display Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -487,7 +487,7 @@ describe('State Label and Timer Display Tests', () => {
     cy.wait(5000);
 
     //check display
-    cy.get('#timer-display').should('have.text','00:04');
+    cy.get('#timerDisplay').should('have.text','00:04');
     //check state
     cy.get('#state').should('have.text','Work State');
   });
@@ -502,16 +502,16 @@ describe('State Label and Timer Display Tests', () => {
     cy.get('#state').should('have.text','Work State');
     //since we manipulated the dom to input a fraction of a minute we expect the weird frozen display
     //check display
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
 
     //press start to get the display back to a normal form
     cy.get('#startButton').click();
     //check display
-    cy.get('#timer-display').should('have.text','00:09');
+    cy.get('#timerDisplay').should('have.text','00:09');
 
     cy.wait(2000);
     //check display after 2 seconds
-    cy.get('#timer-display').should('have.text','00:07');
+    cy.get('#timerDisplay').should('have.text','00:07');
     
   });
 
@@ -525,16 +525,16 @@ describe('State Label and Timer Display Tests', () => {
     cy.get('#state').should('have.text','Short Break State');
     //since we manipulated the dom to input a fraction of a minute we expect the weird frozen display
     //check display
-    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#timerDisplay').should('have.text','0.1:00');
 
     //press start to get the display back to a normal form
     cy.get('#startButton').click();
     //check display
-    cy.get('#timer-display').should('have.text','00:06');
+    cy.get('#timerDisplay').should('have.text','00:06');
 
     cy.wait(2000);
     //check display after 2 seconds
-    cy.get('#timer-display').should('have.text','00:04');
+    cy.get('#timerDisplay').should('have.text','00:04');
   });
 
   it('State Label and Display: Label On Work State and Display on 00:09 After Break', () => {
@@ -551,16 +551,16 @@ describe('State Label and Timer Display Tests', () => {
     cy.get('#state').should('have.text','Work State');
     //since we manipulated the dom to input a fraction of a minute we expect the weird frozen display
     //check display
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
 
     //press start to get the display back to a normal form
     cy.get('#startButton').click();
     //check display
-    cy.get('#timer-display').should('have.text','00:09');
+    cy.get('#timerDisplay').should('have.text','00:09');
 
     cy.wait(2000);
     //check display after 2 seconds
-    cy.get('#timer-display').should('have.text','00:07');
+    cy.get('#timerDisplay').should('have.text','00:07');
   });
 
   it('State Label and Display: Label On LB State and Display on 00:06 After 4 Pomos', () => {
@@ -601,16 +601,16 @@ describe('State Label and Timer Display Tests', () => {
     cy.get('#state').should('have.text','Long Break State');
     //since we manipulated the dom to input a fraction of a minute we expect the weird frozen display
     //check display
-    cy.get('#timer-display').should('have.text','.1:00');
+    cy.get('#timerDisplay').should('have.text','.1:00');
 
     //press start to get the display back to a normal form
     cy.get('#startButton').click();
     //check display
-    cy.get('#timer-display').should('have.text','00:06');
+    cy.get('#timerDisplay').should('have.text','00:06');
 
     cy.wait(2000);
     //check display after 2 seconds
-    cy.get('#timer-display').should('have.text','00:04');
+    cy.get('#timerDisplay').should('have.text','00:04');
   });
 
   it('State Label and Display: Label On Work State and Display on 00:09 After LB', () => {
@@ -654,16 +654,16 @@ describe('State Label and Timer Display Tests', () => {
     cy.get('#state').should('have.text','Work State');
     //since we manipulated the dom to input a fraction of a minute we expect the weird frozen display
     //check display
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
 
     //press start to get the display back to a normal form
     cy.get('#startButton').click();
     //check display
-    cy.get('#timer-display').should('have.text','00:09');
+    cy.get('#timerDisplay').should('have.text','00:09');
 
     cy.wait(2000);
     //check display after 2 seconds
-    cy.get('#timer-display').should('have.text','00:07');
+    cy.get('#timerDisplay').should('have.text','00:07');
   });
 });
 
@@ -679,7 +679,7 @@ describe('State Label and Timer Display Tests', () => {
 
 describe('Background Color Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -830,7 +830,7 @@ describe('Background Color Tests', () => {
 
 describe('Help Button Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Help Button Clicked: Instructions Appear', () => {
@@ -845,7 +845,7 @@ describe('Help Button Tests', () => {
     cy.get('#helpModal').then(($el) => {
       expect($el).to.be.not.hidden
     });
-    cy.get('#timer-display').should('have.text','25:00');
+    cy.get('#timerDisplay').should('have.text','25:00');
   });
 
   it('Help Button Clicked: Start Button Unaffected', () => {
@@ -897,7 +897,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Check Break Reminders Still Disabled', () => {
     cy.get('#helpButton').click();
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -947,7 +947,7 @@ describe('Help Button Tests', () => {
 
 describe('Break Reminders Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -976,10 +976,10 @@ describe('Break Reminders Tests', () => {
     //Complete the pomo
 
     cy.wait(9*1000);
-    cy.get('#break-reminder').then(($el) => {
+    cy.get('#breakReminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
-    cy.get('#break-reminder').should('not.be.empty');
+    cy.get('#breakReminder').should('not.be.empty');
 
     cy.get('#reminder').then(($el) => {
       expect($el).not.to.be.hidden;
@@ -993,10 +993,10 @@ describe('Break Reminders Tests', () => {
     //finish pomo
     cy.wait(9*1000);
     //will fail rn but will work after fix
-    cy.get('#break-reminder').then(($el) => {
+    cy.get('#breakReminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
-    cy.get('#break-reminder').should('not.be.empty');
+    cy.get('#breakReminder').should('not.be.empty');
 
     cy.get('#reminder').then(($el) => {
       expect($el).not.to.be.hidden;
@@ -1009,10 +1009,10 @@ describe('Break Reminders Tests', () => {
     cy.wait(6*1000);
 
     //now in work state
-    cy.get('#break-reminder').then(($el) => {
+    cy.get('#breakReminder').then(($el) => {
       expect($el).to.be.hidden;
     });
-    cy.get('#break-reminder').should('not.be.empty');
+    cy.get('#breakReminder').should('not.be.empty');
 
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
@@ -1053,10 +1053,10 @@ describe('Break Reminders Tests', () => {
     cy.wait(9*1000);
 
     //now in long break state
-    cy.get('#break-reminder').then(($el) => {
+    cy.get('#breakReminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
-    cy.get('#break-reminder').should('not.be.empty');
+    cy.get('#breakReminder').should('not.be.empty');
 
     cy.get('#reminder').then(($el) => {
       expect($el).not.to.be.hidden;
@@ -1101,10 +1101,10 @@ describe('Break Reminders Tests', () => {
     cy.wait(6*1000);
     
     //now in long break state
-    cy.get('#break-reminder').then(($el) => {
+    cy.get('#breakReminder').then(($el) => {
       expect($el).to.be.hidden;
     });
-    cy.get('#break-reminder').should('not.be.empty');
+    cy.get('#breakReminder').should('not.be.empty');
 
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
@@ -1130,18 +1130,18 @@ describe('Break Reminders Tests', () => {
 
 describe('KeyBoard Shortcut: Using Space to Start Button', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Space Used as Start Button: Check Timer Display 24:50', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait a 10 seconds after the click
     cy.wait(10000);
-    cy.get('#timer-display').should('have.text','24:50');
+    cy.get('#timerDisplay').should('have.text','24:50');
   });
 
   it('Space Used as Start Button: Check Start Button Gets Disabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait a second after the click
     cy.get('#startButton').then(($el) => {
       expect($el).to.have.attr('disabled');
@@ -1149,7 +1149,7 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
   });
 
   it('Space Used as Start Button: Check Reset Button Gets Enabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait a second after the click
     cy.get('#resetButton').then(($el) => {
       expect($el).to.not.have.attr('disabled');
@@ -1157,7 +1157,7 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
   });
 
   it('Space Used as Start Button: Check Counters Not Updated', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait 5 seconds after the click
     cy.wait(5000)
     cy.get('#streak').should('have.text','0');
@@ -1165,56 +1165,56 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
   });
 
   it('Space Used as Start Button: Check State is Work State', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //States need to be more consistent ... sometimes they have mode as a suffix sometimes not
     cy.get('#state').should('have.text','Work State');
   });
 
   it('Space Used as Start Button: Check Help Not displayed', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#helpModal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
 
   it('Space Used as Start Button: Check Background Color Unaffected', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('body').then(($el) => {
       expect($el).to.have.attr('state', 'pomo');
     });
   });
 
   it('Space Used as Start Button: Check Break Reminders Still Disabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
   });
 
   it('Space Used as Start Button: Progress Bar Still Fully Lit', () =>{
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('.circle.pomo').should('have.length', 4);
     cy.get('.circle.short').should('have.length', 3);
     cy.get('.circle.long').should('have.length', 1);
   });
 
   it('Space Used as Start Button: Audio Alarm Still On', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#notifToggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
 
   it('Space Used as Start Button: Keyboard Shortcuts Still On', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#keyboardToggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
 
   it('Space Used as Start Button: Settings not Displayed', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#settingsModal').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -1238,36 +1238,36 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
 
 describe('Keyboard Shortcut: Using Space as Reset Button', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Space Used as Reset Button: Timer Display Resets', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait a 10 seconds after the click
     cy.wait(10000);
-    cy.get('#timer-display').should('have.text','24:50');
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#timer-display').should('have.text','25:00');
+    cy.get('#timerDisplay').should('have.text','24:50');
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('#timerDisplay').should('have.text','25:00');
   });
 
   it('Space Used as Reset Button: Check Reset Button Gets Disabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#resetButton').then(($el) => {
       expect($el).to.have.attr('disabled');
     })
   });
 
   it('Space Used as Reset Button: Check Start Button Gets Enabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#startButton').then(($el) => {
       expect($el).to.not.have.attr('disabled');
     });
   });
 
   it('Space Used as Reset Button: Check Only Streak was Killed', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait 5 seconds after the click
     cy.wait(5000)
     //set the inner html to simulate pomos passed
@@ -1277,73 +1277,73 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
     cy.get('#total').should('have.text','3');
     cy.wait(5000);
     //reset
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#streak').should('have.text','0');
     cy.get('#total').should('have.text','3');
   });
 
   it('Space Used as Reset Button: Check State is Work State', () => {
     //start
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //reset
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#state').should('have.text','Work State');
   });
 
   it('Space Used as Reset Button: Help Not displayed', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#helpModal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
 
   it('Space Used as Reset Button: Check Background Color Unaffected', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('body').then(($el) => {
       expect($el).to.have.attr('state', 'pomo');
     });
   });
 
   it('Space Used as Reset Button: Check Break Reminders still Disabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
 
     cy.wait(1000*3);
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
   });
 
   it('Space Used as Reset Button: Check Progress Bar Still Fully Lit', () =>{
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('.circle.pomo').should('have.length', 4);
     cy.get('.circle.short').should('have.length', 3);
     cy.get('.circle.long').should('have.length', 1);
   });
 
   it('Space Used as Reset Button: Check Audio Alarm Still On', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#notifToggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
 
   it('Space Used as Reset Button: Check Keyboard Shortcuts Still On', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#keyboardToggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
 
   it('Space Used as Reset Button: Check Settings not Displayed', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#settingsModal').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -1365,7 +1365,7 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
 
 describe('Settings Button Tests (Pressibility)', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Settings Button Clicked: Settings Appear', () => {
@@ -1380,7 +1380,7 @@ describe('Settings Button Tests (Pressibility)', () => {
     cy.get('#settingsModal').then(($el) => {
       expect($el).to.be.not.hidden
     });
-    cy.get('#timer-display').should('have.text','25:00');
+    cy.get('#timerDisplay').should('have.text','25:00');
   });
 
   it('Settings Button Clicked: Start Button Unaffected', () => {
@@ -1436,7 +1436,7 @@ describe('Settings Button Tests (Pressibility)', () => {
       expect($el).to.be.not.hidden
     });
 
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -1491,7 +1491,7 @@ describe('Settings Button Tests (Pressibility)', () => {
 
 describe('Custom Time Limits', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -1523,14 +1523,14 @@ describe('Custom Time Limits', () => {
     cy.get('#state').should('have.text','Work State');
     //display is what ever the custom time is with :00 appended at the end 
     //no leading 0 since the pomo without maniplulation is always >= 10 
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     //Cypress will wait a 9 seconds to finish pomo
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Short Break State');
     //display is what ever the custom time is with :00 appended at the end and extra 0 appened since < 10
-    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#timerDisplay').should('have.text','0.1:00');
     cy.get('#startButton').click();
     //Cypress will wait a 9 seconds to finish break
     cy.wait(6*1000);
@@ -1538,42 +1538,42 @@ describe('Custom Time Limits', () => {
     //repeat 3 more times
     //2nd Pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Short Break State');
-    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#timerDisplay').should('have.text','0.1:00');
     cy.get('#startButton').click();
     cy.wait(6*1000);
 
     //3rd Pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Short Break State');
-    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#timerDisplay').should('have.text','0.1:00');
     cy.get('#startButton').click();
     cy.wait(6*1000);
 
     //4th Pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Long Break State');
     //display is what ever the custom time is with :00 appended at the end 
     //no leading 0 since in real code we are assure LB > 10 
-    cy.get('#timer-display').should('have.text','.1:00');
+    cy.get('#timerDisplay').should('have.text','.1:00');
     cy.get('#startButton').click();
     cy.wait(6*1000);
 
     //Back to first pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
   });
 
   it('Custom Time Limits: Test Invalid Options Change Nothing', () => {
@@ -1602,13 +1602,13 @@ describe('Custom Time Limits', () => {
 
     //repeat previous tests
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     //Cypress will wait a 9 seconds to finish pomo
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Short Break State');
-    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#timerDisplay').should('have.text','0.1:00');
     cy.get('#startButton').click();
     //Cypress will wait a 9 seconds to finish break
     cy.wait(6*1000);
@@ -1616,42 +1616,42 @@ describe('Custom Time Limits', () => {
     //repeat 3 more times
     //2nd Pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Short Break State');
-    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#timerDisplay').should('have.text','0.1:00');
     cy.get('#startButton').click();
     cy.wait(6*1000);
 
     //3rd Pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Short Break State');
-    cy.get('#timer-display').should('have.text','0.1:00');
+    cy.get('#timerDisplay').should('have.text','0.1:00');
     cy.get('#startButton').click();
     cy.wait(6*1000);
 
     //4th Pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
     cy.get('#startButton').click();
     cy.wait(9*1000);
 
     cy.get('#state').should('have.text','Long Break State');
     //display is what ever the custom time is with :00 appended at the end 
     //no leading 0 since in real code we are assure LB > 10 
-    cy.get('#timer-display').should('have.text','.1:00');
+    cy.get('#timerDisplay').should('have.text','.1:00');
     cy.get('#startButton').click();
     cy.wait(6*1000);
 
     //Back to first pomo
     cy.get('#state').should('have.text','Work State');
-    cy.get('#timer-display').should('have.text','.15:00');
+    cy.get('#timerDisplay').should('have.text','.15:00');
   });
 
   it('Custom Time Limits: Check Start Button avialable', () => {
@@ -1683,7 +1683,7 @@ describe('Custom Time Limits', () => {
   });
 
   it('Custom Time Limits: Check Break Reminders Disabled Onload', () => {
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -1725,7 +1725,7 @@ describe('Custom Time Limits', () => {
 
 describe('Warning Messages Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Warning Message: Check Warning When Timer is Running', () => {
@@ -1842,7 +1842,7 @@ describe('Warning Messages Tests', () => {
 describe('Banner Notifications Tests', () => {
   //Will get warnings but they are expected. The test will pass
   it('Banner Notif Test: Permission Granted, Check Banner Appears at the End of Every State', () => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //set permissions
         cy.stub(win.Notification, 'permission', 'granted');
@@ -1929,7 +1929,7 @@ describe('Banner Notifications Tests', () => {
   });
 
   it('Banner Notif Test: Check Banners Dont Appear when Not Supported', () => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //mock browser not supporting 
         cy.stub(win, 'Notification').as('Notification');
@@ -1960,7 +1960,7 @@ describe('Banner Notifications Tests', () => {
   });
 
   it('Banner Notif Test: Check Banners Dont Appear when Denied Permissions', () => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //set permissions
         cy.stub(win.Notification, 'permission', 'denied');
@@ -1995,7 +1995,7 @@ describe('Banner Notifications Tests', () => {
   });
 
   it('Banner Notif Test: Check Asked User When on Default',() =>{
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //set permissions
         cy.stub(win.Notification, 'permission', 'denied');
@@ -2048,7 +2048,7 @@ describe('Banner Notifications Tests', () => {
 
 describe('Alarm Notifications Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -2295,7 +2295,7 @@ describe('Alarm Notifications Tests', () => {
     cy.get('#notifToggle').invoke('attr', 'checked', false);
     cy.get('#closeSettings').click();
 
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
@@ -2354,7 +2354,7 @@ describe('Alarm Notifications Tests', () => {
 
 describe('Keyboard Shortcuts Disabled Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
     //Turn off the keyboard shortcuts
     cy.get('#settingsButton').click();
     cy.get('#keyboardToggle').invoke('attr', 'checked', false);
@@ -2362,29 +2362,29 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Timer Display Unaffected', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait a 5 seconds after the click
     cy.wait(5000)
-    cy.get('#timer-display').should('have.text','25:00');
+    cy.get('#timerDisplay').should('have.text','25:00');
   });
 
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Start Button Still Enabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#startButton').then(($el) => {
       expect($el).to.not.have.attr('disabled');
     })
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Reset Button Still Disabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#resetButton').then(($el) => {
       expect($el).to.have.attr('disabled');
     })
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Counters Not Updated', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     //Cypress will wait 5 seconds after the click
     cy.wait(5000)
     cy.get('#streak').should('have.text','0');
@@ -2392,55 +2392,55 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check State is Work State', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#state').should('have.text','Work State');
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Help Not displayed', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#helpModal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Settings Not displayed', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#settingsModal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Background Color Unaffected', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('body').then(($el) => {
       expect($el).to.have.attr('state', 'pomo');
     });
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Break Reminders Still Disabled', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
-    cy.get('#break-reminder').should('have.text', '');
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
+    cy.get('#breakReminder').should('have.text', '');
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Progress Bar Unaffected', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('.circle.pomo').should('have.length', 4);
     cy.get('.circle.short').should('have.length', 3);
     cy.get('.circle.long').should('have.length', 1);
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Audio Alarm Still On', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#notifToggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Keyboard Shortcuts Still Off', () => {
-    cy.get('body').trigger('keydown', { key: "(Space character)", code: "Space", which: 32 }); 
+    cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('#keyboardToggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
@@ -2464,7 +2464,7 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
 
 describe('Progress Bar Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -2591,7 +2591,7 @@ describe('Progress Bar Tests', () => {
 
 describe('Full Cycle Test', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Full Cycle Test: Run 4 Pomos and 3 SB and 1 LB to ensure Timer counts seconds correctly', () => {

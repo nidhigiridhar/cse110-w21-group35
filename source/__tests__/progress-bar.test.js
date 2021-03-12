@@ -15,7 +15,7 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>        
         `;
         reset();
@@ -26,7 +26,7 @@ describe('Test progress bar', () => {
 
     test('first dot is deactivated after one work session is completed', () => {
         document.body.innerHTML = `
-            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
             <h2 id='state'>Work State</h2>
             <div class='container'>
@@ -40,9 +40,9 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id='button-container'> <!-- container for start and reset buttons-->
+            <div id='buttonContainer'> <!-- container for start and reset buttons-->
                 <button type=button class='timer-button' id='startButton'>Start</button>
                 <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
             </div>      
@@ -61,7 +61,7 @@ describe('Test progress bar', () => {
 
     test('second dot is deactivated after one short break session is completed', () => {
         document.body.innerHTML = `
-            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
             <h2 id='state'>Work State</h2>
             <div class='container'>
@@ -75,9 +75,9 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id='button-container'> <!-- container for start and reset buttons-->
+            <div id='buttonContainer'> <!-- container for start and reset buttons-->
                 <button type=button class='timer-button' id='startButton'>Start</button>
                 <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
             </div>      
@@ -97,7 +97,7 @@ describe('Test progress bar', () => {
 
     test('all dots are deactivated after long break is completed', () => {
         document.body.innerHTML = `
-            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
             <h2 id='state'>Work State</h2>
             <div class='container'>
@@ -111,9 +111,9 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id='button-container'> <!-- container for start and reset buttons-->
+            <div id='buttonContainer'> <!-- container for start and reset buttons-->
                 <button type=button class='timer-button' id='startButton'>Start</button>
                 <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
             </div>      

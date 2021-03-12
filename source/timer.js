@@ -77,7 +77,7 @@ function checkState() {
         timer.currState = WORK_STATE;
         timer.currDuration = NUM_SEC * POMO_MINS;
         document.getElementById('state').innerText = WORK_STATE;
-        document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
+        document.getElementById('timerDisplay').innerText = `${POMO_MINS}:00`;
     } 
     else {
         // long break state
@@ -85,7 +85,7 @@ function checkState() {
             timer.currState = LONG_STATE;
             timer.currDuration = NUM_SEC * LONG_MINS;
             document.getElementById('state').innerText = LONG_STATE;
-            document.getElementById('timer-display').innerText = 
+            document.getElementById('timerDisplay').innerText = 
                 `${LONG_MINS}:00`;
             // disable reset button in break state
             document.getElementById('resetButton').disabled = true; 
@@ -96,10 +96,10 @@ function checkState() {
             timer.currDuration = NUM_SEC * SHORT_MINS;
             document.getElementById('state').innerText = SHORT_STATE;
             
-            document.getElementById('timer-display').innerText = `${SHORT_MINS}:00`;
+            document.getElementById('timerDisplay').innerText = `${SHORT_MINS}:00`;
             if(SHORT_MINS < 10) {
-                let time = document.getElementById('timer-display').innerText; 
-                document.getElementById('timer-display').innerText = '0' + time;
+                let time = document.getElementById('timerDisplay').innerText; 
+                document.getElementById('timerDisplay').innerText = '0' + time;
             } 
             // disable reset button in break state
             document.getElementById('resetButton').disabled = true; 
@@ -122,19 +122,19 @@ function updateState() {
         if(timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
             document.getElementById('state').innerText = LONG_STATE;
-            document.getElementById('timer-display').innerText = 
+            document.getElementById('timerDisplay').innerText = 
                 `${LONG_MINS}:00`;
         }
         // if next state is short break 
         else {
             timer.currState = SHORT_STATE;
             document.getElementById('state').innerText = SHORT_STATE;
-            document.getElementById('timer-display').innerText = 
+            document.getElementById('timerDisplay').innerText = 
                 `${SHORT_MINS}:00`;
-            let time = document.getElementById('timer-display').innerText;
+            let time = document.getElementById('timerDisplay').innerText;
             if(SHORT_MINS < 10) {
                 time = '0' + time;
-                document.getElementById('timer-display').innerText = time;
+                document.getElementById('timerDisplay').innerText = time;
             } 
             
             // disable reset button in break state
@@ -146,7 +146,7 @@ function updateState() {
     else {
         timer.currState = WORK_STATE;
         document.getElementById('state').innerText = WORK_STATE;
-        document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
+        document.getElementById('timerDisplay').innerText = `${POMO_MINS}:00`;
         // disable reset button in break state
         document.getElementById('resetButton').disabled = true; 
     }
@@ -178,7 +178,7 @@ function updateTimer(duration) {
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
 
-        document.getElementById('timer-display').innerText= 
+        document.getElementById('timerDisplay').innerText= 
             `${minutes}:${seconds}`;
 
         // stop timer when minutes and seconds reach 0
@@ -250,7 +250,7 @@ function setCustomTime() {
 
     // set the new time preferences
     POMO_MINS = wTime.options[wTime.selectedIndex].text;
-    document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
+    document.getElementById('timerDisplay').innerText = `${POMO_MINS}:00`;
 
     
     SHORT_MINS = sbTime.options[sbTime.selectedIndex].text;

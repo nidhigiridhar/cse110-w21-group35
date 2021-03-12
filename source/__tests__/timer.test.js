@@ -6,7 +6,7 @@ describe('Test onStart function', () => {
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
-            <div id='timer-display' state='pomo'>25:00</div>
+            <div id='timerDisplay' state='pomo'>25:00</div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 
@@ -45,7 +45,7 @@ describe('Test onStart function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='break-reminder' style='color:#464646;'></div>
+                <div id='breakReminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.stateCtr = 0;
@@ -59,7 +59,7 @@ describe('Test onStart function', () => {
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
-            <div id='timer-display' state='pomo'>25:00</div>
+            <div id='timerDisplay' state='pomo'>25:00</div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 
@@ -98,7 +98,7 @@ describe('Test onStart function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onStart();
@@ -111,7 +111,7 @@ describe('Test onStart function', () => {
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
-            <div id='timer-display' state='pomo'>25:00</div>
+            <div id='timerDisplay' state='pomo'>25:00</div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 
@@ -150,7 +150,7 @@ describe('Test onStart function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onStart();
@@ -162,11 +162,11 @@ describe('Test onStart function', () => {
 describe('Test onReset function', () => {
     test('resets correctly during work state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>14:00</div>
+            <div id = 'timerDisplay'>14:00</div>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <h2 id='state'>Work State</h2>
-            <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
+            <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 
@@ -205,12 +205,12 @@ describe('Test onReset function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='break-reminder' style='color:#464646;'></div>
+                <div id='breakReminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.currState = 'Work State';
         onReset();
-        let timerDisplay = document.getElementById('timer-display').innerText;
+        let timerDisplay = document.getElementById('timerDisplay').innerText;
         let state = document.getElementById('state').innerText;
         expect(timerDisplay).toBe('25:00');
         expect(state).toBe('Work State');
@@ -218,11 +218,11 @@ describe('Test onReset function', () => {
 
     test('enables the start button', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>14:00</div>
+            <div id = 'timerDisplay'>14:00</div>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <h2 id='state'>Work State</h2>
-            <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
+            <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 
@@ -261,7 +261,7 @@ describe('Test onReset function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='break-reminder' style='color:#464646;'></div>
+                <div id='breakReminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onReset();
@@ -271,11 +271,11 @@ describe('Test onReset function', () => {
 
     test('disables the reset button', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>14:00</div>
+            <div id = 'timerDisplay'>14:00</div>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <h2 id='state'>Work State</h2>
-            <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
+            <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 
@@ -314,7 +314,7 @@ describe('Test onReset function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='break-reminder' style='color:#464646;'></div>
+                <div id='breakReminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onReset();
@@ -326,9 +326,9 @@ describe('Test onReset function', () => {
 describe('Test checkState function', () => {
     test('correctly updates to the work state', () => {
         document.body.innerHTML = `
-            <div id='total-counter'>Total Pomos Completed: <span id='total'>0</span></div>
+            <div id='totalCounter'>Total Pomos Completed: <span id='total'>0</span></div>
             <h2 id='state'>Work State</h2>
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <div class='progress-container' state='pomo'>
                 <div class='circle pomo'></div>
                 <div class='circle short'></div>
@@ -339,7 +339,7 @@ describe('Test checkState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 0;
@@ -351,11 +351,11 @@ describe('Test checkState function', () => {
 
     test('correctly updates to the short break state', () => {
         document.body.innerHTML = `
-            <div id='total-counter'>Total Pomos Completed: <span id='total'>0</span></div>
+            <div id='totalCounter'>Total Pomos Completed: <span id='total'>0</span></div>
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <div class='progress-container' state='pomo'>
                 <div class='circle pomo'></div>
                 <div class='circle short'></div>
@@ -366,7 +366,7 @@ describe('Test checkState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 1;
@@ -380,11 +380,11 @@ describe('Test checkState function', () => {
 
     test('correctly updates to the long break state', () => {
         document.body.innerHTML = `
-            <div id='total-counter'>Total Pomos Completed: <span id='total'>0</span></div>
+            <div id='totalCounter'>Total Pomos Completed: <span id='total'>0</span></div>
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <div class='progress-container' state='pomo'>
                 <div class='circle pomo'></div>
                 <div class='circle short'></div>
@@ -395,7 +395,7 @@ describe('Test checkState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 4;
@@ -411,7 +411,7 @@ describe('Test checkState function', () => {
 describe('Test start button', () => {
     test('calls onStart function when clicked', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <button type=button class='timer-button' id='startButton'>Start</button>
         `;
         let startBtn = document.getElementById('startButton');
@@ -423,7 +423,7 @@ describe('Test start button', () => {
 describe('Test reset button', () => {
     test('calls onReset function when clicked', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <button type=button class='timer-button' id='startButton'>Start</button>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
         `;
@@ -436,7 +436,7 @@ describe('Test reset button', () => {
 describe('Test updateState function', () => {
     test('sets state to work state if current state is short break state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
@@ -449,7 +449,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.currState = 'Short Break State';
@@ -458,7 +458,7 @@ describe('Test updateState function', () => {
         expect(state).toBe('Work State');
         let htmlState = document.getElementById('state').innerText;
         expect(htmlState).toBe('Work State');
-        let htmlTime = document.getElementById('timer-display').innerText;
+        let htmlTime = document.getElementById('timerDisplay').innerText;
         expect(htmlTime).toBe('25:00');
         let disabled = document.getElementById('resetButton').disabled;
         expect(disabled).toBeTruthy();
@@ -466,7 +466,7 @@ describe('Test updateState function', () => {
 
     test('sets state to work state if current state is long break state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
@@ -479,7 +479,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.currState = 'Long Break State';
@@ -488,7 +488,7 @@ describe('Test updateState function', () => {
         expect(state).toBe('Work State');
         let htmlState = document.getElementById('state').innerText;
         expect(htmlState).toBe('Work State');
-        let htmlTime = document.getElementById('timer-display').innerText;
+        let htmlTime = document.getElementById('timerDisplay').innerText;
         expect(htmlTime).toBe('25:00');
         let disabled = document.getElementById('resetButton').disabled;
         expect(disabled).toBeTruthy();
@@ -496,7 +496,7 @@ describe('Test updateState function', () => {
 
     test('sets state to short break state if current state is work state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
@@ -509,7 +509,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 2;
@@ -519,13 +519,13 @@ describe('Test updateState function', () => {
         expect(state).toBe('Short Break State');
         let htmlState = document.getElementById('state').innerText;
         expect(htmlState).toBe('Short Break State');
-        let htmlTime = document.getElementById('timer-display').innerText;
+        let htmlTime = document.getElementById('timerDisplay').innerText;
         expect(htmlTime).toBe('05:00');
     }),
 
     test('sets state to long break state if current state is work state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
+            <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
@@ -538,7 +538,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 2;
@@ -548,7 +548,7 @@ describe('Test updateState function', () => {
         expect(state).toBe('Short Break State');
         let htmlState = document.getElementById('state').innerText;
         expect(htmlState).toBe('Short Break State');
-        let htmlTime = document.getElementById('timer-display').innerText;
+        let htmlTime = document.getElementById('timerDisplay').innerText;
         expect(htmlTime).toBe('05:00');
     });
 });
@@ -586,7 +586,7 @@ describe('Test settings modal', () => {
 describe('Test setCustomTime function', () => {
     test('updates the timer display for a user\'s input', () => {
         document.body.innerHTML = `
-            <div id='timer-display'>25:00</div>
+            <div id='timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
@@ -627,7 +627,7 @@ describe('Test setCustomTime function', () => {
                     </select>
                     <br>
                 </fieldset>
-            <div id='break-reminder' style='color:#464646;'></div>
+            <div id='breakReminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
 
@@ -635,7 +635,7 @@ describe('Test setCustomTime function', () => {
         document.getElementById('shortBreakTime').selectedIndex = 1;
         document.getElementById('longBreakTime').selectedIndex = 1;
         setCustomTime();
-        let htmlTime = document.getElementById('timer-display').innerText;
+        let htmlTime = document.getElementById('timerDisplay').innerText;
         expect(htmlTime).toBe('30:00');
         
         expect(POMO_MINS).toBe('30');

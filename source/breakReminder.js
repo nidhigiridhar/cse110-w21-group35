@@ -17,33 +17,33 @@ function breakReminders(){
     let randomIdea = breakIdeas[Math.floor(Math.random() * breakIdeas.length)];
  
     document.getElementById('reminder').style.visibility = 'hidden';
-    document.getElementById('break-reminder').innerText = randomIdea;
+    document.getElementById('breakReminder').innerText = randomIdea;
     document.getElementById('reminder').innerText = '';
       
    
     switch(timer.currState) {
  
         case WORK_STATE:
-            document.getElementById('break-reminder').style.visibility = 'hidden';
+            document.getElementById('breakReminder').style.visibility = 'hidden';
             document.getElementById('reminder').style.visibility = 'hidden';
             break;
  
         case SHORT_STATE:
-            document.getElementById('break-reminder').innerText = 'An idea for how to spend your break:';
-            document.getElementById('break-reminder').style.visibility = 'visible';
+            document.getElementById('breakReminder').innerText = 'An idea for how to spend your break:';
+            document.getElementById('breakReminder').style.visibility = 'visible';
             document.getElementById('reminder').style.visibility = 'visible'; 
            document.getElementById('reminder').innerText = randomIdea;
             break;
         
         case LONG_STATE:
-            document.getElementById('break-reminder').innerText = 'An idea for how to spend your break:';
-            document.getElementById('break-reminder').style.visibility = 'visible';
+            document.getElementById('breakReminder').innerText = 'An idea for how to spend your break:';
+            document.getElementById('breakReminder').style.visibility = 'visible';
             document.getElementById('reminder').style.visibility = 'visible';
             document.getElementById('reminder').innerText = randomIdea;
             break;
         
         default:
-            document.getElementById('break-reminder').style.visibility = 'hidden';
+            document.getElementById('breakReminder').style.visibility = 'hidden';
             document.getElementById('reminder').style.visibility = 'hidden';
             break;    
     }

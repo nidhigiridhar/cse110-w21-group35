@@ -80,7 +80,7 @@ b {
 }
 
 /******** Counter ********/
-#counter-container {
+#counterContainer {
   font-family: var(--ff-secondary);
   font-size: var(--fs-counter);
   color: var(--clr-light);
@@ -93,7 +93,7 @@ b {
   padding-top: 1px;
   padding-right: 1px;
 }
-#streak-counter {
+#streakCounter {
   display : block;
   position: absolute;
   height: 30px;
@@ -103,7 +103,7 @@ b {
   padding-top: 100px;
   right: 30px;
 }
-#total-counter {
+#totalCounter {
   display : block;
   position: absolute;
   height: 50px;
@@ -115,7 +115,7 @@ b {
 }
 
 /******** break reminders ********/
-#break-reminder {
+#breakReminder {
   display : block;
   position: relative;
   text-align: center;
@@ -179,7 +179,7 @@ b {
   font-size: var(--fs-mode-button);
   text-align: center;
 }
-#timer-display {
+#timerDisplay {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer);
   text-align: center;
@@ -195,13 +195,13 @@ b {
   transition-property: border-color;
   transition-duration: var(--transition-time);
 }
-#timer-display[state='pomo'] {
+#timerDisplay[state='pomo'] {
   border-color: var(--clr-accent-pomo);
 }
-#timer-display[state='short'] {
+#timerDisplay[state='short'] {
   border-color: var(--clr-accent-short);
 }
-#timer-display[state='long'] {
+#timerDisplay[state='long'] {
   border-color: var(--clr-accent-long);
 }
 
@@ -225,7 +225,7 @@ button {
   position: absolute;
   left: 52%;
 }
-#button-container {
+#buttonContainer {
   /*border: black 3px solid;*/
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -276,7 +276,7 @@ button.help-button {
 }
 
 /******** Settings ********/
-button.settings { 
+button.settings-button { 
   position: absolute;
   left: 15%;
   top: 10%;
