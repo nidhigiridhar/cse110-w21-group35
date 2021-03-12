@@ -372,7 +372,7 @@ describe('Test checkState function', () => {
         timer.counter.totalPomos = 1;
         timer.counter.stateCtr = 1;
         checkState();
-        state = document.getElementById('state').innerText;
+        let state = document.getElementById('state').innerText;
         expect(state).toBe('Short Break State');
         let disabled = document.getElementById('resetButton').disabled;
         expect(disabled).toBeTruthy(); // reset is disabled during break state
@@ -401,7 +401,7 @@ describe('Test checkState function', () => {
         timer.counter.totalPomos = 4;
         timer.counter.stateCtr = 7;
         checkState();
-        state = document.getElementById('state').innerText;
+        let state = document.getElementById('state').innerText;
         expect(state).toBe('Long Break State'); 
         let disabled = document.getElementById('resetButton').disabled;
         expect(disabled).toBeTruthy(); // reset is disabled during break state
@@ -430,7 +430,7 @@ describe('Test reset button', () => {
         let resetBtn = document.getElementById('resetButton');
         resetBtn.click();
         expect(onReset).toBeCalled;
-    })
+    });
 });
 
 describe('Test updateState function', () => {
@@ -584,7 +584,7 @@ describe('Test settings modal', () => {
 });
 
 describe('Test setCustomTime function', () => {
-    test('updates the timer display for a user's input', () => {
+    test('updates the timer display for a user\'s input', () => {
         document.body.innerHTML = `
             <div id='timer-display'>25:00</div>
             <h2 id='state'>Work State</h2>
@@ -641,5 +641,5 @@ describe('Test setCustomTime function', () => {
         expect(POMO_MINS).toBe('30');
         expect(SHORT_MINS).toBe('10');
         expect(LONG_MINS).toBe('20');
-    })
+    });
 });

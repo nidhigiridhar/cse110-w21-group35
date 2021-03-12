@@ -1,21 +1,21 @@
-import { circles, reset } from '../progress-bar.js'
-import { timer, WORK_STATE, updateState } from "../timer.js";
+import { circles, reset } from '../progress-bar.js';
+import { timer, WORK_STATE, updateState } from '../timer.js';
 
-describe("Test Progress Bar", () => {
-    test("All dots are active at beginning of four pomo cycle", () => {
+describe('Test Progress Bar', () => {
+    test('All dots are active at beginning of four pomo cycle', () => {
         document.body.innerText = `
-            <div class="container">
-            <div class="progress-container">
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle long"></div>
+            <div class='container'>
+            <div class='progress-container'>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
             </div>
-            <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>        
         `;
         reset();
@@ -24,27 +24,27 @@ describe("Test Progress Bar", () => {
         });
     }),
 
-    test("First dot is deactivated after one work session is completed", () => {
+    test('First dot is deactivated after one work session is completed', () => {
         document.body.innerHTML = `
-            <div id="break-reminder" style="color:#464646;" style="visibility: hidden;"></div>
-            <div id="reminder" onload="breakReminders()" style="color:#464646;" style="visibility: hidden;"></div>   <!-- ensures divs are hidden on init load-->
-            <h2 id="state">Work State</h2>
-            <div class="container">
-            <div class="progress-container">
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle long"></div>
+            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
+            <h2 id='state'>Work State</h2>
+            <div class='container'>
+            <div class='progress-container'>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
             </div>
-            <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id="button-container"> <!-- container for start and reset buttons-->
-                <button type=button class="timer-button" id="startButton">Start</button>
-                <button type=button class="timer-button" id="resetButton" disabled>Reset</button>
+            <div id='button-container'> <!-- container for start and reset buttons-->
+                <button type=button class='timer-button' id='startButton'>Start</button>
+                <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
             </div>      
         `;
         timer.currState = WORK_STATE;
@@ -59,27 +59,27 @@ describe("Test Progress Bar", () => {
         });
     }),
 
-    test("Second dot is deactivated after one short break session is completed", () => {
+    test('Second dot is deactivated after one short break session is completed', () => {
         document.body.innerHTML = `
-            <div id="break-reminder" style="color:#464646;" style="visibility: hidden;"></div>
-            <div id="reminder" onload="breakReminders()" style="color:#464646;" style="visibility: hidden;"></div>   <!-- ensures divs are hidden on init load-->
-            <h2 id="state">Work State</h2>
-            <div class="container">
-            <div class="progress-container">
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle long"></div>
+            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
+            <h2 id='state'>Work State</h2>
+            <div class='container'>
+            <div class='progress-container'>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
             </div>
-            <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id="button-container"> <!-- container for start and reset buttons-->
-                <button type=button class="timer-button" id="startButton">Start</button>
-                <button type=button class="timer-button" id="resetButton" disabled>Reset</button>
+            <div id='button-container'> <!-- container for start and reset buttons-->
+                <button type=button class='timer-button' id='startButton'>Start</button>
+                <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
             </div>      
         `;
         timer.currState = WORK_STATE;
@@ -93,29 +93,29 @@ describe("Test Progress Bar", () => {
                 expect(circle.classList.contains('deactive')).toBeFalsy();
             }
         });
-    })
+    });
 
-    test("All dots are deactivated after long break is completed", () => {
+    test('All dots are deactivated after long break is completed', () => {
         document.body.innerHTML = `
-            <div id="break-reminder" style="color:#464646;" style="visibility: hidden;"></div>
-            <div id="reminder" onload="breakReminders()" style="color:#464646;" style="visibility: hidden;"></div>   <!-- ensures divs are hidden on init load-->
-            <h2 id="state">Work State</h2>
-            <div class="container">
-            <div class="progress-container">
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle long"></div>
+            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
+            <h2 id='state'>Work State</h2>
+            <div class='container'>
+            <div class='progress-container'>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
             </div>
-            <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id="button-container"> <!-- container for start and reset buttons-->
-                <button type=button class="timer-button" id="startButton">Start</button>
-                <button type=button class="timer-button" id="resetButton" disabled>Reset</button>
+            <div id='button-container'> <!-- container for start and reset buttons-->
+                <button type=button class='timer-button' id='startButton'>Start</button>
+                <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
             </div>      
         `;
         timer.currState = WORK_STATE;
@@ -130,5 +130,5 @@ describe("Test Progress Bar", () => {
         circles.forEach((circle,idx) => {
             expect(circle.classList.contains('deactive')).toBeTruthy();
         });
-    })
-})
+    });
+});

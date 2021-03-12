@@ -30,7 +30,7 @@ describe('Test when nothing is clicked', () => {
         let closeBtnDisabled = closeBtn.disabled;
         expect(closeBtnDisabled).toBeTruthy;
     });
-})
+});
 
  describe('Test revealHelp function', () => {
     test('disables help button', () => {
