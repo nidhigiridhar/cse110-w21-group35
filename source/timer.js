@@ -99,9 +99,9 @@ function checkState() {
             document.getElementById("timer-display").innerText = 
             
                 `${SHORT_MINS}:00`;
-            let time = document.getElementById("timer-display").innerText; 
             if(SHORT_MINS < 10) {
-                time += '0';
+                let time = document.getElementById("timer-display").innerText; 
+                time = '0' + time;
             } 
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -133,7 +133,7 @@ function updateState() {
             document.getElementById("state").innerText = SHORT_STATE;
             document.getElementById("timer-display").innerText = 
                 `${SHORT_MINS}:00`;
-            let time = document.getElementById("timer-display").innerText 
+            let time = document.getElementById("timer-display").innerText;
             if(SHORT_MINS < 10) {
                 time = '0' + time;
                 document.getElementById("timer-display").innerText = time;

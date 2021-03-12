@@ -52,7 +52,7 @@ function showNotif(typeOfNotif){
         let workNotif = new Notification(title,{body, icon});
         //After 5 seconds close the notification
         setTimeout(() => {
-            workNotif.close()
+            workNotif.close();
         }, 5000);
     }
 

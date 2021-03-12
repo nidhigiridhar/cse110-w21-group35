@@ -5,7 +5,7 @@ let currentDeactive = 0;
 /**
  * @name progressBar
  * @function
- * @description 
+ * @description Updates the progress bar depending on the state that most recently finished
  */
 function progressBar() {
   currentDeactive++;
@@ -18,7 +18,7 @@ function progressBar() {
 /**
  * @name update
  * @function
- * @description Updates the progress bar and deactivates a circle when a state finishes
+ * @description Deactivates a circle when a state finishes
  */
 function update() {
   circles.forEach((circle,idx) => {
