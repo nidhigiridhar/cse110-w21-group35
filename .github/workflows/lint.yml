@@ -27,3 +27,4 @@ jobs:
         with:
           eslint: true
           continue_on_error: "false"
+          eslint_dir: ./source/
