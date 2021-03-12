@@ -1,4 +1,4 @@
-import { revealHelp, hideHelp } from "./help.js";
+import { revealHelp, hideHelp } from "../help.js";
 
 describe("Test when nothing is clicked", () => {
     test("help button is enabled", () => {

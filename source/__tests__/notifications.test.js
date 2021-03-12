@@ -1,5 +1,5 @@
 //import { globalThis } from "globalthis/implementation";
-import { getNotificationStatus, getAlarm } from "./notifications";
+import { getNotificationStatus, getAlarm } from "../notifications";
 
 describe("Test that the alarm object", () => {
     test("correctly exists", () => {
