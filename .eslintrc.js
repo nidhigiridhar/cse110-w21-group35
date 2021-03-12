@@ -6,6 +6,9 @@ module.exports = {
         "jasmine": true,
         "jest": true
     },
+    "globals": {
+        "global": "writable"
+    },
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": 12,

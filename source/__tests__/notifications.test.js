@@ -8,12 +8,14 @@ describe('Test that the alarm object', () => {
     test('has a valid url', () => {
         expect(getAlarm().src).not.toBeNull();
     });
-})
+});
 
 //Mock the Notification API
 global.Notification = ({
-    requestPermission: function() {this.permission = 'granted'},
-    permission: 'granted',
+    requestPermission: function() {
+        this.permission = 'granted';
+    },
+    permission: 'granted'
 });
 
 describe('Test that notification permissions', () => {
@@ -29,7 +31,7 @@ describe('Test that notification permissions', () => {
     }),
     
     test('permissions are received', () => {
-        Notification.permission = 'default'
+        Notification.permission = 'default';
         let permiss = getNotificationStatus();
         expect(permiss).toBeTruthy();
     });
