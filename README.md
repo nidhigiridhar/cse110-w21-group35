@@ -19,18 +19,21 @@ All Javascript, CSS and Jest files are located in the [source directory](./sourc
 |         +-- breakReminder.js
 |         +-- help.js
 |         +-- notifications.js
-|         +-- progressBar.js
-|         +-- colorChange.js
+|         +-- progress-bar.js
+|         +-- color-change.js
 |         +-- productoro.html
 |         +-- styles.css
 |         +-- __tests__/
 |                      +-- timer.test.js
 |                      +-- help.test.js
 |                      +-- notifications.test.js
+|                      +-- notifications.showNotif.test.js
 |                      +-- progressBar.test.js
 |                      +-- colorChange.test.js
 |         +-- img/
-|                +-- 
+|                +-- DT2 (Final).png
+|                +-- Settings_icon.png
+|                +-- tomato.png
 </pre>
 
 All Cypress tests can be found at [<code>./cypress/integration/Productoro-Tests/UI-test.js</code>](./cypress/integration/Productoro-Tests/UI-test.js).
