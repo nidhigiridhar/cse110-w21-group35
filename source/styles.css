@@ -311,6 +311,10 @@ select{
   list-style: none;
 }
 
+.switches li {
+  padding-right: 50px;
+}
+
 .switches li::before {
   position: absolute;
   top: 50%;
