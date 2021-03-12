@@ -21,11 +21,11 @@
   --ff-primary: 'Raleway', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
 
-  --fs-timer: 160px;
-  --fs-title: 50px;
+  --fs-timer-large: 160px;
+  --fs-timer-small: 110px;
   --fs-mode-button: 30px;
   --fs-instructions: 20px;
-  --fs-counter: 18px;
+  --fs-counter: 120%;
   --fs-footer: 15px;
 
   --fw-bold: 700;
@@ -51,11 +51,6 @@ body[state="short"] {
 body[state="long"] {
   background-color: var(--clr-base-long);
 }
-img {
-  width: 50px;
-  float: right;
-  border-radius: 10px;
-}
 b {
   font-weight: var(--fw-bold);
 }
@@ -63,34 +58,38 @@ b {
 /******** Title ********/
 h1 {
   font-family: var(--ff-primary);
-  font-size: var(--fs-title);
-  text-align: center;
-  position: relative;
+  /* font-size: var(--fs-title); */
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 /******** Counter ********/
 #counter-container {
   font-size: var(--fs-counter);
   color: var(--clr-light);
-  background-image: url('img/tomato.png');
-  background-repeat: no-repeat;
-  height: 210px;
-  background-position: right;
-  position: relative;
-  padding-top: 1px;
-  padding-right: 1px;
-}
-#streak-counter, #total-counter{
-  display : block;
+  height: auto;
+  width: 23vw;
+  max-width: 230px;
+  min-width: 190px;
   position: absolute;
-  width: 150px;
+  right: 10px;
+  top: 10px;
   text-align: center;
-  padding: 10px; 
-  padding-top: 100px;
-  right: 30px;
+}
+#counter-container > img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+#streak-counter, #total-counter {
+  position: absolute;
+  top: 34%;
+  left: 17%;
+  width: 65%;
 }
 #total-counter {
-  padding-top: 130px;
+  top: 48%;
 }
 
 /******** break reminders ********/
@@ -108,17 +107,19 @@ h1 {
 
 /******** State, progress bar, timer ********/
 .container {
-  margin: auto;
-  margin-bottom: 50px;
   width: 600px;
+  margin-bottom: 50px;
+}
+h2 {
+  text-align: center;
 }
 /******** Progress Bar ********/
 .circle {
   background-color: var(--clr-light);
   border-radius: 50%;
   border: 3px solid;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   display: flex;
   align-items: center;
   justify-content:center;
@@ -151,17 +152,27 @@ h1 {
   font-size: var(--fs-mode-button);
   text-align: center;
 }
+@media (min-width: 544px) {
+  #timer-display {
+    font-size: var(--fs-timer-small);
+  }
+}
+@media (min-width: 768px) {
+  #timer-display {
+    font-size: var(--fs-timer-small);
+  }
+}
 #timer-display {
   font-family: var(--ff-timer);
-  font-size: var(--fs-timer);
+  font-size: var(--fs-timer-large);
   color: var(--clr-light);
   text-align: center;
   border: 10px solid var(--clr-accent-pomo);
   border-radius: 30px;
   text-shadow: 4px 5px var(--clr-dark);
-  width: 80%;
-  min-width: 70%;
-  max-width: 120%;
+  width: 70vw;
+  min-width: 420px;
+  max-width: 550px;
   margin: auto;
   transition-property: border-color;
   transition-duration: var(--transition-time);
@@ -179,20 +190,23 @@ h1 {
 /******** Buttons ********/
 button {
   margin: auto;
-  width: 170px;
-  height: 60px;
   font-size: var(--fs-mode-button);
   color: var(--clr-dark);
   border-radius: 15px;
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
+  position: absolute;
+}
+#startButton, #resetButton {
+  max-width: 170px;
+  min-width: 140px;
+  width: 16vw;
+  height: 60px;
 }
 #startButton { 
-  position: absolute;
   right: 52%;
 }
 #resetButton {
-  position: absolute;
   left: 52%;
 }
 #button-container {
@@ -399,4 +413,9 @@ footer {
 footer > p {
   float: right;
   margin-right: 10px;
+}
+footer > img {
+  width: 50px;
+  float: right;
+  border-radius: 10px;
 }

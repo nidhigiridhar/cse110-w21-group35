@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css"></link>
     <title>Productoro</title>
 </head>
-<header>  
-    <div id="counter-container">
-        <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
-        <div id="total-counter"><b>Total Pomos Completed:</b> <span id="total">0</span></div>
-        <h1 style="color:#464646;">Productoro</h1>
-        <div id="break-reminder" style="color:#464646;" style="visibility: hidden"></div>
-        <div id="reminder" onload="breakReminders()" style="color:#464646;" style="visibility: hidden"></div>   <!-- ensures divs are hidden on init load-->
-    </div>
-</header>
 <body state="pomo">
-    <div id="timer-container">
-        <h2 id="state">Work State</h2> <!-- mode name changes based on state of timer -->
-        <div class="container">
-            <div class="progress-container">
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle short"></div>
-                <div class="circle pomo"></div>
-                <div class="circle long"></div>
-            </div>
-            <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
+    <header>  
+        <h1 class="text-center">Productoro</h1>
+        <div class="container" id="counter-container">
+            <img src="img/tomato.png" alt="tomato">
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="total-counter"><b>Total Pomos Completed:</b> <span id="total">0</span></div>
+            <div id="break-reminder" style="color:#464646;" style="visibility: hidden"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;" style="visibility: hidden"></div>   <!-- ensures divs are hidden on init load-->
         </div>
+    </header>
+    <div class="container" id="timer-container">
+        <h2 class="text-center" id="state">Work State</h2> <!-- mode name changes based on state of timer -->
+        <div class="progress-container container">
+            <div class="circle pomo"></div>
+            <div class="circle short"></div>
+            <div class="circle pomo"></div>
+            <div class="circle short"></div>
+            <div class="circle pomo"></div>
+            <div class="circle short"></div>
+            <div class="circle pomo"></div>
+            <div class="circle long"></div>
+        </div>
+        <div class="container" id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
     </div>
     <div id="button-container"> <!-- container for start and reset buttons-->
         <button type=button class="timer-button" id="startButton">Start</button>
