@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Lint
 
 on:
   push:
@@ -6,12 +6,23 @@ on:
       - master
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-16.04
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Check out Git repository
         uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          eslint: true
