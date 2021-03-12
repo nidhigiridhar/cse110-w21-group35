@@ -22,7 +22,7 @@
   --ff-secondary: 'Roboto', sans-serif;
 
   --fs-timer-large: 160px;
-  --fs-timer-small: 110px;
+  --fs-timer-small: 100px;
   --fs-mode-button: 30px;
   --fs-instructions: 20px;
   --fs-counter: 120%;
@@ -152,6 +152,21 @@ h2 {
   font-size: var(--fs-mode-button);
   text-align: center;
 }
+#timer-display {
+  font-family: var(--ff-timer);
+  font-size: var(--fs-timer-small);
+  color: var(--clr-light);
+  text-align: center;
+  border: 10px solid var(--clr-accent-pomo);
+  border-radius: 30px;
+  text-shadow: 4px 5px var(--clr-dark);
+  width: 70vw;
+  min-width: 360px;
+  max-width: 550px;
+  margin: auto;
+  transition-property: border-color;
+  transition-duration: var(--transition-time);
+}
 @media (min-width: 544px) {
   #timer-display {
     font-size: var(--fs-timer-small);
@@ -159,23 +174,8 @@ h2 {
 }
 @media (min-width: 768px) {
   #timer-display {
-    font-size: var(--fs-timer-small);
+    font-size: var(--fs-timer-large);
   }
-}
-#timer-display {
-  font-family: var(--ff-timer);
-  font-size: var(--fs-timer-large);
-  color: var(--clr-light);
-  text-align: center;
-  border: 10px solid var(--clr-accent-pomo);
-  border-radius: 30px;
-  text-shadow: 4px 5px var(--clr-dark);
-  width: 70vw;
-  min-width: 420px;
-  max-width: 550px;
-  margin: auto;
-  transition-property: border-color;
-  transition-duration: var(--transition-time);
 }
 #timer-display[state="pomo"] {
   border-color: var(--clr-accent-pomo);
@@ -270,18 +270,14 @@ button.settings {
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
 }
-
 #cog { 
   position: relative;
-  left: 15%;
-  top: 0%;
-  margin: auto;
+  margin-left: -5px;
   width: 50px;
   height: 50px;
   border-radius: 15px;
   border: none;
 }
-
 .settingsModal {
   display: none;
   position: fixed;
@@ -303,6 +299,8 @@ button.settings {
   border: var(--clr-dark) 10px solid;
   border-radius: 15px;
   width: 30%;
+  min-width: 300px;
+  max-width: 450px;
 }
 form {
   padding-top: 15px;
