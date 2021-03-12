@@ -17,8 +17,8 @@ function breakReminders(){
     let randomIdea = breakIdeas[Math.floor(Math.random() * breakIdeas.length)];
  
     document.getElementById("reminder").style.visibility = "hidden";
-    document.getElementById("break-reminder").innerHTML = randomIdea;
-    document.getElementById("reminder").innerHTML = "";
+    document.getElementById("break-reminder").innerText = randomIdea;
+    document.getElementById("reminder").innerText = "";
       
    
     switch(timer.currState) {
@@ -29,17 +29,17 @@ function breakReminders(){
             break;
  
         case SHORT_STATE:
-            document.getElementById("break-reminder").innerHTML = "An idea for how to spend your break:";
+            document.getElementById("break-reminder").innerText = "An idea for how to spend your break:";
             document.getElementById("break-reminder").style.visibility = "visible";
             document.getElementById("reminder").style.visibility = "visible"; 
-           document.getElementById("reminder").innerHTML = randomIdea;
+           document.getElementById("reminder").innerText = randomIdea;
             break;
         
         case LONG_STATE:
-            document.getElementById("break-reminder").innerHTML = "An idea for how to spend your break:";
+            document.getElementById("break-reminder").innerText = "An idea for how to spend your break:";
             document.getElementById("break-reminder").style.visibility = "visible";
             document.getElementById("reminder").style.visibility = "visible";
-            document.getElementById("reminder").innerHTML = randomIdea;
+            document.getElementById("reminder").innerText = randomIdea;
             break;
         
         default:

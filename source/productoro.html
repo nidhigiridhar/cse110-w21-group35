@@ -32,10 +32,12 @@
             <div id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
         </div>
     </div>
+
     <div id="button-container"> <!-- container for start and reset buttons-->
         <button type=button class="timer-button" id="startButton">Start</button>
         <button type=button class="timer-button" id="resetButton" disabled>Reset</button>
     </div>
+
     <div id="help-container"> <!-- container for non-static instructions-->
         <button type=button class="help-button" id=helpButton>?</button>
         <div id="helpModal" class="modal">
@@ -57,7 +59,6 @@
             
         </div>
     </div>
-    
 
     <div id="settingContainer">
         <button type=button class="settings" id="settingsButton"><img id="cog" src="img/Settings_icon.png"/></button>
@@ -66,7 +67,6 @@
             <span id="closeSettings">&times;</span disabled>
             <form id='time-limits'>
                 <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
-                
                 <fieldset id="formEnabler">
                     <label id="workLabel">Select length for Work Session</label> 
                     <select name="workTime" id="workTime">
@@ -115,11 +115,9 @@
                 </ul>
             </form>    
             </div>
-            
         </div>
     </div>
         
-    </div>
     <footer>
         <img src="img/DT2 (Final).png" alt="Dream Team logo">
         <p>Made by the Dream Team</p>

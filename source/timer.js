@@ -1,4 +1,4 @@
-import { colorChange } from './color-change.js';
+import { colorChange } from "./color-change.js";
 import { showNotif, getNotificationStatus, playSound } from "./notifications.js";
 import { breakReminders } from "./breakReminder.js";
 import { progressBar } from "./progress-bar.js";
@@ -72,7 +72,6 @@ let timer = {
  * @description Checks the current state and updates the timer display and duration accordingly
  */
 function checkState() {
-
     // work state
     if (timer.counter.stateCtr % STATE_MOD === 0) {
         timer.currState = WORK_STATE;
@@ -100,9 +99,9 @@ function checkState() {
             document.getElementById("timer-display").innerText = 
             
                 `${SHORT_MINS}:00`;
-            let time = document.getElementById("timer-display").innerText 
+            let time = document.getElementById("timer-display").innerText; 
             if(SHORT_MINS < 10) {
-                time = '0' + time;
+                time += '0';
             } 
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -313,7 +312,7 @@ function revealSettings() {
  * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
  * @param {*} event The state of the settings modal (open or closed)
  */
-function hideSettings(event) {
+function hideSettings() {
     let settingsModal = document.getElementById("settingsModal");
     settingsModal.style.display = "none";
     if(document.getElementById("warning").innerText === "Work Periods must be greater than Break Periods"){

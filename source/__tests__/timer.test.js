@@ -50,7 +50,7 @@ describe("Test onStart function", () => {
         `;
         timer.counter.stateCtr = 0;
         onStart();
-        let state = document.getElementById("state").innerHTML;
+        let state = document.getElementById("state").innerText;
         expect(state).toBe("Work State");
     }),
 
@@ -345,7 +345,7 @@ describe("Test checkState function", () => {
         timer.counter.totalPomos = 0;
         timer.counter.stateCtr = 0;
         checkState();
-        let state = document.getElementById("state").innerHTML;
+        let state = document.getElementById("state").innerText;
         expect(state).toBe("Work State");
     }),
 

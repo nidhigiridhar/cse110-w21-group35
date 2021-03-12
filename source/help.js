@@ -27,5 +27,4 @@ function hideHelp(event) {
 }
 
 // export functions and variables for testing
-var module = module || {};
 export { revealHelp, hideHelp }; 

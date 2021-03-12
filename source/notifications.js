@@ -53,7 +53,7 @@ function showNotif(typeOfNotif){
         //After 5 seconds close the notification
         setTimeout(() => {
             workNotif.close()
-            }, 5000);
+        }, 5000);
     }
 
     return body;
@@ -91,6 +91,4 @@ function getNotificationStatus(){
     }
 }
 
-var module = module || {};
-//export default {showNotif, getNotificationStatus, playSound, getAlarm};
 export {showNotif, getNotificationStatus, playSound, getAlarm};

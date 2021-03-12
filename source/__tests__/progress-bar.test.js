@@ -3,7 +3,7 @@ import { timer, WORK_STATE, updateState } from "../timer.js";
 
 describe("Test Progress Bar", () => {
     test("All dots are active at beginning of four pomo cycle", () => {
-        document.body.innerHTML = `
+        document.body.innerText = `
             <div class="container">
             <div class="progress-container">
                 <div class="circle pomo"></div>

@@ -2,6 +2,11 @@ const progress = document.getElementById("progress");
 const circles = document.querySelectorAll(".circle");
 let currentDeactive = 0;
 
+/**
+ * @name progressBar
+ * @function
+ * @description 
+ */
 function progressBar() {
   currentDeactive++;
   update();
@@ -10,6 +15,11 @@ function progressBar() {
   }
 }
 
+/**
+ * @name update
+ * @function
+ * @description Updates the progress bar and deactivates a circle when a state finishes
+ */
 function update() {
   circles.forEach((circle,idx) => {
     if(idx < currentDeactive) {
@@ -18,6 +28,11 @@ function update() {
   });
 }
 
+/**
+ * @name reset
+ * @function
+ * @description Resets the progress bar and reactivates all circle when a long break finishes
+ */
 function reset() {
   circles.forEach((circle,idx) => {
     circle.classList.remove("deactive");
@@ -25,6 +40,5 @@ function reset() {
   currentDeactive = 0;
 }
 
-var module = module || {};
 export { progress, circles, currentDeactive, progressBar, update, reset };
 
