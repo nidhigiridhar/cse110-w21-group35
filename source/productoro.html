@@ -128,15 +128,15 @@
     <!-- JS files -->
     <script type="module" src="./timer.js"></script>
     <script type="module" src="./notifications.js"></script>
-    <script type="module" src="./color-change.js"></script>
+    <script type="module" src="./colorChange.js"></script>
     <script type="module" src="./help.js"></script>
     <script type="module" src="./breakReminder.js"></script>
-    <script type="module" src="./progress-bar.js"></script>
+    <script type="module" src="./progressBar.js"></script>
     <script type="module">
         import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from "./timer.js";
-        import {revealHelp, hideHelp} from "./help.js";
-        import {showNotif, getNotificationStatus, playSound, getAlarm} from "./notifications.js"
-        import {colorChange} from "./color-change.js";
+        import { revealHelp, hideHelp } from "./help.js";
+        import { showNotif, getNotificationStatus, playSound, getAlarm } from "./notifications.js"
+        import { colorChange } from "./colorChange.js";
         document.getElementById("formEnabler").addEventListener("change", setCustomTime);
         document.getElementById("startButton").addEventListener("click", onStart);
         document.getElementById("resetButton").addEventListener("click", onReset);

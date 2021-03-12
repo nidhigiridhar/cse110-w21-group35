@@ -1,12 +1,9 @@
 name: Unit Tests
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
-      - sprint3
+      - master
 
 jobs:
   Jest:

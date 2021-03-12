@@ -1,7 +1,7 @@
-import { colorChange } from './color-change.js';
-import { showNotif, getNotificationStatus, playSound, getAlarm } from "./notifications.js";
+import { colorChange } from './colorChange.js';
+import { showNotif, getNotificationStatus, playSound } from "./notifications.js";
 import { breakReminders } from "./breakReminder.js";
-import { progressBar } from "./progress-bar.js";
+import { progressBar } from "./progressBar.js";
 
 let 
     /** @type {number} **/ 
@@ -136,7 +136,6 @@ function updateState() {
                 `${SHORT_MINS}:00`;
             let time = document.getElementById("timer-display").innerText 
             if(SHORT_MINS < 10) {
-                console.log(SHORT_MINS);
                 time = '0' + time;
                 document.getElementById("timer-display").innerText = time;
             } 
@@ -182,7 +181,6 @@ function updateTimer(duration) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        //console.log(minutes + ':' + seconds);
         document.getElementById("timer-display").innerText= 
             `${minutes}:${seconds}`;
 
@@ -350,7 +348,7 @@ function keyboardShortcut(event) {
 
 // export functions and variables for testing
 var module = module || {};
-export {onStart, onReset, checkState,updateState, timer, setCustomTime, 
-    keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, 
-    WORK_STATE, POMO_MINS, SHORT_MINS, LONG_MINS}; 
+export {onStart, onReset, checkState,updateState, setCustomTime, 
+    keyboardShortcut, revealSettings, hideSettings, timer, 
+    SHORT_STATE, LONG_STATE, WORK_STATE, POMO_MINS, SHORT_MINS, LONG_MINS}; 
 

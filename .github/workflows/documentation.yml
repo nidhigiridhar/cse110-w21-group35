@@ -3,10 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - sprint3
-  pull_request:
-    branches:
-      - sprint3
+      - master
 
 jobs:
   deploy:

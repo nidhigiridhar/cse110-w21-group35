@@ -1,4 +1,4 @@
-import { colorChange } from "./color-change.js";
+import { colorChange } from "./colorChange.js";
 import {timer, WORK_STATE, SHORT_STATE, LONG_STATE} from "./timer.js";
 
 describe("Test colorChange function", () =>{
