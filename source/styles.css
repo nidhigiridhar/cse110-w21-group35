@@ -41,13 +41,13 @@ body {
   transition-property: background-color;
   transition-duration: var(--transition-time);
 }
-body[state="pomo"] {
+body[state='pomo'] {
   background-color: var(--clr-base-pomo);
 }
-body[state="short"] {
+body[state='short'] {
   background-color: var(--clr-base-short);
 }
-body[state="long"] {
+body[state='long'] {
   background-color: var(--clr-base-long);
 }
 
@@ -195,13 +195,13 @@ b {
   transition-property: border-color;
   transition-duration: var(--transition-time);
 }
-#timer-display[state="pomo"] {
+#timer-display[state='pomo'] {
   border-color: var(--clr-accent-pomo);
 }
-#timer-display[state="short"] {
+#timer-display[state='short'] {
   border-color: var(--clr-accent-short);
 }
-#timer-display[state="long"] {
+#timer-display[state='long'] {
   border-color: var(--clr-accent-long);
 }
 
@@ -337,7 +337,7 @@ select{
   font-size: 40px;
 }
 
-[type="checkbox"] {
+[type='checkbox'] {
   position: absolute;
   left: -9999px;
 }
@@ -383,13 +383,13 @@ select{
 
 .switches span:last-child::before,
 .switches span:last-child::after {
-  content: "";
+  content: '';
   position: absolute;
 }
 
 .switches span:last-child::before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -410,17 +410,17 @@ select{
   background-size: 12px 12px;
 }
 
-.switches [type="checkbox"]:checked + label span:last-child {
+.switches [type='checkbox']:checked + label span:last-child {
   background-color: #2196F3;
 }
  
-.switches [type="checkbox"]:checked + label span:last-child::before {
+.switches [type='checkbox']:checked + label span:last-child::before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
  
-.switches [type="checkbox"]:checked + label span:last-child::after {
+.switches [type='checkbox']:checked + label span:last-child::after {
   width: 14px;
   height: 14px;
   left: 8px;

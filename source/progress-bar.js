@@ -1,5 +1,5 @@
-const progress = document.getElementById("progress");
-const circles = document.querySelectorAll(".circle");
+const progress = document.getElementById('progress');
+const circles = document.querySelectorAll('.circle');
 let currentDeactive = 0;
 
 /**
@@ -23,7 +23,7 @@ function progressBar() {
 function update() {
   circles.forEach((circle,idx) => {
     if(idx < currentDeactive) {
-      circle.classList.add("deactive");
+      circle.classList.add('deactive');
     }
   });
 }
@@ -35,7 +35,7 @@ function update() {
  */
 function reset() {
   circles.forEach((circle,idx) => {
-    circle.classList.remove("deactive");
+    circle.classList.remove('deactive');
   });
   currentDeactive = 0;
 }

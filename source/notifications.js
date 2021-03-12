@@ -29,22 +29,22 @@ function getAlarm(){
  */
 function showNotif(typeOfNotif){
     //Set the title, icon, and body for the creation of the notification
-    let title = "Productoro";
+    let title = 'Productoro';
     let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
     //set body to some default vaule to be filled in later
-    let body = "";
+    let body = '';
     //depending on typeOfNotif we will set the body of the notifcation to have different text
-    if(typeOfNotif === "Long Break State"){
+    if(typeOfNotif === 'Long Break State'){
         //when it is a long break then the body says the following
-        body = "You have completed a pomo! Your long break begins now :)";
+        body = 'You have completed a pomo! Your long break begins now :)';
     }
-    else if(typeOfNotif === "Short Break State"){
+    else if(typeOfNotif === 'Short Break State'){
         //when it is a short break then the body says the following
-        body = "You have completed a pomo! Your short break begins now :)";
+        body = 'You have completed a pomo! Your short break begins now :)';
     }
-    else if(typeOfNotif === "Work State"){
+    else if(typeOfNotif === 'Work State'){
         //when a new pomo starts then the body says the following
-        body = "Your break has ended. A new pomo begins now :)";
+        body = 'Your break has ended. A new pomo begins now :)';
     }
 
     if (typeof Notification !== 'undefined') {
@@ -72,11 +72,11 @@ function getNotificationStatus(){
     }
 
     //If the user allows notifications then return true
-    if(Notification.permission === "granted"){
+    if(Notification.permission === 'granted'){
         return true;
     }
     //If the user has not set notifications preferences then ask user
-    else if(Notification.permission === "default"){
+    else if(Notification.permission === 'default'){
         
         //Ask the user if they would like to be sent notifcations
         Notification.requestPermission();
