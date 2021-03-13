@@ -206,6 +206,8 @@ function updateTimer(duration) {
             showNotif(timer.currState);
             if(document.getElementById('notifToggle').checked) {
                 playSound();
+                playSound();
+                playSound();
             }
         }
         if (diff <= 0) {

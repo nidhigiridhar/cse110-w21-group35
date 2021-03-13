@@ -3,7 +3,7 @@ import { getAlarm } from '../../../source/notifications';
 //Inital No Actvity Tests
 describe('Fresh Entry, No Activity Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Timer Display at 25 minutes', () => {
@@ -82,7 +82,7 @@ describe('Fresh Entry, No Activity Tests', () => {
 //Start Button Tests
 describe('Start Button Tests', () => {
     beforeEach(() => {
-      cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+      cy.visit('http://127.0.0.1:5500/source/productoro.html');
     });
 
     it('Start Button Clicked: Check Timer Display 24:50', () => {
@@ -180,7 +180,7 @@ describe('Start Button Tests', () => {
 
 describe('Reset Button Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Reset Button Clicked: Timer Display Resets', () => {
@@ -307,7 +307,7 @@ describe('Reset Button Tests', () => {
 
 describe('Counters Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -457,7 +457,7 @@ describe('Counters Tests', () => {
 
 describe('State Label and Timer Display Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -679,7 +679,7 @@ describe('State Label and Timer Display Tests', () => {
 
 describe('Background Color Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -830,7 +830,7 @@ describe('Background Color Tests', () => {
 
 describe('Help Button Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Help Button Clicked: Instructions Appear', () => {
@@ -947,7 +947,7 @@ describe('Help Button Tests', () => {
 
 describe('Break Reminders Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -1130,7 +1130,7 @@ describe('Break Reminders Tests', () => {
 
 describe('KeyBoard Shortcut: Using Space to Start Button', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Space Used as Start Button: Check Timer Display 24:50', () => {
@@ -1238,7 +1238,7 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
 
 describe('Keyboard Shortcut: Using Space as Reset Button', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Space Used as Reset Button: Timer Display Resets', () => {
@@ -1365,7 +1365,7 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
 
 describe('Settings Button Tests (Pressibility)', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Settings Button Clicked: Settings Appear', () => {
@@ -1491,7 +1491,7 @@ describe('Settings Button Tests (Pressibility)', () => {
 
 describe('Custom Time Limits', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -1725,7 +1725,7 @@ describe('Custom Time Limits', () => {
 
 describe('Warning Messages Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Warning Message: Check Warning When Timer is Running', () => {
@@ -1842,7 +1842,7 @@ describe('Warning Messages Tests', () => {
 describe('Banner Notifications Tests', () => {
   //Will get warnings but they are expected. The test will pass
   it('Banner Notif Test: Permission Granted, Check Banner Appears at the End of Every State', () => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //set permissions
         cy.stub(win.Notification, 'permission', 'granted');
@@ -1929,7 +1929,7 @@ describe('Banner Notifications Tests', () => {
   });
 
   it('Banner Notif Test: Check Banners Dont Appear when Not Supported', () => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //mock browser not supporting 
         cy.stub(win, 'Notification').as('Notification');
@@ -1960,7 +1960,7 @@ describe('Banner Notifications Tests', () => {
   });
 
   it('Banner Notif Test: Check Banners Dont Appear when Denied Permissions', () => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //set permissions
         cy.stub(win.Notification, 'permission', 'denied');
@@ -1995,7 +1995,7 @@ describe('Banner Notifications Tests', () => {
   });
 
   it('Banner Notif Test: Check Asked User When on Default',() =>{
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html', {
+    cy.visit('http://127.0.0.1:5500/source/productoro.html', {
       onBeforeLoad (win) {
         //set permissions
         cy.stub(win.Notification, 'permission', 'denied');
@@ -2048,7 +2048,7 @@ describe('Banner Notifications Tests', () => {
 
 describe('Alarm Notifications Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -2354,7 +2354,7 @@ describe('Alarm Notifications Tests', () => {
 
 describe('Keyboard Shortcuts Disabled Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
     //Turn off the keyboard shortcuts
     cy.get('#settingsButton').click();
     cy.get('#keyboardToggle').invoke('attr', 'checked', false);
@@ -2464,7 +2464,7 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
 
 describe('Progress Bar Tests', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settingsButton').click();
@@ -2591,7 +2591,7 @@ describe('Progress Bar Tests', () => {
 
 describe('Full Cycle Test', () => {
   beforeEach(() => {
-    cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
+    cy.visit('http://127.0.0.1:5500/source/productoro.html');
   });
 
   it('Full Cycle Test: Run 4 Pomos and 3 SB and 1 LB to ensure Timer counts seconds correctly', () => {

@@ -34,7 +34,7 @@ function update() {
  * @description Resets the progress bar and reactivates all circle when a long break finishes
  */
 function reset() {
-  circles.forEach((circle,idx) => {
+  circles.forEach((circle) => {
     circle.classList.remove('deactive');
   });
   currentDeactive = 0;

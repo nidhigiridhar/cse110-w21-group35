@@ -127,7 +127,7 @@ describe('Test progress bar', () => {
         updateState();
         updateState();
         updateState(); // long break is completed
-        circles.forEach((circle,idx) => {
+        circles.forEach((circle) => {
             expect(circle.classList.contains('deactive')).toBeTruthy();
         });
     });

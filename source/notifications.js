@@ -1,5 +1,5 @@
-//The alarm we will use for the auditorial notifications of transitions
-var alarm = new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg');
+/** @constant @type {Audio} **/ 
+const alarm = new Audio('./audio/notification-alert.wav');
 
 /**
  * @name getAlarm
@@ -14,7 +14,7 @@ function getAlarm(){
 /**
  * @name playSound
  * @function
- * @description Plays the alarm to notfiy the user that the break or pomo has ended 
+ * @description Plays the alarm three times to notfiy the user that the break or pomo has ended 
  */
  function playSound(){
     alarm.play();
