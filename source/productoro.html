@@ -68,30 +68,31 @@
             <form id='time-limits'>
                 <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
                 <p><b>Select lengths for </b></p>
+                
                 <fieldset id="formEnabler">
                     <label id="workLabel">Work Session</label> 
                     <select name="workTime" id="workTime">
-                        <option value="25" selected>25</option>
-                        <option value="30">30</option>
-                        <option value="45">45</option>
-                        <option value="60">60</option>
+                        <option id="workOption25"value="25" selected>25</option>
+                        <option id="workOption30"value="30">30</option>
+                        <option id="workOption45"value="45">45</option>
+                        <option id="workOption60"value="60">60</option>
                     </select>
                     <br>
             
                     <label id="shortBreakLabel">Short Break</label>
                     <select name="shortBreakTime" id="shortBreakTime">
-                        <option value="5" selected>5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
+                        <option id="sbOption5" value="5" selected>5</option>
+                        <option id="sbOption10" value="10">10</option>
+                        <option id="sbOption15" value="15">15</option>
                     </select>
                     <br>
             
                     <label id="longBreakLabel">Long Break</label>
                     <select name="longBreakTime" id="longBreakTime">
-                        <option value="15" selected>15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
+                        <option id="lbOption15" value="15" selected>15</option>
+                        <option id="lbOption20" value="20">20</option>
+                        <option id="lbOption25" value="25">25</option>
+                        <option id="lbOption30" value="30">30</option>
                     </select>
                     <br>
                 </fieldset>  
@@ -137,6 +138,7 @@
         import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from "./timer.js";
         import {revealHelp, hideHelp} from "./help.js";
         import {showNotif, getNotificationStatus, playSound, getAlarm} from "./notifications.js"
+        import {colorChange} from "./color-change.js";
         document.getElementById("formEnabler").addEventListener("change", setCustomTime);
         document.getElementById("startButton").addEventListener("click", onStart);
         document.getElementById("resetButton").addEventListener("click", onReset);

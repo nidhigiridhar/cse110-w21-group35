@@ -1,4 +1,4 @@
-import { onStart, onReset, checkState, updateState, timer } from "./timer";
+import { onStart, onReset, checkState, updateState, timer, hideSettings, revealSettings, setCustomTime, POMO_MINS, SHORT_MINS, LONG_MINS} from "./timer";
 
 describe("Test onStart function", () => {
     test("updates state to work state", () => {
@@ -210,8 +210,8 @@ describe("Test onReset function", () => {
         `;
         timer.currState = "Work State";
         onReset();
-        let timerDisplay = document.getElementById("timer-display").innerHTML;
-        let state = document.getElementById("state").innerHTML;
+        let timerDisplay = document.getElementById("timer-display").innerText;
+        let state = document.getElementById("state").innerText;
         expect(timerDisplay).toBe("25:00");
         expect(state).toBe("Work State");
     }),
@@ -372,7 +372,7 @@ describe("Test checkState function", () => {
         timer.counter.totalPomos = 1;
         timer.counter.stateCtr = 1;
         checkState();
-        state = document.getElementById("state").innerHTML;
+        state = document.getElementById("state").innerText;
         expect(state).toBe("Short Break State");
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy(); // reset is disabled during break state
@@ -401,7 +401,7 @@ describe("Test checkState function", () => {
         timer.counter.totalPomos = 4;
         timer.counter.stateCtr = 7;
         checkState();
-        state = document.getElementById("state").innerHTML;
+        state = document.getElementById("state").innerText;
         expect(state).toBe("Long Break State"); 
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy(); // reset is disabled during break state
@@ -456,9 +456,9 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Work State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Work State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
+        let htmlTime = document.getElementById("timer-display").innerText;
         expect(htmlTime).toBe("25:00");
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy();
@@ -486,9 +486,9 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Work State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Work State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
+        let htmlTime = document.getElementById("timer-display").innerText;
         expect(htmlTime).toBe("25:00");
         let disabled = document.getElementById("resetButton").disabled;
         expect(disabled).toBeTruthy();
@@ -517,10 +517,10 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Short Break State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Short Break State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
-        expect(htmlTime).toBe("5:00");
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("05:00");
     }),
 
     test("sets state to long break state if current state is work state", () => {
@@ -546,9 +546,100 @@ describe("Test updateState function", () => {
         updateState();
         let state = timer.currState;
         expect(state).toBe("Short Break State");
-        let htmlState = document.getElementById("state").innerHTML;
+        let htmlState = document.getElementById("state").innerText;
         expect(htmlState).toBe("Short Break State");
-        let htmlTime = document.getElementById("timer-display").innerHTML;
-        expect(htmlTime).toBe("5:00");
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("05:00");
     });
+});
+
+describe("Test settings modal", () => {
+    test("calls revealSettings function when modal is opened", () => {
+        document.body.innerHTML = `
+            <button type=button class="settings" id="settingsButton"><img id="cog" src="img/Settings_icon.png"/></button>
+            <div id="settingsModal" class="modal">
+                <div class="settings-content">
+                <span id="closeSettings">&times;</span disabled>
+                </div>
+            </div>
+        `;
+        let settingsBtn = document.getElementById("settingsButton");
+        settingsBtn.click();
+        expect(revealSettings).toBeCalled;
+    }),
+
+    test("calls hideSettings function when modal is closed", () => {
+        document.body.innerHTML = `
+            <button type=button class="settings" id="settingsButton"><img id="cog" src="img/Settings_icon.png"/></button>
+            <div id="settingsModal" class="modal">
+                <div class="settings-content">
+                <span id="closeSettings">&times;</span disabled>
+                </div>
+            </div>
+        `;
+        let closeSettingsBtn = document.getElementById("closeSettings");
+        closeSettingsBtn.click();
+        expect(hideSettings).toBeCalled;
+    });
+});
+
+describe("Test setCustomTime function", () => {
+    test("updates the timer display for a user's input", () => {
+        document.body.innerHTML = `
+            <div id="timer-display">25:00</div>
+            <h2 id="state">Work State</h2>
+            <button type=button class="timer-button" id="resetButton">Reset</button>
+            <div class="progress-container" state="pomo">
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle short"></div>
+                <div class="circle pomo"></div>
+                <div class="circle long"></div>
+            </div>
+            <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+            <fieldset id="formEnabler">
+                    <label id="workLabel">Select length for Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option id="workOption25" value="25" selected>25</option>
+                        <option id="workOption30" value="30">30</option>
+                        <option id="workOption45" value="45">45</option>
+                        <option id="workOption60" value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Select length for Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option id="sbOption5"  value="5" selected>5</option>
+                        <option id="sbOption10" value="10">10</option>
+                        <option id="sbOption15" value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Select length for Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option id="lbOption15" value="15" selected>15</option>
+                        <option id="lbOption20" value="20">20</option>
+                        <option id="lbOption25" value="25">25</option>
+                        <option id="lbOption30" value="30">30</option>
+                    </select>
+                    <br>
+                </fieldset>
+            <div id="break-reminder" style="color:#464646;"></div>
+            <div id="reminder" onload="breakReminders()" style="color:#464646;"></div>
+        `;
+
+        document.getElementById("workTime").selectedIndex = 1;
+        document.getElementById("shortBreakTime").selectedIndex = 1;
+        document.getElementById("longBreakTime").selectedIndex = 1;
+        setCustomTime();
+        let htmlTime = document.getElementById("timer-display").innerText;
+        expect(htmlTime).toBe("30:00");
+        
+        expect(POMO_MINS).toBe("30");
+        expect(SHORT_MINS).toBe("10");
+        expect(LONG_MINS).toBe("20");
+    })
 });

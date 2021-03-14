@@ -26,5 +26,5 @@ function reset() {
 }
 
 var module = module || {};
-export { progressBar };
+export { progress, circles, currentDeactive, progressBar, update, reset };
 

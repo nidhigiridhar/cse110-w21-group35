@@ -77,16 +77,16 @@ function checkState() {
     if (timer.counter.stateCtr % STATE_MOD === 0) {
         timer.currState = WORK_STATE;
         timer.currDuration = NUM_SEC * POMO_MINS;
-        document.getElementById("state").innerHTML = WORK_STATE;
-        document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
+        document.getElementById("state").innerText = WORK_STATE;
+        document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
     } 
     else {
         // long break state
         if (timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
             timer.currDuration = NUM_SEC * LONG_MINS;
-            document.getElementById("state").innerHTML = LONG_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = LONG_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${LONG_MINS}:00`;
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
@@ -95,16 +95,22 @@ function checkState() {
         else {
             timer.currState = SHORT_STATE;
             timer.currDuration = NUM_SEC * SHORT_MINS;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = SHORT_STATE;
+            
+            document.getElementById("timer-display").innerText = 
+            
                 `${SHORT_MINS}:00`;
+            let time = document.getElementById("timer-display").innerText 
+            if(SHORT_MINS < 10) {
+                time = '0' + time;
+            } 
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
         }
     }
     // change screen color for different states
     colorChange();
-    breakReminders();         
+            
 }
 
 /**
@@ -118,16 +124,23 @@ function updateState() {
         // if next state is long break 
         if(timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
-            document.getElementById("state").innerHTML = LONG_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = LONG_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${LONG_MINS}:00`;
         }
         // if next state is short break 
         else {
             timer.currState = SHORT_STATE;
-            document.getElementById("state").innerHTML = SHORT_STATE;
-            document.getElementById("timer-display").innerHTML = 
+            document.getElementById("state").innerText = SHORT_STATE;
+            document.getElementById("timer-display").innerText = 
                 `${SHORT_MINS}:00`;
+            let time = document.getElementById("timer-display").innerText 
+            if(SHORT_MINS < 10) {
+                console.log(SHORT_MINS);
+                time = '0' + time;
+                document.getElementById("timer-display").innerText = time;
+            } 
+            
             // disable reset button in break state
             document.getElementById("resetButton").disabled = true; 
 
@@ -136,13 +149,14 @@ function updateState() {
     // if current state is a break, next state will be work
     else {
         timer.currState = WORK_STATE;
-        document.getElementById("state").innerHTML = WORK_STATE;
-        document.getElementById("timer-display").innerHTML = `${POMO_MINS}:00`;
+        document.getElementById("state").innerText = WORK_STATE;
+        document.getElementById("timer-display").innerText = `${POMO_MINS}:00`;
         // disable reset button in break state
         document.getElementById("resetButton").disabled = true; 
     }
     // change screen color for different states
     colorChange();
+    breakReminders(); 
     progressBar();     
 }
 
@@ -220,14 +234,16 @@ function setCustomTime() {
     let sbTime = document.getElementById("shortBreakTime");
     let lbTime = document.getElementById("longBreakTime");
     let warning = document.getElementById("warning");
+    
 
-    // check if the pomo duration is longer than the break durations
+  //  check if the pomo duration is longer than the break durations
     if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
         Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)){
             // enable a warning stating invalid inputs
             warning.innerText = 'Work Periods must be greater than Break Periods';
             warning.style.display = 'block';
 
+              
             // keep the drop down values the same as the current timer settings
             wTime.value = POMO_MINS.toString();
             sbTime.value = SHORT_MINS.toString();
@@ -252,7 +268,6 @@ function setCustomTime() {
  * @description Begins the timer when the start button is clicked
  */
 function onStart() {
-    console.log(POMO_MINS);
     getNotificationStatus();
     document.querySelector("#formEnabler").disabled = 'disabled';
     // enable a warning if the user tries changing the time limits during a pomo
@@ -274,9 +289,10 @@ function onStart() {
 function onReset() {
     document.getElementById("resetButton").disabled = true;
     document.getElementById("startButton").disabled = false;
+    document.getElementById("warning").style.display = "none";
     document.getElementById("formEnabler").removeAttribute('disabled');
     timer.counter.streak = 0;
-    document.getElementById("streak").innerHTML = 
+    document.getElementById("streak").innerText = 
                     timer.counter.streak;
     clearInterval(timerId);
     checkState();
@@ -302,6 +318,9 @@ function revealSettings() {
 function hideSettings(event) {
     let settingsModal = document.getElementById("settingsModal");
     settingsModal.style.display = "none";
+    if(document.getElementById("warning").innerText === "Work Periods must be greater than Break Periods"){
+        document.getElementById("warning").style.display = "none";
+    }
     document.getElementById("settingsButton").disabled = false; 
     document.getElementById("closeSettings").disabled = true; 
 }
@@ -331,5 +350,7 @@ function keyboardShortcut(event) {
 
 // export functions and variables for testing
 var module = module || {};
-export {onStart, onReset, checkState,updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, WORK_STATE}; 
+export {onStart, onReset, checkState,updateState, timer, setCustomTime, 
+    keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, 
+    WORK_STATE, POMO_MINS, SHORT_MINS, LONG_MINS}; 
 

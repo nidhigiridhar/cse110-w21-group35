@@ -20,3 +20,5 @@ jobs:
           npm test notifications.test.js
           npm test notifications.showNotif.test.js
           npm test help.test.js
+          npm test color-change.test.js
+          npm test progress-bar.test.js
