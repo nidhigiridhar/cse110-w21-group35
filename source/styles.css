@@ -51,13 +51,13 @@ body {
   transition-property: background-color;
   transition-duration: var(--transition-time);
 }
-body[state='pomo'] {
+body[state="pomo"] {
   background-color: var(--clr-base-pomo);
 }
-body[state='short'] {
+body[state="short"] {
   background-color: var(--clr-base-short);
 }
-body[state='long'] {
+body[state="long"] {
   background-color: var(--clr-base-long);
 }
 b {
@@ -196,7 +196,7 @@ h2 {
     font-size: var(--fs-mode-button-large);
   }
 }
-#timerDisplay {
+#timer-display {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer-small);
   color: var(--clr-light);
@@ -222,13 +222,13 @@ h2 {
     font-size: var(--fs-timer-large);
   }
 }
-#timerDisplay[state='pomo'] {
+#timer-display[state="pomo"] {
   border-color: var(--clr-accent-pomo);
 }
-#timerDisplay[state='short'] {
+#timer-display[state="short"] {
   border-color: var(--clr-accent-short);
 }
-#timerDisplay[state='long'] {
+#timer-display[state="long"] {
   border-color: var(--clr-accent-long);
 }
 
@@ -309,7 +309,7 @@ button.help-button {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow: auto;
   background-color: var(--clr-faded-black);
 }
 .modal-content {
@@ -320,9 +320,7 @@ button.help-button {
   margin: auto;
   border: var(--clr-dark) 10px solid;
   border-radius: 15px;
-  height: 70%;
   width: 80%;
-  overflow-y: auto;
 }
 .modal-content > h3 {
     font-size: var(--fs-instructions-title-small);
@@ -472,12 +470,12 @@ select {
 }
 .switches span:last-child::before,
 .switches span:last-child::after {
-  content: '';
+  content: "";
   position: absolute;
 }
 .switches span:last-child::before {
   position: absolute;
-  content: '';
+  content: "";
   height: 26px;
   width: 26px;
   left: 4px;
