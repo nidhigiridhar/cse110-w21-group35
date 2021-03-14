@@ -23,9 +23,18 @@
 
   --fs-timer-large: 160px;
   --fs-timer-small: 100px;
-  --fs-mode-button: 30px;
-  --fs-instructions: 20px;
-  --fs-counter: 120%;
+  --fs-title-large: 60px;
+  --fs-title-medium: 40px;
+  --fs-title-small: 30px;
+  --fs-mode-button-large: 30px;
+  --fs-mode-button-small: 25px;
+  --fs-instructions-large: 20px;
+  --fs-instructions-small: 10px;
+  --fs-instructions-title-large: 30px;
+  --fs-instructions-title-small: 15px;
+  --fs-counter-large: 20px;
+  --fs-counter-medium: 16px;
+  --fs-counter-small: 12px;
   --fs-footer: 15px;
 
   --fw-bold: 700;
@@ -58,24 +67,49 @@ b {
 /******** Title ********/
 h1 {
   font-family: var(--ff-primary);
-  /* font-size: var(--fs-title); */
+  font-size: var(--fs-title-small);
   margin: auto;
+  width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+@media(min-width: 400px) {
+  h1 {font-size: var(--fs-title-medium);}
+}
+@media(min-width: 700px) {
+  h1 {font-size: var(--fs-title-large);}
 }
 
 /******** Counter ********/
 #counter-container {
-  font-size: var(--fs-counter);
+  font-size: var(--fs-counter-small);
   color: var(--clr-light);
   height: auto;
   width: 23vw;
   max-width: 230px;
-  min-width: 190px;
+  min-width: 150px;
   position: absolute;
-  right: 10px;
+  right: -25px;
   top: 10px;
   text-align: center;
+}
+@media (min-width: 500px) {
+  #counter-container {
+    right: 0px;
+    font-size: var(--fs-counter-small);
+  }
+}
+@media (min-width: 755px) {
+  #counter-container {
+    right: 3%;
+    font-size: var(--fs-counter-medium);
+  }
+}
+@media (min-width: 980px) {
+  #counter-container {
+    right: 7%;
+    font-size: var(--fs-counter-large);
+  }
 }
 #counter-container > img {
   max-width: 100%;
@@ -107,7 +141,7 @@ h1 {
 
 /******** State, progress bar, timer ********/
 .container {
-  width: 600px;
+  width: 100%;
   margin-bottom: 50px;
 }
 h2 {
@@ -142,15 +176,27 @@ h2 {
   justify-content: space-between;
   position: relative;
   margin: auto;
+  margin-top: 30px;
   margin-bottom: 30px;
-  width: 380px;
+  width: 80%;
+  min-width: 370px;
+  max-width: 520px;
+  /* border: 3px solid black; */
 }
 
 /******** Timer ********/
 /**** Mode ****/
 #state {
-  font-size: var(--fs-mode-button);
+  font-size: var(--fs-mode-button-small);
   text-align: center;
+  width: 100%;
+  margin: auto;
+  /* border: 3px solid black; */
+}
+@media (min-width: 755px) {
+  #state {
+    font-size: var(--fs-mode-button-large);
+  }
 }
 #timer-display {
   font-family: var(--ff-timer);
@@ -161,11 +207,12 @@ h2 {
   border-radius: 30px;
   text-shadow: 4px 5px var(--clr-dark);
   width: 70vw;
-  min-width: 360px;
+  min-width: 320px;
   max-width: 550px;
   margin: auto;
   transition-property: border-color;
   transition-duration: var(--transition-time);
+  /* border: 3px solid black; */
 }
 @media (min-width: 544px) {
   #timer-display {
@@ -190,18 +237,26 @@ h2 {
 /******** Buttons ********/
 button {
   margin: auto;
-  font-size: var(--fs-mode-button);
+  font-size: var(--fs-mode-button-small);
   color: var(--clr-dark);
-  border-radius: 15px;
+  border-radius: 10px;
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
   position: absolute;
 }
+@media (min-width: 755px) {
+  #startButton, #resetButton {
+    font-size: var(--fs-mode-button-large);
+    border-radius: 15px;
+  }
+}
 #startButton, #resetButton {
+  min-width: 120px;
   max-width: 170px;
-  min-width: 140px;
   width: 16vw;
-  height: 60px;
+  min-height: 40px;
+  max-height: 60px;
+  height: 10vw;
 }
 #startButton { 
   right: 52%;
@@ -214,20 +269,38 @@ button {
   grid-template-columns: 1fr 1fr;
   position: relative;
   height: 100px;
+  width: 100%;
 }
 
 /******** Instructions ********/
 button.help-button { 
   position: absolute;
-  left: 5%;
-  top: 10%;
+  left: 8%;
+  top: 5%;
   margin: auto;
-  width: 50px;
-  height: 50px;
-  font-size: var(--fs-mode-button);
-  border-radius: 15px;
+  min-width: 40px;
+  max-width: 50px;
+  width: 7vw;
+  min-height: 40px;
+  max-height: 50px;
+  height: 7vw;
+  font-size: var(--fs-mode-button-small);
+  border-radius: 10px;
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
+}
+@media (min-width: 500px) {
+  button.help-button { 
+    left: 5%;
+    top: 10%;
+    font-size: var(--fs-mode-button-large);
+    border-radius: 12px;
+  }
+}
+@media (min-width: 700px) {
+  button.help-button { 
+    border-radius: 15px;
+  }
 }
 .modal {
   display: none;
@@ -243,7 +316,7 @@ button.help-button {
 }
 .modal-content {
   background-color: var(--clr-light);
-  font-size: 20px;
+  font-size: var(--fs-instructions-small);
   text-align: center;
   padding: 20px;
   margin: auto;
@@ -251,32 +324,70 @@ button.help-button {
   border-radius: 15px;
   width: 80%;
 }
+.modal-content > h3 {
+    font-size: var(--fs-instructions-title-small);
+}
+@media (min-width: 700px) {
+  .modal-content{
+    font-size: var(--fs-instructions-large);
+  }
+  .modal-content > h3 {
+    font-size: var(--fs-instructions-title-large);
+}
+}
 #closeModal {
   float: left;
   font-size: 50px;
 }
 
 /******** Settings ********/
-button.settings { 
-  position: absolute;
-  left: 15%;
-  top: 10%;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-mode-button);
-  border-radius: 15px;
-  border: none;
-  box-shadow: 2px 3px 2px 2px var(--clr-dark);
-}
+  button.settings { 
+    position: absolute;
+    left: 8%;
+    top: 12%;
+    margin: auto;
+    min-width: 40px;
+    max-width: 50px;
+    width: 7vw;
+    min-height: 40px;
+    max-height: 50px;
+    height: 7vw;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-mode-button-small);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 3px 2px 2px var(--clr-dark);
+  }
+  @media (min-width: 500px) {
+    button.settings { 
+      font-size: var(--fs-mode-button-large);
+      border-radius: 12px;
+      left: 15%;
+      top: 10%;
+    }
+  }
+  @media (min-width: 700px) {
+    button.settings { 
+      border-radius: 15px;
+    }
+  }
 #cog { 
   position: relative;
   margin-left: -5px;
-  width: 50px;
-  height: 50px;
+  margin-top: -7px;
+  min-width: 40px;
+  max-width: 50px;
+  width: 7vw;
+  min-height: 40px;
+  max-height: 50px;
+  height: 7vw;
   border-radius: 15px;
   border: none;
+}
+@media (min-width: 650px) {
+  #cog { 
+    margin-top: 0px;
+  }
 }
 .settingsModal {
   display: none;
@@ -292,7 +403,7 @@ button.settings {
 }
 .settings-content {
   background-color: var(--clr-light);
-  font-size: var(--fs-instructions);
+  font-size: var(--fs-instructions-large);
   text-align: center;
   padding: 20px;
   margin: auto;
@@ -302,6 +413,7 @@ button.settings {
   min-width: 300px;
   max-width: 450px;
 }
+
 form {
   padding-top: 15px;
 }
@@ -403,14 +515,16 @@ select {
 /******** Footer ********/
 footer {
   font-size: var(--fs-footer);
-  width: auto;
+  width: 100%;
   height: 60px;
-  padding-right: 3%;
-  padding-bottom: 1%;
+  position: relative;
+  right: 10px;
+  top: 20px;
 }
 footer > p {
   float: right;
   margin-right: 10px;
+  padding-top: 10px;
 }
 footer > img {
   width: 50px;
