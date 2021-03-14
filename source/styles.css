@@ -81,23 +81,6 @@ h1 {
 }
 
 /******** Counter ********/
-<<<<<<< HEAD
-#counterContainer {
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-counter);
-  color: var(--clr-light);
-  background-image: url('img/tomato.png');
-  background-repeat: no-repeat;
-  height: 210px;
-  background-position: right;
-  position: relative;
-  padding-bottom: 0px;
-  padding-top: 1px;
-  padding-right: 1px;
-}
-#streakCounter {
-  display : block;
-=======
 #counter-container {
   font-size: var(--fs-counter-small);
   color: var(--clr-light);
@@ -105,16 +88,11 @@ h1 {
   width: 23vw;
   max-width: 230px;
   min-width: 150px;
->>>>>>> sprint3
   position: absolute;
   right: -25px;
   top: 10px;
   text-align: center;
 }
-<<<<<<< HEAD
-#totalCounter {
-  display : block;
-=======
 @media (min-width: 500px) {
   #counter-container {
     right: 0px;
@@ -139,7 +117,6 @@ h1 {
   height: auto;
 }
 #streak-counter, #total-counter {
->>>>>>> sprint3
   position: absolute;
   top: 34%;
   left: 17%;
@@ -150,11 +127,7 @@ h1 {
 }
 
 /******** break reminders ********/
-<<<<<<< HEAD
-#breakReminder {
-=======
 #break-reminder, #reminder {
->>>>>>> sprint3
   display : block;
   position: relative;
   text-align: center;
@@ -289,12 +262,7 @@ button {
 #resetButton {
   left: 52%;
 }
-<<<<<<< HEAD
-#buttonContainer {
-  /*border: black 3px solid;*/
-=======
 #button-container {
->>>>>>> sprint3
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
@@ -373,22 +341,6 @@ button.help-button {
 }
 
 /******** Settings ********/
-<<<<<<< HEAD
-button.settings-button { 
-  position: absolute;
-  left: 15%;
-  top: 10%;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-mode-button);
-  border-radius: 15px;
-  border: none;
-  box-shadow: 2px 3px 2px 2px var(--clr-dark);
-}
-
-=======
   button.settings { 
     position: absolute;
     left: 8%;
@@ -419,7 +371,6 @@ button.settings-button {
       border-radius: 15px;
     }
   }
->>>>>>> sprint3
 #cog { 
   position: relative;
   margin-left: -5px;
@@ -480,12 +431,8 @@ select {
   font-size: 40px;
 }
 
-<<<<<<< HEAD
-[type='checkbox'] {
-=======
 /******** Switches ********/
 [type="checkbox"] {
->>>>>>> sprint3
   position: absolute;
   left: -9999px;
 }
@@ -549,29 +496,15 @@ select {
   /*background: url(uncheck-switcher.svg);*/
   background-size: 12px 12px;
 }
-<<<<<<< HEAD
-
-.switches [type='checkbox']:checked + label span:last-child {
-  background-color: #2196F3;
-}
- 
-.switches [type='checkbox']:checked + label span:last-child::before {
-=======
 .switches [type="checkbox"]:checked + label span:last-child {
   background-color: #2196F3;
 }
 .switches [type="checkbox"]:checked + label span:last-child::before {
->>>>>>> sprint3
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-<<<<<<< HEAD
- 
-.switches [type='checkbox']:checked + label span:last-child::after {
-=======
 .switches [type="checkbox"]:checked + label span:last-child::after {
->>>>>>> sprint3
   width: 14px;
   height: 14px;
   left: 8px;
@@ -579,12 +512,6 @@ select {
   background-size: 14px 14px;
 }
 
-<<<<<<< HEAD
-li {
-  margin: 10px;
-}
-
-=======
 /******** Footer ********/
 footer {
   font-size: var(--fs-footer);
@@ -604,4 +531,3 @@ footer > img {
   float: right;
   border-radius: 10px;
 }
->>>>>>> sprint3
