@@ -1,5 +1,10 @@
-const progress = document.getElementById('progress');
-const circles = document.querySelectorAll('.circle');
+const 
+    /** @constant @type {HTMLElement} **/ 
+    progress = document.getElementById('progress'),
+    /** @constant @type {HTMLElement} **/ 
+    circles = document.querySelectorAll('.circle');
+
+/** @type {number} **/ 
 let currentDeactive = 0;
 
 /**

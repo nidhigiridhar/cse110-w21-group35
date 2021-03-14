@@ -28,29 +28,27 @@ function getAlarm(){
  * @return {string} The message body of the notifcation
  */
 function showNotif(typeOfNotif){
-    //Set the title, icon, and body for the creation of the notification
+    // set the notification's title, icon, and body
     let title = 'Productoro';
     let icon = 'https://media.istockphoto.com/photos/tomato-isolated-on-white-background-picture-id466175630?k=6&m=466175630&s=612x612&w=0&h=fu_mQBjGJZIliOWwCR0Vf2myRvKWyQDsymxEIi8tZ38=';
-    //set body to some default vaule to be filled in later
     let body = '';
-    //depending on typeOfNotif we will set the body of the notifcation to have different text
+
+    // body of notification depends on the current state
     if(typeOfNotif === 'Long Break State'){
-        //when it is a long break then the body says the following
         body = 'You have completed a pomo! Your long break begins now :)';
     }
     else if(typeOfNotif === 'Short Break State'){
-        //when it is a short break then the body says the following
         body = 'You have completed a pomo! Your short break begins now :)';
     }
     else if(typeOfNotif === 'Work State'){
-        //when a new pomo starts then the body says the following
         body = 'Your break has ended. A new pomo begins now :)';
     }
 
     if (typeof Notification !== 'undefined') {
-        //Create the notification with the values above and it automatically displays
+        // display the notification
         let workNotif = new Notification(title,{body, icon});
-        //After 5 seconds close the notification
+
+        // close the notification after five seconds
         setTimeout(() => {
             workNotif.close();
         }, 5000);
@@ -66,28 +64,19 @@ function showNotif(typeOfNotif){
  * @return {boolean} True if user prefers notifications; otherwise, false
  */
 function getNotificationStatus(){
-    //If the browser does not support Notifications then return false
     if(!window.Notification){
         return false;
     }
 
-    //If the user allows notifications then return true
     if(Notification.permission === 'granted'){
         return true;
-    }
-    //If the user has not set notifications preferences then ask user
+    }  
     else if(Notification.permission === 'default'){
-        
-        //Ask the user if they would like to be sent notifcations
-        Notification.requestPermission();
-        //once the user has picked a preference then run the method agian and we are ensured
-        //the second call will enter either the denied or granted block
+        Notification.requestPermission(); // prompt the user if notification preferences are not set
         return getNotificationStatus();
-
     }
-    //If the user has their notifcations disabled, return false
     else{
-        return false;
+        return false; // return false if notifications are disabled
     }
 }
 
