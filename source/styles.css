@@ -21,11 +21,20 @@
   --ff-primary: 'Raleway', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
 
-  --fs-timer: 160px;
-  --fs-title: 50px;
-  --fs-mode-button: 30px;
-  --fs-instructions: 20px;
-  --fs-counter: 20px;
+  --fs-timer-large: 160px;
+  --fs-timer-small: 100px;
+  --fs-title-large: 60px;
+  --fs-title-medium: 40px;
+  --fs-title-small: 30px;
+  --fs-mode-button-large: 30px;
+  --fs-mode-button-small: 20px;
+  --fs-instructions-large: 20px;
+  --fs-instructions-small: 10px;
+  --fs-instructions-title-large: 30px;
+  --fs-instructions-title-small: 15px;
+  --fs-counter-large: 20px;
+  --fs-counter-medium: 16px;
+  --fs-counter-small: 12px;
   --fs-footer: 15px;
 
   --fw-bold: 700;
@@ -36,6 +45,7 @@
 /******** General Styles ********/
 body {
   background-color: var(--clr-base-pomo);
+  font-family: var(--ff-secondary);
   color: var(--clr-dark);
   display: flexbox;
   transition-property: background-color;
@@ -50,96 +60,98 @@ body[state="short"] {
 body[state="long"] {
   background-color: var(--clr-base-long);
 }
-
-/******** Title ********/
-h1 {
-  font-family: var(--ff-primary);
-  font-size: var(--fs-title);
-  text-align: center;
-  position: relative;
-}
-img {
-  width: 50px;
-  float: right;
-  border-radius: 10px;
-}
-footer {
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-footer);
-  width: auto;
-  height: 60px;
-  padding-right: 3%;
-  padding-bottom: 1%;
-}
-footer > p {
-  float: right;
-  margin-right: 10px;
-}
 b {
   font-weight: var(--fw-bold);
 }
 
+/******** Title ********/
+h1 {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-title-small);
+  margin: auto;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+@media(min-width: 400px) {
+  h1 {font-size: var(--fs-title-medium);}
+}
+@media(min-width: 755px) {
+  h1 {font-size: var(--fs-title-large);}
+}
+
 /******** Counter ********/
 #counter-container {
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-counter);
+  font-size: var(--fs-counter-small);
   color: var(--clr-light);
-  background-image: url('img/tomato.png');
-  background-repeat: no-repeat;
-  height: 210px;
-  background-position: right;
-  position: relative;
-  padding-bottom: 0px;
-  padding-top: 1px;
-  padding-right: 1px;
-}
-#streak-counter {
-  display : block;
+  height: auto;
+  width: 23vw;
+  max-width: 230px;
+  min-width: 150px;
   position: absolute;
-  height: 30px;
-  width: 150px;
+  right: -25px;
+  top: 10px;
   text-align: center;
-  padding: 10px; 
-  padding-top: 100px;
-  right: 30px;
+}
+@media (min-width: 500px) {
+  #counter-container {
+    right: 0px;
+    font-size: var(--fs-counter-small);
+  }
+}
+@media (min-width: 755px) {
+  #counter-container {
+    right: 3%;
+    font-size: var(--fs-counter-medium);
+  }
+}
+@media (min-width: 980px) {
+  #counter-container {
+    right: 7%;
+    font-size: var(--fs-counter-large);
+  }
+}
+#counter-container > img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+#streak-counter, #total-counter {
+  position: absolute;
+  top: 34%;
+  left: 17%;
+  width: 65%;
 }
 #total-counter {
-  display : block;
-  position: absolute;
-  height: 50px;
-  width: 150px;
-  text-align: center;
-  padding: 10px;
-  padding-top: 130px;
-  right: 30px;
+  top: 48%;
 }
 
 /******** break reminders ********/
-#break-reminder {
+#break-reminder, #reminder {
   display : block;
   position: relative;
   text-align: center;
   padding-top: 10px;
 }
 #reminder {
-  display : block;
-  position: relative;
-  text-align: center;
   padding-top: 0px;
 }
 
+/******** State, progress bar, timer ********/
 .container {
-  margin: auto;
+  width: 100%;
   margin-bottom: 50px;
-  width: 600px;
+}
+h2 {
+  text-align: center;
 }
 /******** Progress Bar ********/
 .circle {
   background-color: var(--clr-light);
   border-radius: 50%;
   border: 3px solid;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   display: flex;
   align-items: center;
   justify-content:center;
@@ -162,38 +174,53 @@ b {
   justify-content: space-between;
   position: relative;
   margin: auto;
+  margin-top: 20px;
   margin-bottom: 30px;
-  max-width: 100%;
-  width: 380px;
-  padding-right: 30px;
-  padding-left: 30px;
-  transition-property: border-color;
-  transition-duration: var(--transition-time);
-  border-radius: 20px;
+  width: 80%;
+  min-width: 370px;
+  max-width: 520px;
+  /* border: 3px solid black; */
 }
 
 /******** Timer ********/
 /**** Mode ****/
 #state {
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-mode-button);
+  font-size: var(--fs-mode-button-small);
   text-align: center;
+  width: 100%;
+  margin: auto;
+  /* border: 3px solid black; */
+}
+@media (min-width: 755px) {
+  #state {
+    font-size: var(--fs-mode-button-large);
+  }
 }
 #timer-display {
   font-family: var(--ff-timer);
-  font-size: var(--fs-timer);
-  text-align: center;
-  border: var(--clr-accent-pomo) 10px solid;
-  border-radius: 30px;
-  color: var(--clr-dark);
+  font-size: var(--fs-timer-small);
   color: var(--clr-light);
+  text-align: center;
+  border: 10px solid var(--clr-accent-pomo);
+  border-radius: 30px;
   text-shadow: 4px 5px var(--clr-dark);
-  width:500px;
-  min-width: 500px;
-  max-width: 120%;
+  width: 70vw;
+  min-width: 320px;
+  max-width: 550px;
   margin: auto;
   transition-property: border-color;
   transition-duration: var(--transition-time);
+  /* border: 3px solid black; */
+}
+@media (min-width: 544px) {
+  #timer-display {
+    font-size: var(--fs-timer-small);
+  }
+}
+@media (min-width: 768px) {
+  #timer-display {
+    font-size: var(--fs-timer-large);
+  }
 }
 #timer-display[state="pomo"] {
   border-color: var(--clr-accent-pomo);
@@ -208,44 +235,70 @@ b {
 /******** Buttons ********/
 button {
   margin: auto;
-  width: 170px;
-  height: 60px;
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-mode-button);
+  font-size: var(--fs-mode-button-small);
   color: var(--clr-dark);
-  border-radius: 15px;
+  border-radius: 10px;
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
+  position: absolute;
+}
+@media (min-width: 755px) {
+  #startButton, #resetButton {
+    font-size: var(--fs-mode-button-large);
+    border-radius: 15px;
+  }
+}
+#startButton, #resetButton {
+  min-width: 120px;
+  max-width: 170px;
+  width: 16vw;
+  min-height: 40px;
+  max-height: 60px;
+  height: 10vw;
 }
 #startButton { 
-  position: absolute;
   right: 52%;
 }
 #resetButton {
-  position: absolute;
   left: 52%;
 }
 #button-container {
-  /*border: black 3px solid;*/
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
   height: 100px;
+  width: 100%;
 }
 
 /******** Instructions ********/
 button.help-button { 
   position: absolute;
-  left: 5%;
-  top: 10%;
+  left: 8%;
+  top: 5%;
   margin: auto;
-  width: 50px;
-  height: 50px;
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-mode-button);
-  border-radius: 15px;
+  min-width: 40px;
+  max-width: 50px;
+  width: 7vw;
+  min-height: 40px;
+  max-height: 50px;
+  height: 7vw;
+  font-size: var(--fs-mode-button-small);
+  border-radius: 10px;
   border: none;
   box-shadow: 2px 3px 2px 2px var(--clr-dark);
+}
+@media (min-width: 500px) {
+  button.help-button { 
+    left: 5%;
+    top: 10%;
+    font-size: var(--fs-mode-button-large);
+    border-radius: 12px;
+  }
+}
+@media (min-width: 700px) {
+  button.help-button { 
+    border-radius: 15px;
+  }
 }
 .modal {
   display: none;
@@ -261,8 +314,7 @@ button.help-button {
 }
 .modal-content {
   background-color: var(--clr-light);
-  font-family: var(--ff-secondary);
-  font-size: 20px;
+  font-size: var(--fs-instructions-small);
   text-align: center;
   padding: 20px;
   margin: auto;
@@ -270,37 +322,71 @@ button.help-button {
   border-radius: 15px;
   width: 80%;
 }
+.modal-content > h3 {
+    font-size: var(--fs-instructions-title-small);
+}
+@media (min-width: 700px) {
+  .modal-content{
+    font-size: var(--fs-instructions-large);
+  }
+  .modal-content > h3 {
+    font-size: var(--fs-instructions-title-large);
+}
+}
 #closeModal {
   float: left;
   font-size: 50px;
 }
 
 /******** Settings ********/
-button.settings { 
-  position: absolute;
-  left: 15%;
-  top: 10%;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-mode-button);
-  border-radius: 15px;
-  border: none;
-  box-shadow: 2px 3px 2px 2px var(--clr-dark);
-}
-
+  button.settings { 
+    position: absolute;
+    left: 8%;
+    top: 12%;
+    margin: auto;
+    min-width: 40px;
+    max-width: 50px;
+    width: 7vw;
+    min-height: 40px;
+    max-height: 50px;
+    height: 7vw;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-mode-button-small);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 3px 2px 2px var(--clr-dark);
+  }
+  @media (min-width: 500px) {
+    button.settings { 
+      font-size: var(--fs-mode-button-large);
+      border-radius: 12px;
+      left: 15%;
+      top: 10%;
+    }
+  }
+  @media (min-width: 700px) {
+    button.settings { 
+      border-radius: 15px;
+    }
+  }
 #cog { 
   position: relative;
-  left: 15%;
-  top: 0%;
-  margin: auto;
-  width: 50px;
-  height: 50px;
+  margin-left: -5px;
+  margin-top: -7px;
+  min-width: 40px;
+  max-width: 50px;
+  width: 7vw;
+  min-height: 40px;
+  max-height: 50px;
+  height: 7vw;
   border-radius: 15px;
   border: none;
 }
-
+@media (min-width: 650px) {
+  #cog { 
+    margin-top: 0px;
+  }
+}
 .settingsModal {
   display: none;
   position: fixed;
@@ -315,44 +401,45 @@ button.settings {
 }
 .settings-content {
   background-color: var(--clr-light);
-  font-family: var(--ff-secondary);
-  font-size: 20px;
+  font-size: var(--fs-instructions-large);
   text-align: center;
   padding: 20px;
   margin: auto;
   border: var(--clr-dark) 10px solid;
   border-radius: 15px;
   width: 30%;
+  min-width: 300px;
+  max-width: 450px;
+}
+
+form {
+  padding-top: 15px;
 }
 #formEnabler {
   border: 0;
 }
-select{
+select {
   width: 50px;
   height: 30px;
   font-size: 20px;
+  margin-bottom: 10px;;
 }
 #closeSettings {
   float: left;
   font-size: 40px;
 }
 
+/******** Switches ********/
 [type="checkbox"] {
   position: absolute;
   left: -9999px;
 }
-
 .switches {
   max-width: 500px;
   width: 95%;
   margin: 50px auto 0;
   list-style: none;
 }
-
-.switches li {
-  padding-right: 50px;
-}
-
 .switches li::before {
   position: absolute;
   top: 50%;
@@ -362,19 +449,16 @@ select{
   font-weight: bold;
   color: var(--pink);
 }
-
 @media screen and (max-width: 600px) {
   .switches li::before {
     display: none;
   }
 }
-
 .switches label {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .switches span:last-child {
   position: relative;
   width: 60px;
@@ -384,13 +468,11 @@ select{
   background: var(--gray);
   transition: all 0.3s;
 }
-
 .switches span:last-child::before,
 .switches span:last-child::after {
   content: "";
   position: absolute;
 }
-
 .switches span:last-child::before {
   position: absolute;
   content: "";
@@ -403,7 +485,6 @@ select{
   transition: .4s;
   border-radius: 50%;
 }
-
 .switches span:last-child::after {
   top: 50%;
   right: 8px;
@@ -413,17 +494,14 @@ select{
   /*background: url(uncheck-switcher.svg);*/
   background-size: 12px 12px;
 }
-
 .switches [type="checkbox"]:checked + label span:last-child {
   background-color: #2196F3;
 }
- 
 .switches [type="checkbox"]:checked + label span:last-child::before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
- 
 .switches [type="checkbox"]:checked + label span:last-child::after {
   width: 14px;
   height: 14px;
@@ -432,3 +510,22 @@ select{
   background-size: 14px 14px;
 }
 
+/******** Footer ********/
+footer {
+  font-size: var(--fs-footer);
+  width: 100%;
+  height: 60px;
+  position: relative;
+  right: 10px;
+  top: 20px;
+}
+footer > p {
+  float: right;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+footer > img {
+  width: 50px;
+  float: right;
+  border-radius: 10px;
+}

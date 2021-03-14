@@ -24,6 +24,7 @@ function breakReminders(){
     switch(timer.currState) {
  
         case WORK_STATE:
+            document.getElementById("break-reminder").innerHTML = "";
             document.getElementById("break-reminder").style.visibility = "hidden";
             document.getElementById("reminder").style.visibility = "hidden";
             break;
@@ -43,6 +44,7 @@ function breakReminders(){
             break;
         
         default:
+            document.getElementById("break-reminder").innerHTML = "";
             document.getElementById("break-reminder").style.visibility = "hidden";
             document.getElementById("reminder").style.visibility = "hidden";
             break;    
