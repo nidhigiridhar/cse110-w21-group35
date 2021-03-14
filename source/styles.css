@@ -27,7 +27,7 @@
   --fs-title-medium: 40px;
   --fs-title-small: 30px;
   --fs-mode-button-large: 30px;
-  --fs-mode-button-small: 25px;
+  --fs-mode-button-small: 20px;
   --fs-instructions-large: 20px;
   --fs-instructions-small: 10px;
   --fs-instructions-title-large: 30px;
@@ -76,7 +76,7 @@ h1 {
 @media(min-width: 400px) {
   h1 {font-size: var(--fs-title-medium);}
 }
-@media(min-width: 700px) {
+@media(min-width: 755px) {
   h1 {font-size: var(--fs-title-large);}
 }
 
@@ -174,7 +174,7 @@ h2 {
   justify-content: space-between;
   position: relative;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 30px;
   width: 80%;
   min-width: 370px;
