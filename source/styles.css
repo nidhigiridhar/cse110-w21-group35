@@ -196,7 +196,7 @@ h2 {
     font-size: var(--fs-mode-button-large);
   }
 }
-#timer-display {
+#timerDisplay {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer-small);
   color: var(--clr-light);
@@ -213,22 +213,22 @@ h2 {
   /* border: 3px solid black; */
 }
 @media (min-width: 544px) {
-  #timer-display {
+  #timerDisplay {
     font-size: var(--fs-timer-small);
   }
 }
 @media (min-width: 768px) {
-  #timer-display {
+  #timerDisplay {
     font-size: var(--fs-timer-large);
   }
 }
-#timer-display[state="pomo"] {
+#timerDisplay[state="pomo"] {
   border-color: var(--clr-accent-pomo);
 }
-#timer-display[state="short"] {
+#timerDisplay[state="short"] {
   border-color: var(--clr-accent-short);
 }
-#timer-display[state="long"] {
+#timerDisplay[state="long"] {
   border-color: var(--clr-accent-long);
 }
 
