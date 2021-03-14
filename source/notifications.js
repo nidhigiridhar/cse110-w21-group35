@@ -82,3 +82,4 @@ function getNotificationStatus(){
 
 // export functions for testing
 export { showNotif, getNotificationStatus, playSound, getAlarm };
+

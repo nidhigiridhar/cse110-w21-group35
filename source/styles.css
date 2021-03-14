@@ -81,7 +81,7 @@ h1 {
 }
 
 /******** Counter ********/
-#counter-container {
+#counterContainer {
   font-size: var(--fs-counter-small);
   color: var(--clr-light);
   height: auto;
@@ -94,13 +94,13 @@ h1 {
   text-align: center;
 }
 @media (min-width: 500px) {
-  #counter-container {
+  #counterContainer {
     right: 0px;
     font-size: var(--fs-counter-small);
   }
 }
 @media (min-width: 755px) {
-  #counter-container {
+  #counterContainer {
     right: 3%;
     font-size: var(--fs-counter-medium);
   }
@@ -111,23 +111,23 @@ h1 {
     font-size: var(--fs-counter-large);
   }
 }
-#counter-container > img {
+#counterContainer > img {
   max-width: 100%;
   width: 100%;
   height: auto;
 }
-#streak-counter, #total-counter {
+#streakCounter, #totalCounter {
   position: absolute;
   top: 34%;
   left: 17%;
   width: 65%;
 }
-#total-counter {
+#totalCounter {
   top: 48%;
 }
 
 /******** break reminders ********/
-#break-reminder, #reminder {
+#breakReminder, #reminder {
   display : block;
   position: relative;
   text-align: center;
@@ -262,7 +262,7 @@ button {
 #resetButton {
   left: 52%;
 }
-#button-container {
+#buttonContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
