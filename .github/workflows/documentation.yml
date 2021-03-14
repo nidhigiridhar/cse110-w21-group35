@@ -3,10 +3,7 @@ name: Documentation
 on:
   push:
     branches: 
-      - sprint3
-  pull_request:
-    branches:
-      - sprint3
+      - master
 
 jobs:
   deploy:
@@ -25,11 +22,8 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./source
-          recurse: true
           output_dir: ./docs
-          config_file: conf.json
           template: minami
-          front_page: docs.md
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

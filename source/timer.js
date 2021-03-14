@@ -353,4 +353,3 @@ var module = module || {};
 export {onStart, onReset, checkState,updateState, timer, setCustomTime, 
     keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, 
     WORK_STATE, POMO_MINS, SHORT_MINS, LONG_MINS}; 
-
