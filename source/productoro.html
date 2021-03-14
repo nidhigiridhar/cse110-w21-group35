@@ -3,19 +3,20 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='description' content='Increase productivity with the Productoro Pomodoro timer.'>
     <link rel='stylesheet' href='styles.css'></link>
     <title>Productoro</title>
 </head>
-<header>  
-    <div id='counterContainer'>
-        <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
-        <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
-        <h1 style='color:#464646;'>Productoro</h1>
-        <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
-        <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
-    </div>
-</header>
 <body state='pomo'>
+    <header>  
+        <div id='counterContainer'>
+            <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
+            <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
+            <h1 style='color:#464646;'>Productoro</h1>
+            <div id='breakReminder' style='color:#464646; visibility: hidden;'></div>
+            <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
+        </div>
+    </header>
     <div id='timerContainer'>
         <h2 id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
         <div class='container'>
@@ -56,12 +57,11 @@
                     <li>The pomos and breaks will continue to automatically begin until you press <b>Reset</b>. <b>Reset</b> restarts the current pomo or break. <b>Start</b> must be pressed again to begin the countdown on the timer.</li>
                 </ol>
             </div>
-            
         </div>
     </div>
 
     <div id='settingContainer'>
-        <button type=button class='settings-button' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
+        <button type=button class='settings-button' id='settingsButton'><img id='cog' src='img/Settings_icon.png' alt='settings-icon'/></button>
         <div id='settingsModal' class='modal'>
             <div class='settings-content'>
             <span id='closeSettings'>&times;</span disabled>
@@ -76,7 +76,7 @@
                         <option id='workOption60'value='60'>60</option>
                     </select>
                     <br>
-            
+                    </br>
                     <label id='shortBreakLabel'>Select length for Short Break</label>
                     <select name='shortBreakTime' id='shortBreakTime'>
                         <option id='sbOption5' value='5' selected>5</option>
@@ -84,7 +84,7 @@
                         <option id='sbOption15' value='15'>15</option>
                     </select>
                     <br>
-            
+                    </br>
                     <label id='longBreakLabel'>Select length for Long Break</label>
                     <select name='longBreakTime' id='longBreakTime'>
                         <option id='lbOption15' value='15' selected>15</option>
@@ -93,12 +93,13 @@
                         <option id='lbOption30' value='30'>30</option>
                     </select>
                     <br>
+                    </br>
                 </fieldset>  
                 <div id='notifReminder'> Remember to have system notifications enabled!</div>
 
                 <ul class='switches'>
                     <li>
-                      <input type='checkbox' id='notifToggle' checked>
+                      <input type='checkbox' id='notifToggle' checked></input>
                       <label for='notifToggle'>
                         <span>Audio Alarm</span>
                         <span></span>
@@ -106,7 +107,7 @@
                     </li>
                     <br>
                     <li>
-                        <input type='checkbox' id='keyboardToggle' checked>
+                        <input type='checkbox' id='keyboardToggle' checked></input>
                         <label for='keyboardToggle'>
                           <span>Keyboard Shortcuts</span>
                           <span></span>
