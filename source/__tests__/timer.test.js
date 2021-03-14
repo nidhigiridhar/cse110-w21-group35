@@ -375,7 +375,7 @@ describe('Test checkState function', () => {
         let state = document.getElementById('state').innerText;
         expect(state).toBe('Short Break State');
         let disabled = document.getElementById('resetButton').disabled;
-        expect(disabled).toBeTruthy(); // reset is disabled during break state
+        expect(disabled).toBeTruthy();
     }),
 
     test('correctly updates to the long break state', () => {
@@ -404,7 +404,7 @@ describe('Test checkState function', () => {
         let state = document.getElementById('state').innerText;
         expect(state).toBe('Long Break State'); 
         let disabled = document.getElementById('resetButton').disabled;
-        expect(disabled).toBeTruthy(); // reset is disabled during break state
+        expect(disabled).toBeTruthy();
     });
 });
 
