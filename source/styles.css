@@ -132,8 +132,6 @@ h1 {
   position: relative;
   text-align: center;
   padding-top: 10px;
-  transition-property: visibility;
-  transition-duration: var(--transition-time);
 }
 #reminder {
   padding-top: 0px;
