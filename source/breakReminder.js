@@ -24,8 +24,14 @@ function breakReminders(){
     switch(timer.currState) {
  
         case WORK_STATE:
+<<<<<<< HEAD
             document.getElementById('breakReminder').style.visibility = 'hidden';
             document.getElementById('reminder').style.visibility = 'hidden';
+=======
+            document.getElementById("break-reminder").innerHTML = "";
+            document.getElementById("break-reminder").style.visibility = "hidden";
+            document.getElementById("reminder").style.visibility = "hidden";
+>>>>>>> sprint3
             break;
  
         case SHORT_STATE:
@@ -43,8 +49,14 @@ function breakReminders(){
             break;
         
         default:
+<<<<<<< HEAD
             document.getElementById('breakReminder').style.visibility = 'hidden';
             document.getElementById('reminder').style.visibility = 'hidden';
+=======
+            document.getElementById("break-reminder").innerHTML = "";
+            document.getElementById("break-reminder").style.visibility = "hidden";
+            document.getElementById("reminder").style.visibility = "hidden";
+>>>>>>> sprint3
             break;    
     }
 }

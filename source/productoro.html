@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
+<<<<<<< HEAD
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name='description' content='Increase productivity with the Productoro Pomodoro timer.'>
@@ -31,7 +32,39 @@
                 <div class='circle long'></div>
             </div>
             <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"></link>
+    <link rel="icon" href="./img/tomato.ico" type="image/x-icon"/>
+    <title>Productoro</title>
+</head>
+<body state="pomo">
+    <header>  
+        <h1 class="text-center">Productoro</h1>
+        <div class="container" id="counter-container">
+            <img src="img/tomato.png" alt="tomato">
+            <div id="streak-counter"><b>Streak:</b> <span id="streak">0</span></div>
+            <div id="total-counter"><b>Total Pomos Completed:</b> <span id="total">0</span></div>
         </div>
+        <div id="break-reminder" style="color:#464646;" style="visibility: hidden"></div>
+        <div id="reminder" onload="breakReminders()" style="color:#464646;" style="visibility: hidden"></div>   <!--ensures divs are hidden on init load -->
+    </header>
+    <div class="container" id="timer-container">
+        <h2 class="text-center" id="state">Work State</h2> <!-- mode name changes based on state of timer -->
+        <div class="progress-container container">
+            <div class="circle pomo"></div>
+            <div class="circle short"></div>
+            <div class="circle pomo"></div>
+            <div class="circle short"></div>
+            <div class="circle pomo"></div>
+            <div class="circle short"></div>
+            <div class="circle pomo"></div>
+            <div class="circle long"></div>
+>>>>>>> sprint3
+        </div>
+        <div class="container" id="timer-display" state="pomo">25:00</div> <!-- displays the timer countdown -->
     </div>
 
     <div id='buttonContainer'> <!-- container for start and reset buttons-->
@@ -62,6 +95,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div id='settingContainer'>
         <button type=button class='settings-button' id='settingsButton'><img id='cog' src='img/settings-icon.png' alt='settings-icon'/></button>
         <div id='settingsModal' class='modal'>
@@ -91,6 +125,41 @@
                         <option id='lbOption20' value='20'>20</option>
                         <option id='lbOption25' value='25'>25</option>
                         <option id='lbOption30' value='30'>30</option>
+=======
+    <div id="settingContainer">
+        <button type=button class="settings" id="settingsButton"><img id="cog" src="img/Settings_icon.png"/></button>
+        <div id="settingsModal" class="modal">
+            <div class="settings-content">
+            <span id="closeSettings">&times;</span disabled>
+            <form id='time-limits'>
+                <div id="warning" style="display:none">Wait until the end of your next break to change the times!</div>
+                <p><b>Select lengths for </b></p>
+                
+                <fieldset id="formEnabler">
+                    <label id="workLabel">Work Session</label> 
+                    <select name="workTime" id="workTime">
+                        <option id="workOption25"value="25" selected>25</option>
+                        <option id="workOption30"value="30">30</option>
+                        <option id="workOption45"value="45">45</option>
+                        <option id="workOption60"value="60">60</option>
+                    </select>
+                    <br>
+            
+                    <label id="shortBreakLabel">Short Break</label>
+                    <select name="shortBreakTime" id="shortBreakTime">
+                        <option id="sbOption5" value="5" selected>5</option>
+                        <option id="sbOption10" value="10">10</option>
+                        <option id="sbOption15" value="15">15</option>
+                    </select>
+                    <br>
+            
+                    <label id="longBreakLabel">Long Break</label>
+                    <select name="longBreakTime" id="longBreakTime">
+                        <option id="lbOption15" value="15" selected>15</option>
+                        <option id="lbOption20" value="20">20</option>
+                        <option id="lbOption25" value="25">25</option>
+                        <option id="lbOption30" value="30">30</option>
+>>>>>>> sprint3
                     </select>
                     <br>
                 </fieldset>  
