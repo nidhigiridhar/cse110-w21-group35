@@ -5,9 +5,9 @@ import { progressBar } from "./progress-bar.js";
 
 let 
     /** @type {number} **/ 
-    POMO_MINS = 1, 
+    POMO_MINS = 25, 
     /** @type {number} **/ 
-    SHORT_MINS = 1, 
+    SHORT_MINS = 5, 
     /** @type {number} **/ 
     LONG_MINS = 15;
 
