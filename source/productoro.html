@@ -4,7 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name='description' content='Increase productivity with the Productoro Pomodoro timer.'>
-    <link rel='stylesheet' href='styles.css'></link>
+    <link rel='stylesheet' href='styles.css'>
     <title>Productoro</title>
 </head>
 <body state='pomo'>
@@ -44,7 +44,7 @@
         <div id='helpModal' class='modal'>
             <div class='modal-content'>
                 <!-- Modal content -->
-                <span id='closeModal'>&times;</span disabled>
+                <span id='closeModal' disabled>&times;</span>
                 <h3>What is a Pomodoro Timer?</h3>
                 <p>A Pomodoro Timer is a time management tool that breaks down work into intervals (pomos).  
                     Work intervals are typically 25 minutes long with five minute breaks between each interval. 
@@ -61,22 +61,21 @@
     </div>
 
     <div id='settingContainer'>
-        <button type=button class='settings-button' id='settingsButton'><img id='cog' src='img/Settings_icon.png' alt='settings-icon'/></button>
+        <button type=button class='settings-button' id='settingsButton'><img id='cog' src='img/settings-icon.png' alt='settings-icon'/></button>
         <div id='settingsModal' class='modal'>
             <div class='settings-content'>
-            <span id='closeSettings'>&times;</span disabled>
+            <span id='closeSettings' disabled>&times;</span>
             <form id='timeLimits'>
                 <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
                 <fieldset id='formEnabler'>
                     <label id='workLabel'>Select length for Work Session</label> 
                     <select name='workTime' id='workTime'>
-                        <option id='workOption25'value='25' selected>25</option>
-                        <option id='workOption30'value='30'>30</option>
-                        <option id='workOption45'value='45'>45</option>
-                        <option id='workOption60'value='60'>60</option>
+                        <option id='workOption25' value='25' selected>25</option>
+                        <option id='workOption30' value='30'>30</option>
+                        <option id='workOption45' value='45'>45</option>
+                        <option id='workOption60' value='60'>60</option>
                     </select>
                     <br>
-                    </br>
                     <label id='shortBreakLabel'>Select length for Short Break</label>
                     <select name='shortBreakTime' id='shortBreakTime'>
                         <option id='sbOption5' value='5' selected>5</option>
@@ -84,7 +83,6 @@
                         <option id='sbOption15' value='15'>15</option>
                     </select>
                     <br>
-                    </br>
                     <label id='longBreakLabel'>Select length for Long Break</label>
                     <select name='longBreakTime' id='longBreakTime'>
                         <option id='lbOption15' value='15' selected>15</option>
@@ -93,13 +91,12 @@
                         <option id='lbOption30' value='30'>30</option>
                     </select>
                     <br>
-                    </br>
                 </fieldset>  
                 <div id='notifReminder'> Remember to have system notifications enabled!</div>
 
                 <ul class='switches'>
                     <li>
-                      <input type='checkbox' id='notifToggle' checked></input>
+                      <input type='checkbox' id='notifToggle' checked>
                       <label for='notifToggle'>
                         <span>Audio Alarm</span>
                         <span></span>
@@ -107,7 +104,7 @@
                     </li>
                     <br>
                     <li>
-                        <input type='checkbox' id='keyboardToggle' checked></input>
+                        <input type='checkbox' id='keyboardToggle' checked>
                         <label for='keyboardToggle'>
                           <span>Keyboard Shortcuts</span>
                           <span></span>
@@ -120,7 +117,7 @@
     </div>
         
     <footer>
-        <img src='img/DT2 (Final).png' alt='Dream Team logo'>
+        <img src='img/dream-team-logo.png' alt='Dream Team logo'>
         <p>Made by the Dream Team</p>
     </footer>
 
