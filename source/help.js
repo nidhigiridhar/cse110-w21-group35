@@ -7,7 +7,6 @@ function revealHelp() {
     let helpModal = document.getElementById('helpModal');
     helpModal.style.display = 'block';
     document.getElementById('helpButton').disabled = true; 
-    document.getElementById('closeModal').disabled = false; 
 }
 
 /**
@@ -18,12 +17,8 @@ function revealHelp() {
  */
 function hideHelp(event) {
     let helpModal = document.getElementById('helpModal');
-    let closeModal = document.getElementById('closeModal');
-    if (event.target == helpModal || event.target == closeModal) {
-        helpModal.style.display = 'none';
-    }
+    helpModal.style.display = 'none';
     document.getElementById('helpButton').disabled = false; 
-    document.getElementById('closeModal').disabled = true; 
 }
 
 // export functions for testing

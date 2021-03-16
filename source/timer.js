@@ -299,7 +299,6 @@ function revealSettings() {
     let settingsModal = document.getElementById('settingsModal');
     settingsModal.style.display = 'block';
     document.getElementById('settingsButton').disabled = true; 
-    document.getElementById('closeSettings').disabled = false; 
 }
 
 /**
@@ -313,7 +312,6 @@ function hideSettings() {
         document.getElementById('warning').style.display = 'none';
     }
     document.getElementById('settingsButton').disabled = false; 
-    document.getElementById('closeSettings').disabled = true; 
 }
 
 /**

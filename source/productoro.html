@@ -4,7 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='styles.css'></link>
+    <link rel='stylesheet' href='styles.css'>
     <link rel='icon' href='./img/tomato.ico' type='image/x-icon'/>
     <title>Productoro</title>
 </head>
@@ -42,7 +42,7 @@
         <div id='helpModal' class='modal'>
             <div class='modal-content'>
                 <!-- Modal content -->
-                <span id='closeModal'>&times;</span disabled>
+                <span id='closeModal'>&times;</span>
                     <h3>What is a Pomodoro Timer?</h3>
                     <p>A Pomodoro Timer is a time management tool that breaks down work into intervals (pomos).  
                         Work intervals are typically 25 minutes long with five minute breaks between each interval. 
@@ -66,7 +66,7 @@
         <button type=button class='settings' id='settingsButton'><img id='cog' src='img/settings-icon.png' alt='settings-icon'/></button>
         <div id='settingsModal' class='modal'>
             <div class='settings-content'>
-            <span id='closeSettings'>&times;</span disabled>
+            <span id='closeSettings'>&times;</span>
             <form id='timeLimits'>
                 <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
                 <p><b>Select lengths for </b></p>
@@ -108,7 +108,6 @@
                         <span></span>
                       </label>
                     </li>
-                    <br>
                     <li>
                         <input type='checkbox' id='keyboardToggle' checked>
                         <label for='keyboardToggle'>

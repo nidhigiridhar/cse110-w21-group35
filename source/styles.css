@@ -512,6 +512,9 @@ select {
   /*background-image: url(checkmark-switcher.svg);*/
   background-size: 14px 14px;
 }
+li {
+  margin: 5px;
+}
 
 /******** Footer ********/
 footer {
