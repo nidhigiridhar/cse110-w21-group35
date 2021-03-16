@@ -13,9 +13,8 @@ function revealHelp() {
  * @name hideHelp
  * @function
  * @description Closes the help modal when the 'x' inside the modal or anywhere outside of the modal is clicked
- * @param {*} event The state of the help modal (open or closed)
  */
-function hideHelp(event) {
+function hideHelp() {
     let helpModal = document.getElementById('helpModal');
     helpModal.style.display = 'none';
     document.getElementById('helpButton').disabled = false; 
