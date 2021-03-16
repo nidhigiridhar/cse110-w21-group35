@@ -3,6 +3,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='description' content='Increase productivity with the Productoro Pomodoro timer.'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='styles.css'>
     <link rel='icon' href='./img/tomato.ico' type='image/x-icon'/>
@@ -16,8 +17,8 @@
             <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
         </div>
-        <div id='breakReminder' style='color:#464646;' style='visibility: hidden'></div>
-        <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
+        <div id='breakReminder' style='color:#464646; visibility: hidden'></div>
+        <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
     </header>
     <div class='container' id='timerContainer'>
         <h2 class='text-center' id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
