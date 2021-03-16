@@ -97,7 +97,7 @@ Use the following terminal command to open the Cypress test suite:
 </pre>
 AFTER CYPRESS LOADS,
 
-ADD SECTION ABOUT TESTING IN LIGHTHOUSE
+At the end of the every sprint, [Lighthouse](https://developers.google.com/web/tools/lighthouse) should be run on the deployed page.
 
 ### Code Quality
 ESLint should be run through a [GitHub Action](.github/workflows/lint.yml) and locally to ensure a consistent quality among all Javascript files.
