@@ -298,7 +298,8 @@ function onReset() {
 function revealSettings() {
     let settingsModal = document.getElementById('settingsModal');
     settingsModal.style.display = 'block';
-    document.getElementById('settingsButton').disabled = true; 
+    let settingsBtn = document.getElementById('settingsButton');
+    settingsBtn.disabled = true; 
 }
 
 /**

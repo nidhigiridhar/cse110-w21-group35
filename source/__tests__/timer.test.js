@@ -554,12 +554,107 @@ describe('Test updateState function', () => {
 });
 
 describe('Test settings modal', () => {
+    test('settings button is enabled when page loads', () => {
+        document.body.innerHTML = `
+            <button type=button class='settings' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
+            <div id='settingsModal' class='modal'>
+                <div class='settings-content'>
+                <span id='closeSettings'>&times;</span>
+                </div>
+            </div>
+        `;
+        const settingsBtn = document.getElementById('settingsButton');
+        let settingsBtnDisabled = settingsBtn.disabled;
+        expect(settingsBtnDisabled).toBeFalsy;
+    }),
+
+    test('settings modal is hidden when page loads', () => {
+        document.body.innerHTML = `
+            <button type=button class='settings' id='settingsButton'><img id='cog' src='img/settings-icon.png' alt='settings-icon'/></button>
+            <div id='settingsModal' class='modal'>
+                <div class='settings-content'>
+                <span id='closeSettings'>&times;</span>
+                </div>
+            </div>
+        `;
+        let settingsModal = document.getElementById('settingsModal');
+        let display = settingsModal.style.display;
+        expect(display).toBe('');
+    }),
+
+    test('settings button is disabled when modal open', () => {
+        document.body.innerHTML = `
+            <button type=button class='settings' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
+            <div id='settingsModal' class='modal'>
+                <div class='settings-content'>
+                <span id='closeSettings'>&times;</span>
+                </div>
+            </div>
+        `;
+        revealSettings();
+        const settingsBtn = document.getElementById('settingsButton');
+        let settingsBtnDisabled = settingsBtn.disabled;
+        expect(settingsBtnDisabled).toBeTruthy;
+    }),
+
+    test('settings modal is visible when opened', () => {
+        document.body.innerHTML = `
+            <button type=button class='settings' id='settingsButton'><img id='cog' src='img/settings-icon.png' alt='settings-icon'/></button>
+            <div id='settingsModal' class='modal'>
+                <div class='settings-content'>
+                <span id='closeSettings'>&times;</span>
+                </div>
+            </div>
+        `;
+        revealSettings();
+        let settingsModal = document.getElementById('settingsModal');
+        let display = settingsModal.style.display;
+        expect(display).toBe('block');
+    }),
+
+    test('closing modal enables settings button', () => {
+        document.body.innerHTML = `
+            <button type=button class='settings' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
+            <div id='settingsModal' class='modal'>
+                <div class='settings-content'>
+                <span id='closeSettings'>&times;</span>
+                <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
+                </div>
+            </div>
+        `;
+        hideSettings();
+        const settingsBtn = document.getElementById('settingsButton');
+        let settingsBtnDisabled = settingsBtn.disabled;
+        expect(settingsBtnDisabled).toBeFalsy;
+    }),
+
+    test('settings modal is hidden when closed', () => {
+        document.body.innerHTML = `
+            <button type=button class='settings' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
+            <div id='settingsModal' class='modal'>
+                <div class='settings-content'>
+                <span id='closeSettings'>&times;</span>
+                <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
+                </div>
+            </div>
+        `;
+        revealSettings();
+        let settingsModal = document.getElementById('settingsModal');
+        let display = settingsModal.style.display;
+        expect(display).toBe('block');
+
+        hideSettings();
+        settingsModal = document.getElementById('settingsModal');
+        display = settingsModal.style.display;
+        expect(display).toBe('none');
+    }),
+
     test('calls revealSettings function when modal is opened', () => {
         document.body.innerHTML = `
             <button type=button class='settings' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
             <div id='settingsModal' class='modal'>
                 <div class='settings-content'>
-                <span id='closeSettings'>&times;</span disabled>
+                <span id='closeSettings'>&times;</span>
                 </div>
             </div>
         `;
@@ -573,7 +668,7 @@ describe('Test settings modal', () => {
             <button type=button class='settings' id='settingsButton'><img id='cog' src='img/Settings_icon.png'/></button>
             <div id='settingsModal' class='modal'>
                 <div class='settings-content'>
-                <span id='closeSettings'>&times;</span disabled>
+                <span id='closeSettings'>&times;</span>
                 </div>
             </div>
         `;

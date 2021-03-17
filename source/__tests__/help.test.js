@@ -5,8 +5,8 @@ describe('Test when nothing is clicked', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
-                <span id='closeModal'>&times;</span disabled>
+                <div class='help-content'>
+                <span id='closeModal'>&times;</span>
                 </div>
             </div>
         `;
@@ -16,19 +16,18 @@ describe('Test when nothing is clicked', () => {
         expect(helpBtnDisabled).toBeFalsy;
     }),
 
-    test('close button is disabled', () => {
+    test('help modal is hidden', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
-                <span id='closeModal'>&times;</span disabled>
+                <div class='help-content'>
+                <span id='closeModal'>&times;</span>
                 </div>
             </div>
         `;
-        // close button should be disabled
-        const closeBtn = document.getElementById('closeModal');
-        let closeBtnDisabled = closeBtn.disabled;
-        expect(closeBtnDisabled).toBeTruthy;
+        let helpModal = document.getElementById('helpModal');
+        let display = helpModal.style.display;
+        expect(display).toBe('');
     });
 });
 
@@ -37,7 +36,7 @@ describe('Test when nothing is clicked', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
+                <div class='help-content'>
                 <span id='closeModal'>&times;</span disabled>
                 </div>
             </div>
@@ -48,19 +47,19 @@ describe('Test when nothing is clicked', () => {
         expect(helpBtnDisabled).toBeTruthy;
     }),
 
-    test('enables close button', () => {
+    test('help modal is visible', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
-                <span id='closeModal'>&times;</span disabled>
+                <div class='help-content'>
+                <span id='closeModal'>&times;</span>
                 </div>
             </div>
         `;
         revealHelp();
-        const closeBtn = document.getElementById('closeModal');
-        let closeBtnDisabled = closeBtn.disabled;
-        expect(closeBtnDisabled).toBeFalsy;
+        let helpModal = document.getElementById('helpModal');
+        let display = helpModal.style.display;
+        expect(display).toBe('block');
     });
 });
 
@@ -69,30 +68,35 @@ describe('Test hideHelp function', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
+                <div class='help-content'>
                 <span id='closeModal'>&times;</span disabled>
                 </div>
             </div>
         `;
-        hideHelp;
+        hideHelp();
         const helpBtn = document.getElementById('helpButton');
         let helpBtnDisabled = helpBtn.disabled;
         expect(helpBtnDisabled).toBeFalsy;
     }),
 
-    test('disables close button', () => {
+    test('help modal is hidden', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
-                <span id='closeModal'>&times;</span disabled>
+                <div class='help-content'>
+                <span id='closeModal'>&times;</span>
                 </div>
             </div>
         `;
-        hideHelp;
-        const closeBtn = document.getElementById('closeModal');
-        let closeBtnDisabled = closeBtn.disabled;
-        expect(closeBtnDisabled).toBeTruthy;
+        revealHelp();
+        let helpModal = document.getElementById('helpModal');
+        let display = helpModal.style.display;
+        expect(display).toBe('block');
+
+        hideHelp();
+        helpModal = document.getElementById('helpModal');
+        display = helpModal.style.display;
+        expect(display).toBe('none');
     });
 });
 
@@ -101,7 +105,7 @@ describe('Test help button', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
+                <div class='help-content'>
                 <span id='closeModal'>&times;</span disabled>
                 </div>
             </div>
@@ -117,7 +121,7 @@ describe('Test closing the help modal', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=helpButton>?</button disabled>
             <div id='helpModal' class='modal'>
-                <div class='modal-content'>
+                <div class='help-content'>
                 <span id='closeModal'>&times;</span>
                 </div>
             </div>
