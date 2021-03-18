@@ -1,11 +1,11 @@
 import { getNotificationStatus, getAlarm } from '../notifications';
 
-describe('Test that the alarm object', () => {
-    test('correctly exists', () => {
+describe('Alarm Tests', () => {
+    test('Check alarm exists', () => {
         expect(getAlarm()).not.toBeNull();
     }),
     
-    test('has a valid url', () => {
+    test('Check alarm has a valid url', () => {
         expect(getAlarm().src).not.toBeNull();
     });
 });
