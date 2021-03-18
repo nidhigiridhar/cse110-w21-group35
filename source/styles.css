@@ -86,8 +86,8 @@ h1 {
   color: var(--clr-light);
   height: auto;
   width: 23vw;
-  max-width: 230px;
-  min-width: 140px;
+  max-width: 250px;
+  min-width: 160px;
   position: absolute;
   right: -15px;
   top: 10px;
@@ -99,7 +99,7 @@ h1 {
     font-size: var(--fs-counter-small);
   }
 }
-@media (min-width: 755px) {
+@media (min-width: 800px) {
   #counterContainer {
     right: 3%;
     font-size: var(--fs-counter-medium);
@@ -115,12 +115,14 @@ h1 {
   max-width: 100%;
   width: 100%;
   height: auto;
+  /* opacity: 0.7; */
 }
 #streakCounter, #totalCounter {
   position: absolute;
   top: 34%;
   left: 17%;
   width: 65%;
+  /* background-color: rgba(0, 0, 0, 0.712); */
 }
 #totalCounter {
   top: 48%;
