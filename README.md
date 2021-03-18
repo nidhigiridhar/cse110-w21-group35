@@ -87,7 +87,7 @@ Babel-Jest tests should be run through a [GitHub Action](.github/workflows/jest.
 Use the following terminal commands to run Babel-Jest:
 <pre>$ npm install --save-dev babel-jest  
 $ npm install @babel/preset-env --save-dev
-$ jest ./source/__tests__/name-of-test-file
+$ npm test test-file-name
 </pre>
 
 Cypress tests should be run through a [GitHub Action](.github/workflows/cypress.yml) and locally.
