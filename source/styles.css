@@ -135,6 +135,7 @@ h1 {
 }
 #reminder {
   padding-top: 0px;
+  padding-bottom: 30px;
 }
 
 /******** State, progress bar, timer ********/
