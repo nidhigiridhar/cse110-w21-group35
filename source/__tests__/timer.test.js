@@ -438,6 +438,7 @@ describe('Test updateState function', () => {
         document.body.innerHTML = `
             <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
+            <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
                 <div class='circle pomo'></div>
@@ -468,6 +469,7 @@ describe('Test updateState function', () => {
         document.body.innerHTML = `
             <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
+            <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
                 <div class='circle pomo'></div>
@@ -498,6 +500,7 @@ describe('Test updateState function', () => {
         document.body.innerHTML = `
             <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
+            <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
                 <div class='circle pomo'></div>
@@ -527,6 +530,7 @@ describe('Test updateState function', () => {
         document.body.innerHTML = `
             <div id = 'timerDisplay'>25:00</div>
             <h2 id='state'>Work State</h2>
+            <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
             <button type=button class='timer-button' id='resetButton'>Reset</button>
             <div class='progress-container' state='pomo'>
                 <div class='circle pomo'></div>

@@ -120,7 +120,7 @@ function updateState() {
             timer.currState = LONG_STATE;
             document.getElementById('state').innerText = LONG_STATE;
             document.getElementById('timerDisplay').innerText = 
-                `${LONG_MINS}:00`;
+                `${LONG_MINS}:00`;    
         }
         // next state is a short break 
         else {
@@ -143,6 +143,10 @@ function updateState() {
         document.getElementById('state').innerText = WORK_STATE;
         document.getElementById('timerDisplay').innerText = `${POMO_MINS}:00`;
         document.getElementById('resetButton').disabled = true; // disable reset button
+        // remove settings warning after 4 pomos
+        if(document.getElementById('total').innerText % 4 == 0) {
+            document.getElementById('warning').style.display = 'none';
+        }
     }
     colorChange();
     breakReminders(); 
