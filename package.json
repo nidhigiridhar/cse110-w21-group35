@@ -19,6 +19,8 @@
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "jest": {
+    "collectCoverage": true,
+     "coverageReporters": ["json", "html"],
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     }

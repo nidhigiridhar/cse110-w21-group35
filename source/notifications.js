@@ -4,21 +4,27 @@ const alarm = new Audio('./audio/notification-alert.wav');
 /**
  * @name getAlarm
  * @function
- * @description Plays he alarm audio object for testing purposes
+ * @description Plays the alarm audio object for testing purposes
  * @return {Audio} The Audio element named alarm
  */
 function getAlarm(){
     return alarm;
- }
+}
 
 /**
  * @name playSound
  * @function
  * @description Plays the alarm three times to notfiy the user that the break or pomo has ended 
  */
- function playSound(){
+function playSound(){
+    //Play the alarm once
     alarm.play();
- }
+    //Wait 2 seconds then play it again
+    setTimeout(function(){alarm.play();}, 2000);
+    //Wait another 2 seconds to play it a third time
+    setTimeout(function(){alarm.play();}, 4000);
+    
+}
  
 /**
  * @name showNotif

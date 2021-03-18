@@ -108,6 +108,192 @@ describe('Start Button Tests', () => {
       })
     });
 
+    it('Start Button Clicked: Check Buttons Gets Enabled/Disabled correctly for entire cycle', () => {
+      //DOM Maninpulation to get short pomo/break times :)
+      cy.get('#settingsButton').click();
+      cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
+      cy.get('#workOption60').invoke('prop', 'value', '.15');
+      
+      cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
+      cy.get('#sbOption15').invoke('prop', 'value', '.1');
+
+      cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
+      cy.get('#lbOption15').invoke('prop', 'value', '.1');
+
+      cy.get('#shortBreakTime').select('.1');
+      cy.get('#longBreakTime').select('.1');
+      cy.get('#workTime').select('.15');
+
+      cy.get('#closeSettings').click();
+
+      //Pomo: 9 Seconds
+      //SB: 6 seconds
+      //LB: 6 seconds
+
+      //start pomo1
+      cy.get('#startButton').click();
+      //check the buttons are correctly disabled and enabled
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      //finish pomo1
+      cy.wait(9000);
+      //at new SB check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //start SB1
+      cy.get('#startButton').click();
+      //check the buttons are correctly disabled
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      //finish SB1
+      cy.wait(6000);
+      //at new pomo check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //start Pomo2
+      cy.get('#startButton').click();
+      //check the buttons are correctly disabled and enabled
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      //finish Pomo2
+      cy.wait(9000);
+      //at new SB check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //start SB2
+      cy.get('#startButton').click();
+      //check the buttons are both disabled
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      //finish SB2
+      cy.wait(6000);
+      //at new pomo check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //start Pomo3
+      cy.get('#startButton').click();
+      //check the buttons are correctly disabled and enabled
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      //finish Pomo3
+      cy.wait(9000);
+      //at new SB check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //start SB3
+      cy.get('#startButton').click();
+      //check the buttons are both disabled 
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      //finish SB3
+      cy.wait(6000);
+      //at new pomo check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //start Pomo4
+      cy.get('#startButton').click();
+      //check the buttons are correctly disabled and enabled
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      //finish Pomo4
+      cy.wait(9000);
+      //at new LB check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //start LB
+      cy.get('#startButton').click();
+      //check the buttons are both disabled 
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      //finish LB
+      cy.wait(6000);
+      //at new pomo check pressibility
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+
+      //check the buttons are correctly disabled and enabled at new cycle start
+      cy.get('#startButton').click();
+      cy.get('#startButton').then(($el) => {
+        expect($el).to.have.attr('disabled');
+      });
+      cy.get('#resetButton').then(($el) => {
+        expect($el).to.not.have.attr('disabled');
+      });
+
+      
+    });
+
     it('Start Button Clicked: Check Counters Not Updated', () => {
       cy.get('#startButton').click();
       //Cypress will wait 5 seconds after the click
@@ -976,6 +1162,19 @@ describe('Break Reminders Tests', () => {
     //Complete the pomo
 
     cy.wait(9*1000);
+    //check presense at a break
+    cy.get('#breakReminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#breakReminder').should('not.be.empty');
+
+    cy.get('#reminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#reminder').should('not.be.empty');
+
+    //check break reminders still there after starting break
+    cy.get('#startButton').click();
     cy.get('#breakReminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
@@ -992,7 +1191,6 @@ describe('Break Reminders Tests', () => {
 
     //finish pomo
     cy.wait(9*1000);
-    //will fail rn but will work after fix
     cy.get('#breakReminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
@@ -1005,14 +1203,24 @@ describe('Break Reminders Tests', () => {
 
     //start break
     cy.get('#startButton').click();
+    //break reminders persistance already checked
     //finish break
     cy.wait(6*1000);
 
-    //now in work state
+    //now in work state checks the break reminder is gone
     cy.get('#breakReminder').then(($el) => {
       expect($el).to.be.hidden;
     });
-    cy.get('#breakReminder').should('not.be.empty');
+
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+
+    //check they are still gone after starting the work session
+    cy.get('#startButton').click();
+    cy.get('#breakReminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
 
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
@@ -1052,7 +1260,7 @@ describe('Break Reminders Tests', () => {
     //finish pomo
     cy.wait(9*1000);
 
-    //now in long break state
+    //now in long break state check reminders are there and persist after click
     cy.get('#breakReminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
@@ -1061,6 +1269,19 @@ describe('Break Reminders Tests', () => {
     cy.get('#reminder').then(($el) => {
       expect($el).not.to.be.hidden;
     });
+    cy.get('#reminder').should('not.be.empty');
+
+    cy.get('#startButton').click();
+    //check the break reminders persist after starting LB
+    cy.get('#breakReminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#breakReminder').should('not.be.empty');
+
+    cy.get('#reminder').then(($el) => {
+      expect($el).not.to.be.hidden;
+    });
+    cy.get('#reminder').should('not.be.empty');
   });
 
   it('Break Reminders: Check Disabled after Long Break', () => {
@@ -1100,17 +1321,29 @@ describe('Break Reminders Tests', () => {
     //finish Long break
     cy.wait(6*1000);
     
-    //now in long break state
+    //now in work state
     cy.get('#breakReminder').then(($el) => {
       expect($el).to.be.hidden;
     });
-    cy.get('#breakReminder').should('not.be.empty');
+
+    cy.get('#reminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
+
+    //check still disabled after starting work state 
+    cy.get('#startButton').click();
+    cy.get('#breakReminder').then(($el) => {
+      expect($el).to.be.hidden;
+    });
 
     cy.get('#reminder').then(($el) => {
       expect($el).to.be.hidden;
     });
   });
 });
+
+
+
 
 
 

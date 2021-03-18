@@ -87,7 +87,7 @@ Babel-Jest tests should be run through a [GitHub Action](.github/workflows/jest.
 Use the following terminal commands to run Babel-Jest:
 <pre>$ npm install --save-dev babel-jest  
 $ npm install @babel/preset-env --save-dev
-$ jest ./source/__tests__/name-of-test-file
+$ npm test test-file-name
 </pre>
 
 Cypress tests should be run through a [GitHub Action](.github/workflows/cypress.yml) and locally.
@@ -97,15 +97,16 @@ Use the following terminal command to open the Cypress test suite:
 </pre>
 AFTER CYPRESS LOADS,
 
-ADD SECTION ABOUT TESTING IN LIGHTHOUSE
+At the end of the every sprint, [Lighthouse](https://developers.google.com/web/tools/lighthouse) should be run on the deployed page.
 
 ### Code Quality
 ESLint should be run through a [GitHub Action](.github/workflows/lint.yml) and locally to ensure a consistent quality among all Javascript files.
 
 Use the following terminal commands to run ESLint:
-<pre>$ eslint ./source/name-of-file</pre>
+<pre>$ npm install eslint --save-dev
+$ eslint ./source/name-of-file</pre>
 
-EXPLAIN THAT W3 VALIDATOR SHOULD BE CHECKED TOO
+At the end of every sprint, the [W3 validator](https://validator.w3.org) should also be run to check the html.
 
 ### Deployment
 We will deploy the application from GitHub Pages. At the beginning of each sprint, the primary leader should change the repository settings so that the page deploys from the sprint-specific branch. This is allow the Cypress tester to test the most up-to-date code. At the end of each sprint, the page should deploy from the master branch, and the final product should deploy from the master branch, too.

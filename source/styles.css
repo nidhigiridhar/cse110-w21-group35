@@ -273,7 +273,7 @@ button {
   height: 7vw;
 }
 
-/******** Instructions ********/
+/******** Help ********/
 button.help-button { 
   position: absolute;
   left: 8%;
@@ -309,7 +309,7 @@ button.help-button {
   overflow-y: auto;
   background-color: var(--clr-faded-black);
 }
-.modal-content {
+.help-content {
   background-color: var(--clr-light);
   font-family: var(--ff-secondary);
   font-size: 20px;
@@ -322,20 +322,24 @@ button.help-button {
   width: 80%;
   overflow-y: auto;
 }
-.modal-content > h3 {
+.help-content > h3 {
     font-size: var(--fs-instructions-title-small);
 }
 @media (min-width: 700px) {
-  .modal-content {
+  .help-content{
     font-size: var(--fs-instructions-large);
   }
-  .modal-content > h3 {
+  .help-content > h3 {
     font-size: var(--fs-instructions-title-large);
   }
 }
 #closeModal {
   float: left;
   font-size: 50px;
+}
+
+#helpModal {
+  display: none;
 }
 
 /******** Settings ********/
@@ -496,6 +500,9 @@ select {
   left: 8px;
   /*background-image: url(checkmark-switcher.svg);*/
   background-size: 14px 14px;
+}
+li {
+  margin: 5px;
 }
 
 /******** Footer ********/
