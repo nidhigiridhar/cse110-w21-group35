@@ -87,9 +87,9 @@ h1 {
   height: auto;
   width: 23vw;
   max-width: 230px;
-  min-width: 150px;
+  min-width: 140px;
   position: absolute;
-  right: -25px;
+  right: -15px;
   top: 10px;
   text-align: center;
 }
@@ -106,7 +106,7 @@ h1 {
   }
 }
 @media (min-width: 980px) {
-  #counter-container {
+  #counterContainer {
     right: 7%;
     font-size: var(--fs-counter-large);
   }
@@ -179,17 +179,17 @@ h2 {
   width: 80%;
   min-width: 370px;
   max-width: 520px;
-  /* border: 3px solid black; */
 }
 
 /******** Timer ********/
 /**** Mode ****/
+#state, #timerDisplay {
+  text-align: center;
+  margin: auto;
+}
 #state {
   font-size: var(--fs-mode-button-small);
-  text-align: center;
   width: 100%;
-  margin: auto;
-  /* border: 3px solid black; */
 }
 @media (min-width: 755px) {
   #state {
@@ -200,22 +200,14 @@ h2 {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer-small);
   color: var(--clr-light);
-  text-align: center;
   border: 10px solid var(--clr-accent-pomo);
   border-radius: 30px;
   text-shadow: 4px 5px var(--clr-dark);
   width: 70vw;
   min-width: 320px;
   max-width: 550px;
-  margin: auto;
   transition-property: border-color;
   transition-duration: var(--transition-time);
-  /* border: 3px solid black; */
-}
-@media (min-width: 544px) {
-  #timerDisplay {
-    font-size: var(--fs-timer-small);
-  }
 }
 @media (min-width: 768px) {
   #timerDisplay {
@@ -269,6 +261,14 @@ button {
   height: 100px;
   width: 100%;
 }
+#helpButton, #settingContainer, #settingsButton, #cog {
+  min-width: 40px;
+  max-width: 60px;
+  width: 7vw;
+  min-height: 40px;
+  max-height: 60px;
+  height: 7vw;
+}
 
 /******** Instructions ********/
 button.help-button { 
@@ -276,12 +276,6 @@ button.help-button {
   left: 8%;
   top: 5%;
   margin: auto;
-  min-width: 40px;
-  max-width: 50px;
-  width: 7vw;
-  min-height: 40px;
-  max-height: 50px;
-  height: 7vw;
   font-size: var(--fs-mode-button-small);
   border-radius: 10px;
   border: none;
@@ -329,12 +323,12 @@ button.help-button {
     font-size: var(--fs-instructions-title-small);
 }
 @media (min-width: 700px) {
-  .modal-content{
+  .modal-content {
     font-size: var(--fs-instructions-large);
   }
   .modal-content > h3 {
     font-size: var(--fs-instructions-title-large);
-}
+  }
 }
 #closeModal {
   float: left;
@@ -342,46 +336,34 @@ button.help-button {
 }
 
 /******** Settings ********/
+button.settings { 
+  position: absolute;
+  left: 8%;
+  top: 12%;
+  margin: auto;
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-mode-button-small);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 3px 2px 2px var(--clr-dark);
+}
+@media (min-width: 500px) {
   button.settings { 
-    position: absolute;
-    left: 8%;
-    top: 12%;
-    margin: auto;
-    min-width: 40px;
-    max-width: 50px;
-    width: 7vw;
-    min-height: 40px;
-    max-height: 50px;
-    height: 7vw;
-    font-family: var(--ff-secondary);
-    font-size: var(--fs-mode-button-small);
-    border-radius: 10px;
-    border: none;
-    box-shadow: 2px 3px 2px 2px var(--clr-dark);
+    font-size: var(--fs-mode-button-large);
+    border-radius: 12px;
+    margin-left: 50px;
+    top: 10%;
   }
-  @media (min-width: 500px) {
-    button.settings { 
-      font-size: var(--fs-mode-button-large);
-      border-radius: 12px;
-      left: 15%;
-      top: 10%;
-    }
+}
+@media (min-width: 700px) {
+  button.settings { 
+    border-radius: 15px;
   }
-  @media (min-width: 700px) {
-    button.settings { 
-      border-radius: 15px;
-    }
-  }
+}
 #cog { 
   position: relative;
   margin-left: -5px;
-  margin-top: -7px;
-  min-width: 40px;
-  max-width: 50px;
-  width: 7vw;
-  min-height: 40px;
-  max-height: 50px;
-  height: 7vw;
+  margin-top: -1px;
   border-radius: 15px;
   border: none;
 }
