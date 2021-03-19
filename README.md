@@ -1,5 +1,5 @@
 ## Productoro
-Productoro is a new Pomodoro Timer application. Using the Pomodoro technique, Productoro breaks down work in to intervals called pomos as a means to enhances user time management and increase user productivity and focus. [Here is the link to our app!](https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html)
+Productoro is a new Pomodoro Timer application. Using the Pomodoro technique, Productoro breaks down work in to intervals called pomos as a means to enhances user time management and increase user productivity and focus. [Here is the link to our app!](https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html), and [here is the link to our demo video!](https://youtu.be/HGqff-ElEuk)
 
 ## Purpose
 People are always striving to increase their productivity levels. Therefore, maximizing the amount of work completed within a time frame is the major problem. However, another part of the problem is that a lack of focus leads to lack of productivity. People become distracted and tired while working for a long period without breaks. Thus, Productoro intends to address these related issues regarding productivity and focus together.
@@ -11,6 +11,22 @@ To use Productoro, follow these steps:
 3. The pomos and breaks will continue to automatically transition with a long break occurring after every fourth pomo. During a pomo, **Reset** can be pressed to restart the current pomo. **Start** must be pressed again to begin the countdown on the timer. 
 
 Users can also customize the length of their time limits and their keyboard shortcuts and notifications preferences using the settings button in the top left corner of the screen.
+
+## Features
+Here is a list of features that come with productoro:
+- Countdown Timer 
+- Start/Reset Buttons 
+- Work, Short break, and Long break states 
+- Color changes at different states
+- Streak and Total Counters 
+- Progress Bar 
+- Break Reminders 
+- Alarm 
+- Banner Notifications 
+- Keyboard shortcuts
+- Instrucrtions modal 
+- Settings Modal to change times for different sessions and turn alarm and keyboard shortcuts on/off 
+- Responsive Design
 
 ## Build status
 Last update: March 18, 2021  
