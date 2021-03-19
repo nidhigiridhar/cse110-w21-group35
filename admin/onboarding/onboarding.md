@@ -43,7 +43,7 @@ All Javascript, CSS and Jest files are located in the [source directory](../sour
 |                +-- tomato.png
 </pre>
 
-All Cypress tests can be found at [<code>./cypress/integration/Productoro-Tests/UI-test.js</code>](../cypress/integration/Productoro-Tests/UI-test.js).
+All Cypress tests can be found at [<code>./cypress/integration/Productoro-Tests/UI-test.js</code>](../cypress/integration/Productoro-Tests/UI-tests.js).
 
 ## Tech/framework used
 Productoro is developed using Javascript, HTML, and CSS. Babel-Jest and Cypress frameworks are used for testing. EsLint and JSDoc were used as a part of the pipeline.
