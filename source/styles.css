@@ -369,14 +369,14 @@ button.settings {
 }
 #cog { 
   position: relative;
-  margin-left: -5px;
+  margin-left: -6px;
   margin-top: -1px;
   border-radius: 15px;
   border: none;
 }
 @media (min-width: 650px) {
   #cog { 
-    margin-top: 0px;
+    margin-top: -1px;
   }
 }
 .settingsModal {
