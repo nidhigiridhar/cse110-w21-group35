@@ -95,7 +95,7 @@ All Javascript files should be well documented using [JSDoc](https://jsdoc.app/)
 Using a [GitHub Action](../../.github/workflows/documentation.yml), all documentation should be generated and updated each time a sprint specific branch is merged with the master branch. The documentation for Productoro is hosted on [this repository](https://github.com/sywong888/cse110-w21-group35-docs/tree/gh-pages) (on the gh-pages branch) and deployed to [this page](https://sywong888.github.io/cse110-w21-group35-docs/).
 
 ### Tests
-Babel-Jest tests should be run through a [GitHub Action](../..github/workflows/jest.yml) and locally. Note, ES6 Javascript is used for this project.
+Babel-Jest tests should be run through a [GitHub Action](../../.github/workflows/jest.yml) and locally. Note, ES6 Javascript is used for this project.
 
 Use the following terminal commands to run Babel-Jest:
 <pre>$ npm install --save-dev babel-jest  
@@ -107,7 +107,7 @@ Code coverage reports for Babel-Jest tests should be generated frequently using 
 <pre>$ npm test --coverage</pre>
 The code coverage report can be viewed [here](https://nidhigiridhar.github.io/cse110-w21-group35/coverage/index.html).
 
-Cypress tests should be run through a [GitHub Action](../..github/workflows/cypress.yml) and locally.
+Cypress tests should be run through a [GitHub Action](../../.github/workflows/cypress.yml) and locally.
 
 Use the following terminal command to open the Cypress test suite:  
 <pre>$ ./node_modules/.bin/cypress open
@@ -117,7 +117,7 @@ After Cypress loads, <code>UI-tests.js</code> in <code>./cypress/integration/Pro
 At the end of the every sprint, [Lighthouse](https://developers.google.com/web/tools/lighthouse) should be run on the deployed page.
 
 ### Code Quality
-ESLint should be run through a [GitHub Action](../..github/workflows/lint.yml) and locally to ensure a consistent quality among all Javascript files.
+ESLint should be run through a [GitHub Action](../../.github/workflows/lint.yml) and locally to ensure a consistent quality among all Javascript files.
 
 Use the following terminal commands to run ESLint:
 <pre>$ npm install eslint --save-dev
