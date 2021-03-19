@@ -13,7 +13,9 @@ To use Productoro, follow these steps:
 Users can also customize the length of their time limits and their keyboard shortcuts and notifications preferences using the settings button in the top left corner of the screen.
 
 ## Build status
-Build status of continus integration i.e. travis, appveyor etc.
+Last update: March 18, 2021  
+Productoro deploys sucessfully and passes all Babel-Jest and Cypress tests. The W3 Validator and Lighthouse testing has been run.  
+Code coverage on Babel-Jest tests is not 100%.
 
 ## Repository Organization
 All Javascript, CSS and Jest files are located in the [source directory](./source).
@@ -101,12 +103,16 @@ $ npm install @babel/preset-env --save-dev
 $ npm test test-file-name
 </pre>
 
+Code coverage reports for Babel-Jest tests should be generated frequently using the command:
+<pre>$ npm test --coverage</pre>
+The code coverage report can be viewed [here](https://nidhigiridhar.github.io/cse110-w21-group35/coverage/index.html).
+
 Cypress tests should be run through a [GitHub Action](.github/workflows/cypress.yml) and locally.
 
 Use the following terminal command to open the Cypress test suite:  
 <pre>$ ./node_modules/.bin/cypress open
 </pre>
-AFTER CYPRESS LOADS,
+After Cypress loads, <code>UI-tests.js</code> in <code>./cypress/integration/Productoro-Tests</code> should be run.
 
 At the end of the every sprint, [Lighthouse](https://developers.google.com/web/tools/lighthouse) should be run on the deployed page.
 
