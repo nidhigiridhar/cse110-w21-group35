@@ -18,7 +18,7 @@ Productoro deploys sucessfully and passes all Babel-Jest and Cypress tests. The 
 Code coverage on Babel-Jest tests is not 100%.
 
 ## Repository Organization
-All Javascript, CSS and Jest files are located in the [source directory](cse110-w21-group35/source).
+All Javascript, CSS and Jest files are located in the [source directory](../../source).
 
 <pre>
 +-- source/  
