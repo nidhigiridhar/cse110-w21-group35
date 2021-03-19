@@ -18,7 +18,7 @@ Productoro deploys sucessfully and passes all Babel-Jest and Cypress tests. The 
 Code coverage on Babel-Jest tests is not 100%.
 
 ## Repository Organization
-All Javascript, CSS and Jest files are located in the [source directory](./source).
+All Javascript, CSS and Jest files are located in the [source directory](../source).
 
 <pre>
 +-- source/  
@@ -43,23 +43,23 @@ All Javascript, CSS and Jest files are located in the [source directory](./sourc
 |                +-- tomato.png
 </pre>
 
-All Cypress tests can be found at [<code>./cypress/integration/Productoro-Tests/UI-test.js</code>](./cypress/integration/Productoro-Tests/UI-test.js).
+All Cypress tests can be found at [<code>./cypress/integration/Productoro-Tests/UI-test.js</code>](../cypress/integration/Productoro-Tests/UI-test.js).
 
 ## Tech/framework used
 Productoro is developed using Javascript, HTML, and CSS. Babel-Jest and Cypress frameworks are used for testing. EsLint and JSDoc were used as a part of the pipeline.
 
 ## Pre-Development Procedures
 #### Brainstorming 
-Brainstorming ideas was an integral part of our process. During our brainstorming sessions, we talked about potential users and what kind of features they would want to see. We also talked about what kind of features our team itself would like in our app. We also did some research by looking at exsiting pomodoro apps (web and mobile) to get an idea about potential features and themes. The brainstorming documents can be found at [<code>./specs/brainstorm</code>](./specs/brainstorm).
+Brainstorming ideas was an integral part of our process. During our brainstorming sessions, we talked about potential users and what kind of features they would want to see. We also talked about what kind of features our team itself would like in our app. We also did some research by looking at exsiting pomodoro apps (web and mobile) to get an idea about potential features and themes. The brainstorming documents can be found at [<code>./specs/brainstorm</code>](../specs/brainstorm).
 
 #### User Stories
-After brainstorming different kinds of users, we narrowed down our target audience and developed user profiles for them. This helped us gauge what kind of features we would need to incorporate. Our target users are students, software engineers, teachers, and office workers. For instace, a student would like a non-distracting UI, a software engineering that always uses their keyboard would like keyboard control of the app, a teacher would like to customize time limits according to their class schedule and an office worker would like something that is easy to use. This helped us add features like keyboard shortcuts, customizable time limits, and instructions on how to use productoro to cater to our target audience. Detailed user stories can be found at [<code>./specs/users</code>](./specs/users).
+After brainstorming different kinds of users, we narrowed down our target audience and developed user profiles for them. This helped us gauge what kind of features we would need to incorporate. Our target users are students, software engineers, teachers, and office workers. For instace, a student would like a non-distracting UI, a software engineering that always uses their keyboard would like keyboard control of the app, a teacher would like to customize time limits according to their class schedule and an office worker would like something that is easy to use. This helped us add features like keyboard shortcuts, customizable time limits, and instructions on how to use productoro to cater to our target audience. Detailed user stories can be found at [<code>./specs/users</code>](../specs/users).
 
 #### System Diagrams 
-We then created systems diagrams to map out the architecture of our app using the C4 model. The first is the context diagram that shows the big picture of who and what our app interacts with (users). Then we have the container diagram which shows how our app fits in with its environment. Finally we have the detailed Component diagram that shows the different components of our app and how they interact with each other. We also created an event model diagram that walks you through the flow of the app from the time a user logs and until they close the app. All these can be found at [<code>./specs/system-diagrams</code>](./specs/system-diagrams).
+We then created systems diagrams to map out the architecture of our app using the C4 model. The first is the context diagram that shows the big picture of who and what our app interacts with (users). Then we have the container diagram which shows how our app fits in with its environment. Finally we have the detailed Component diagram that shows the different components of our app and how they interact with each other. We also created an event model diagram that walks you through the flow of the app from the time a user logs and until they close the app. All these can be found at [<code>./specs/system-diagrams</code>](../specs/system-diagrams).
 
 #### Interface Diagrams 
-We also had an elaborate process to design the interface (UI) of our app. We started out by creating fat-marker sketches, progressed onto slightly more detailed wireframes and then finally created the high-fidelity diagrams that showcase what different features our app look like. These can be found at [<code>./specs/interface</code>](./specs/interface).
+We also had an elaborate process to design the interface (UI) of our app. We started out by creating fat-marker sketches, progressed onto slightly more detailed wireframes and then finally created the high-fidelity diagrams that showcase what different features our app look like. These can be found at [<code>./specs/interface</code>](../specs/interface).
     
 
 ## Sprint Procedures
@@ -71,7 +71,7 @@ At the end of each sprint, a pull request should be made from the sprint-specifi
 
 The primary team leader is responsible for reviewing all pull requests, resolving merge conflicts (or delegating resolution to other team members), and approving the pull requests.
 
-ADRs should be updated as the team decides on design changes. Each change should be well-documented in an ADR markdown document titled located in [<code>./specs/adr</code>](./specs/adr).
+ADRs should be updated as the team decides on design changes. Each change should be well-documented in an ADR markdown document titled located in [<code>./specs/adr</code>](../specs/adr).
 
 ## Pipeline Procedures
 
@@ -87,15 +87,15 @@ $ git commit -m "commit message"
 $ git push</pre>
 
 ### Code style
-The Dream Team uses a standard coding style, and a guide to Dream Team specific styling standards can be found [here](./admin/style-guide.md).
+The Dream Team uses a standard coding style, and a guide to Dream Team specific styling standards can be found [here](../admin/style-guide.md).
 
 ### Documentation
 All Javascript files should be well documented using [JSDoc](https://jsdoc.app/) standards.
 
-Using a [GitHub Action](./.github/workflows/documentation.yml), all documentation should be generated and updated each time a sprint specific branch is merged with the master branch. The documentation for Productoro is hosted on [this repository](https://github.com/sywong888/cse110-w21-group35-docs/tree/gh-pages) (on the gh-pages branch) and deployed to [this page](https://sywong888.github.io/cse110-w21-group35-docs/).
+Using a [GitHub Action](../.github/workflows/documentation.yml), all documentation should be generated and updated each time a sprint specific branch is merged with the master branch. The documentation for Productoro is hosted on [this repository](https://github.com/sywong888/cse110-w21-group35-docs/tree/gh-pages) (on the gh-pages branch) and deployed to [this page](https://sywong888.github.io/cse110-w21-group35-docs/).
 
 ### Tests
-Babel-Jest tests should be run through a [GitHub Action](.github/workflows/jest.yml) and locally. Note, ES6 Javascript is used for this project.
+Babel-Jest tests should be run through a [GitHub Action](..github/workflows/jest.yml) and locally. Note, ES6 Javascript is used for this project.
 
 Use the following terminal commands to run Babel-Jest:
 <pre>$ npm install --save-dev babel-jest  
@@ -107,7 +107,7 @@ Code coverage reports for Babel-Jest tests should be generated frequently using 
 <pre>$ npm test --coverage</pre>
 The code coverage report can be viewed [here](https://nidhigiridhar.github.io/cse110-w21-group35/coverage/index.html).
 
-Cypress tests should be run through a [GitHub Action](.github/workflows/cypress.yml) and locally.
+Cypress tests should be run through a [GitHub Action](..github/workflows/cypress.yml) and locally.
 
 Use the following terminal command to open the Cypress test suite:  
 <pre>$ ./node_modules/.bin/cypress open
@@ -117,7 +117,7 @@ After Cypress loads, <code>UI-tests.js</code> in <code>./cypress/integration/Pro
 At the end of the every sprint, [Lighthouse](https://developers.google.com/web/tools/lighthouse) should be run on the deployed page.
 
 ### Code Quality
-ESLint should be run through a [GitHub Action](.github/workflows/lint.yml) and locally to ensure a consistent quality among all Javascript files.
+ESLint should be run through a [GitHub Action](..github/workflows/lint.yml) and locally to ensure a consistent quality among all Javascript files.
 
 Use the following terminal commands to run ESLint:
 <pre>$ npm install eslint --save-dev
