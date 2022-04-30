@@ -7,7 +7,7 @@ on:
 
 jobs:
   run-linters:
-    name: Run linters
+    name: Run Linters
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +30,7 @@ jobs:
           eslint_dir: ./source/
 
   Jest:
+    name: Run Unit Testing
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -48,11 +49,12 @@ jobs:
   #   steps:
   #     - name: Checkout
   #       uses: actions/checkout@v2
-
+  
   #     - name: Cypress run
   #       uses: cypress-io/github-action@v2
   
   jsdocs:
+    name: Deploy JSDocs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
