@@ -38,3 +38,5 @@ Chosen options:
 - Clear tasks that have been completed
 - Check off/cross off tasks
 - Select current working task to display
+
+These are the main features of the task list that we thought were most necessary. The other features would be nice and can be added to backlog if we don't get to them this sprint.
