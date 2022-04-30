@@ -50,7 +50,6 @@ jobs:
   #   steps:
   #     - name: Checkout
   #       uses: actions/checkout@v2
-
   #     - name: Cypress run
   #       uses: cypress-io/github-action@v2
   
@@ -80,3 +79,17 @@ jobs:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           external_repository: cse112-sp22-group5/cse112-sp22-group5-docs
           publish_dir: ./docs
+
+  dev_deploy:
+    name: Deploy to the dev environment
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # - run: npm ci && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTORO_B340E }}'
+          projectId: productoro-b340e
+          channelId: dev
