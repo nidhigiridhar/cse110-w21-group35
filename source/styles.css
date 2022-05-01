@@ -5,8 +5,6 @@
 :root {
   --primary-color: #77a4e9;
 
-
-
   --clr-light: #ffffff;
   --clr-accent-pomo: #032e77;
   --clr-accent-short: #923201;
@@ -51,7 +49,6 @@ h1 {
   margin: auto;
 }
 
-
 body {
   font-family: var(--ff-secondary);
   color: var(--clr-dark);
@@ -67,6 +64,15 @@ body[state="short"] {
 }
 body[state="long"] {
   background-color: #88b9ae;
+}
+
+a{
+  color: #FFFFFF;
+}
+
+a:hover{
+  color: #DDDDDD;
+  text-decoration-color: #DDDDDD;
 }
 
 b {
@@ -94,22 +100,10 @@ select {
 
 footer {
   font-size: var(--fs-footer);
-  width: 100%;
   height: 60px;
-  position: relative;
-  right: 10px;
-  top: 20px;
+  text-align: center;
 }
-footer > p {
-  float: right;
-  margin-right: 10px;
-  padding-top: 10px;
-}
-footer > img {
-  width: 50px;
-  float: right;
-  border-radius: 10px;
-}
+
 
 
 /******** Counter ********/
