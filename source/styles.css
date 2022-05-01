@@ -3,6 +3,8 @@
 
 /******** Variables ********/
 :root {
+
+  /* Refactor Option */
   --primary-color: #77a4e9;
 
   --clr-light: #ffffff;
@@ -43,12 +45,25 @@
 }
 
 /******** GLOBALS ********/
-h1 {
+/* Text */
+h1, h2, h3 {
   font-family: var(--ff-primary);
   font-size: var(--fs-title-small);
   margin: auto;
+} 
+a{
+  color: #FFFFFF;
+}
+a:hover{
+  color: #DDDDDD;
+  text-decoration-color: #DDDDDD;
+}
+b {
+  font-weight: var(--fw-bold);
 }
 
+
+/* Body */
 body {
   font-family: var(--ff-secondary);
   color: var(--clr-dark);
@@ -66,19 +81,7 @@ body[state="long"] {
   background-color: #88b9ae;
 }
 
-a{
-  color: #FFFFFF;
-}
-
-a:hover{
-  color: #DDDDDD;
-  text-decoration-color: #DDDDDD;
-}
-
-b {
-  font-weight: var(--fw-bold);
-}
-
+/* Interaction */
 button {
   margin: auto;
   font-size: var(--fs-mode-button-small);
@@ -98,9 +101,9 @@ select {
   margin-bottom: 10px;;
 }
 
+/* Footer */
 footer {
   font-size: var(--fs-footer);
-  height: 60px;
   text-align: center;
 }
 
