@@ -37,6 +37,7 @@
     <div id='buttonContainer'> <!-- container for start and reset buttons-->
         <button type=button class='timer-button' id='startButton'>Start</button>
         <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
+        
     </div>
     <div id='helpContainer'> <!-- container for non-static instructions-->
         <button type=button class='help-button' id='helpButton'>?</button>
@@ -126,7 +127,17 @@
     <!-- Task List -->
     <h2>Tasks</h2>
     <div id="task-list-container">
-        
+        <button id="add-tasks-button">Add Tasks</button>
+        <form onsubmit="return false;" id="add-task-form" class="hidden" style="border: 5px solid red">
+            <label for="taskName">Task:</label><br>
+            <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
+            <button id="cancel-button">Cancel</button><br>
+            <button id="save-button">Save</button>
+          </form>
+          <br><br><br>
+        <ol id="task-list">
+
+        </ol>
     </div>
         
     <footer>
@@ -135,6 +146,7 @@
     </footer>
 
     <!-- JS files -->
+    <script type='module' src='./task-list.js'></script>
     <script type='module' src='./timer.js'></script>
     <script type='module' src='./notifications.js'></script>
     <script type='module' src='./color-change.js'></script>
@@ -154,6 +166,7 @@
         document.getElementById('closeModal').addEventListener('click', hideHelp);
         document.getElementById('settingsButton').addEventListener('click', revealSettings);
         document.getElementById('closeSettings').addEventListener('click', hideSettings);
+        
     </script>
 </body>
 </html>
