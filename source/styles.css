@@ -6,6 +6,9 @@
 
   /* Refactor Option */
   --primary-color: #77a4e9;
+  /* --secondary-color:  #FFFFFF;
+  --primary-font: 'Helvetica Neue', sans-serif; 
+  --secondary-font: 'Raleway', sans-serif; */
 
   --clr-light: #ffffff;
   --clr-accent-pomo: #032e77;
@@ -67,7 +70,6 @@ b {
 body {
   font-family: var(--ff-secondary);
   color: var(--clr-dark);
-  display: flexbox;
   transition-property: background-color;
   transition-duration: var(--transition-time);
 }
@@ -80,6 +82,17 @@ body[state="short"] {
 body[state="long"] {
   background-color: #88b9ae;
 }
+
+/* REFACTOR OPTION: Classes for different state? */
+/* .pomo{
+  background-color: var(--primary-color);
+}
+.short{
+  background-color: #eaa478;
+}
+.long{
+  background-color: #88b9ae;
+} */
 
 /* Interaction */
 button {
