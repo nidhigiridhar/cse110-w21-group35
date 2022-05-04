@@ -7,6 +7,8 @@
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='styles.css'>
     <link rel='icon' href='./img/tomato.ico' type='image/x-icon'/>
+
+    <script type="module" src="./main.js"></script>
     <title>Productoro</title>
 </head>
 <body state='pomo'>
@@ -144,28 +146,6 @@
         <img src='img/dream-team-logo.png' alt='Dream Team logo'>
         <p>Made by the Dream Team</p>
     </footer>
-
-    <!-- JS files -->
-    <script type='module' src='./task-list.js'></script>
-    <script type='module' src='./timer.js'></script>
-    <script type='module' src='./notifications.js'></script>
-    <script type='module' src='./color-change.js'></script>
-    <script type='module' src='./help.js'></script>
-    <script type='module' src='./breakReminder.js'></script>
-    <script type='module' src='./progress-bar.js'></script>
-    <script type='module'>
-        import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from './timer.js';
-        import {revealHelp, hideHelp} from './help.js';
-        import {showNotif, getNotificationStatus, playSound, getAlarm} from './notifications.js'
-        import {colorChange} from './color-change.js';
-        document.getElementById('formEnabler').addEventListener('change', setCustomTime);
-        document.getElementById('startButton').addEventListener('click', onStart);
-        document.getElementById('resetButton').addEventListener('click', onReset);
-        document.addEventListener('keydown', keyboardShortcut);
-        document.getElementById('helpButton').addEventListener('click', revealHelp);
-        document.getElementById('closeModal').addEventListener('click', hideHelp);
-        document.getElementById('settingsButton').addEventListener('click', revealSettings);
-        document.getElementById('closeSettings').addEventListener('click', hideSettings);
         
     </script>
 </body>
