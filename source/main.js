@@ -2,9 +2,10 @@
 
 import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from './modules/timer.js';
 import { revealHelp, hideHelp } from './modules/help.js';
-import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js'
+import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js';
 import { colorChange } from './modules/color-change.js';
-import { breakReminders } from './modules/breakReminder.js'
+import { breakReminders } from './modules/breakReminder.js';
+import { addTaskButton, cancelTask, saveTask } from './modules/task-list.js';
 
   document.getElementById('formEnabler').addEventListener('change', setCustomTime);
     document.getElementById('startButton').addEventListener('click', onStart);
