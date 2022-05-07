@@ -8,17 +8,17 @@ import { breakReminders } from './modules/break-reminder.js'
 
 
 // Timer
-document.getElementById('formEnabler').addEventListener('change', setCustomTime);
-document.getElementById('startButton').addEventListener('click', onStart);
-document.getElementById('resetButton').addEventListener('click', onReset);
+document.getElementById('form-enabler').addEventListener('change', setCustomTime);
+document.getElementById('start-button').addEventListener('click', onStart);
+document.getElementById('reset-button').addEventListener('click', onReset);
 
 // Keyboard shortcuts
 document.addEventListener('keydown', keyboardShortcut);
 
 // Modals
-document.getElementById('helpButton').addEventListener('click', revealHelp);
-document.getElementById('closeModal').addEventListener('click', hideHelp);
-document.getElementById('settingsButton').addEventListener('click', revealSettings);
-document.getElementById('closeSettings').addEventListener('click', hideSettings);
+document.getElementById('help-button').addEventListener('click', revealHelp);
+document.getElementById('close-modal').addEventListener('click', hideHelp);
+document.getElementById('settings-button').addEventListener('click', revealSettings);
+document.getElementById('close-settings').addEventListener('click', hideSettings);
 
   
