@@ -81,7 +81,7 @@ h1 {
 }
 
 /******** Counter ********/
-#counterContainer {
+#counter-container {
   font-size: var(--fs-counter-small);
   color: var(--clr-light);
   height: auto;
@@ -94,42 +94,42 @@ h1 {
   text-align: center;
 }
 @media (min-width: 500px) {
-  #counterContainer {
+  #counter-container {
     right: 0px;
     font-size: var(--fs-counter-small);
   }
 }
 @media (min-width: 800px) {
-  #counterContainer {
+  #counter-container {
     right: 3%;
     font-size: var(--fs-counter-medium);
   }
 }
 @media (min-width: 980px) {
-  #counterContainer {
+  #counter-container {
     right: 7%;
     font-size: var(--fs-counter-large);
   }
 }
-#counterContainer > img {
+#counter-container > img {
   max-width: 100%;
   width: 100%;
   height: auto;
   /* opacity: 0.7; */
 }
-#streakCounter, #totalCounter {
+#streak-counter, #total-counter {
   position: absolute;
   top: 34%;
   left: 17%;
   width: 65%;
   /* background-color: rgba(0, 0, 0, 0.712); */
 }
-#totalCounter {
+#total-counter {
   top: 48%;
 }
 
 /******** break reminders ********/
-#breakReminder, #reminder {
+#break-reminder, #reminder {
   display : block;
   position: relative;
   text-align: center;
@@ -186,7 +186,7 @@ h2 {
 
 /******** Timer ********/
 /**** Mode ****/
-#state, #timerDisplay {
+#state, #timer-display {
   text-align: center;
   margin: auto;
 }
@@ -199,7 +199,7 @@ h2 {
     font-size: var(--fs-mode-button-large);
   }
 }
-#timerDisplay {
+#timer-display {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer-small);
   color: var(--clr-light);
@@ -213,17 +213,17 @@ h2 {
   transition-duration: var(--transition-time);
 }
 @media (min-width: 768px) {
-  #timerDisplay {
+  #timer-display {
     font-size: var(--fs-timer-large);
   }
 }
-#timerDisplay[state="pomo"] {
+#timer-display[state="pomo"] {
   border-color: var(--clr-accent-pomo);
 }
-#timerDisplay[state="short"] {
+#timer-display[state="short"] {
   border-color: var(--clr-accent-short);
 }
-#timerDisplay[state="long"] {
+#timer-display[state="long"] {
   border-color: var(--clr-accent-long);
 }
 
@@ -238,12 +238,12 @@ button {
   position: absolute;
 }
 @media (min-width: 755px) {
-  #startButton, #resetButton {
+  #start-button, #reset-button {
     font-size: var(--fs-mode-button-large);
     border-radius: 15px;
   }
 }
-#startButton, #resetButton {
+#start-button, #reset-button {
   min-width: 120px;
   max-width: 170px;
   width: 16vw;
@@ -251,20 +251,20 @@ button {
   max-height: 60px;
   height: 10vw;
 }
-#startButton { 
+#start-button { 
   right: 52%;
 }
-#resetButton {
+#reset-button {
   left: 52%;
 }
-#buttonContainer {
+#button-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
   height: 100px;
   width: 100%;
 }
-#helpButton, #settingContainer, #settingsButton, #cog {
+#help-button, #setting-container, #settings-button, #cog {
   min-width: 40px;
   max-width: 60px;
   width: 7vw;
@@ -333,12 +333,12 @@ button.help-button {
     font-size: var(--fs-instructions-title-large);
   }
 }
-#closeModal {
+#close-modal {
   float: left;
   font-size: 50px;
 }
 
-#helpModal {
+#help-modal {
   display: none;
 }
 
@@ -379,7 +379,7 @@ button.settings {
     margin-top: -1px;
   }
 }
-.settingsModal {
+.settings-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -407,7 +407,7 @@ button.settings {
 form {
   padding-top: 15px;
 }
-#formEnabler {
+#form-enabler {
   border: 0;
 }
 select {
@@ -416,7 +416,7 @@ select {
   font-size: 20px;
   margin-bottom: 10px;;
 }
-#closeSettings {
+#close-settings {
   float: left;
   font-size: 40px;
 }
