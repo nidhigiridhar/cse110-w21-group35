@@ -12,17 +12,22 @@
     <title>Productoro</title>
 </head>
 <body state='pomo'>
-    <header>  
+    <header> 
+         <!-- Help Modal, Settings Modal, Title, Counter?  -->
         <h1 class='text-center'>Productoro</h1>
         <div class='container' id='counter-container'>
             <img src='img/tomato.png' alt='tomato'>
             <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='total-counter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
         </div>
-        <div id='break-reminder' style='color:#464646; visibility: hidden'></div>
+        
+        <div id='breakReminder' style='color:#464646; visibility: hidden'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
     </header>
-    <div class='container' id='timer-container'>
+    <main>
+        <!-- Break Reminder, Timer, Buttons? -->
+    </main>
+    <div class='container' id='timerContainer'>
         <h2 class='text-center' id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
         <div class='progress-container container'>
             <div class='circle pomo'></div>
@@ -144,8 +149,8 @@
     </div>
         
     <footer>
-        <img src='img/dream-team-logo.png' alt='Dream Team logo'>
-        <p>Made by the Dream Team</p>
+        <p>Made by the <a href="../index.html">Dream Team</a></p>
+        <p>Taken by the 10x Racoons</p>
     </footer>
     
 </body>
