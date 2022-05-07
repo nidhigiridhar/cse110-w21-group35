@@ -127,18 +127,19 @@
     </div>
 
     <!-- Task List -->
+    <p>Current Task: <span id="currentTask"></span></p>
+
     <h2>Tasks</h2>
-    <div id="task-list-container">
-        <button id="add-tasks-button">Add Tasks</button><br>
-        <button id="clear-tasks-button">Clear Tasks</button>
-        <form onsubmit="return false;" id="add-task-form" class="hidden" style="border: 5px solid red">
+    <div id="taskListContainer" style="margin: 1em; padding: 1em; border: 3px solid black">
+        <button id="addTasksButton">Add Tasks</button>
+        <form onsubmit="return false;" id="addTaskForm" class="hidden" style="border: 5px solid red; margin: 1em;">
             <label for="taskName">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
-            <button id="cancel-button">Cancel</button><br>
-            <button id="save-button">Save</button>
+            <button id="cancelButton">Cancel</button><br>
+            <button id="saveButton">Save</button>
           </form>
           <br><br><br>
-        <ol id="task-list">
+        <ol id="taskList">
 
         </ol>
     </div>
@@ -148,6 +149,5 @@
         <p>Made by the Dream Team</p>
     </footer>
         
-    </script>
 </body>
 </html>

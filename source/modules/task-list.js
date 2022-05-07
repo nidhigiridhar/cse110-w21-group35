@@ -1,9 +1,3 @@
-document.getElementById('add-tasks-button').addEventListener('click',addTaskButton);
-document.getElementById('save-button').addEventListener('click',saveTask);
-document.getElementById('cancel-button').addEventListener('click',cancelTask);
-document.getElementById('clear-tasks-button').addEventListener('click',clearTasksButton);
-
-
 /**
  * @name addTaskButton
  * @function
@@ -43,6 +37,21 @@ export function saveTask() {
 }
 
 /**
+ * @name setFinished
+ * @function
+ * @description Sets task attribute "finished" to true or false based on current state
+ * @param {string} taskContainer container element of task
+ * @returns 
+ */
+function setFinished(taskContainer) {
+    if (taskContainer.getAttribute("finished") == false) {
+        taskContainer.setAttribute('finished', 'true');
+    } else {
+        taskContainer.setAttribute('finished', 'false');
+    }
+}
+
+/**
  * @name createCustomTaskTag
  * @function
  * @description Creates a custom tag for a task
@@ -51,10 +60,21 @@ export function saveTask() {
  */
 function createCustomTaskTag(taskName) {
     let taskContainer = document.createElement('li');
-    let taskLabel = document.createElement("label");
+    let taskButton = document.createElement('input');
+    let taskLabel = document.createElement('label');
     let editButton = document.createElement('button');
 
-    taskLabel.innerHTML = taskName;
+    // When user clicks on the task, it gets crossed off
+    taskButton.addEventListener('click', setFinished(taskContainer));
+    
+    taskContainer.setAttribute('class', 'task');
+    taskContainer.style.border = '3px solid black';
+    taskContainer.setAttribute('finished', 'false');
+    
+    taskButton.setAttribute('type', 'button');
+
+    taskButton.setAttribute('class', 'task-label');
+    taskButton.value = taskName;
     taskLabel.contentEditable = false;
 
     editButton.innerText = 'Edit';
@@ -69,7 +89,8 @@ function createCustomTaskTag(taskName) {
         });
     });
 
-    taskContainer.appendChild(taskLabel);
+    taskButton.appendChild(taskLabel);
+    taskContainer.appendChild(taskButton);
     taskContainer.appendChild(editButton);
     return taskContainer;
 }
@@ -95,3 +116,6 @@ export function clearTasksButton() {
  * @function
  * @description 
  */
+
+ // Export all functions
+ export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, finishTask, clearTasksButton }
