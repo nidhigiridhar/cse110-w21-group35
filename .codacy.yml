@@ -5,3 +5,4 @@ exclude_paths:
   - "coverage/**"
   - "specs/**"
   - "tests/**"
+  - "node_modules/**"
