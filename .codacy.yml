@@ -1,0 +1,7 @@
+---
+exclude_paths:
+  - ".github/**"
+  - "admin/**"
+  - "coverage/**"
+  - "specs/**"
+  - "tests/**"
