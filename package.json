@@ -14,7 +14,7 @@
     "minami": "^1.2.3"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --env=jsdom",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "jest": {
