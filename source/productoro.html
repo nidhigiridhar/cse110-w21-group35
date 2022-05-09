@@ -41,7 +41,7 @@
         </div>
         <div class='container' id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
     </div>
-    <div id='button-container'> <!-- container for start and reset buttons-->
+    <div class='button-container'> <!-- container for start and reset buttons-->
         <button type=button class='timer-button' id='start-button'>Start</button>
         <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
     </div>
@@ -135,13 +135,16 @@
 
     <h2>Tasks</h2>
     <div id="task-list-container" style="margin: 1em; padding: 1em; border: 3px solid black">
-        <button id="add-tasks-button">Add Tasks</button>
-        <form onsubmit="return false;" id="add-task-form" class="hidden" style="border: 5px solid red; margin: 1em;">
-            <label for="task-name">Task:</label><br>
-            <input type="text" id="task-name" name="task-name" placeholder="What are you doing?"><br>
-            <button id="cancel-button">Cancel</button><br>
-            <button id="save-button">Save</button>
-          </form>
+        <button id="add-tasks-button">Add Tasks</button> <br>
+        <button id="clear-tasks-button">Clear Tasks</button>
+        <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
+            <label for="taskName">Task:</label><br>
+            <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
+            <div class="form-buttons">
+                <button id="cancel-button">Cancel</button>
+                <button id="save-button">Save</button>
+            </div>
+        </form>
           <br><br><br>
         <ol id="task-list">
 

@@ -1,3 +1,16 @@
+/** These variables are for the save task and edit task.
+ * Using the same form for save task and edit task
+ * SAVE_ON: adding new task
+ * EDIT_ON: eddting task
+ * TASK_CONTENT: the content of the current edited task
+ * if a task has more content, adjust this variable
+*/
+const SAVE_ON = true;
+const EDIT_ON = false;
+let SAVE_FLAG = SAVE_ON;
+let TASK_CONTENT = null;
+
+
 /**
  * @name addTaskButton
  * @function
@@ -21,6 +34,8 @@ function addTaskButton() {
 function cancelTask() {
     document.getElementById("task-name").value = "";
     document.getElementById("add-task-form").classList.add("hidden");
+    setSaveFlag(SAVE_ON);
+    setTaskContent(null);
 }
 
 /**
@@ -31,10 +46,24 @@ function cancelTask() {
 function saveTask() {
     let taskNameInput = document.getElementById("task-name");
     let taskList = document.getElementById("task-list");
-    let newTask = createCustomTaskTag(taskNameInput.value);
-    taskList.appendChild(newTask);
+
+    if (SAVE_FLAG === SAVE_ON) { // Save new task
+        if (inputSanitizer(taskNameInput.value)){ // check for input
+            alert("Please enter something!!");
+            taskNameInput.focus();
+            return;
+        }
+        
+        let newTask = createCustomTaskTag(taskNameInput.value);
+        taskList.appendChild(newTask);
+    }
+    else { // edit old task
+        TASK_CONTENT.value = taskNameInput.value;
+    }
     cancelTask();
 }
+
+
 
 /**
  * @name selectTask
@@ -102,7 +131,36 @@ function createCustomTaskTag(taskName) {
     taskContainer.appendChild(taskButton);
     taskContainer.appendChild(taskLabel);
     taskContainer.appendChild(editButton);
+    setEditTask(taskContainer);
     return taskContainer;
+}
+
+/**
+ * @name setEditTask
+ * @function
+ * @description Set up edit task
+ * @param taskContainer a task container
+ */
+function setEditTask(taskContainer) {
+    // children[1] - the edit button is the 1th child of taskContainer
+    taskContainer.children[1].addEventListener('click', () => {
+        loadForm(taskContainer.children[0]);
+    });
+}
+
+/**
+ * @name loadForm
+ * @function
+ * @description Load content form a task to task form
+ * @param content the content of the task
+ */
+function loadForm(content){
+    let taskName = document.getElementById("task-name");
+    document.getElementById("add-task-form").classList.remove("hidden");
+    taskName.value = content.value;
+    taskName.focus();
+    setTaskContent(content);
+    setSaveFlag(EDIT_ON);
 }
 
 /**
@@ -121,5 +179,44 @@ function clearTasksButton() {
  * @description 
  */
 
+/**
+ * @name 
+ * @function
+ * @description 
+ */
+
+/**
+ * @name setSaveFlag
+ * @function
+ * @description helper function - set SAVE_FLAG for saving new task or editing task
+ * @param value SAVE_ON or EDIT_ON
+ */
+function setSaveFlag(value) {
+    SAVE_FLAG = value;
+}
+
+/**
+ * @name setTaskContent
+ * @function
+ * @description helper function - set TASK_CONTENT for editing task
+ * @param content is the task container
+ */
+function setTaskContent(content) {
+    TASK_CONTENT = content;
+}
+
+/**
+ * @name inputSanitizer
+ * @function
+ * @description helper function - set TASK_CONTENT for editing task
+ * @param content is the task container
+ */
+function inputSanitizer(input) {
+    if (input == "")
+        return true;
+    return false;
+}
+
+
  // Export all functions
- export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton }
+ export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton };
