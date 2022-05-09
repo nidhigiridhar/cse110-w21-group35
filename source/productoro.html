@@ -79,13 +79,13 @@
                     <label id='work-label'>Work Session</label> 
                     <select name='work-time' id='work-time'>
                         <option id='work-option25' value='25' selected>25</option>
-                        <option id='work-option30' value='30'>30</option>
+                        <option id='work-option30' value='0.1'>0.1</option>
                         <option id='work-option45' value='45'>45</option>
                         <option id='work-option60' value='60'>60</option>
                     </select>
                     <br>
             
-                    <label id='short-break-time'>Short Break</label>
+                    <label id='short-break-label'>Short Break</label>
                     <select name='short-break-time' id='short-break-time'>
                         <option id='sb-option5' value='5' selected>5</option>
                         <option id='sb-option10' value='10'>10</option>
@@ -93,7 +93,7 @@
                     </select>
                     <br>
             
-                    <label id='long-break-time'>Long Break</label>
+                    <label id='long-break-label'>Long Break</label>
                     <select name='long-break-time' id='long-break-time'>
                         <option id='lb-option15' value='15' selected>15</option>
                         <option id='lb-option20' value='20'>20</option>
@@ -119,6 +119,22 @@
                           <span></span>
                         </label>
                       </li>
+                </ul>
+
+                <ul class='alarm-settings'>
+                    <li>
+                        <label for='alarm-volume'>Alarm Volume</label>
+                        <input type='range' min='0' max='100' value='100' name='alarm-volume' id='alarm-volume'>
+                    </li>
+                    <li>
+                      <label id='alarm-sounds-label'>Alarm Sounds</label>
+                      <select name='alarm-sounds' id='alarm-sounds'>
+                        <option id='alarm-sound-option1' value='1' selected>Default</option>
+                        <option id='alarm-sound-option2' value='2'>Sound 2</option>
+                        <option id='alarm-sound-option3' value='3'>Sound 3</option>
+                      </select>
+                      <br>
+                    </li>
                 </ul>
             </form>    
             </div>

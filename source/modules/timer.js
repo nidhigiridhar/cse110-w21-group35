@@ -235,18 +235,18 @@ function setCustomTime() {
     let warning = document.getElementById('warning');
 
     // check if the pomo duration is longer than the break durations
-    if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
-        Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)) {
-            // enable a warning
-            warning.innerText = 'Work Periods must be greater than Break Periods';
-            warning.style.display = 'block';
+    // if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
+    //     Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)) {
+    //         // enable a warning
+    //         warning.innerText = 'Work Periods must be greater than Break Periods';
+    //         warning.style.display = 'block';
               
-            // keep the drop down values the same as the current timer settings
-            wTime.value = POMO_MINS.toString();
-            sbTime.value = SHORT_MINS.toString();
-            lbTime.value = LONG_MINS.toString();
-            return;
-    }
+    //         // keep the drop down values the same as the current timer settings
+    //         wTime.value = POMO_MINS.toString();
+    //         sbTime.value = SHORT_MINS.toString();
+    //         lbTime.value = LONG_MINS.toString();
+    //         return;
+    // }
     // otherwise do not display a warning
     warning.style.display = 'none';
 
@@ -326,7 +326,7 @@ function hideSettings() {
  * @param {*} event The keyboard button that is clicked
  */
 function keyboardShortcut(event) {
-    if (document.getElementById('keyboardToggle').checked){
+    if (document.getElementById('keyboard-toggle').checked){
         if(event.code === 'Space') {
             // if the timer is static, start timer
             if(document.getElementById('start-button').disabled == false ) {
