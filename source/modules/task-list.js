@@ -20,6 +20,7 @@ function addTaskButton() {
     let button = document.getElementById("add-task-form");
     if (button.classList.contains("hidden") === true) {
         button.classList.remove("hidden");
+        document.getElementById("task-name").focus();
     }
     else {
         button.classList.add("hidden");
@@ -58,7 +59,7 @@ function saveTask() {
         taskList.appendChild(newTask);
     }
     else { // edit old task
-        TASK_CONTENT.value = taskNameInput.value;
+        TASK_CONTENT.innerText = taskNameInput.value;
     }
     cancelTask();
 }
@@ -110,24 +111,13 @@ function createCustomTaskTag(taskName) {
             }
     });
 
-    taskLabel.contentEditable = false;
     taskLabel.setAttribute('class', 'task-label');
     taskLabel.setAttribute('for', 'task-btn');
     taskLabel.innerText = taskName;
 
     editButton.innerText = 'Edit';
     doneButton.innerText = 'Done';
-    doneButton.style = "margin-left:50px"
-;
-    // Let user edit the task's name when edit button is clicked
-    editButton.addEventListener('click', () => {
-        taskLabel.contentEditable = true;
-        taskLabel.focus();
-        taskLabel.addEventListener('keypress', (even) => { // turns off editability when hit enter key
-            if (even.key === 'Enter')
-                taskLabel.contentEditable = false;
-        });
-    });
+    doneButton.style = "margin-left:50px";
 
     // Check off task when complete
     doneButton.addEventListener('click', () => {
@@ -143,7 +133,7 @@ function createCustomTaskTag(taskName) {
     taskContainer.appendChild(taskLabel);
     taskContainer.appendChild(editButton);
     taskContainer.appendChild(doneButton);
-    setEditTask(taskContainer);
+    setEditTask(taskLabel, editButton);
     return taskContainer;
 }
 
@@ -151,12 +141,12 @@ function createCustomTaskTag(taskName) {
  * @name setEditTask
  * @function
  * @description Set up edit task
- * @param taskContainer a task container
+ * @param taskLabel task name
+ * @param editButton edit button of the task
  */
-function setEditTask(taskContainer) {
-    // children[1] - the edit button is the 1th child of taskContainer
-    taskContainer.children[1].addEventListener('click', () => {
-        loadForm(taskContainer.children[0]);
+function setEditTask(taskLabel, editButton) {
+    editButton.addEventListener('click', () => {
+        loadForm(taskLabel);
     });
 }
 
@@ -169,7 +159,7 @@ function setEditTask(taskContainer) {
 function loadForm(content){
     let taskName = document.getElementById("task-name");
     document.getElementById("add-task-form").classList.remove("hidden");
-    taskName.value = content.value;
+    taskName.value = content.innerText;
     taskName.focus();
     setTaskContent(content);
     setSaveFlag(EDIT_ON);
