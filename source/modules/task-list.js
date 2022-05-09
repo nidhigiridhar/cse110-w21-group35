@@ -196,4 +196,4 @@ function inputSanitizer(input) {
 
 
  // Export all functions
- export { addTaskButton, cancelTask, saveTask,/*finishTask,*/ clearTasksButton }
+ export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton };

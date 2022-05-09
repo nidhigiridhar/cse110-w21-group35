@@ -4,8 +4,9 @@ import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboa
 import { revealHelp, hideHelp } from './modules/help.js';
 import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js';
 import { colorChange } from './modules/color-change.js';
+import { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton } from './modules/task-list.js'
 import { breakReminders } from './modules/break-reminder.js'
-import { addTaskButton, cancelTask, saveTask } from './modules/task-list.js';
+
 
 // Timer
 document.getElementById('form-enabler').addEventListener('change', setCustomTime);
@@ -32,6 +33,7 @@ document.getElementById("task-name").addEventListener("keypress", (event) => {
     if (event.key === "Enter") // allow user to hit enter to save task
         saveTask();
 })
-document.getElementById("save-button").addEventListener("click", saveTask);
-document.getElementById("cancel-button").addEventListener("click", cancelTask);
-  
+document.getElementById('save-button').addEventListener('click', saveTask);
+document.getElementById('cancel-button').addEventListener('click', cancelTask);
+document.getElementById('clear-tasks-button').addEventListener('click', clearTasksButton);
+

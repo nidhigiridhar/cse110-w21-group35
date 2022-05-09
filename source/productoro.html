@@ -130,17 +130,16 @@
 
     <h2>Tasks</h2>
     <div id="task-list-container" style="margin: 1em; padding: 1em; border: 3px solid black">
-        <button id="add-tasks-button">Add Tasks</button>
+        <button id="add-tasks-button">Add Tasks</button> <br>
+        <button id="clear-tasks-button">Clear Tasks</button>
         <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
             <label for="taskName">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
-            <!-- <label for="taskNotes">Notes:</label><br>
-            <input type="text" id="task-notes" name="taskNotes"> <br> -->
             <div class="form-buttons">
                 <button id="cancel-button">Cancel</button>
                 <button id="save-button">Save</button>
             </div>
-          </form>
+        </form>
           <br><br><br>
         <ol id="task-list">
 
