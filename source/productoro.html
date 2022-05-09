@@ -36,7 +36,7 @@
         </div>
         <div class='container' id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
     </div>
-    <div id='button-container'> <!-- container for start and reset buttons-->
+    <div class='button-container'> <!-- container for start and reset buttons-->
         <button type=button class='timer-button' id='start-button'>Start</button>
         <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
     </div>
@@ -129,16 +129,20 @@
     <p>Current Task: <span id="currentTask"></span></p>
 
     <h2>Tasks</h2>
-    <div id="taskListContainer" style="margin: 1em; padding: 1em; border: 3px solid black">
-        <button id="addTasksButton">Add Tasks</button>
-        <form onsubmit="return false;" id="addTaskForm" class="hidden" style="border: 5px solid red; margin: 1em;">
+    <div id="task-list-container" style="margin: 1em; padding: 1em; border: 3px solid black">
+        <button id="add-tasks-button">Add Tasks</button>
+        <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
             <label for="taskName">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
-            <button id="cancelButton">Cancel</button><br>
-            <button id="saveButton">Save</button>
+            <!-- <label for="taskNotes">Notes:</label><br>
+            <input type="text" id="task-notes" name="taskNotes"> <br> -->
+            <div class="form-buttons">
+                <button id="cancel-button">Cancel</button>
+                <button id="save-button">Save</button>
+            </div>
           </form>
           <br><br><br>
-        <ol id="taskList">
+        <ol id="task-list">
 
         </ol>
     </div>

@@ -326,7 +326,7 @@ function hideSettings() {
  * @param {*} event The keyboard button that is clicked
  */
 function keyboardShortcut(event) {
-    if (document.getElementById('keyboardToggle').checked){
+    if (document.getElementById('keyboard-toggle').checked){
         if(event.code === 'Space') {
             // if the timer is static, start timer
             if(document.getElementById('start-button').disabled == false ) {

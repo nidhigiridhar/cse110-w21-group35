@@ -257,7 +257,7 @@ button {
 #reset-button {
   left: 52%;
 }
-#button-container {
+.button-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
@@ -523,4 +523,22 @@ footer > img {
   width: 50px;
   float: right;
   border-radius: 10px;
+}
+
+
+/*------- Task List ------------*/
+#cancel-button {
+  margin-left: -80px;
+}
+
+#add-task-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  z-index: 100;
+}
+#add-task-form div{
+  margin-top: 10px;
 }
