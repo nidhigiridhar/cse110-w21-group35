@@ -76,7 +76,7 @@ jobs:
           publish_dir: ./specs/documentation/jsdocs/
 
   dev-preview:
-    name: Deploy to the dev environment
+    name: Create a preview
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
