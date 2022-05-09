@@ -1,4 +1,4 @@
-import { onStart, onReset, checkState, updateState, timer, hideSettings, revealSettings, setCustomTime, POMO_MINS, SHORT_MINS, LONG_MINS} from '../timer';
+import { onStart, onReset, checkState, updateState, timer, hideSettings, revealSettings, setCustomTime, POMO_MINS, SHORT_MINS, LONG_MINS} from '../modules/timer';
 
 describe('Test onStart function', () => {
     test('updates state to work state', () => {
