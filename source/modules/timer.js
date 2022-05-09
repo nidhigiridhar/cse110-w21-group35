@@ -234,6 +234,7 @@ function setCustomTime() {
     let lbTime = document.getElementById('long-break-time');
     let warning = document.getElementById('warning');
 
+    // COMMENTING CODE BELOW TO TEST ALARM ON A SHORT TIMER
     // check if the pomo duration is longer than the break durations
     // if(Number(wTime.options[wTime.selectedIndex].text) <= Number(sbTime.options[sbTime.selectedIndex].text) ||
     //     Number(wTime.options[wTime.selectedIndex].text) <= Number(lbTime.options[lbTime.selectedIndex].text)) {
