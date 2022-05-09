@@ -124,31 +124,18 @@ footer {
 
 /******** Counter ********/
 #counterContainer {
+  background: center / contain url("./img/tomato.png") no-repeat;
   font-size: var(--fs-counter-small);
   color: var(--clr-light);
   height: auto;
-  width: 23vw;
-  max-width: 250px;
-  min-width: 160px;
+  width: auto;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
   position: absolute;
-  right: -15px;
-  top: 10px;
-  text-align: center;
-}
-
-#counterContainer > img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-}
-#streakCounter, #totalCounter {
-  position: absolute;
-  top: 34%;
-  left: 17%;
-  width: 65%;
-}
-#totalCounter {
-  top: 48%;
+  top: 0;
+  right: 0;
 }
 
 /******** break reminders ********/
