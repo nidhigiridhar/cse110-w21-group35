@@ -489,7 +489,7 @@ li {
   color:gray;
 }
 
-#task-btn[finished="true"] + label {
+#task-btn[done="true"] + label {
   text-decoration: line-through;
   color:gray;
 }

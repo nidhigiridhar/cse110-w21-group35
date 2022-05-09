@@ -93,7 +93,7 @@ function createCustomTaskTag(taskName) {
     let taskLabel = document.createElement('label');
     let taskButton = document.createElement('input');
     let editButton = document.createElement('button');
-    let completeButton = document.createElement('button');
+    let doneButton = document.createElement('button');
 
     taskContainer.setAttribute('class', 'task');
     taskContainer.style.border = '3px solid black';
@@ -116,7 +116,9 @@ function createCustomTaskTag(taskName) {
     taskLabel.innerText = taskName;
 
     editButton.innerText = 'Edit';
-
+    doneButton.innerText = 'Done';
+    doneButton.style = "margin-left:50px"
+;
     // Let user edit the task's name when edit button is clicked
     editButton.addEventListener('click', () => {
         taskLabel.contentEditable = true;
@@ -127,10 +129,20 @@ function createCustomTaskTag(taskName) {
         });
     });
 
-    // taskContainer.appendChild(taskLabel);
+    // Check off task when complete
+    doneButton.addEventListener('click', () => {
+        if(taskButton.getAttribute('done') == 'false') {
+            taskButton.setAttribute('done', 'true');
+        } else {
+            taskButton.setAttribute('done', 'false');
+        }
+        
+    });
+
     taskContainer.appendChild(taskButton);
     taskContainer.appendChild(taskLabel);
     taskContainer.appendChild(editButton);
+    taskContainer.appendChild(doneButton);
     setEditTask(taskContainer);
     return taskContainer;
 }
