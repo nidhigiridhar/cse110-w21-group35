@@ -3,7 +3,7 @@
  * @function
  * @description Opens or closes add-task form
  */
-export function addTaskButton() {
+function addTaskButton() {
     let button = document.getElementById("add-task-form");
     if (button.classList.contains("hidden") === true) {
         button.classList.remove("hidden");
@@ -18,7 +18,7 @@ export function addTaskButton() {
  * @function
  * @description Closes add-task form
  */
-export function cancelTask() {
+function cancelTask() {
     document.getElementById("task-name").value = "";
     document.getElementById("add-task-form").classList.add("hidden");
 }
@@ -28,7 +28,7 @@ export function cancelTask() {
  * @function
  * @description Adds new task to task list
  */
-export function saveTask() {
+function saveTask() {
     let taskNameInput = document.getElementById("task-name");
     let taskList = document.getElementById("task-list");
     let newTask = createCustomTaskTag(taskNameInput.value);
@@ -37,17 +37,18 @@ export function saveTask() {
 }
 
 /**
- * @name setFinished
- * @function
- * @description Sets task attribute "finished" to true or false based on current state
- * @param {string} taskContainer container element of task
- * @returns 
+ * @name selectTask
+ * @function 
+ * @description Display selected task at top of task list
  */
-function setFinished(taskContainer) {
-    if (taskContainer.getAttribute("finished") == false) {
-        taskContainer.setAttribute('finished', 'true');
-    } else {
-        taskContainer.setAttribute('finished', 'false');
+function selectTask(taskName) {
+    let currentTask = document.getElementById('current-task');
+    const tasks = document.querySelectorAll('input[name="task-option"]');
+    for (let task of tasks) {
+        if (task.checked) {
+            currentTask.innerText = task.value;
+            break;
+        }
     }
 }
 
@@ -60,22 +61,30 @@ function setFinished(taskContainer) {
  */
 function createCustomTaskTag(taskName) {
     let taskContainer = document.createElement('li');
-    let taskButton = document.createElement('input');
     let taskLabel = document.createElement('label');
+    let taskButton = document.createElement('input');
     let editButton = document.createElement('button');
+    let completeButton = document.createElement('button');
 
-    // When user clicks on the task, it gets crossed off
-    taskButton.addEventListener('click', setFinished(taskContainer));
-    
     taskContainer.setAttribute('class', 'task');
     taskContainer.style.border = '3px solid black';
-    taskContainer.setAttribute('finished', 'false');
     
-    taskButton.setAttribute('type', 'button');
+    // When user clicks on the task, it gets crossed off
+    taskButton.setAttribute('type', 'radio');
+    taskButton.setAttribute('id', 'task-btn');
+    taskButton.setAttribute('class', 'task-button');
+    taskButton.setAttribute('name', 'task-option');
+    taskButton.addEventListener('change', function(e) {
+        let currentTask = document.getElementById('current-task');
+            if (this.checked) {
+                currentTask.innerText = taskName;
+            }
+    });
 
-    taskButton.setAttribute('class', 'task-label');
-    taskButton.value = taskName;
     taskLabel.contentEditable = false;
+    taskLabel.setAttribute('class', 'task-label');
+    taskLabel.setAttribute('for', 'task-btn');
+    taskLabel.innerText = taskName;
 
     editButton.innerText = 'Edit';
 
@@ -89,8 +98,9 @@ function createCustomTaskTag(taskName) {
         });
     });
 
-    taskButton.appendChild(taskLabel);
+    // taskContainer.appendChild(taskLabel);
     taskContainer.appendChild(taskButton);
+    taskContainer.appendChild(taskLabel);
     taskContainer.appendChild(editButton);
     return taskContainer;
 }
@@ -100,7 +110,7 @@ function createCustomTaskTag(taskName) {
  * @function
  * @description Clears Task List
  */
-export function clearTasksButton() {
+function clearTasksButton() {
     let taskList = document.getElementById("task-list");
     taskList.innerHTML = "";
 }
@@ -111,11 +121,5 @@ export function clearTasksButton() {
  * @description 
  */
 
-/**
- * @name 
- * @function
- * @description 
- */
-
  // Export all functions
- export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, finishTask, clearTasksButton }
+ export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton }

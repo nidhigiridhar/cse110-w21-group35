@@ -136,7 +136,7 @@ footer {
   text-align: center;
 }
 
-#counterContainer > img {
+#counter-container > img {
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -216,7 +216,7 @@ footer {
   width: 100%;
 }
 
-#timerDisplay {
+#timer-display {
   font-family: var(--ff-timer);
   font-size: var(--fs-timer-small);
   color: var(--clr-light);
@@ -229,7 +229,7 @@ footer {
   transition-duration: var(--transition-time);
 }
 
-#timerDisplay[state="pomo"] {
+#timer-display[state="pomo"] {
   border-color: var(--clr-accent-pomo);
 }
 #timer-display[state="short"] {
@@ -241,7 +241,7 @@ footer {
 
 /******** Buttons ********/
 
-#startButton, #resetButton {
+#start-button, #reset-button {
   min-width: 120px;
   max-width: 170px;
   width: 16vw;
@@ -311,7 +311,7 @@ button.help-button {
     font-size: var(--fs-instructions-title-small);
 }
 
-#closeModal {
+#close-modal {
   float: left;
   font-size: 50px;
 }
@@ -340,7 +340,7 @@ button.settings {
   border: none;
 }
 
-.settingsModal {
+.settings-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -366,11 +366,11 @@ button.settings {
 }
 
 
-#formEnabler {
+#form-enabler {
   border: 0;
 }
 
-#closeSettings {
+#close-settings {
   float: left;
   font-size: 40px;
 }
@@ -454,6 +454,28 @@ li {
   margin: 5px;
 }
 
+/******** Task List ********/
+.task-label, .task-button {
+  text-align: left;
+  background-color: white;
+  color:black;
+  text-decoration: none;
+}
+
+.task-button:hover {
+  text-decoration: line-through;
+  color:gray;
+}
+
+.task-button:active {
+  text-decoration: line-through;
+  color:gray;
+}
+
+#task-btn[finished="true"] + label {
+  text-decoration: line-through;
+  color:gray;
+}
 
 
 /******** MEDIA QUERIES ORGANIZED ********/
@@ -467,19 +489,19 @@ li {
 
 /** Counter **/
 @media (min-width: 500px) {
-  #counterContainer {
+  #counter-container {
     right: 0px;
     font-size: var(--fs-counter-small);
   }
 }
 @media (min-width: 800px) {
-  #counterContainer {
+  #counter-container {
     right: 3%;
     font-size: var(--fs-counter-medium);
   }
 }
 @media (min-width: 980px) {
-  #counterContainer {
+  #counter-container {
     right: 7%;
     font-size: var(--fs-counter-large);
   }
@@ -493,14 +515,14 @@ li {
 }
 
 @media (min-width: 768px) {
-  #timerDisplay {
+  #timer-display {
     font-size: var(--fs-timer-large);
   }
 }
 
 /** Buttons **/
 @media (min-width: 755px) {
-  #startButton, #resetButton {
+  #start-button, #reset-button {
     font-size: var(--fs-mode-button-large);
     border-radius: 15px;
   }
