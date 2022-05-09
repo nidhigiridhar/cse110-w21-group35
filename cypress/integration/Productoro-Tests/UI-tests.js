@@ -1,4 +1,4 @@
-import { getAlarm } from '../../../source/notifications';
+import { getAlarm } from '../../../source/modules/notifications';
 
 //Inital No Actvity Tests
 describe('Fresh Entry, No Activity Tests', () => {
