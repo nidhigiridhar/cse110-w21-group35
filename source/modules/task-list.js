@@ -3,8 +3,8 @@
  * @function
  * @description Opens or closes add-task form
  */
-export function addTaskButton() {
-    let button = document.getElementById("add-task-form");
+function addTaskButton() {
+    let button = document.getElementById("addTaskForm");
     if (button.classList.contains("hidden") === true) {
         button.classList.remove("hidden");
     }
@@ -18,9 +18,9 @@ export function addTaskButton() {
  * @function
  * @description Closes add-task form
  */
-export function cancelTask() {
-    document.getElementById("task-name").value = "";
-    document.getElementById("add-task-form").classList.add("hidden");
+function cancelTask() {
+    document.getElementById("taskName").value = "";
+    document.getElementById("addTaskForm").classList.add("hidden");
 }
 
 /**
@@ -28,9 +28,9 @@ export function cancelTask() {
  * @function
  * @description Adds new task to task list
  */
-export function saveTask() {
-    let taskNameInput = document.getElementById("task-name");
-    let taskList = document.getElementById("task-list");
+function saveTask() {
+    let taskNameInput = document.getElementById("taskName");
+    let taskList = document.getElementById("taskList");
     let newTask = createCustomTaskTag(taskNameInput.value);
     taskList.appendChild(newTask);
     cancelTask();
@@ -100,8 +100,8 @@ function createCustomTaskTag(taskName) {
  * @function
  * @description Clears Task List
  */
-export function clearTasksButton() {
-    let taskList = document.getElementById("task-list");
+function clearTasksButton() {
+    let taskList = document.getElementById("taskList");
     taskList.innerHTML = "";
 }
 
@@ -118,4 +118,4 @@ export function clearTasksButton() {
  */
 
  // Export all functions
- export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, finishTask, clearTasksButton }
+ export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton };

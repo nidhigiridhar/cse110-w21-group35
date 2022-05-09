@@ -130,10 +130,11 @@
 
     <h2>Tasks</h2>
     <div id="taskListContainer" style="margin: 1em; padding: 1em; border: 3px solid black">
-        <button id="addTasksButton">Add Tasks</button>
+        <button id="addTasksButton">Add Tasks</button><br>
+        <button id="clearTasksButton">Clear Tasks</button>
         <form onsubmit="return false;" id="addTaskForm" class="hidden" style="border: 5px solid red; margin: 1em;">
             <label for="taskName">Task:</label><br>
-            <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
+            <input type="text" id="taskName" name="taskName" placeholder="What are you doing?"><br>
             <button id="cancelButton">Cancel</button><br>
             <button id="saveButton">Save</button>
           </form>
