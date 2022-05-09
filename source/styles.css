@@ -3,11 +3,11 @@
 
 /******** Variables ********/
 :root {
-
   /* Refactor Option */
   --primary-color: #77a4e9;
+
   /* --secondary-color:  #FFFFFF;
-  --primary-font: 'Helvetica Neue', sans-serif; 
+  --primary-font: 'Helvetica Neue', sans-serif;
   --secondary-font: 'Raleway', sans-serif; */
 
   --clr-light: #ffffff;
@@ -48,19 +48,25 @@
 }
 
 /******** GLOBALS ********/
+
 /* Text */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--ff-primary);
   font-size: var(--fs-title-small);
   margin: auto;
-} 
-a{
+}
+
+a {
   color: #FFFFFF;
 }
-a:hover{
+
+a:hover {
   color: #DDDDDD;
   text-decoration-color: #DDDDDD;
 }
+
 b {
   font-weight: var(--fw-bold);
 }
@@ -73,12 +79,15 @@ body {
   transition-property: background-color;
   transition-duration: var(--transition-time);
 }
+
 body[state="pomo"] {
   background-color: var(--primary-color);
 }
+
 body[state="short"] {
   background-color: #eaa478;
 }
+
 body[state="long"] {
   background-color: #88b9ae;
 }
