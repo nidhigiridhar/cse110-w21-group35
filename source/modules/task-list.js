@@ -121,7 +121,7 @@ function createCustomTaskTag(taskName) {
 
     // Check off task when complete
     doneButton.addEventListener('click', () => {
-        if(taskButton.getAttribute('done') == 'false') {
+        if (taskButton.getAttribute('done') != 'true') {
             taskButton.setAttribute('done', 'true');
         } else {
             taskButton.setAttribute('done', 'false');
@@ -166,13 +166,29 @@ function loadForm(content){
 }
 
 /**
- * @name clearTasksButton
+ * @name clearAllTasks
  * @function
  * @description Clears Task List
  */
-function clearTasksButton() {
+function clearAllTasks() {
     let taskList = document.getElementById("task-list");
     taskList.innerHTML = "";
+}
+
+/**
+ * @name clearCompletedTasks
+ * @function
+ * @description Clears Completed Tasks
+ */
+function clearCompletedTasks() {
+    let taskList = document.getElementById("task-list");
+    let children = taskList.children;
+    for (let i = 0; i < children.length; i++) {
+        if (children[i].children[0].getAttribute('done') == 'true') {
+            taskList.removeChild(children[i]);
+            i--;
+        } 
+    }
 }
 
 /**
@@ -221,4 +237,4 @@ function inputSanitizer(input) {
 
 
  // Export all functions
- export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton };
+ export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearAllTasks, clearCompletedTasks };

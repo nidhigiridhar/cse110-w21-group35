@@ -5,7 +5,7 @@ import { revealHelp, hideHelp } from './modules/help.js';
 import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js';
 import { colorChange } from './modules/color-change.js';
 import { breakReminders } from './modules/breakReminder.js'
-import { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearTasksButton } from './modules/task-list.js'
+import { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearAllTasks, clearCompletedTasks } from './modules/task-list.js'
 
 // Timer
 document.getElementById('form-enabler').addEventListener('change', setCustomTime);
@@ -34,5 +34,6 @@ document.getElementById("task-name").addEventListener("keypress", (event) => {
 })
 document.getElementById('save-button').addEventListener('click', saveTask);
 document.getElementById('cancel-button').addEventListener('click', cancelTask);
-document.getElementById('clear-tasks-button').addEventListener('click', clearTasksButton);
+document.getElementById('clear-tasks-button').addEventListener('click', clearAllTasks);
+document.getElementById('clear-completed-tasks-button').addEventListener('click', clearCompletedTasks);
 

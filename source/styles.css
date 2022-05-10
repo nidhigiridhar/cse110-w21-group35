@@ -468,15 +468,20 @@ li {
 }
 
 #tasks-button-container {
-  
+}
+
+#tasks-button-container > button {
+  position: relative;
+  margin-right: 10px;
 }
 
 #add-tasks-button {
-  
 }
 
 #clear-tasks-button {
-  margin-left: 120px;
+}
+
+#clear-completed-tasks-button {
 }
 
 #cancel-button {
