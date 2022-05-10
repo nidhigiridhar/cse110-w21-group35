@@ -101,7 +101,7 @@ function createCustomTaskTag(taskName) {
     
     // When user clicks on the task, it gets crossed off
     taskButton.setAttribute('type', 'radio');
-    taskButton.setAttribute('id', 'task-btn');
+    taskButton.setAttribute('id', taskName);
     taskButton.setAttribute('class', 'task-button');
     taskButton.setAttribute('name', 'task-option');
     taskButton.addEventListener('change', function(e) {
@@ -112,7 +112,7 @@ function createCustomTaskTag(taskName) {
     });
 
     taskLabel.setAttribute('class', 'task-label');
-    taskLabel.setAttribute('for', 'task-btn');
+    taskLabel.setAttribute('for', taskName);
     taskLabel.innerText = taskName;
 
     editButton.innerText = 'Edit';
