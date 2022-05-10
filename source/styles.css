@@ -455,6 +455,30 @@ li {
 }
 
 /******** Task List ********/
+/* * {
+    border: 3px solid black;
+
+} */
+
+#current-task-container {
+  display: block;
+  text-align: center;
+  margin: 1em;
+  padding: 1em;
+}
+
+#tasks-button-container {
+  
+}
+
+#add-tasks-button {
+  
+}
+
+#clear-tasks-button {
+  margin-left: 120px;
+}
+
 #cancel-button {
   margin-left: -80px;
 }

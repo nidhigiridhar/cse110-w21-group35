@@ -131,12 +131,15 @@
     </div>
 
     <!-- Task List -->
-    <p>Current Task: <span id="current-task"></span></p>
+    <h3 id="current-task-container">Current Task: <span id="current-task"></span></h3>
 
     <h2>Tasks</h2>
-    <div id="task-list-container" style="margin: 1em; padding: 1em; border: 3px solid black">
-        <button id="add-tasks-button">Add Tasks</button> <br>
-        <button id="clear-tasks-button">Clear Tasks</button>
+    <div id="tasks-button-container">
+        <button type="button" id="add-tasks-button">Add Tasks</button>
+        <button type="button" id="clear-tasks-button">Clear Tasks</button>
+    </div>
+    <div id="task-list-container">
+        
         <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
             <label for="taskName">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
