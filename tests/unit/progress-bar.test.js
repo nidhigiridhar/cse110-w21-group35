@@ -1,5 +1,10 @@
+<<<<<<< HEAD:source/__tests__/progress-bar.test.js
 import { circles, reset } from '../modules/progress-bar.js';
 import { timer, WORK_STATE, updateState } from '../modules/timer.js';
+=======
+import { circles, reset } from '..source/modules/progress-bar.js';
+import { timer, WORK_STATE, updateState } from '..source/modules/timer.js';
+>>>>>>> fixing-pipeline:tests/unit/progress-bar.test.js
 
 describe('Test progress bar', () => {
     test('all dots are active at beginning of four pomo cycle', () => {
@@ -15,7 +20,7 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>        
         `;
         reset();
@@ -40,11 +45,11 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
             <div id='buttonContainer'> <!-- container for start and reset buttons-->
-                <button type=button class='timer-button' id='startButton'>Start</button>
-                <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
             </div>      
         `;
         timer.currState = WORK_STATE;
@@ -76,11 +81,11 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
             <div id='buttonContainer'> <!-- container for start and reset buttons-->
-                <button type=button class='timer-button' id='startButton'>Start</button>
-                <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
             </div>      
         `;
         timer.currState = WORK_STATE;
@@ -113,11 +118,11 @@ describe('Test progress bar', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='timerDisplay' state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
             <div id='buttonContainer'> <!-- container for start and reset buttons-->
-                <button type=button class='timer-button' id='startButton'>Start</button>
-                <button type=button class='timer-button' id='resetButton' disabled>Reset</button>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
             </div>      
         `;
         timer.currState = WORK_STATE;

@@ -1,4 +1,8 @@
+<<<<<<< HEAD:source/__tests__/notifications.test.js
 import { getNotificationStatus, getAlarm } from '../modules/notifications';
+=======
+import { getNotificationStatus, getAlarm } from '..source/modules/notifications';
+>>>>>>> fixing-pipeline:tests/unit/notifications.test.js
 
 describe('Alarm Tests', () => {
     test('Check alarm exists', () => {

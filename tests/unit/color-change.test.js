@@ -1,30 +1,35 @@
+<<<<<<< HEAD:source/__tests__/color-change.test.js
 import { colorChange } from '../modules/color-change.js';
 import { timer, WORK_STATE, SHORT_STATE, LONG_STATE } from '../modules/timer.js';
+=======
+import { colorChange } from '../source/modules/color-change.js';
+import { timer, WORK_STATE, SHORT_STATE, LONG_STATE } from '../source/modules/timer.js';
+>>>>>>> fixing-pipeline:tests/unit/color-change.test.js
 
 describe('Test colorChange function', () =>{
     test('changes the background color at short break state', () => {
         document.body.innerHTML = `
-            <div id='timerDisplay' state='pomo'>25:00</div>
+            <div id='timer-display' state='pomo'>25:00</div>
         `;
         timer.currState = SHORT_STATE;
         colorChange();
         expect(document.body.getAttribute('state')).toBe('short');
-        expect(document.getElementById('timerDisplay').getAttribute('state')).toBe('short');    
+        expect(document.getElementById('timer-display').getAttribute('state')).toBe('short');    
     }),
 
     test('changes the background color at long break state', () => {
         document.body.innerHTML = `
-            <div id='timerDisplay' state='pomo'>25:00</div>
+            <div id='timer-display' state='pomo'>25:00</div>
         `;
         timer.currState = LONG_STATE;
         colorChange();
         expect(document.body.getAttribute('state')).toBe('long');
-        expect(document.getElementById('timerDisplay').getAttribute('state')).toBe('long');
+        expect(document.getElementById('timer-display').getAttribute('state')).toBe('long');
     }),
 
     test('changes the background color at work state', () => {
         document.body.innerHTML = `
-            <div id='timerDisplay' state='pomo'>25:00</div>
+            <div id='timer-display' state='pomo'>25:00</div>
             <div class='progress-container'>
                 <div class='circle pomo'></div>
                 <div class='circle short'></div>
@@ -39,6 +44,6 @@ describe('Test colorChange function', () =>{
         timer.currState = WORK_STATE;
         colorChange();
         expect(document.body.getAttribute('state')).toBe('pomo');
-        expect(document.getElementById('timerDisplay').getAttribute('state')).toBe('pomo');
+        expect(document.getElementById('timer-display').getAttribute('state')).toBe('pomo');
     });
 });

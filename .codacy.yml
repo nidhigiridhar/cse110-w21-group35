@@ -3,6 +3,12 @@ exclude_paths:
   - ".github/**"
   - "admin/**"
   - "coverage/**"
+<<<<<<< HEAD
   - "cypress/**"
   - "node_modules/**"
   - "specs/**"
+=======
+  - "specs/**"
+  - "tests/**"
+  - "node_modules/**"
+>>>>>>> fixing-pipeline
