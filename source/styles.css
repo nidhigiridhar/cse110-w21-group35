@@ -101,7 +101,7 @@ button {
   color: var(--clr-dark);
   border-radius: 10px;
   border: none;
-  position: absolute;
+  /* position: absolute; */
 }
 
 form {
@@ -566,4 +566,32 @@ li {
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 979px){
 
+}
+
+
+
+/* Testing new dialog styles here for emulation  */
+#help-modal {
+  width: 80%;
+  height: 70%;
+  font-family: var(--ff-secondary);
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+#close-modal-x {
+  float: left;
+  font-size: 50px;
+}
+
+#help-modal > h3:first-of-type {
+  padding-top: 20px;
+}
+
+/* Testing settings dialog changing settings  */
+#settings-dialog {
+  max-width: 450px;
+  min-width: 300px;
+  width: 30%;
 }
