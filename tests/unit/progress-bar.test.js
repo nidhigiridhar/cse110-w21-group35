@@ -1,10 +1,5 @@
-<<<<<<< HEAD:source/__tests__/progress-bar.test.js
 import { circles, reset } from '../modules/progress-bar.js';
 import { timer, WORK_STATE, updateState } from '../modules/timer.js';
-=======
-import { circles, reset } from '..source/modules/progress-bar.js';
-import { timer, WORK_STATE, updateState } from '..source/modules/timer.js';
->>>>>>> fixing-pipeline:tests/unit/progress-bar.test.js
 
 describe('Test progress bar', () => {
     test('all dots are active at beginning of four pomo cycle', () => {

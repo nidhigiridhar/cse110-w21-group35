@@ -1,8 +1,4 @@
-<<<<<<< HEAD:source/__tests__/help.test.js
 import { revealHelp, hideHelp } from '../modules/help.js';
-=======
-import { revealHelp, hideHelp } from '../../source/modules/help.js';
->>>>>>> fixing-pipeline:tests/unit/help.test.js
 
 describe('Test when nothing is clicked', () => {
     test('help button is enabled', () => {

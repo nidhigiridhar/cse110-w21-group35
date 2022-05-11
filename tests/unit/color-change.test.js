@@ -1,10 +1,5 @@
-<<<<<<< HEAD:source/__tests__/color-change.test.js
 import { colorChange } from '../modules/color-change.js';
 import { timer, WORK_STATE, SHORT_STATE, LONG_STATE } from '../modules/timer.js';
-=======
-import { colorChange } from '../source/modules/color-change.js';
-import { timer, WORK_STATE, SHORT_STATE, LONG_STATE } from '../source/modules/timer.js';
->>>>>>> fixing-pipeline:tests/unit/color-change.test.js
 
 describe('Test colorChange function', () =>{
     test('changes the background color at short break state', () => {

@@ -1,8 +1,4 @@
-<<<<<<< HEAD:source/__tests__/notifications.showNotif.test.js
 import { showNotif } from '../modules/notifications';
-=======
-import { showNotif } from '..source/modules/notifications';
->>>>>>> fixing-pipeline:tests/unit/notifications.showNotif.test.js
 
 describe('Test notification body is correct', () => {
     test('when a long break begins', () => {

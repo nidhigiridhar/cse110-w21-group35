@@ -1,8 +1,4 @@
-<<<<<<< HEAD:source/__tests__/timer.test.js
 import { onStart, onReset, checkState, updateState, timer, hideSettings, revealSettings, setCustomTime, POMO_MINS, SHORT_MINS, LONG_MINS} from '../modules/timer';
-=======
-import { onStart, onReset, checkState, updateState, timer, hideSettings, revealSettings, setCustomTime, POMO_MINS, SHORT_MINS, LONG_MINS} from '..source/modules/timer';
->>>>>>> fixing-pipeline:tests/unit/timer.test.js
 
 describe('Test onStart function', () => {
     test('updates state to work state', () => {
