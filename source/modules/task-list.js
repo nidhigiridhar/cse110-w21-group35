@@ -104,10 +104,10 @@ function createCustomTaskTag(taskName) {
     taskButton.setAttribute('id', taskName);
     taskButton.setAttribute('class', 'task-button');
     taskButton.setAttribute('name', 'task-option');
-    taskButton.addEventListener('change', function(e) {
+    taskButton.addEventListener('click', function(e) {
         let currentTask = document.getElementById('current-task');
             if (this.checked) {
-                currentTask.innerText = taskName;
+                currentTask.innerText = taskLabel.innerText;
             }
     });
 
