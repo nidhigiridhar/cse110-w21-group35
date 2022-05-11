@@ -25,8 +25,8 @@ describe('Test when nothing is clicked', () => {
                 </div>
             </div>
         `;
-        let help-modal = document.getElementById('help-modal');
-        let display = help-modal.style.display;
+        let helpModal = document.getElementById('help-modal');
+        let display = helpModal.style.display;
         expect(display).toBe('');
     });
 });
@@ -57,13 +57,13 @@ describe('Test when nothing is clicked', () => {
             </div>
         `;
         revealHelp();
+<<<<<<< HEAD:source/__tests__/help.test.js
         let help-modal = document.getElementById('help-modal');
         let display = help-modal.style.display;
-        expect(display).toBe('block');
-    });
+=======
+        let helpModal = document.getElementById('help-modal');
 });
 
-describe('Test hideHelp function', () => {
     test('enables help button', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
@@ -89,6 +89,7 @@ describe('Test hideHelp function', () => {
             </div>
         `;
         revealHelp();
+<<<<<<< HEAD:source/__tests__/help.test.js
         let help-modal = document.getElementById('help-modal');
         let display = help-modal.style.display;
         expect(display).toBe('block');
@@ -96,6 +97,15 @@ describe('Test hideHelp function', () => {
         hideHelp();
         help-modal = document.getElementById('help-modal');
         display = help-modal.style.display;
+=======
+        let helpModal = document.getElementById('help-modal');
+        let display = helpModal.style.display;
+        expect(display).toBe('block');
+
+        hideHelp();
+        helpModal = document.getElementById('help-modal');
+        display = helpModal.style.display;
+>>>>>>> develop:tests/unit/help.test.js
         expect(display).toBe('none');
     });
 });

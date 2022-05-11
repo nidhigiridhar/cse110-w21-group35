@@ -9,7 +9,6 @@
     <link rel='icon' href='./img/tomato.ico' type='image/x-icon'/>
 
     <script type="module" src="./main.js"></script>
-
     <title>Productoro</title>
 </head>
 <body state='pomo'>
@@ -125,11 +124,29 @@
             
         </div>
     </div>
+
+    <!-- Task List -->
+    <p>Current Task: <span id="currentTask"></span></p>
+
+    <h2>Tasks</h2>
+    <div id="taskListContainer" style="margin: 1em; padding: 1em; border: 3px solid black">
+        <button id="addTasksButton">Add Tasks</button>
+        <form onsubmit="return false;" id="addTaskForm" class="hidden" style="border: 5px solid red; margin: 1em;">
+            <label for="taskName">Task:</label><br>
+            <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
+            <button id="cancelButton">Cancel</button><br>
+            <button id="saveButton">Save</button>
+          </form>
+          <br><br><br>
+        <ol id="taskList">
+
+        </ol>
+    </div>
         
     <footer>
         <img src='img/dream-team-logo.png' alt='Dream Team logo'>
         <p>Made by the Dream Team</p>
     </footer>
-
+    
 </body>
 </html>
