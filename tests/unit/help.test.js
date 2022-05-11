@@ -57,10 +57,7 @@ describe('Test when nothing is clicked', () => {
             </div>
         `;
         revealHelp();
-<<<<<<< HEAD:source/__tests__/help.test.js
-        let help-modal = document.getElementById('help-modal');
         let display = help-modal.style.display;
-=======
         let helpModal = document.getElementById('help-modal');
 });
 
@@ -89,24 +86,12 @@ describe('Test when nothing is clicked', () => {
             </div>
         `;
         revealHelp();
-<<<<<<< HEAD:source/__tests__/help.test.js
-        let help-modal = document.getElementById('help-modal');
-        let display = help-modal.style.display;
-        expect(display).toBe('block');
-
-        hideHelp();
-        help-modal = document.getElementById('help-modal');
-        display = help-modal.style.display;
-=======
-        let helpModal = document.getElementById('help-modal');
         let display = helpModal.style.display;
         expect(display).toBe('block');
 
         hideHelp();
         helpModal = document.getElementById('help-modal');
         display = helpModal.style.display;
->>>>>>> develop:tests/unit/help.test.js
-        expect(display).toBe('none');
     });
 });
 
