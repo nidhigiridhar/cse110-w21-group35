@@ -92,7 +92,20 @@
                     <br>
                 </fieldset>  
                 <div id='notif-reminder'> Remember to have system notifications enabled!</div>
-
+                <br>
+                <label id='bg-music-label'>Background Music</label>
+                <select name='bg-music' id='bg-music'>
+                    <option id='bg-music-option-none' value='None' selected>None</option>
+                    <option id='bg-music-option-lofi' value='Lofi'>Lofi</option>
+                    <option id='bg-music-option-classical' value='Classical'>Classical</option>
+                </select>
+                <div id='current-mix' style='display: none;'>
+                    <p id='track-name'></p>
+                    <button type=button id='prevTrackButton' style='position: relative;'>Prev</button>
+                    <button type=button id='nxtTrackButton'  style='position: relative;'>Nxt</button>
+                </div>
+                <br>
+                <audio id='background-audio' controls></audio>
                 <ul class='switches'>
                     <li>
                       <input type='checkbox' id='notif-toggle' name="notif-toggle" checked>

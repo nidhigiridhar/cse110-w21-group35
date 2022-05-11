@@ -4,7 +4,8 @@ import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboa
 import { revealHelp, hideHelp } from './modules/help.js';
 import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js';
 import { colorChange } from './modules/color-change.js';
-import { breakReminders } from './modules/break-reminder.js'
+import { breakReminders } from './modules/break-reminder.js';
+import { setBackgroundMusic } from './modules/background-music.js';
 
 
 // Timer
@@ -20,5 +21,5 @@ document.getElementById('help-button').addEventListener('click', revealHelp);
 document.getElementById('close-modal').addEventListener('click', hideHelp);
 document.getElementById('settings-button').addEventListener('click', revealSettings);
 document.getElementById('close-settings').addEventListener('click', hideSettings);
-
+document.getElementById('bg-music').addEventListener('change', setBackgroundMusic);
   
