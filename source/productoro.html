@@ -76,30 +76,19 @@
                 <p><b>Select lengths for </b></p>
                 
                 <fieldset id='form-enabler'>
-                    <label id='work-label'>Work Session</label> 
-                    <select name='work-time' id='work-time'>
-                        <option id='work-option25' value='25' selected>25</option>
-                        <option id='work-option30' value='0.1'>0.1</option>
-                        <option id='work-option45' value='45'>45</option>
-                        <option id='work-option60' value='60'>60</option>
-                    </select>
+                    <label id='work-label'>Work Session</label>
+                    <input name='work-time' id='work-time' type='range' min='25' max='100' value='25'>
+                    <p><span id='work-time-val'>25</span> minutes</p>
                     <br>
             
                     <label id='short-break-label'>Short Break</label>
-                    <select name='short-break-time' id='short-break-time'>
-                        <option id='sb-option5' value='5' selected>5</option>
-                        <option id='sb-option10' value='10'>10</option>
-                        <option id='sb-option15' value='15'>15</option>
-                    </select>
+                    <input name='short-break-time' id='short-break-time' type='range' min='5' max='15' value='5'>
+                    <p><span id='short-break-time-val'>5</span> minutes</p>
                     <br>
             
                     <label id='long-break-label'>Long Break</label>
-                    <select name='long-break-time' id='long-break-time'>
-                        <option id='lb-option15' value='15' selected>15</option>
-                        <option id='lb-option20' value='20'>20</option>
-                        <option id='lb-option25' value='25'>25</option>
-                        <option id='lb-option30' value='30'>30</option>
-                    </select>
+                    <input name='long-break-time' id='long-break-time' type='range' min='15' max='30' value='15'>
+                    <p><span id='long-break-time-val'>15</span> minutes</p>
                     <br>
                 </fieldset>  
                 <div id='notif-reminder'> Remember to have system notifications enabled!</div>
