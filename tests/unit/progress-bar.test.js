@@ -42,7 +42,7 @@ describe('Test progress bar', () => {
             </div>
             <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id='buttonContainer'> <!-- container for start and reset buttons-->
+            <div id='button-container'> <!-- container for start and reset buttons-->
                 <button type=button class='timer-button' id='start-button'>Start</button>
                 <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
             </div>      
@@ -78,7 +78,7 @@ describe('Test progress bar', () => {
             </div>
             <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id='buttonContainer'> <!-- container for start and reset buttons-->
+            <div id='button-container'> <!-- container for start and reset buttons-->
                 <button type=button class='timer-button' id='start-button'>Start</button>
                 <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
             </div>      
@@ -115,7 +115,7 @@ describe('Test progress bar', () => {
             </div>
             <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>  
-            <div id='buttonContainer'> <!-- container for start and reset buttons-->
+            <div id='button-container'> <!-- container for start and reset buttons-->
                 <button type=button class='timer-button' id='start-button'>Start</button>
                 <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
             </div>      

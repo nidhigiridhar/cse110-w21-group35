@@ -12,17 +12,22 @@
     <title>Productoro</title>
 </head>
 <body state='pomo'>
-    <header>  
+    <header> 
+         <!-- Help Modal, Settings Modal, Title, Counter?  -->
         <h1 class='text-center'>Productoro</h1>
         <div class='container' id='counter-container'>
             <img src='img/tomato.png' alt='tomato'>
             <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='total-counter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
         </div>
-        <div id='break-reminder' style='color:#464646; visibility: hidden'></div>
+        
+        <div id='breakReminder' style='color:#464646; visibility: hidden'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
     </header>
-    <div class='container' id='timer-container'>
+    <main>
+        <!-- Break Reminder, Timer, Buttons? -->
+    </main>
+    <div class='container' id='timerContainer'>
         <h2 class='text-center' id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
         <div class='progress-container container'>
             <div class='circle pomo'></div>
@@ -36,7 +41,7 @@
         </div>
         <div class='container' id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
     </div>
-    <div id='button-container'> <!-- container for start and reset buttons-->
+    <div class='button-container'> <!-- container for start and reset buttons-->
         <button type=button class='timer-button' id='start-button'>Start</button>
         <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
     </div>
@@ -126,26 +131,33 @@
     </div>
 
     <!-- Task List -->
-    <p>Current Task: <span id="currentTask"></span></p>
+    <h3 id="current-task-container">Current Task: <span id="current-task"></span></h3>
 
     <h2>Tasks</h2>
-    <div id="taskListContainer" style="margin: 1em; padding: 1em; border: 3px solid black">
-        <button id="addTasksButton">Add Tasks</button>
-        <form onsubmit="return false;" id="addTaskForm" class="hidden" style="border: 5px solid red; margin: 1em;">
+    <div id="tasks-button-container">
+        <button type="button" id="add-tasks-button">Add Tasks</button>
+        <button type="button" id="clear-tasks-button">Clear Tasks</button>
+        <button type="button" id="clear-completed-tasks-button">Clear Completed Tasks</button>
+    </div>
+    <div id="task-list-container">
+        
+        <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
             <label for="taskName">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
-            <button id="cancelButton">Cancel</button><br>
-            <button id="saveButton">Save</button>
-          </form>
+            <div class="form-buttons">
+                <button id="cancel-button">Cancel</button>
+                <button id="save-button">Save</button>
+            </div>
+        </form>
           <br><br><br>
-        <ol id="taskList">
+        <ol id="task-list">
 
         </ol>
     </div>
         
     <footer>
-        <img src='img/dream-team-logo.png' alt='Dream Team logo'>
-        <p>Made by the Dream Team</p>
+        <p>Made by the <a href="../index.html">Dream Team</a></p>
+        <p>Taken by the 10x Racoons</p>
     </footer>
     
 </body>

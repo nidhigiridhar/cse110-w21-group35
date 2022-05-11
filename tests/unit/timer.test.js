@@ -9,7 +9,7 @@ describe('Test onStart function', () => {
             <div id='timer-display' state='pomo'>25:00</div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='form-enabler'>
-                    <label id='workLabel'>Select length for Work Session</label> 
+                    <label id='work-label'>Select length for Work Session</label> 
                     <select name='work-time' id='work-time'>
                         <option value='25' selected>25</option>
                         <option value='30'>30</option>
@@ -62,7 +62,7 @@ describe('Test onStart function', () => {
             <div id='timer-display' state='pomo'>25:00</div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='form-enabler'>
-                    <label id='workLabel'>Select length for Work Session</label> 
+                    <label id='work-label'>Select length for Work Session</label> 
                     <select name='work-time' id='work-time'>
                         <option value='25' selected>25</option>
                         <option value='30'>30</option>
@@ -114,7 +114,7 @@ describe('Test onStart function', () => {
             <div id='timer-display' state='pomo'>25:00</div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='form-enabler'>
-                    <label id='workLabel'>Select length for Work Session</label> 
+                    <label id='work-label'>Select length for Work Session</label> 
                     <select name='work-time' id='work-time'>
                         <option value='25' selected>25</option>
                         <option value='30'>30</option>
@@ -169,7 +169,7 @@ describe('Test onReset function', () => {
             <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='form-enabler'>
-                    <label id='workLabel'>Select length for Work Session</label> 
+                    <label id='work-label'>Select length for Work Session</label> 
                     <select name='work-time' id='work-time'>
                         <option value='25' selected>25</option>
                         <option value='30'>30</option>
@@ -225,7 +225,7 @@ describe('Test onReset function', () => {
             <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='form-enabler'>
-                    <label id='workLabel'>Select length for Work Session</label> 
+                    <label id='work-label'>Select length for Work Session</label> 
                     <select name='work-time' id='work-time'>
                         <option value='25' selected>25</option>
                         <option value='30'>30</option>
@@ -278,7 +278,7 @@ describe('Test onReset function', () => {
             <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='form-enabler'>
-                    <label id='workLabel'>Select length for Work Session</label> 
+                    <label id='work-label'>Select length for Work Session</label> 
                     <select name='work-time' id='work-time'>
                         <option value='25' selected>25</option>
                         <option value='30'>30</option>
@@ -581,8 +581,8 @@ describe('Test settings modal', () => {
                 </div>
             </div>
         `;
-        let settingsModal = document.getElementById('settings-modal');
-        let display = settingsModal.style.display;
+        let settings-modal = document.getElementById('settings-modal');
+        let display = settings-modal.style.display;
         expect(display).toBe('');
     }),
 
@@ -611,8 +611,8 @@ describe('Test settings modal', () => {
             </div>
         `;
         revealSettings();
-        let settingsModal = document.getElementById('settings-modal');
-        let display = settingsModal.style.display;
+        let settings-modal = document.getElementById('settings-modal');
+        let display = settings-modal.style.display;
         expect(display).toBe('block');
     }),
 
@@ -643,13 +643,13 @@ describe('Test settings modal', () => {
             </div>
         `;
         revealSettings();
-        let settingsModal = document.getElementById('settings-modal');
-        let display = settingsModal.style.display;
+        let settings-modal = document.getElementById('settings-modal');
+        let display = settings-modal.style.display;
         expect(display).toBe('block');
 
         hideSettings();
-        settingsModal = document.getElementById('settings-modal');
-        display = settingsModal.style.display;
+        settings-modal = document.getElementById('settings-modal');
+        display = settings-modal.style.display;
         expect(display).toBe('none');
     }),
 
@@ -700,29 +700,29 @@ describe('Test setCustomTime function', () => {
             </div>
             <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
             <fieldset id='form-enabler'>
-                    <label id='workLabel'>Select length for Work Session</label> 
+                    <label id='work-label'>Select length for Work Session</label> 
                     <select name='work-time' id='work-time'>
-                        <option id='workOption25' value='25' selected>25</option>
-                        <option id='workOption30' value='30'>30</option>
-                        <option id='workOption45' value='45'>45</option>
-                        <option id='workOption60' value='60'>60</option>
+                        <option id='work-option25' value='25' selected>25</option>
+                        <option id='work-option30' value='30'>30</option>
+                        <option id='work-option45' value='45'>45</option>
+                        <option id='work-option60' value='60'>60</option>
                     </select>
                     <br>
             
                     <label id='shortBreakLabel'>Select length for Short Break</label>
                     <select name='short-break-time' id='short-break-time'>
-                        <option id='sbOption5'  value='5' selected>5</option>
-                        <option id='sbOption10' value='10'>10</option>
-                        <option id='sbOption15' value='15'>15</option>
+                        <option id='sb-option5'  value='5' selected>5</option>
+                        <option id='sb-option10' value='10'>10</option>
+                        <option id='sb-option15' value='15'>15</option>
                     </select>
                     <br>
             
                     <label id='longBreakLabel'>Select length for Long Break</label>
                     <select name='long-break-time' id='long-break-time'>
-                        <option id='lbOption15' value='15' selected>15</option>
-                        <option id='lbOption20' value='20'>20</option>
-                        <option id='lbOption25' value='25'>25</option>
-                        <option id='lbOption30' value='30'>30</option>
+                        <option id='lb-option15' value='15' selected>15</option>
+                        <option id='lb-option20' value='20'>20</option>
+                        <option id='lb-option25' value='25'>25</option>
+                        <option id='lb-option30' value='30'>30</option>
                     </select>
                     <br>
                 </fieldset>

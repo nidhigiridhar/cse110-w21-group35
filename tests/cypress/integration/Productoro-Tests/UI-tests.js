@@ -32,7 +32,7 @@ describe('Fresh Entry, No Activity Tests', () => {
   });
 
   it('Help Not displayed', () => {
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
@@ -70,7 +70,7 @@ describe('Fresh Entry, No Activity Tests', () => {
   });
 
   it('Keyboard Shortcuts: Initally On', () => {
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -111,14 +111,14 @@ describe('Start Button Tests', () => {
     it('Start Button Clicked: Check Buttons Gets Enabled/Disabled correctly for entire cycle', () => {
       //DOM Maninpulation to get short pomo/break times :)
       cy.get('#settings-button').click();
-      cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-      cy.get('#workOption60').invoke('prop', 'value', '.15');
+      cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+      cy.get('#work-option60').invoke('prop', 'value', '.15');
       
-      cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-      cy.get('#sbOption15').invoke('prop', 'value', '.1');
+      cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+      cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-      cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-      cy.get('#lbOption15').invoke('prop', 'value', '.1');
+      cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+      cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
       cy.get('#short-break-time').select('.1');
       cy.get('#long-break-time').select('.1');
@@ -309,7 +309,7 @@ describe('Start Button Tests', () => {
 
     it('Start Button Clicked: Check Help Not displayed', () => {
       cy.get('#start-button').click();
-      cy.get('#helpModal').then(($el) => {
+      cy.get('#help-modal').then(($el) => {
         expect($el).to.be.hidden
       });
     });
@@ -352,7 +352,7 @@ describe('Start Button Tests', () => {
   
     it('Start Button Clicked: Keyboard Shortcuts Still On', () => {
       cy.get('#start-button').click();
-      cy.get('#keyboardToggle').then(($el) => {
+      cy.get('#keyboard-toggle').then(($el) => {
         expect($el).to.have.prop('checked');
       });
     });
@@ -420,7 +420,7 @@ describe('Reset Button Tests', () => {
   it('Reset Button Clicked: Help Not displayed', () => {
     cy.get('#start-button').click();
     cy.get('#reset-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
@@ -478,7 +478,7 @@ describe('Reset Button Tests', () => {
     cy.get('#start-button').click();
     cy.wait(1000);
     cy.get('#reset-button').click();
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -497,14 +497,14 @@ describe('Counters Tests', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -647,14 +647,14 @@ describe('State Label and Timer Display Tests', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -869,14 +869,14 @@ describe('Background Color Tests', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -1021,14 +1021,14 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Instructions Appear', () => {
     cy.get('#help-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.not.hidden
     });
   });
 
   it('Help Button Clicked: Timer Display Does not Start', () => {
     cy.get('#help-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.not.hidden
     });
     cy.get('#timer-display').should('have.text','25:00');
@@ -1036,7 +1036,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Start Button Unaffected', () => {
     cy.get('#help-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.not.hidden
     });
     cy.get('#start-button').then(($el) => {
@@ -1046,7 +1046,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Reset Button Unaffected', () => {
     cy.get('#help-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.not.hidden
     });
     cy.get('#reset-button').then(($el) => {
@@ -1056,7 +1056,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Background Color Unaffected', () => {
     cy.get('#help-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.not.hidden
     });
     cy.get('body').then(($el) => {
@@ -1066,7 +1066,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Current State Unaffected', () => {
     cy.get('#help-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.not.hidden
     });
     cy.get('#state').should('have.text','Work State');
@@ -1074,7 +1074,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Counters Unaffected', () => {
     cy.get('#help-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.not.hidden
     });
     cy.get('#streak').should('have.text','0');
@@ -1112,7 +1112,7 @@ describe('Help Button Tests', () => {
 
   it('Help Button Clicked: Keyboard Shortcuts Still On', () => {
     cy.get('#help-button').click();
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -1137,14 +1137,14 @@ describe('Break Reminders Tests', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -1405,7 +1405,7 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
 
   it('Space Used as Start Button: Check Help Not displayed', () => {
     cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
@@ -1441,7 +1441,7 @@ describe('KeyBoard Shortcut: Using Space to Start Button', () => {
 
   it('Space Used as Start Button: Keyboard Shortcuts Still On', () => {
     cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -1526,7 +1526,7 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
   it('Space Used as Reset Button: Help Not displayed', () => {
     cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
     cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
@@ -1570,7 +1570,7 @@ describe('Keyboard Shortcut: Using Space as Reset Button', () => {
 
   it('Space Used as Reset Button: Check Keyboard Shortcuts Still On', () => {
     cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -1677,7 +1677,7 @@ describe('Settings Button Tests (Pressibility)', () => {
 
   it('Settings Button Clicked: Help Moal not Displayed', () => {
     cy.get('#settings-button').click();
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.hidden;
     });
   });
@@ -1698,7 +1698,7 @@ describe('Settings Button Tests (Pressibility)', () => {
 
   it('Settings Button Clicked: Check Keyboard Shortcuts Still On', () => {
     cy.get('#settings-button').click();
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -1728,14 +1728,14 @@ describe('Custom Time Limits', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -1821,13 +1821,13 @@ describe('Custom Time Limits', () => {
     cy.get('#long-break-time').select('20');
 
     //Check that the text didnt change
-    cy.get('#workOption60').then(($el) => {
+    cy.get('#work-option60').then(($el) => {
       expect($el).to.have.prop('selected', true);
     });
-    cy.get('#sbOption15').then(($el) => {
+    cy.get('#sb-option15').then(($el) => {
       expect($el).to.have.prop('selected', true);
     });
-    cy.get('#lbOption15').then(($el) => {
+    cy.get('#lb-option15').then(($el) => {
       expect($el).to.have.prop('selected', true);
     });
 
@@ -1936,7 +1936,7 @@ describe('Custom Time Limits', () => {
   });
 
   it('Custom Time Limits: Check Keyboard Shortcuts Initally On', () => {
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -2085,14 +2085,14 @@ describe('Banner Notifications Tests', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -2171,14 +2171,14 @@ describe('Banner Notifications Tests', () => {
     });
     //DOM Manipulation
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -2203,14 +2203,14 @@ describe('Banner Notifications Tests', () => {
     });
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -2238,14 +2238,14 @@ describe('Banner Notifications Tests', () => {
     });
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -2285,14 +2285,14 @@ describe('Alarm Notifications Tests', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
@@ -2563,7 +2563,7 @@ describe('Alarm Notifications Tests', () => {
     cy.get('#notif-toggle').invoke('attr', 'checked', false);
     cy.get('#close-settings').click();
 
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -2590,7 +2590,7 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
     cy.visit('https://nidhigiridhar.github.io/cse110-w21-group35/source/productoro.html');
     //Turn off the keyboard shortcuts
     cy.get('#settings-button').click();
-    cy.get('#keyboardToggle').invoke('attr', 'checked', false);
+    cy.get('#keyboard-toggle').invoke('attr', 'checked', false);
     cy.get('#close-settings').click();
   });
 
@@ -2631,7 +2631,7 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Check Help Not displayed', () => {
     cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
-    cy.get('#helpModal').then(($el) => {
+    cy.get('#help-modal').then(($el) => {
       expect($el).to.be.hidden
     });
   });
@@ -2674,7 +2674,7 @@ describe('Keyboard Shortcuts Disabled Tests', () => {
 
   it('Keyboard Shortcuts Disabled: Space Clicked, Keyboard Shortcuts Still Off', () => {
     cy.get('body').trigger('keydown', { key: '(Space character)', code: 'Space', which: 32 }); 
-    cy.get('#keyboardToggle').then(($el) => {
+    cy.get('#keyboard-toggle').then(($el) => {
       expect($el).to.have.prop('checked');
     });
   });
@@ -2701,14 +2701,14 @@ describe('Progress Bar Tests', () => {
 
     //DOM Maninpulation to get short pomo/break times :)
     cy.get('#settings-button').click();
-    cy.get('#workOption60').invoke('prop', 'innerHTML', '.15');
-    cy.get('#workOption60').invoke('prop', 'value', '.15');
+    cy.get('#work-option60').invoke('prop', 'innerHTML', '.15');
+    cy.get('#work-option60').invoke('prop', 'value', '.15');
     
-    cy.get('#sbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#sbOption15').invoke('prop', 'value', '.1');
+    cy.get('#sb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#sb-option15').invoke('prop', 'value', '.1');
 
-    cy.get('#lbOption15').invoke('prop', 'innerHTML', '.1');
-    cy.get('#lbOption15').invoke('prop', 'value', '.1');
+    cy.get('#lb-option15').invoke('prop', 'innerHTML', '.1');
+    cy.get('#lb-option15').invoke('prop', 'value', '.1');
 
     cy.get('#short-break-time').select('.1');
     cy.get('#long-break-time').select('.1');
