@@ -518,7 +518,7 @@ li {
   color:gray;
 }
 
-#task-btn[done="true"] + label {
+.task-button[done="true"] + label {
   text-decoration: line-through;
   color:gray;
 }
