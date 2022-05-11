@@ -300,8 +300,8 @@ function onReset() {
  * @description Opens the settings modal when the settings button is clicked
  */
 function revealSettings() {
-    let settingsModal = document.getElementById('settings-modal');
-    settingsModal.style.display = 'block';
+    let settings-modal = document.getElementById('settings-modal');
+    settings-modal.style.display = 'block';
     let settingsBtn = document.getElementById('settings-button');
     settingsBtn.disabled = true; 
 }
@@ -311,8 +311,8 @@ function revealSettings() {
  * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
  */
 function hideSettings() {
-    let settingsModal = document.getElementById('settings-modal');
-    settingsModal.style.display = 'none';
+    let settings-modal = document.getElementById('settings-modal');
+    settings-modal.style.display = 'none';
     if(document.getElementById('warning').innerText === 'Work Periods must be greater than Break Periods'){
         document.getElementById('warning').style.display = 'none';
     }
@@ -326,7 +326,7 @@ function hideSettings() {
  * @param {*} event The keyboard button that is clicked
  */
 function keyboardShortcut(event) {
-    if (document.getElementById('keyboardToggle').checked){
+    if (document.getElementById('keyboard-toggle').checked){
         if(event.code === 'Space') {
             // if the timer is static, start timer
             if(document.getElementById('start-button').disabled == false ) {
