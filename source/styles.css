@@ -508,16 +508,6 @@ li {
   text-decoration: none;
 }
 
-.task-button:hover {
-  text-decoration: line-through;
-  color:gray;
-}
-
-.task-button:active {
-  text-decoration: line-through;
-  color:gray;
-}
-
 .task-button[done="true"] + label {
   text-decoration: line-through;
   color:gray;
