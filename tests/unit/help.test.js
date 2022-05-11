@@ -25,8 +25,8 @@ describe('Test when nothing is clicked', () => {
                 </div>
             </div>
         `;
-        let help-modal = document.getElementById('help-modal');
-        let display = help-modal.style.display;
+        let helpModal = document.getElementById('help-modal');
+        let display = helpModal.style.display;
         expect(display).toBe('');
     });
 });
@@ -57,8 +57,8 @@ describe('Test when nothing is clicked', () => {
             </div>
         `;
         revealHelp();
-        let help-modal = document.getElementById('help-modal');
-        let display = help-modal.style.display;
+        let helpModal = document.getElementById('help-modal');
+        let display = helpModal.style.display;
         expect(display).toBe('block');
     });
 });
@@ -89,13 +89,13 @@ describe('Test hideHelp function', () => {
             </div>
         `;
         revealHelp();
-        let help-modal = document.getElementById('help-modal');
-        let display = help-modal.style.display;
+        let helpModal = document.getElementById('help-modal');
+        let display = helpModal.style.display;
         expect(display).toBe('block');
 
         hideHelp();
-        help-modal = document.getElementById('help-modal');
-        display = help-modal.style.display;
+        helpModal = document.getElementById('help-modal');
+        display = helpModal.style.display;
         expect(display).toBe('none');
     });
 });

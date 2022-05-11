@@ -852,19 +852,11 @@ function checkState() {
             
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <span class="missing-if-branch" title="else path not taken" >E</span>if(SHORT_MINS &lt; 10) {
                 let time = document.getElementById('timer-display').innerText; 
                 document.getElementById('timer-display').innerText = '0' + time;
-=======
-            if(SHORT_MINS &lt; 10) {
-                let time = document.getElementById('timerDisplay').innerText; 
-                document.getElementById('timerDisplay').innerText = '0' + time;
->>>>>>> develop
-=======
-            <span class="missing-if-branch" title="else path not taken" >E</span>if(SHORT_MINS &lt; 10) {
-                let time = document.getElementById('timer-display').innerText; 
-                document.getElementById('timer-display').innerText = '0' + time;
->>>>>>> style
+
             } 
             document.getElementById('reset-button').disabled = true; // disable reset button
         }
@@ -886,16 +878,15 @@ function updateState() {
             document.getElementById('state').innerText = LONG_STATE;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             document.getElementById('timer-display').innerText = 
                 `${LONG_MINS}:00`;
-=======
-            document.getElementById('timerDisplay').innerText = 
-                `${LONG_MINS}:00`;    
+
 >>>>>>> develop
 =======
             document.getElementById('timer-display').innerText = 
                 `${LONG_MINS}:00`;
->>>>>>> style
+
         }
         // next state is a short break 
         else {
@@ -903,6 +894,7 @@ function updateState() {
             document.getElementById('state').innerText = SHORT_STATE;
             document.getElementById('timer-display').innerText = 
                 `${SHORT_MINS}:00`;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             let time = document.getElementById('timer-display').innerText; 
@@ -914,7 +906,8 @@ function updateState() {
 =======
             let time = document.getElementById('timer-display').innerText; 
             <span class="missing-if-branch" title="else path not taken" >E</span>if(SHORT_MINS &lt; 10) {
->>>>>>> style
+
+>>>>>>> develop
                 time = '0' + time;
                 document.getElementById('timer-display').innerText = time;
             } 
@@ -926,22 +919,19 @@ function updateState() {
     else {
         timer.currState = WORK_STATE;
         document.getElementById('state').innerText = WORK_STATE;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
         document.getElementById('reset-button').disabled = true; // disable reset button
-=======
-        document.getElementById('timerDisplay').innerText = `${POMO_MINS}:00`;
-        document.getElementById('resetButton').disabled = true; // disable reset button
         // remove settings warning after 4 pomos
         <span class="missing-if-branch" title="if path not taken" >I</span>if(document.getElementById('total').innerText % 4 == 0) {
 <span class="cstat-no" title="statement not covered" >            document.getElementById('warning').style.display = 'none';</span>
         }
->>>>>>> develop
-=======
+
         document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
         document.getElementById('reset-button').disabled = true; // disable reset button
->>>>>>> style
+
+        document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
+        document.getElementById('reset-button').disabled = true; // disable reset button
     }
     colorChange();
     breakReminders(); 
