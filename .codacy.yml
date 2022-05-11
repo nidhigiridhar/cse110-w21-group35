@@ -1,0 +1,8 @@
+---
+exclude_paths:
+  - ".github/**"
+  - "admin/**"
+  - "coverage/**"
+  - "specs/**"
+  - "tests/**"
+  - "node_modules/**"

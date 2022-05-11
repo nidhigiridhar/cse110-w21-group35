@@ -1,4 +1,4 @@
-import { showNotif } from '../notifications';
+import { showNotif } from '..source/modules/notifications';
 
 describe('Test notification body is correct', () => {
     test('when a long break begins', () => {
