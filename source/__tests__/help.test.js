@@ -4,7 +4,7 @@ describe('Test when nothing is clicked', () => {
     test('help button is enabled', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span>
                 </div>
@@ -19,14 +19,14 @@ describe('Test when nothing is clicked', () => {
     test('help modal is hidden', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span>
                 </div>
             </div>
         `;
-        let helpModal = document.getElementById('helpModal');
-        let display = helpModal.style.display;
+        let help-modal = document.getElementById('help-modal');
+        let display = help-modal.style.display;
         expect(display).toBe('');
     });
 });
@@ -35,7 +35,7 @@ describe('Test when nothing is clicked', () => {
     test('disables help button', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span disabled>
                 </div>
@@ -50,15 +50,15 @@ describe('Test when nothing is clicked', () => {
     test('help modal is visible', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span>
                 </div>
             </div>
         `;
         revealHelp();
-        let helpModal = document.getElementById('helpModal');
-        let display = helpModal.style.display;
+        let help-modal = document.getElementById('help-modal');
+        let display = help-modal.style.display;
         expect(display).toBe('block');
     });
 });
@@ -67,7 +67,7 @@ describe('Test hideHelp function', () => {
     test('enables help button', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span disabled>
                 </div>
@@ -82,20 +82,20 @@ describe('Test hideHelp function', () => {
     test('help modal is hidden', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span>
                 </div>
             </div>
         `;
         revealHelp();
-        let helpModal = document.getElementById('helpModal');
-        let display = helpModal.style.display;
+        let help-modal = document.getElementById('help-modal');
+        let display = help-modal.style.display;
         expect(display).toBe('block');
 
         hideHelp();
-        helpModal = document.getElementById('helpModal');
-        display = helpModal.style.display;
+        help-modal = document.getElementById('help-modal');
+        display = help-modal.style.display;
         expect(display).toBe('none');
     });
 });
@@ -104,7 +104,7 @@ describe('Test help button', () => {
     test('calls revealHelp functions', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span disabled>
                 </div>
@@ -120,7 +120,7 @@ describe('Test closing the help modal', () => {
     test('is triggered by clicking the close button', () => {
         document.body.innerHTML = `
             <button type=button class='help-button' id=help-button>?</button disabled>
-            <div id='helpModal' class='modal'>
+            <div id='help-modal' class='modal'>
                 <div class='help-content'>
                 <span id='close-modal'>&times;</span>
                 </div>
