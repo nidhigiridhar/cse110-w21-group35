@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
 
 /******** Variables ********/
 :root {
@@ -524,3 +526,47 @@ footer > img {
   float: right;
   border-radius: 10px;
 }
+
+
+.main-title{
+  font: 400 48px 'Roboto', sans-serif;
+  color: #424242;
+}
+
+.timer{
+  width: 50%;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  padding: 24px 12px;
+}
+.timer *{
+  font: 16px'Helvetica Neue', sans-serif;
+  color: #424242;
+  padding: 24px 16px;
+}
+.timer span{
+  padding: 0;
+}
+
+.timer #clock{
+  width: 100%;
+  font-size: 96px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+.timer #streak, .timer #completed{
+  padding: 12px;
+}
+
+
+
+
+
+
