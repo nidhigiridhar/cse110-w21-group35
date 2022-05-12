@@ -531,10 +531,13 @@ footer > img {
 .main-title{
   font: 400 48px 'Roboto', sans-serif;
   color: #424242;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .timer{
   width: 50%;
+  margin: 0 auto;
   background: #FFF;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
