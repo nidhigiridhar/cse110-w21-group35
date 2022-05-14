@@ -3,11 +3,11 @@
 
 /******** Variables ********/
 :root {
-
   /* Refactor Option */
   --primary-color: #77a4e9;
+
   /* --secondary-color:  #FFFFFF;
-  --primary-font: 'Helvetica Neue', sans-serif; 
+  --primary-font: 'Helvetica Neue', sans-serif;
   --secondary-font: 'Raleway', sans-serif; */
 
   --clr-light: #ffffff;
@@ -48,6 +48,7 @@
 }
 
 /******** GLOBALS ********/
+
 /* Text */
 h1 {
   text-align: center;
@@ -56,18 +57,20 @@ h1, h2, h3 {
   font-family: var(--ff-primary);
   font-size: var(--fs-title-small);
   margin: auto;
-} 
-a{
-  color: #FFFFFF;
 }
-a:hover{
-  color: #DDDDDD;
-  text-decoration-color: #DDDDDD;
+
+a {
+  color: #FFF;
 }
+
+a:hover {
+  color: #DDD;
+  text-decoration-color: #DDD;
+}
+
 b {
   font-weight: var(--fw-bold);
 }
-
 
 /* Body */
 body {
@@ -97,6 +100,7 @@ button {
 form {
   padding-top: 15px;
 }
+
 select {
   width: 50px;
   height: 30px;
@@ -114,31 +118,19 @@ footer {
 
 /******** Counter ********/
 #counterContainer {
+  background: center / contain url("./img/tomato.png") no-repeat;
   font-size: var(--fs-counter-small);
   color: var(--clr-light);
   height: auto;
-  width: 23vw;
-  max-width: 250px;
-  min-width: 160px;
-  position: absolute;
-  right: -15px;
-  top: 10px;
-  text-align: center;
-}
+  width: auto;
 
-#counterContainer > img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-}
-#streakCounter, #totalCounter {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
   position: absolute;
-  top: 34%;
-  left: 17%;
-  width: 65%;
-}
-#totalCounter {
-  top: 48%;
+  top: 0;
+  right: 0;
 }
 
 /******** break reminders ********/
