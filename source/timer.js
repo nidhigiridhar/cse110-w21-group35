@@ -300,10 +300,8 @@ function onReset() {
  * @description Opens the settings modal when the settings button is clicked
  */
 function revealSettings() {
-    let settingsModal = document.getElementById('settingsModal');
-    settingsModal.style.display = 'block';
-    let settingsBtn = document.getElementById('settingsButton');
-    settingsBtn.disabled = true; 
+    const settingsModal = document.getElementById('settings-dialog');
+    settingsModal.showModal();
 }
 
 /**
@@ -311,12 +309,11 @@ function revealSettings() {
  * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
  */
 function hideSettings() {
-    let settingsModal = document.getElementById('settingsModal');
-    settingsModal.style.display = 'none';
+    const settingsModal = document.getElementById('settings-dialog');
+    settingsModal.close();
     if(document.getElementById('warning').innerText === 'Work Periods must be greater than Break Periods'){
         document.getElementById('warning').style.display = 'none';
     }
-    document.getElementById('settingsButton').disabled = false; 
 }
 
 /**
