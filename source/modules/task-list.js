@@ -230,7 +230,7 @@ function setTaskContent(content) {
  * @param content is the task container
  */
 function inputSanitizer(input) {
-    if (input == "")
+    if (input == '')
         return true;
     return false;
 }
