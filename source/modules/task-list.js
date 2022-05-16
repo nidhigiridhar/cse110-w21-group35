@@ -17,13 +17,13 @@ let TASK_CONTENT = null;
  * @description Opens or closes add-task form
  */
 function addTaskButton() {
-    let button = document.getElementById("add-task-form");
-    if (button.classList.contains("hidden") === true) {
-        button.classList.remove("hidden");
-        document.getElementById("task-name").focus();
+    let button = document.getElementById('add-task-form');
+    if (button.classList.contains('hidden') === true) {
+        button.classList.remove('hidden');
+        document.getElementById('task-name').focus();
     }
     else {
-        button.classList.add("hidden");
+        button.classList.add('hidden');
     }
 }
 
@@ -33,8 +33,8 @@ function addTaskButton() {
  * @description Closes add-task form
  */
 function cancelTask() {
-    document.getElementById("task-name").value = "";
-    document.getElementById("add-task-form").classList.add("hidden");
+    document.getElementById('task-name').value = "";
+    document.getElementById('add-task-form').classList.add('hidden');
     setSaveFlag(SAVE_ON);
     setTaskContent(null);
 }
@@ -45,12 +45,12 @@ function cancelTask() {
  * @description Adds new task to task list
  */
 function saveTask() {
-    let taskNameInput = document.getElementById("task-name");
-    let taskList = document.getElementById("task-list");
+    let taskNameInput = document.getElementById('task-name');
+    let taskList = document.getElementById('task-list');
 
     if (SAVE_FLAG === SAVE_ON) { // Save new task
         if (inputSanitizer(taskNameInput.value)){ // check for input
-            alert("Please enter something!!");
+            alert('Please enter something!!');
             taskNameInput.focus();
             return;
         }
@@ -71,7 +71,7 @@ function saveTask() {
  * @function 
  * @description Display selected task at top of task list
  */
-function selectTask(taskName) {
+function selectTask() {
     let currentTask = document.getElementById('current-task');
     const tasks = document.querySelectorAll('input[name="task-option"]');
     for (let task of tasks) {
@@ -104,7 +104,7 @@ function createCustomTaskTag(taskName) {
     taskButton.setAttribute('id', taskName);
     taskButton.setAttribute('class', 'task-button');
     taskButton.setAttribute('name', 'task-option');
-    taskButton.addEventListener('click', function(e) {
+    taskButton.addEventListener('click', function() {
         let currentTask = document.getElementById('current-task');
             if (this.checked) {
                 currentTask.innerText = taskLabel.innerText;
@@ -117,7 +117,7 @@ function createCustomTaskTag(taskName) {
 
     editButton.innerText = 'Edit';
     doneButton.innerText = 'Done';
-    doneButton.style = "margin-left:50px";
+    doneButton.style = 'margin-left:50px';
 
     // Check off task when complete
     doneButton.addEventListener('click', () => {
@@ -157,8 +157,8 @@ function setEditTask(taskLabel, editButton) {
  * @param content the content of the task
  */
 function loadForm(content){
-    let taskName = document.getElementById("task-name");
-    document.getElementById("add-task-form").classList.remove("hidden");
+    let taskName = document.getElementById('task-name');
+    document.getElementById('add-task-form').classList.remove('hidden');
     taskName.value = content.innerText;
     taskName.focus();
     setTaskContent(content);
@@ -171,8 +171,8 @@ function loadForm(content){
  * @description Clears Task List
  */
 function clearAllTasks() {
-    let taskList = document.getElementById("task-list");
-    taskList.innerHTML = "";
+    let taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
 }
 
 /**
@@ -181,7 +181,7 @@ function clearAllTasks() {
  * @description Clears Completed Tasks
  */
 function clearCompletedTasks() {
-    let taskList = document.getElementById("task-list");
+    let taskList = document.getElementById('task-list');
     let children = taskList.children;
     for (let i = 0; i < children.length; i++) {
         if (children[i].children[0].getAttribute('done') == 'true') {
@@ -237,4 +237,4 @@ function inputSanitizer(input) {
 
 
  // Export all functions
- export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearAllTasks, clearCompletedTasks };
+ export { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearAllTasks, selectTask, clearCompletedTasks };
