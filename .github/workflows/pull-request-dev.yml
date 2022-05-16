@@ -73,8 +73,8 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTORO_B340E }}'
-          projectId: productoro-b340e
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTORO_DOCS }}'
+          projectId: productoro-docs
           channelId: docs
           entryPoint: ./specs/documentation/jsdocs
 
