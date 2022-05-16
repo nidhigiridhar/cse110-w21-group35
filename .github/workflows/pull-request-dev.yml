@@ -72,10 +72,9 @@ jobs:
       - name: Deploy Documentation to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          # repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTORO_DOCS }}'
           projectId: productoro-docs
-          channelId: docs
           entryPoint: ./specs/documentation/jsdocs
 
   dev-preview:
