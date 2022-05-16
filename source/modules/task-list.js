@@ -192,18 +192,6 @@ function clearCompletedTasks() {
 }
 
 /**
- * @name 
- * @function
- * @description 
- */
-
-/**
- * @name 
- * @function
- * @description 
- */
-
-/**
  * @name setSaveFlag
  * @function
  * @description helper function - set SAVE_FLAG for saving new task or editing task
