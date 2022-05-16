@@ -76,6 +76,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTORO_DOCS }}'
           projectId: productoro-docs
           entryPoint: ./specs/documentation/jsdocs
+          channelId: docs
 
   dev-preview:
     name: Create a preview
