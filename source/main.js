@@ -1,12 +1,13 @@
 // Import modules
 
-import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from './modules/timer.js';
+import { onStart, onReset, setCustomTime, keyboardShortcut, revealSettings, hideSettings} from './modules/timer.js';
 import { revealHelp, hideHelp } from './modules/help.js';
-import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js';
-import { colorChange } from './modules/color-change.js';
-import { breakReminders } from './modules/break-reminder.js';
+// imports not used, so commented out
+// import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js';
+// import { colorChange } from './modules/color-change.js';
+// import { breakReminders } from './modules/break-reminder.js';
 import { setBackgroundMusic } from './modules/background-music.js';
-import { addTaskButton, cancelTask, saveTask, createCustomTaskTag, clearAllTasks, clearCompletedTasks } from './modules/task-list.js';
+import { addTaskButton, cancelTask, saveTask, clearAllTasks, clearCompletedTasks } from './modules/task-list.js';
 
 // Timer
 document.getElementById('form-enabler').addEventListener('change', setCustomTime);
@@ -29,7 +30,7 @@ document.getElementById('close-settings').addEventListener('click', hideSettings
 document.getElementById('bg-music').addEventListener('change', setBackgroundMusic);
 
 // Task List
-document.getElementById("add-tasks-button").addEventListener('click', addTaskButton);
+document.getElementById('add-tasks-button').addEventListener('click', addTaskButton);
 document.getElementById('task-name').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') // allow user to hit enter to save task
         saveTask();

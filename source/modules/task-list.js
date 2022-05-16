@@ -33,7 +33,7 @@ function addTaskButton() {
  * @description Closes add-task form
  */
 function cancelTask() {
-    document.getElementById('task-name').value = "";
+    document.getElementById('task-name').value = '';
     document.getElementById('add-task-form').classList.add('hidden');
     setSaveFlag(SAVE_ON);
     setTaskContent(null);
