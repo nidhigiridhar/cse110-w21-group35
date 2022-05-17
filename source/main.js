@@ -4,7 +4,7 @@ import { onStart, onReset, checkState, updateState, timer, setCustomTime, keyboa
 import { revealHelp, hideHelp } from './modules/help.js';
 import { showNotif, getNotificationStatus, playSound, getAlarm } from './modules/notifications.js';
 import { colorChange } from './modules/color-change.js';
-import { breakReminders } from './modules/breakReminder.js'
+import { breakReminders } from './modules/break-reminder.js'
 import { addTaskButton, cancelTask, saveTask, createCustomTaskTag, finishTask } from './modules/task-list.js'
 
 // Timer

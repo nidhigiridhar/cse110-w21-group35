@@ -45,7 +45,7 @@ describe('Test onStart function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='breakReminder' style='color:#464646;'></div>
+                <div id='break-reminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.stateCtr = 0;
@@ -98,7 +98,7 @@ describe('Test onStart function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onStart();
@@ -150,7 +150,7 @@ describe('Test onStart function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onStart();
@@ -205,7 +205,7 @@ describe('Test onReset function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='breakReminder' style='color:#464646;'></div>
+                <div id='break-reminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.currState = 'Work State';
@@ -261,7 +261,7 @@ describe('Test onReset function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='breakReminder' style='color:#464646;'></div>
+                <div id='break-reminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onReset();
@@ -314,7 +314,7 @@ describe('Test onReset function', () => {
                     <div class='circle pomo'></div>
                     <div class='circle long'></div>
                 </div>
-                <div id='breakReminder' style='color:#464646;'></div>
+                <div id='break-reminder' style='color:#464646;'></div>
                 <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         onReset();
@@ -339,7 +339,7 @@ describe('Test checkState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 0;
@@ -366,7 +366,7 @@ describe('Test checkState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 1;
@@ -395,7 +395,7 @@ describe('Test checkState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 4;
@@ -450,7 +450,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.currState = 'Short Break State';
@@ -481,7 +481,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.currState = 'Long Break State';
@@ -512,7 +512,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 2;
@@ -542,7 +542,7 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
         timer.counter.totalPomos = 2;
@@ -726,7 +726,7 @@ describe('Test setCustomTime function', () => {
                     </select>
                     <br>
                 </fieldset>
-            <div id='breakReminder' style='color:#464646;'></div>
+            <div id='break-reminder' style='color:#464646;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
         `;
 
