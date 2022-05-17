@@ -43,12 +43,37 @@
                 <p>Completed: <span id="total">0</span></p>
             </div>
         </div>
-        <div id='button-container'> <!-- container for start and reset buttons-->
+        <div id='start-stop'> <!-- container for start and reset buttons-->
             <button type=button class='timer-button' id='start-button'>Start</button>
             <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
         </div>
+
+        <!-- Task List -->
+        <section class="current-task">
+            <h2>Current Task</h2>
+            <p id="current-task"></p>
+        </section>
+        
+        <!-- Task List -->
+        <section class="tasks" id="tasks">
+            <h2>Tasks</h2>
+            <div id="task-options">
+                <button type="button" id="add-tasks-button">Add</button>
+                <button type="button" id="clear-tasks-button">Clear</button>
+                <button type="button" id="clear-completed-tasks-button">Clear Completed</button>
+            </div>
+
+            <hr />
+
+            <ul id="task-list"></ul>
+        </section>
+
     </main>
     
+    <footer>
+        <p>Made by the <a href="../index.html">Dream Team</a></p>
+        <p>Taken by the 10x Racoons</p>
+    </footer>
 
     <!-- Help Dialog  -->
     <dialog id="help-modal">
@@ -141,47 +166,8 @@
             </ul>
         </form>    
     </dialog>
-        
-    <!-- Task List -->
-    <h3 id="current-task-container">Current Task: <span id="current-task"></span></h3>
 
-    <h2>Tasks</h2>
-    <div id="tasks-button-container">
-        <button type="button" id="add-tasks-button">Add Tasks</button>
-        <button type="button" id="clear-tasks-button">Clear Tasks</button>
-        <button type="button" id="clear-completed-tasks-button">Clear Completed Tasks</button>
-    </div>
-
-    <!-- Task List -->
-    <section class="tasks" id="tasks">
-        <h2>Tasks</h2>
-        <div class="task-options">
-            <button type="button">Add</button>
-            <button type="button">Edit</button>
-        </div>
-
-        <hr />
-        
-        <ul class="task-list">
-            <li class="task-item">
-                <p>Task #1</p>
-                <img src="./img/icons/delete.png" alt="delete trash can">
-            </li>
-            <li class="task-item">
-                <p>Task #2</p>
-                <img src="./img/icons/delete.png" alt="delete trash can">
-            </li>
-            <li class="task-item">
-                <p>Task #3</p>
-                <img src="./img/icons/delete.png" alt="delete trash can">
-            </li>
-            <li class="task-item">
-                <p>Task #4</p>
-                <img src="./img/icons/delete.png" alt="delete trash can">
-            </li>
-        </ul>    
-    </section>
-
+    <!-- Add Task Dialog -->
     <dialog id="task-add-modal">
         <form onsubmit="return false;" id="add-task-form">
             <label for="taskName">Task:</label><br>
@@ -192,13 +178,6 @@
             </div>
         </form>
     </dialog>
-    
-    <ol id="task-list"></ol>
-
-    <footer>
-        <p>Made by the <a href="../index.html">Dream Team</a></p>
-        <p>Taken by the 10x Racoons</p>
-    </footer>
     
 </body>
 </html>

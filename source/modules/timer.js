@@ -194,12 +194,10 @@ function updateTimer(duration) {
             // if curr state is work state, update the streak and total pomo count
             if(timer.currState === WORK_STATE) {                
                 timer.counter.streak++;
-                document.getElementById('streak').innerText = 
-                    timer.counter.streak;
+                document.getElementById('streak').innerText = timer.counter.streak;
         
                 timer.counter.totalPomos++;
-                document.getElementById('total').innerText = 
-                    timer.counter.totalPomos;
+                document.getElementById('total').innerText = timer.counter.totalPomos;
             } else {
                 document.querySelector('#form-enabler').removeAttribute('disabled');
             }
@@ -313,8 +311,10 @@ function onReset() {
  * @description Opens the settings modal when the settings button is clicked
  */
 function revealSettings() {
-    const settingsModal = document.getElementById('settings-dialog');
-    settingsModal.showModal();
+    let settingsModal = document.getElementById('settings-dialog');
+    settingsModal.style.display = 'block';
+    let settingsBtn = document.getElementById('close-settings-btn');
+    settingsBtn.disabled = true; 
 }
 
 /**
@@ -322,11 +322,12 @@ function revealSettings() {
  * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
  */
 function hideSettings() {
-    const settingsModal = document.getElementById('settings-dialog');
-    settingsModal.close();
+    let settingsModal = document.getElementById('settings-dialog');
+    settingsModal.style.display = 'none';
     if(document.getElementById('warning').innerText === 'Work Periods must be greater than Break Periods'){
         document.getElementById('warning').style.display = 'none';
     }
+    document.getElementById('settings-button').disabled = false; 
 }
 
 /**
