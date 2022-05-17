@@ -516,7 +516,12 @@ li {
 }
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 979px){
-
+  header{
+    width: 80%;
+  }
+  main{
+    width: 80%;
+  }
 }
 
 
