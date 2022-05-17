@@ -78,11 +78,28 @@ body {
 body[state="pomo"] {
   background-color: var(--primary-color);
 }
+body[state="pomo"] .tasks{
+  height: 0;
+  padding: 0 24px;
+  /* opacity: 0; */
+}
+
 body[state="short"] {
   background-color: #eaa478;
 }
+body[state="short"] .tasks{
+  height: 40vh;
+  opacity: 1;
+  padding: 24px 24px;
+}
 body[state="long"] {
   background-color: #88b9ae;
+
+}
+body[state="long"] .tasks{
+  height: 40vh;
+  opacity: 1;
+  padding: 24px 24px;
 }
 
 /* REFACTOR OPTION: Classes for different state? */
@@ -634,7 +651,6 @@ footer > img {
 }
 
 
-<<<<<<< HEAD
 .main-title{
   font: 400 48px 'Roboto', sans-serif;
   color: #424242;
@@ -676,12 +692,15 @@ footer > img {
 
 .tasks{
   width: 50%;
+  height: 40vh;
   margin: 0 auto;
   background: #FFF;
   padding: 24px 24px;
   display: flex;
   flex-direction: row; 
   flex-wrap: wrap;
+  transition: opacity 1s, height 1s, padding 1s;
+  overflow: hidden;
 }
 .tasks h2{
   text-align: start;
@@ -710,6 +729,8 @@ footer > img {
   list-style: none;
   padding: 0;
   width: 100%;
+  height: 50%;
+  overflow: scroll;
 }
 .task-item{
   padding: 10px 5px;
@@ -733,6 +754,3 @@ footer > img {
 .task-button{
   font-family: 'Helvetica', sans-serif;
 }
-=======
-
->>>>>>> develop
