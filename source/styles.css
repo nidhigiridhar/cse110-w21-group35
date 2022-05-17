@@ -78,28 +78,12 @@ body {
 body[state="pomo"] {
   background-color: var(--primary-color);
 }
-body[state="pomo"] .tasks{
-  height: 0;
-  padding: 0 24px;
-  /* opacity: 0; */
-}
 
 body[state="short"] {
   background-color: #eaa478;
 }
-body[state="short"] .tasks{
-  height: 40vh;
-  opacity: 1;
-  padding: 24px 24px;
-}
 body[state="long"] {
   background-color: #88b9ae;
-
-}
-body[state="long"] .tasks{
-  height: 40vh;
-  opacity: 1;
-  padding: 24px 24px;
 }
 
 /* REFACTOR OPTION: Classes for different state? */
@@ -701,6 +685,11 @@ footer > img {
   flex-wrap: wrap;
   transition: opacity 1s, height 1s, padding 1s;
   overflow: hidden;
+}
+.counting{
+  height: 0;
+  padding: 0 24px;
+  opacity: 0;
 }
 .tasks h2{
   text-align: start;
