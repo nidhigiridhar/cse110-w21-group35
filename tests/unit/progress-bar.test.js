@@ -1,5 +1,5 @@
-import { circles, reset } from '../modules/progress-bar.js';
-import { timer, WORK_STATE, updateState } from '../modules/timer.js';
+import { circles, reset } from '../../source/modules/progress-bar.js';
+import { timer, WORK_STATE, updateState } from '../../source/modules/timer.js';
 
 describe('Test progress bar', () => {
     test('all dots are active at beginning of four pomo cycle', () => {
