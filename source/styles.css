@@ -226,12 +226,12 @@ select {
 }
 
 /******** START AND STOP BUTTON ********/
-#start-stop{
+#start-reset{
   display: flex;
   justify-content: center;
 
 }
-#start-stop button{
+#start-reset button{
   margin: 24px 12px;
   padding: 6px 24px;
   font-size: 16px;

@@ -6,27 +6,28 @@
     <meta name='description' content='Increase productivity with the Productoro Pomodoro timer.'>
     <link rel='stylesheet' href='styles.css'>
     <link rel='icon' href='./img/tomato.ico' type='image/x-icon'/>
-
     <script type="module" src="./main.js"></script>
     <title>Productoro</title>
 </head>
 <body data-state='pomo'>
     <header> 
-         <!-- Help Modal, Settings Modal, Title, Counter?  -->
         <h1>Productoro</h1>
-
-        <div id="options-btn-container">
+        <nav id="options-btn-container">
             <button type=button class='help-button' id='help-button'>?</button>
             <button type=button class='settings' id='settings-button'>&#x2699;</button>
-        </div>
-        
+        </nav>
     </header>
+
     <main>
-        <!-- Break Reminder, Timer, Buttons? -->
-        <div id='break-reminder' style='color:#464646; visibility: hidden'></div>
-        <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
-        
-        <h2 class='text-center' id='state' hidden>Work State</h2> <!-- mode name changes based on state of timer -->
+
+        <!-- Break Reminder -->
+        <p id='break-reminder' style='color:#464646; visibility: hidden'></p>
+        <p id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></p>  
+
+        <!-- Current State  -->
+        <h2 class='text-center' id='state' hidden>Work State</h2> 
+
+        <!-- Progress Bar -->
         <div class='progress-container' hidden>
             <div class='circle pomo'></div>
             <div class='circle short'></div>
@@ -37,18 +38,21 @@
             <div class='circle pomo'></div>
             <div class='circle long'></div>
         </div>
+
+        <!-- Timer -->
         <div class='timer'>
             <p id="timer-display" data-state='pomo'>25:00</p>
             <p>Streak: <span id="streak">0</span></p>
             <p>Completed: <span id="total">0</span></p>
         </div>
-            
-        <div id='start-stop'> <!-- container for start and reset buttons-->
+        
+        <!-- Start Reset Button -->
+        <div id='start-reset'>
             <button type=button class='timer-button' id='start-button'>Start</button>
             <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
         </div>
 
-        <!-- Task List -->
+        <!-- Current Task -->
         <section class="current-task">
             <h2>Current Task</h2>
             <p id="current-task"></p>
@@ -57,6 +61,8 @@
         <!-- Task List -->
         <section class="tasks" id="tasks">
             <h2>Tasks</h2>
+
+            <!-- List Options -->
             <div id="task-options">
                 <button type="button" id="add-tasks-button">Add</button>
                 <button type="button" id="clear-tasks-button">Clear</button>
@@ -92,7 +98,7 @@
         </ol>
     </dialog>
 
-    <!-- Custom settings dialog -->
+    <!-- Custom Settings Dialog -->
     <dialog id="settings-dialog">
         <span id='close-settings-btn' class="close-modal-btn">&times;</span>
 
