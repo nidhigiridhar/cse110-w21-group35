@@ -342,9 +342,6 @@ footer {
   cursor: pointer;
 }
 
-
-
-
 /* Settings Modal */
 #settings-dialog {
   background-color: var(--clr-light);
@@ -463,25 +460,6 @@ li {
 
 
 @media screen and (min-width: 500px) {
-  h1 {font-size: var(--fs-title-medium);}
-
-  #counterContainer {
-    right: 0px;
-    font-size: var(--fs-counter-small);
-  }
-
-  button.help-button { 
-    left: 5%;
-    top: 10%;
-    font-size: var(--fs-mode-button-large);
-    border-radius: 12px;
-  }
-
-  button.settings { 
-    font-size: var(--fs-mode-button-large);
-    border-radius: 12px;
-    top: 10%;
-  }
 
   .switches li::before {
     display: none;
@@ -489,36 +467,15 @@ li {
 }
 
 @media screen and (min-width: 700px) {
-  h1 {font-size: var(--fs-title-large);}
-
-  #counterContainer {
-    right: 3%;
-    font-size: var(--fs-counter-medium);
-  }
-
-  #state {
-    font-size: var(--fs-mode-button-large);
-  }
-
-  #startButton, #resetButton {
-    font-size: var(--fs-mode-button-large);
-    border-radius: 15px;
-  }
-
+  
   button.help-button, button.settings { 
     border-radius: 15px;
   }
 
-  #cog { 
-    margin-top: -1px;
-  }
 }
 
 @media (min-width: 980px) {
-  #counterContainer {
-    right: 7%;
-    font-size: var(--fs-counter-large);
-  }
+  
 }
 
 
@@ -526,17 +483,20 @@ li {
 
 /* Mobile: Portrait and Landscape */
 @media only screen and (min-width: 320px) and (max-width: 767px){
-
+  header{
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  main{
+    width: 80%;
+  }
 }
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 979px){
 
 }
-footer > img {
-  width: 50px;
-  float: right;
-  border-radius: 10px;
-}
+
 
 
 
