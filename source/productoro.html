@@ -13,47 +13,44 @@
 <body data-state='pomo'>
     <header> 
          <!-- Help Modal, Settings Modal, Title, Counter?  -->
-        <h1 class="main-title">Productoro</h1>
-        <!-- <div id='counter-container'>
-            <img src='img/tomato.png' alt='tomato'>
-            <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
-            <div id='total-counter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
-        </div> -->
+        <h1>Productoro</h1>
 
         <div id="options-btn-container">
             <button type=button class='help-button' id='help-button'>?</button>
             <button type=button class='settings' id='settings-button'><img id='cog' src='img/settings-icon.png' alt='settings-icon'/></button>
         </div>
         
-        <div id='break-reminder' style='color:#464646; visibility: hidden'></div>
-        <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
+        
     </header>
     <main>
         <!-- Break Reminder, Timer, Buttons? -->
+        <div id='break-reminder' style='color:#464646; visibility: hidden'></div>
+        <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
+        <div id='timer-container'>
+            <h2 class='text-center' id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
+            <div class='progress-container'>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
+            </div>
+            <div id='timer-display' data-state='pomo'>25:00</div> <!-- displays the timer countdown -->
+            <div class='timer'>
+                <p id="clock">25:00</p>
+                <p id="streak">Streak: <span id="">0</span></p>
+                <p id="completed">Completed: <span id="">0</span></p>
+            </div>
+        </div>
+        <div id='button-container'> <!-- container for start and reset buttons-->
+            <button type=button class='timer-button' id='start-button'>Start</button>
+            <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
+        </div>
     </main>
-    <div id='timer-container'>
-        <h2 class='text-center' id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
-        <div class='progress-container'>
-            <div class='circle pomo'></div>
-            <div class='circle short'></div>
-            <div class='circle pomo'></div>
-            <div class='circle short'></div>
-            <div class='circle pomo'></div>
-            <div class='circle short'></div>
-            <div class='circle pomo'></div>
-            <div class='circle long'></div>
-        </div>
-        <div id='timer-display' data-state='pomo'>25:00</div> <!-- displays the timer countdown -->
-        <div class='timer'>
-            <p id="clock">25:00</p>
-            <p id="streak">Streak: <span id="">0</span></p>
-            <p id="completed">Completed: <span id="">0</span></p>
-        </div>
-    </div>
-    <div id='button-container'> <!-- container for start and reset buttons-->
-        <button type=button class='timer-button' id='start-button'>Start</button>
-        <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
-    </div>
+    
 
     <!-- Help Dialog  -->
     <dialog id="help-modal">
