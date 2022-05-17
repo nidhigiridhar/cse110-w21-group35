@@ -83,7 +83,7 @@
 
     <!-- Help Dialog  -->
     <dialog id="help-modal">
-        <h3>What is a Pomodoro Timer?<span id='close-modal-x' class="close-modal-btn">&times;</span></h3>
+        <h3>What is a Pomodoro Timer?<span class="close-modal-btn" id='close-modal-x' >&times;</span></h3>
         <p>A Pomodoro Timer is a time management tool that breaks down work into intervals (pomos).  
             Work intervals are typically 25 minutes long with five minute breaks between each interval. 
             A longer 15 minute break occurs between every fourth and fifth interval.</p>
@@ -99,34 +99,25 @@
     </dialog>
 
     <!-- Custom Settings Dialog -->
-    <dialog id="settings-dialog">
-        <span id='close-settings-btn' class="close-modal-btn">&times;</span>
-
-        <form id='timeLimits'>
-            <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
-            <p><b>Select lengths for </b></p>
-            
+    <dialog id="settings-modal">
+        <h3>Select lengths for <span  class="close-modal-btn" id='close-settings-btn' >&times;</span></h3>
+        
+        <form id='time-limits'>
+            <p id='warning' style='display:none'>Wait until the end of your next break to change the times!</p>     
             <fieldset id='form-enabler'>
-                <span>
-                    <label id='workLabel'>Work Session</label> 
-                    <select name='workTime' id='workTime'>
-                        <option id='workOption25' value='25' selected>25</option>
-                        <option id='workOption30' value='30'>30</option>
-                        <option id='workOption45' value='45'>45</option>
-                        <option id='workOption60' value='60'>60</option>
-                    </select>
-                </span>
-                
-                <span>
+                <label id='workLabel'>Work Session</label> 
+                <select name='workTime' id='work-time'>
+                    <option id='workOption25' value='25' selected>25</option>
+                    <option id='workOption30' value='30'>30</option>
+                    <option id='workOption45' value='45'>45</option>
+                    <option id='workOption60' value='60'>60</option>
+                </select>
                 <label id='shortBreakLabel'>Short Break</label>
                 <select name='shortBreakTime' id='shortBreakTime'>
                     <option id='sbOption5' value='5' selected>5</option>
                     <option id='sbOption10' value='10'>10</option>
                     <option id='sbOption15' value='15'>15</option>
                 </select>
-                </span>
-                
-                <span>
                 <label id='longBreakLabel'>Long Break</label>
                 <select name='longBreakTime' id='longBreakTime'>
                     <option id='lbOption15' value='15' selected>15</option>
@@ -134,24 +125,26 @@
                     <option id='lbOption25' value='25'>25</option>
                     <option id='lbOption30' value='30'>30</option>
                 </select>
-                </span>
             </fieldset>  
 
-            <div id='notifReminder'> Remember to have system notifications enabled!</div>
-
-            <label id='bg-music-label'>Background Music</label>
+            <p id='notif-reminder'><strong>Remember to have system notifications enabled!</strong></p>
+            <fieldset>
+                <label id='bg-music-label'>Background Music</label>
                 <select name='bg-music' id='bg-music'>
                     <option id='bg-music-option-none' value='None' selected>None</option>
                     <option id='bg-music-option-lofi' value='Lofi'>Lofi</option>
                     <option id='bg-music-option-classical' value='Classical'>Classical</option>
                 </select>
-                <div id='current-mix' style='display: none;'>
-                    <p id='track-name'></p>
-                    <button type=button id='prevTrackButton' style='position: relative;'>Prev</button>
-                    <button type=button id='nxtTrackButton'  style='position: relative;'>Nxt</button>
-                </div>
-                <br>
+            </fieldset>
+            
+            <div id='current-mix' style='display: none;'>
+                <p id='track-name'></p>
                 <audio id='background-audio' controls></audio>
+                <button type=button id='prevTrackButton' style='position: relative;'>Prev</button>
+                <button type=button id='nxtTrackButton'  style='position: relative;'>Nxt</button>
+            </div>
+
+            
 
             <ul class='switches'>
                 <li>

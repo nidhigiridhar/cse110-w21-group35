@@ -111,17 +111,6 @@ button:active{
   background: rgba(50, 50, 50, .4);
 }
 
-form {
-  padding-top: 15px;
-}
-
-select {
-  width: 50px;
-  height: 30px;
-  font-size: 20px;
-  margin-bottom: 10px;;
-}
-
 
 /******** HELP AND SETTINGS ********/
 #options-btn-container {
@@ -316,7 +305,7 @@ select {
 
 /********** MODALS *************/
 /* Help Modal  */
-#help-modal {
+#help-modal, #settings-modal {
   width: 50%;
   height: 80%;
   border: none;
@@ -325,45 +314,45 @@ select {
 #help-modal h3{
   font-size: 24px;
 }
-#help-modal #close-modal-x{
+.close-modal-btn{
   margin: 0;
   padding: 0;
   float: right;
   font-size: 24px;
-}
-#close-modal-x{
   transition: color .5s;
 }
-#close-modal-x:hover{
+.close-modal-btn:hover{
   color: red;
   cursor: pointer;
 }
 
-/* Settings Modal */
-#settings-dialog {
-  background-color: var(--clr-light);
-  font-size: var(--fs-instructions-large);
-  text-align: center;
-  padding: 20px;
-  border: var(--clr-dark) 10px solid;
-  border-radius: 15px;
-  width: 30%;
-  min-width: 300px;
-  max-width: 450px;
-}
-
+/* SETTINGS MODAL */
 fieldset {
   border:none;
-}
-
-fieldset span {
+  padding: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
-.close-modal-btn {
-  float: left;
-  font-size: 50px;
+fieldset label{
+  width: 80%;
+  margin: 5px 0;
+}
+fieldset select{
+  border: 0;
+  padding: 12px;
+  background: #EFEFEF;
+}
+#form-enabler span {
+  padding-top: 15px;
+}
+#notif-reminder{
+  color: #EB5353;
+  text-align: center;
+}
+#current-mix{
+  
 }
 
 /******** Switches ********/
