@@ -25,24 +25,24 @@
         <!-- Break Reminder, Timer, Buttons? -->
         <div id='break-reminder' style='color:#464646; visibility: hidden'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
-        <div id='timer-container'>
-            <h2 class='text-center' id='state' hidden>Work State</h2> <!-- mode name changes based on state of timer -->
-            <div class='progress-container' hidden>
-                <div class='circle pomo'></div>
-                <div class='circle short'></div>
-                <div class='circle pomo'></div>
-                <div class='circle short'></div>
-                <div class='circle pomo'></div>
-                <div class='circle short'></div>
-                <div class='circle pomo'></div>
-                <div class='circle long'></div>
-            </div>
-            <div class='timer'>
-                <p id="timer-display" data-state='pomo'>25:00</p>
-                <p>Streak: <span id="streak">0</span></p>
-                <p>Completed: <span id="total">0</span></p>
-            </div>
+        
+        <h2 class='text-center' id='state' hidden>Work State</h2> <!-- mode name changes based on state of timer -->
+        <div class='progress-container' hidden>
+            <div class='circle pomo'></div>
+            <div class='circle short'></div>
+            <div class='circle pomo'></div>
+            <div class='circle short'></div>
+            <div class='circle pomo'></div>
+            <div class='circle short'></div>
+            <div class='circle pomo'></div>
+            <div class='circle long'></div>
         </div>
+        <div class='timer'>
+            <p id="timer-display" data-state='pomo'>25:00</p>
+            <p>Streak: <span id="streak">0</span></p>
+            <p>Completed: <span id="total">0</span></p>
+        </div>
+            
         <div id='start-stop'> <!-- container for start and reset buttons-->
             <button type=button class='timer-button' id='start-button'>Start</button>
             <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
