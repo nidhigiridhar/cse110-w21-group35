@@ -381,6 +381,10 @@ li {
 
 } */
 
+.hidden {
+  display: none;
+}
+
 #current-task-container {
   display: block;
   text-align: center;
@@ -388,35 +392,22 @@ li {
   padding: 1em;
 }
 
-#tasks-button-container {
-}
+/* #tasks-button-container {
+} */
 
 #tasks-button-container > button {
   position: relative;
   margin-right: 10px;
 }
 
-#add-tasks-button {
+/* #add-tasks-button {
 }
 
 #clear-tasks-button {
 }
 
 #clear-completed-tasks-button {
-}
-
-#cancel-button {
-  margin-left: -80px;
-}
-
-#add-task-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 200px;
-  z-index: 100;
-}
+} */
 
 #add-task-form div{
   margin-top: 10px;

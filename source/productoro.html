@@ -14,11 +14,11 @@
     <header> 
          <!-- Help Modal, Settings Modal, Title, Counter?  -->
         <h1>Productoro</h1>
-        <div id='counter-container'>
+        <!-- <div id='counter-container'>
             <img src='img/tomato.png' alt='tomato'>
             <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='total-counter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
-        </div>
+        </div> -->
 
         <div id="options-btn-container">
             <button type=button class='help-button' id='help-button'>?</button>
@@ -45,7 +45,7 @@
         </div>
         <div id='timer-display' data-state='pomo'>25:00</div> <!-- displays the timer countdown -->
     </div>
-    <div class='button-container'> <!-- container for start and reset buttons-->
+    <div id='button-container'> <!-- container for start and reset buttons-->
         <button type=button class='timer-button' id='start-button'>Start</button>
         <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
     </div>
@@ -151,9 +151,9 @@
         <button type="button" id="clear-tasks-button">Clear Tasks</button>
         <button type="button" id="clear-completed-tasks-button">Clear Completed Tasks</button>
     </div>
-    <div id="task-list-container">
-        
-        <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
+
+    <dialog id="task-add-modal">
+        <form onsubmit="return false;" id="add-task-form">
             <label for="taskName">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
             <div class="form-buttons">
@@ -161,11 +161,9 @@
                 <button id="save-button">Save</button>
             </div>
         </form>
-            <br><br><br>
-        <ol id="task-list">
-
-        </ol>
-    </div>
+    </dialog>
+    
+    <ol id="task-list"></ol>
 
     <footer>
         <p>Made by the <a href="../index.html">Dream Team</a></p>
