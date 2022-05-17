@@ -12,8 +12,13 @@
     <title>Productoro</title>
 </head>
 <body state='pomo'>
+<<<<<<< HEAD
 
     <header>  
+=======
+    <header> 
+         <!-- Help Modal, Settings Modal, Title, Counter?  -->
+>>>>>>> develop
         <h1 class='text-center'>Productoro</h1>
         <h1 class='main-title'>Productoro</h1>
         <div class='container' id='counter-container'>
@@ -21,10 +26,14 @@
             <div id='streak-counter'><b>Streak:</b> <span id='streak'>0</span></div>
             <div id='total-counter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
         </div>
-        <div id='break-reminder' style='color:#464646; visibility: hidden'></div>
+        
+        <div id='breakReminder' style='color:#464646; visibility: hidden'></div>
         <div id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></div>   <!--ensures divs are hidden on init load -->
     </header>
-    <div class='container' id='timer-container'>
+    <main>
+        <!-- Break Reminder, Timer, Buttons? -->
+    </main>
+    <div class='container' id='timerContainer'>
         <h2 class='text-center' id='state'>Work State</h2> <!-- mode name changes based on state of timer -->
         <div class='progress-container container'>
             <div class='circle pomo'></div>
@@ -44,7 +53,7 @@
         </div>
 
     </div>
-    <div id='button-container'> <!-- container for start and reset buttons-->
+    <div class='button-container'> <!-- container for start and reset buttons-->
         <button type=button class='timer-button' id='start-button'>Start</button>
         <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
     </div>
@@ -83,34 +92,36 @@
                 <p><b>Select lengths for </b></p>
                 
                 <fieldset id='form-enabler'>
-                    <label id='work-label'>Work Session</label> 
-                    <select name='work-time' id='work-time'>
-                        <option id='work-option25' value='25' selected>25</option>
-                        <option id='work-option30' value='30'>30</option>
-                        <option id='work-option45' value='45'>45</option>
-                        <option id='work-option60' value='60'>60</option>
-                    </select>
+                    <label id='work-label'>Work Session</label>
+                    <input name='work-time' id='work-time' type='range' min='25' max='100' value='25'>
+                    <p><span id='work-time-val'>25</span> minutes</p>
                     <br>
             
-                    <label id='short-break-time'>Short Break</label>
-                    <select name='short-break-time' id='short-break-time'>
-                        <option id='sb-option5' value='5' selected>5</option>
-                        <option id='sb-option10' value='10'>10</option>
-                        <option id='sb-option15' value='15'>15</option>
-                    </select>
+                    <label id='short-break-label'>Short Break</label>
+                    <input name='short-break-time' id='short-break-time' type='range' min='5' max='15' value='5'>
+                    <p><span id='short-break-time-val'>5</span> minutes</p>
                     <br>
             
-                    <label id='long-break-time'>Long Break</label>
-                    <select name='long-break-time' id='long-break-time'>
-                        <option id='lb-option15' value='15' selected>15</option>
-                        <option id='lb-option20' value='20'>20</option>
-                        <option id='lb-option25' value='25'>25</option>
-                        <option id='lb-option30' value='30'>30</option>
-                    </select>
+                    <label id='long-break-label'>Long Break</label>
+                    <input name='long-break-time' id='long-break-time' type='range' min='15' max='30' value='15'>
+                    <p><span id='long-break-time-val'>15</span> minutes</p>
                     <br>
                 </fieldset>  
                 <div id='notif-reminder'> Remember to have system notifications enabled!</div>
-
+                <br>
+                <label id='bg-music-label'>Background Music</label>
+                <select name='bg-music' id='bg-music'>
+                    <option id='bg-music-option-none' value='None' selected>None</option>
+                    <option id='bg-music-option-lofi' value='Lofi'>Lofi</option>
+                    <option id='bg-music-option-classical' value='Classical'>Classical</option>
+                </select>
+                <div id='current-mix' style='display: none;'>
+                    <p id='track-name'></p>
+                    <button type=button id='prevTrackButton' style='position: relative;'>Prev</button>
+                    <button type=button id='nxtTrackButton'  style='position: relative;'>Nxt</button>
+                </div>
+                <br>
+                <audio id='background-audio' controls></audio>
                 <ul class='switches'>
                     <li>
                       <input type='checkbox' id='notif-toggle' name="notif-toggle" checked>
@@ -127,6 +138,22 @@
                         </label>
                       </li>
                 </ul>
+
+                <ul class='alarm-settings'>
+                    <li>
+                        <label for='alarm-volume'>Alarm Volume</label>
+                        <input type='range' min='0' max='100' value='100' name='alarm-volume' id='alarm-volume'>
+                    </li>
+                    <li>
+                      <label id='alarm-sounds-label'>Alarm Sounds</label>
+                      <select name='alarm-sounds' id='alarm-sounds'>
+                        <option id='alarm-sound-option1' value='1' selected>Default</option>
+                        <option id='alarm-sound-option2' value='2'>Sound 2</option>
+                        <option id='alarm-sound-option3' value='3'>Sound 3</option>
+                      </select>
+                      <br>
+                    </li>
+                </ul>
             </form>    
             </div>
             
@@ -134,20 +161,32 @@
     </div>
 
     <!-- Task List -->
-    <p>Current Task: <span id="currentTask"></span></p>
+    <h3 id="current-task-container">Current Task: <span id="current-task"></span></h3>
 
     <h2>Tasks</h2>
-    <div id="taskListContainer" style="margin: 1em; padding: 1em; border: 3px solid black">
-        <button id="addTasksButton">Add Tasks</button>
-        <form onsubmit="return false;" id="addTaskForm" class="hidden" style="border: 5px solid red; margin: 1em;">
+    <div id="tasks-button-container">
+        <button type="button" id="add-tasks-button">Add Tasks</button>
+        <button type="button" id="clear-tasks-button">Clear Tasks</button>
+        <button type="button" id="clear-completed-tasks-button">Clear Completed Tasks</button>
+    </div>
+    <div id="task-list-container">
+        
+        <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
             <label for="taskName">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
-            <button id="cancelButton">Cancel</button><br>
-            <button id="saveButton">Save</button>
-          </form>
+            <div class="form-buttons">
+                <button id="cancel-button">Cancel</button>
+                <button id="save-button">Save</button>
+            </div>
+        </form>
           <br><br><br>
+<<<<<<< HEAD
         <ol id="taskList">
             
+=======
+        <ol id="task-list">
+
+>>>>>>> develop
         </ol>
 
     </div>
@@ -185,8 +224,8 @@
     
         
     <footer>
-        <img src='img/dream-team-logo.png' alt='Dream Team logo'>
-        <p>Made by the Dream Team</p>
+        <p>Made by the <a href="../index.html">Dream Team</a></p>
+        <p>Taken by the 10x Racoons</p>
     </footer>
     
 </body>

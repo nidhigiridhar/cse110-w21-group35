@@ -850,9 +850,13 @@ function checkState() {
             document.getElementById('timer-display').innerText = 
                 `${SHORT_MINS}:00`;
             
-            if(SHORT_MINS &lt; 10) {
-                let time = document.getElementById('timerDisplay').innerText; 
-                document.getElementById('timerDisplay').innerText = '0' + time;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(SHORT_MINS &lt; 10) {
+                let time = document.getElementById('timer-display').innerText; 
+                document.getElementById('timer-display').innerText = '0' + time;
+
             } 
             document.getElementById('reset-button').disabled = true; // disable reset button
         }
@@ -872,8 +876,17 @@ function updateState() {
         if(timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
             document.getElementById('state').innerText = LONG_STATE;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
             document.getElementById('timer-display').innerText = 
                 `${LONG_MINS}:00`;
+
+>>>>>>> develop
+=======
+            document.getElementById('timer-display').innerText = 
+                `${LONG_MINS}:00`;
+
         }
         // next state is a short break 
         else {
@@ -881,8 +894,20 @@ function updateState() {
             document.getElementById('state').innerText = SHORT_STATE;
             document.getElementById('timer-display').innerText = 
                 `${SHORT_MINS}:00`;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            let time = document.getElementById('timer-display').innerText; 
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(SHORT_MINS &lt; 10) {
+=======
             let time = document.getElementById('timerDisplay').innerText; 
             if(SHORT_MINS &lt; 10) {
+>>>>>>> develop
+=======
+            let time = document.getElementById('timer-display').innerText; 
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(SHORT_MINS &lt; 10) {
+
+>>>>>>> develop
                 time = '0' + time;
                 document.getElementById('timer-display').innerText = time;
             } 
@@ -894,6 +919,17 @@ function updateState() {
     else {
         timer.currState = WORK_STATE;
         document.getElementById('state').innerText = WORK_STATE;
+
+        document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
+        document.getElementById('reset-button').disabled = true; // disable reset button
+        // remove settings warning after 4 pomos
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(document.getElementById('total').innerText % 4 == 0) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('warning').style.display = 'none';</span>
+        }
+
+        document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
+        document.getElementById('reset-button').disabled = true; // disable reset button
+
         document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
         document.getElementById('reset-button').disabled = true; // disable reset button
     }
@@ -1049,8 +1085,8 @@ function onReset() {
  * @description Opens the settings modal when the settings button is clicked
  */
 function revealSettings() {
-    let settingsModal = document.getElementById('settings-modal');
-    settingsModal.style.display = 'block';
+    let settings-modal = document.getElementById('settings-modal');
+    settings-modal.style.display = 'block';
     let settingsBtn = document.getElementById('settings-button');
     settingsBtn.disabled = true; 
 }
@@ -1060,8 +1096,8 @@ function revealSettings() {
  * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
  */
 function hideSettings() {
-    let settingsModal = document.getElementById('settings-modal');
-    settingsModal.style.display = 'none';
+    let settings-modal = document.getElementById('settings-modal');
+    settings-modal.style.display = 'none';
     <span class="missing-if-branch" title="if path not taken" >I</span>if(document.getElementById('warning').innerText === 'Work Periods must be greater than Break Periods'){
 <span class="cstat-no" title="statement not covered" >        document.getElementById('warning').style.display = 'none';</span>
     }
@@ -1075,7 +1111,7 @@ function hideSettings() {
  * @param {*} event The keyboard button that is clicked
  */
 function <span class="fstat-no" title="function not covered" >keyboardShortcut(</span>event) {
-<span class="cstat-no" title="statement not covered" >    if (document.getElementById('keyboardToggle').checked){</span>
+<span class="cstat-no" title="statement not covered" >    if (document.getElementById('keyboard-toggle').checked){</span>
 <span class="cstat-no" title="statement not covered" >        if(event.code === 'Space') {</span>
             // if the timer is static, start timer
 <span class="cstat-no" title="statement not covered" >            if(document.getElementById('start-button').disabled == false ) {</span>
