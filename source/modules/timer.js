@@ -116,7 +116,7 @@ function checkState() {
 function updateState() {
     // if the current state is a work state, next state a break
     if(timer.currState === WORK_STATE) {
-        document.getElementById('tasks').className = `tasks`; 
+        document.getElementById('tasks').className = 'tasks'; 
         // next state is a long break 
         if(timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
@@ -301,7 +301,7 @@ function onReset() {
                     timer.counter.streak;
     clearInterval(timerId);
     checkState();
-    document.getElementById("tasks").className = "tasks";
+    document.getElementById('tasks').className = 'tasks';
 
 }
 
@@ -311,7 +311,7 @@ function onReset() {
  * @description Opens the settings modal when the settings button is clicked
  */
 function revealSettings() {
-    document.getElementById("settings-modal").showModal();
+    document.getElementById('settings-modal').showModal();
 }
 
 /**
@@ -319,7 +319,7 @@ function revealSettings() {
  * @description Closes the settings modal when the 'x' inside the modal or anywhere outside of the modal is clicked
  */
 function hideSettings() {
-    document.getElementById("settings-modal").close();
+    document.getElementById('settings-modal').close();
 
     if(document.getElementById('warning').innerText === 'Work Periods must be greater than Break Periods'){
         document.getElementById('warning').style.display = 'none';
