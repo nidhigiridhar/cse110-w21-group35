@@ -5,11 +5,11 @@ import { progressBar } from './progress-bar.js';
 
 let 
     /** @type {number} **/ 
-    POMO_MINS = 25, 
+    POMO_MINS = .05, 
     /** @type {number} **/ 
-    SHORT_MINS = 5, 
+    SHORT_MINS = .05, 
     /** @type {number} **/ 
-    LONG_MINS = 15;
+    LONG_MINS = .05;
 
 const 
     /** @constant @type {string} **/ 
@@ -78,6 +78,7 @@ function checkState() {
         timer.currDuration = NUM_SEC * POMO_MINS;
         document.getElementById('state').innerText = WORK_STATE;
         document.getElementById('timer-display').innerText = `${POMO_MINS}:00`;
+        document.getElementById('tasks').className = `${document.getElementById('tasks').className} counting`; 
     } 
     else {
         // long break state
@@ -115,6 +116,7 @@ function checkState() {
 function updateState() {
     // if the current state is a work state, next state a break
     if(timer.currState === WORK_STATE) {
+        document.getElementById('tasks').className = `tasks`; 
         // next state is a long break 
         if(timer.counter.totalPomos % LONG_MOD === 0) {
             timer.currState = LONG_STATE;
@@ -301,6 +303,8 @@ function onReset() {
                     timer.counter.streak;
     clearInterval(timerId);
     checkState();
+    document.getElementById("tasks").className = "tasks";
+
 }
 
 /**

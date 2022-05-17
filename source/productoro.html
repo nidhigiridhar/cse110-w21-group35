@@ -155,34 +155,8 @@
         </div>
     </div>
 
-    <!-- Task List -->
-    <h3 id="current-task-container">Current Task: <span id="current-task"></span></h3>
-
-    <h2>Tasks</h2>
-    <div id="tasks-button-container">
-        <button type="button" id="add-tasks-button">Add Tasks</button>
-        <button type="button" id="clear-tasks-button">Clear Tasks</button>
-        <button type="button" id="clear-completed-tasks-button">Clear Completed Tasks</button>
-    </div>
-    <div id="task-list-container">
-        
-        <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
-            <label for="taskName">Task:</label><br>
-            <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
-            <div class="form-buttons">
-                <button id="cancel-button">Cancel</button>
-                <button id="save-button">Save</button>
-            </div>
-        </form>
-          <br><br><br>
-        <ol id="taskList">
-            
-        </ol>
-
-    </div>
-
-    <!-- Task List -->
-    <section class="tasks">
+     <!-- Task List -->
+     <section class="tasks" id="tasks">
         <h2>Tasks</h2>
         <div class="task-options">
             <button type="button">Add</button>
@@ -210,6 +184,33 @@
             </li>
         </ul>    
     </section>
+
+    <!-- Task List -->
+    <h3 id="current-task-container">Current Task: <span id="current-task"></span></h3>
+
+    <h2>Tasks</h2>
+    <div id="tasks-button-container">
+        <button type="button" id="add-tasks-button">Add Tasks</button>
+        <button type="button" id="clear-tasks-button">Clear Tasks</button>
+        <button type="button" id="clear-completed-tasks-button">Clear Completed Tasks</button>
+    </div>
+    <div id="task-list-container">
+        
+        <form onsubmit="return false;" id="add-task-form" class="hidden settings-content">
+            <label for="taskName">Task:</label><br>
+            <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
+            <div class="form-buttons">
+                <button id="cancel-button">Cancel</button>
+                <button id="save-button">Save</button>
+            </div>
+        </form>
+          <br><br><br>
+        <ol id="taskList">
+            
+        </ol>
+
+    </div>
+
 
     
         
