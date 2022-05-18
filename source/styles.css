@@ -91,7 +91,12 @@ footer {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -100,7 +105,9 @@ h1 {
   color: #323232;
 }
 
-p, a, li {
+p,
+a,
+li {
   font-family: 'Helvetica', sans-serif;
 }
 
@@ -124,13 +131,6 @@ button:active {
 /******** HELP AND SETTINGS ********/
 #options-btn-container {
   display: flex;
-}
-
-#options-btn-container button {
-  border-radius: 5px;
-  margin: 0 6px;
-  padding: 6px 24px;
-  font-size: 24px;
 }
 
 
@@ -211,7 +211,8 @@ button:active {
   padding: 24px 16px;
 }
 
-.timer span, .timer p {
+.timer span,
+.timer p {
   padding: 0;
 }
 
@@ -249,6 +250,27 @@ button:active {
   font-size: 16px;
 }
 
+/* SETTINGS MODAL */
+fieldset {
+  border:none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+fieldset label {
+  width: 80%;
+  margin: 5px 0;
+}
+
+fieldset select {
+  border: 0;
+  padding: 12px;
+  background: #efefef;
+}
+
 
 /******** CURRENT TASK ********/
 .current-task * {
@@ -260,7 +282,6 @@ button:active {
   width: 60%;
   height: 40vh;
   margin: 0 auto;
-  background: #fff;
   padding: 24px 24px;
   display: flex;
   flex-direction: row;
@@ -336,7 +357,15 @@ button:active {
   color:gray;
 }
 
+#options-btn-container button {
+  border-radius: 5px;
+  margin: 0 6px;
+  padding: 6px 24px;
+  font-size: 24px;
+}
+
 /********** MODALS *************/
+
 /* Help Modal  */
 #help-modal, #settings-modal {
   width: 50%;
@@ -360,27 +389,6 @@ button:active {
 .close-modal-btn:hover {
   color: red;
   cursor: pointer;
-}
-
-/* SETTINGS MODAL */
-fieldset {
-  border:none;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-fieldset label {
-  width: 80%;
-  margin: 5px 0;
-}
-
-fieldset select {
-  border: 0;
-  padding: 12px;
-  background: #efefef;
 }
 
 #form-enabler span {
