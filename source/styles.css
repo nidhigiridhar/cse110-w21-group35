@@ -79,6 +79,7 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+
 main {
   width: 50%;
   margin: 0 auto;
@@ -110,6 +111,7 @@ button {
   border-radius: 5px;
   transition: background 0.5s;
 }
+
 button:hover {
   background: rgba(50, 50, 50, 0.2);
 }
@@ -195,7 +197,6 @@ button:active {
   background: #fff;
   border-radius: 5px;
   border: 2px solid #323232;
-  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -218,7 +219,7 @@ button:active {
   margin: 6px;
 }
 
-#timer-display{
+#timer-display {
   width: 100%;
   font-size: 96px;
   padding: 0;
@@ -240,8 +241,8 @@ button:active {
 #start-reset {
   display: flex;
   justify-content: center;
-
 }
+
 #start-reset button {
   margin: 24px 12px;
   padding: 6px 24px;
@@ -259,7 +260,7 @@ button:active {
   width: 60%;
   height: 40vh;
   margin: 0 auto;
-  background: #FFF;
+  background: #fff;
   padding: 24px 24px;
   display: flex;
   flex-direction: row;
@@ -309,10 +310,10 @@ button:active {
 .task {
   padding: 10px 5px;
   margin: 5px 0;
-  background: #EFEFEF;
+  background: #efefef;
   border: none;
   border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
 }
 
 .task p {
@@ -353,7 +354,7 @@ button:active {
   padding: 0;
   float: right;
   font-size: 24px;
-  transition: color .5s;
+  transition: color 0.5s;
 }
 
 .close-modal-btn:hover {
@@ -371,12 +372,12 @@ fieldset {
   flex-wrap: wrap;
 }
 
-fieldset label{
+fieldset label {
   width: 80%;
   margin: 5px 0;
 }
 
-fieldset select{
+fieldset select {
   border: 0;
   padding: 12px;
   background: #EFEFEF;
@@ -391,9 +392,9 @@ fieldset select{
   text-align: center;
 }
 
-#current-mix{
+/* #current-mix{
   
-}
+} */
 
 /******** Switches ********/
 [type="checkbox"] {
@@ -495,64 +496,63 @@ li {
 }
 
 @media screen and (min-width: 700px) {
-  
   button.help-button, button.settings { 
     border-radius: 15px;
   }
 
 }
 
-@media (min-width: 980px) {
+/* @media (min-width: 980px) {
   
-}
+} */
 
 
 /******** MEDIA QUERIES ********/
 
 /* Mobile: Portrait and Landscape */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  header{
+  header {
     width: 80%;
     flex-wrap: wrap;
     justify-content: center;
   }
-  main{
+  main {
     width: 80%;
   }
 
   
   /******** PROGRESS BAR ********/
-  .progress-container{
+  .progress-container {
     justify-content: space-around;
   }
-  .progress-container div{
+  .progress-container div {
     width: 10px;
     height: 10px;
   }
 
   /******** TIMER ********/
-  #timer-display{
+  #timer-display {
     font-size: 64px;
   }
 
   /******** TASK LIST ********/
-  .tasks{
+  .tasks {
     width: 100%;
     padding: 0;
     height: 25vh;
   }
-  .tasks h2{
+  .tasks h2 {
     margin: 6px 0;
   }
   
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 979px){
-  header{
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  header {
     width: 80%;
   }
-  main{
+  main {
     width: 80%;
   }
 }
