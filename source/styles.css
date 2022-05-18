@@ -199,6 +199,7 @@ button:active{
 .timer p{
   margin: 6px;
 }
+
 #timer-display{
   width: 100%;
   font-size: 96px;
@@ -208,9 +209,11 @@ button:active{
 #timer-display[data-state="pomo"] {
   border-color: var(--clr-accent-pomo);
 }
+
 #timer-display[data-state="short"] {
   border-color: var(--clr-accent-short);
 }
+
 #timer-display[data-state="long"] {
   border-color: var(--clr-accent-long);
 }
@@ -468,7 +471,7 @@ li {
 /******** MEDIA QUERIES ********/
 
 /* Mobile: Portrait and Landscape */
-@media only screen and (min-width: 320px) and (max-width: 767px){
+@media only screen and (min-width: 320px) and (max-width: 767px) {
   header{
     width: 80%;
     flex-wrap: wrap;
@@ -504,6 +507,7 @@ li {
   }
   
 }
+
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 979px){
   header{
@@ -513,7 +517,3 @@ li {
     width: 80%;
   }
 }
-
-
-
-
