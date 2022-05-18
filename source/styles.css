@@ -91,7 +91,7 @@ footer {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6{
   font-family: 'Roboto', sans-serif;
 }
 
@@ -380,7 +380,7 @@ fieldset label {
 fieldset select {
   border: 0;
   padding: 12px;
-  background: #EFEFEF;
+  background: #efefef;
 }
 
 #form-enabler span {
@@ -388,7 +388,7 @@ fieldset select {
 }
 
 #notif-reminder {
-  color: #EB5353;
+  color: #eb5353;
   text-align: center;
 }
 
@@ -499,7 +499,6 @@ li {
   button.help-button, button.settings { 
     border-radius: 15px;
   }
-
 }
 
 /* @media (min-width: 980px) {
@@ -516,6 +515,7 @@ li {
     flex-wrap: wrap;
     justify-content: center;
   }
+
   main {
     width: 80%;
   }
@@ -525,6 +525,7 @@ li {
   .progress-container {
     justify-content: space-around;
   }
+
   .progress-container div {
     width: 10px;
     height: 10px;
@@ -541,6 +542,7 @@ li {
     padding: 0;
     height: 25vh;
   }
+
   .tasks h2 {
     margin: 6px 0;
   }
@@ -552,6 +554,7 @@ li {
   header {
     width: 80%;
   }
+
   main {
     width: 80%;
   }
