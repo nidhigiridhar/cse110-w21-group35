@@ -57,7 +57,8 @@ body {
   transition: background 1s;
 }
 body[data-state="pomo"] {
-  background: #fff;
+  /* background: #fff; */
+  background: var(--primary-color);
 }
 body[data-state="short"] {
   background-color: #eaa478;
