@@ -367,7 +367,8 @@ fieldset select {
 /********** MODALS *************/
 
 /* Help Modal  */
-#help-modal, #settings-modal {
+#help-modal,
+#settings-modal {
   width: 50%;
   height: 80%;
   border: none;
