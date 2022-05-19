@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.4% </span>
+                <span class="strong">66.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>79/133</span>
+                <span class='fraction'>89/133</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.95% </span>
+                <span class="strong">35.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>13/42</span>
+                <span class='fraction'>15/42</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.4% </span>
+                <span class="strong">66.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>79/133</span>
+                <span class='fraction'>89/133</span>
             </div>
         
             
@@ -519,7 +519,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -532,25 +532,25 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -564,9 +564,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -715,7 +715,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -887,7 +887,7 @@ function updateState() {
     if(timer.currState === WORK_STATE) {
         document.getElementById('tasks').className = 'tasks'; 
         // next state is a long break 
-<span class="cstat-no" title="statement not covered" >        if(timer.counter.totalPomos % LONG_MOD === 0) {</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(timer.counter.totalPomos % LONG_MOD === 0) {
 <span class="cstat-no" title="statement not covered" >            timer.currState = LONG_STATE;</span>
 <span class="cstat-no" title="statement not covered" >            document.getElementById('state').innerText = LONG_STATE;</span>
 <span class="cstat-no" title="statement not covered" >            document.getElementById('timer-display').innerText = </span>
@@ -895,17 +895,17 @@ function updateState() {
         }
         // next state is a short break 
         else {
-<span class="cstat-no" title="statement not covered" >            timer.currState = SHORT_STATE;</span>
-<span class="cstat-no" title="statement not covered" >            document.getElementById('state').innerText = SHORT_STATE;</span>
-<span class="cstat-no" title="statement not covered" >            document.getElementById('timer-display').innerText = </span>
+            timer.currState = SHORT_STATE;
+            document.getElementById('state').innerText = SHORT_STATE;
+            document.getElementById('timer-display').innerText = 
                 `${SHORT_MINS}:00`;
-            let time = <span class="cstat-no" title="statement not covered" >document.getElementById('timer-display').innerText; </span>
-<span class="cstat-no" title="statement not covered" >            if(SHORT_MINS &lt; 10) {</span>
-<span class="cstat-no" title="statement not covered" >                time = '0' + time;</span>
-<span class="cstat-no" title="statement not covered" >                document.getElementById('timer-display').innerText = time;</span>
+            let time = document.getElementById('timer-display').innerText; 
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(SHORT_MINS &lt; 10) {
+                time = '0' + time;
+                document.getElementById('timer-display').innerText = time;
             } 
         }
-<span class="cstat-no" title="statement not covered" >        document.getElementById('reset-button').disabled = true; </span>// disable reset button
+        document.getElementById('reset-button').disabled = true; // disable reset button
     }
 &nbsp;
     // if the current state is a break state, next state is a work state
@@ -1070,7 +1070,7 @@ function onReset() {
                     timer.counter.streak;
     clearInterval(timerId);
     checkState();
-<span class="cstat-no" title="statement not covered" >    document.getElementById('tasks').className = 'tasks';</span>
+    document.getElementById('tasks').className = 'tasks';
 &nbsp;
 }
 &nbsp;
@@ -1129,7 +1129,7 @@ export {onStart, onReset, checkState,updateState, timer, setCustomTime,
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 19 2022 00:56:19 GMT-0700 (Pacific Daylight Time)
+                at Thu May 19 2022 01:05:31 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="prettify.js"></script>

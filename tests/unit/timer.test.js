@@ -270,51 +270,86 @@ describe('Test onStart function', () => {
 describe('Test onReset function', () => {
     test('resets correctly during work state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>14:00</div>
-            <button type=button class='timer-button' id='start-button'>Start</button>
-            <button type=button class='timer-button' id='reset-button'>Reset</button>
-            <h2 id='state'>Work State</h2>
-            <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
-            <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
-            <fieldset id='form-enabler'>
-                    <label id='work-label'>Select length for Work Session</label> 
-                    <select name='work-time' id='work-time'>
-                        <option value='25' selected>25</option>
-                        <option value='30'>30</option>
-                        <option value='45'>45</option>
-                        <option value='60'>60</option>
-                    </select>
-                    <br>
+        <main>
+
+            <!-- Break Reminder -->
+            <p id='break-reminder' style='color:#464646; visibility: hidden'></p>
+            <p id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></p>  
+
+            <!-- Current State  -->
+            <h2 class='text-center' id='state' hidden>Work State</h2> 
+
+            <!-- Progress Bar -->
+            <div class='progress-container' hidden>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
+            </div>
+
+            <!-- Timer -->
+            <div class='timer'>
+                <p id="timer-display" data-state='pomo'>25:00</p>
+                <p>Streak: <span id="streak">0</span></p>
+                <p>Completed: <span id="total">0</span></p>
+            </div>
             
-                    <label id='shortBreakLabel'>Select length for Short Break</label>
-                    <select name='short-break-time' id='short-break-time'>
-                        <option value='5' selected>5</option>
-                        <option value='10'>10</option>
-                        <option value='15'>15</option>
-                    </select>
-                    <br>
+            <!-- Start Reset Button -->
+            <div id='start-reset'>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
+            </div>
+
+            <!-- Current Task -->
+            <section class="current-task">
+                <h2>Current Task</h2>
+                <p id="current-task"></p>
+            </section>
             
-                    <label id='longBreakLabel'>Select length for Long Break</label>
-                    <select name='long-break-time' id='long-break-time'>
-                        <option value='15' selected>15</option>
-                        <option value='20'>20</option>
-                        <option value='25'>25</option>
-                        <option value='30'>30</option>
-                    </select>
-                    <br>
-                </fieldset> 
-                <div class='progress-container' state='pomo'>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle long'></div>
+            <!-- Task List -->
+            <section class="tasks" id="tasks">
+                <h2>Tasks</h2>
+
+                <!-- List Options -->
+                <div id="task-options">
+                    <button type="button" id="add-tasks-button">Add</button>
+                    <button type="button" id="clear-tasks-button">Clear</button>
+                    <button type="button" id="clear-completed-tasks-button">Completed</button>
                 </div>
-                <div id='break-reminder' style='color:#464646;'></div>
-                <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
+
+                <hr />
+
+                <ul id="task-list"></ul>
+            </section>
+
+        </main>
+        <p id='warning' style='display:none'>Wait until the end of your next break to change the times!</p>
+        <fieldset id='form-enabler'>
+            <label id='workLabel'>Work Session</label> 
+            <select name='workTime' id='work-time'>
+                <option id='workOption25' value='25' selected>25</option>
+                <option id='workOption30' value='30'>30</option>
+                <option id='workOption45' value='45'>45</option>
+                <option id='workOption60' value='60'>60</option>
+            </select>
+            <label id='shortBreakLabel'>Short Break</label>
+            <select name='shortBreakTime' id='shortBreakTime'>
+                <option id='sbOption5' value='5' selected>5</option>
+                <option id='sbOption10' value='10'>10</option>
+                <option id='sbOption15' value='15'>15</option>
+            </select>
+            <label id='longBreakLabel'>Long Break</label>
+            <select name='longBreakTime' id='longBreakTime'>
+                <option id='lbOption15' value='15' selected>15</option>
+                <option id='lbOption20' value='20'>20</option>
+                <option id='lbOption25' value='25'>25</option>
+                <option id='lbOption30' value='30'>30</option>
+            </select>
+        </fieldset>
         `;
         timer.currState = 'Work State';
         onReset();
@@ -326,51 +361,86 @@ describe('Test onReset function', () => {
 
     test('enables the start button', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>14:00</div>
-            <button type=button class='timer-button' id='start-button'>Start</button>
-            <button type=button class='timer-button' id='reset-button'>Reset</button>
-            <h2 id='state'>Work State</h2>
-            <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
-            <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
-            <fieldset id='form-enabler'>
-                    <label id='work-label'>Select length for Work Session</label> 
-                    <select name='work-time' id='work-time'>
-                        <option value='25' selected>25</option>
-                        <option value='30'>30</option>
-                        <option value='45'>45</option>
-                        <option value='60'>60</option>
-                    </select>
-                    <br>
+        <main>
+
+            <!-- Break Reminder -->
+            <p id='break-reminder' style='color:#464646; visibility: hidden'></p>
+            <p id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></p>  
+
+            <!-- Current State  -->
+            <h2 class='text-center' id='state' hidden>Work State</h2> 
+
+            <!-- Progress Bar -->
+            <div class='progress-container' hidden>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
+            </div>
+
+            <!-- Timer -->
+            <div class='timer'>
+                <p id="timer-display" data-state='pomo'>25:00</p>
+                <p>Streak: <span id="streak">0</span></p>
+                <p>Completed: <span id="total">0</span></p>
+            </div>
             
-                    <label id='shortBreakLabel'>Select length for Short Break</label>
-                    <select name='short-break-time' id='short-break-time'>
-                        <option value='5' selected>5</option>
-                        <option value='10'>10</option>
-                        <option value='15'>15</option>
-                    </select>
-                    <br>
+            <!-- Start Reset Button -->
+            <div id='start-reset'>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
+            </div>
+
+            <!-- Current Task -->
+            <section class="current-task">
+                <h2>Current Task</h2>
+                <p id="current-task"></p>
+            </section>
             
-                    <label id='longBreakLabel'>Select length for Long Break</label>
-                    <select name='long-break-time' id='long-break-time'>
-                        <option value='15' selected>15</option>
-                        <option value='20'>20</option>
-                        <option value='25'>25</option>
-                        <option value='30'>30</option>
-                    </select>
-                    <br>
-                </fieldset> 
-                <div class='progress-container' state='pomo'>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle long'></div>
+            <!-- Task List -->
+            <section class="tasks" id="tasks">
+                <h2>Tasks</h2>
+
+                <!-- List Options -->
+                <div id="task-options">
+                    <button type="button" id="add-tasks-button">Add</button>
+                    <button type="button" id="clear-tasks-button">Clear</button>
+                    <button type="button" id="clear-completed-tasks-button">Completed</button>
                 </div>
-                <div id='break-reminder' style='color:#464646;'></div>
-                <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
+
+                <hr />
+
+                <ul id="task-list"></ul>
+            </section>
+
+        </main>
+        <p id='warning' style='display:none'>Wait until the end of your next break to change the times!</p>
+        <fieldset id='form-enabler'>
+            <label id='workLabel'>Work Session</label> 
+            <select name='workTime' id='work-time'>
+                <option id='workOption25' value='25' selected>25</option>
+                <option id='workOption30' value='30'>30</option>
+                <option id='workOption45' value='45'>45</option>
+                <option id='workOption60' value='60'>60</option>
+            </select>
+            <label id='shortBreakLabel'>Short Break</label>
+            <select name='shortBreakTime' id='shortBreakTime'>
+                <option id='sbOption5' value='5' selected>5</option>
+                <option id='sbOption10' value='10'>10</option>
+                <option id='sbOption15' value='15'>15</option>
+            </select>
+            <label id='longBreakLabel'>Long Break</label>
+            <select name='longBreakTime' id='longBreakTime'>
+                <option id='lbOption15' value='15' selected>15</option>
+                <option id='lbOption20' value='20'>20</option>
+                <option id='lbOption25' value='25'>25</option>
+                <option id='lbOption30' value='30'>30</option>
+            </select>
+        </fieldset>
         `;
         onReset();
         let disabled = document.getElementById('start-button').disabled;
@@ -379,51 +449,86 @@ describe('Test onReset function', () => {
 
     test('disables the reset button', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>14:00</div>
-            <button type=button class='timer-button' id='start-button'>Start</button>
-            <button type=button class='timer-button' id='reset-button'>Reset</button>
-            <h2 id='state'>Work State</h2>
-            <div id='streakCounter'><b>Streak:</b> <span id='streak'>0</span></div>
-            <div id='warning' style='display:none'>Wait until the end of your next break to change the times!</div>
-            <fieldset id='form-enabler'>
-                    <label id='work-label'>Select length for Work Session</label> 
-                    <select name='work-time' id='work-time'>
-                        <option value='25' selected>25</option>
-                        <option value='30'>30</option>
-                        <option value='45'>45</option>
-                        <option value='60'>60</option>
-                    </select>
-                    <br>
+        <main>
+
+            <!-- Break Reminder -->
+            <p id='break-reminder' style='color:#464646; visibility: hidden'></p>
+            <p id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></p>  
+
+            <!-- Current State  -->
+            <h2 class='text-center' id='state' hidden>Work State</h2> 
+
+            <!-- Progress Bar -->
+            <div class='progress-container' hidden>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle short'></div>
+                <div class='circle pomo'></div>
+                <div class='circle long'></div>
+            </div>
+
+            <!-- Timer -->
+            <div class='timer'>
+                <p id="timer-display" data-state='pomo'>25:00</p>
+                <p>Streak: <span id="streak">0</span></p>
+                <p>Completed: <span id="total">0</span></p>
+            </div>
             
-                    <label id='shortBreakLabel'>Select length for Short Break</label>
-                    <select name='short-break-time' id='short-break-time'>
-                        <option value='5' selected>5</option>
-                        <option value='10'>10</option>
-                        <option value='15'>15</option>
-                    </select>
-                    <br>
+            <!-- Start Reset Button -->
+            <div id='start-reset'>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
+            </div>
+
+            <!-- Current Task -->
+            <section class="current-task">
+                <h2>Current Task</h2>
+                <p id="current-task"></p>
+            </section>
             
-                    <label id='longBreakLabel'>Select length for Long Break</label>
-                    <select name='long-break-time' id='long-break-time'>
-                        <option value='15' selected>15</option>
-                        <option value='20'>20</option>
-                        <option value='25'>25</option>
-                        <option value='30'>30</option>
-                    </select>
-                    <br>
-                </fieldset> 
-                <div class='progress-container' state='pomo'>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle short'></div>
-                    <div class='circle pomo'></div>
-                    <div class='circle long'></div>
+            <!-- Task List -->
+            <section class="tasks" id="tasks">
+                <h2>Tasks</h2>
+
+                <!-- List Options -->
+                <div id="task-options">
+                    <button type="button" id="add-tasks-button">Add</button>
+                    <button type="button" id="clear-tasks-button">Clear</button>
+                    <button type="button" id="clear-completed-tasks-button">Completed</button>
                 </div>
-                <div id='break-reminder' style='color:#464646;'></div>
-                <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
+
+                <hr />
+
+                <ul id="task-list"></ul>
+            </section>
+
+        </main>
+        <p id='warning' style='display:none'>Wait until the end of your next break to change the times!</p>
+        <fieldset id='form-enabler'>
+            <label id='workLabel'>Work Session</label> 
+            <select name='workTime' id='work-time'>
+                <option id='workOption25' value='25' selected>25</option>
+                <option id='workOption30' value='30'>30</option>
+                <option id='workOption45' value='45'>45</option>
+                <option id='workOption60' value='60'>60</option>
+            </select>
+            <label id='shortBreakLabel'>Short Break</label>
+            <select name='shortBreakTime' id='shortBreakTime'>
+                <option id='sbOption5' value='5' selected>5</option>
+                <option id='sbOption10' value='10'>10</option>
+                <option id='sbOption15' value='15'>15</option>
+            </select>
+            <label id='longBreakLabel'>Long Break</label>
+            <select name='longBreakTime' id='longBreakTime'>
+                <option id='lbOption15' value='15' selected>15</option>
+                <option id='lbOption20' value='20'>20</option>
+                <option id='lbOption25' value='25'>25</option>
+                <option id='lbOption30' value='30'>30</option>
+            </select>
+        </fieldset>
         `;
         onReset();
         let disabled = document.getElementById('reset-button').disabled;
@@ -434,10 +539,17 @@ describe('Test onReset function', () => {
 describe('Test checkState function', () => {
     test('correctly updates to the work state', () => {
         document.body.innerHTML = `
-            <div id='totalCounter'>Total Pomos Completed: <span id='total'>0</span></div>
-            <h2 id='state'>Work State</h2>
-            <div id = 'timer-display'>25:00</div>
-            <div class='progress-container' state='pomo'>
+        <main>
+
+            <!-- Break Reminder -->
+            <p id='break-reminder' style='color:#464646; visibility: hidden'></p>
+            <p id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></p>  
+
+            <!-- Current State  -->
+            <h2 class='text-center' id='state' hidden>Work State</h2> 
+
+            <!-- Progress Bar -->
+            <div class='progress-container' hidden>
                 <div class='circle pomo'></div>
                 <div class='circle short'></div>
                 <div class='circle pomo'></div>
@@ -447,8 +559,66 @@ describe('Test checkState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
-        <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
+
+            <!-- Timer -->
+            <div class='timer'>
+                <p id="timer-display" data-state='pomo'>25:00</p>
+                <p>Streak: <span id="streak">0</span></p>
+                <p>Completed: <span id="total">0</span></p>
+            </div>
+            
+            <!-- Start Reset Button -->
+            <div id='start-reset'>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
+            </div>
+
+            <!-- Current Task -->
+            <section class="current-task">
+                <h2>Current Task</h2>
+                <p id="current-task"></p>
+            </section>
+            
+            <!-- Task List -->
+            <section class="tasks" id="tasks">
+                <h2>Tasks</h2>
+
+                <!-- List Options -->
+                <div id="task-options">
+                    <button type="button" id="add-tasks-button">Add</button>
+                    <button type="button" id="clear-tasks-button">Clear</button>
+                    <button type="button" id="clear-completed-tasks-button">Completed</button>
+                </div>
+
+                <hr />
+
+                <ul id="task-list"></ul>
+            </section>
+
+        </main>
+        <p id='warning' style='display:none'>Wait until the end of your next break to change the times!</p>
+        <fieldset id='form-enabler'>
+            <label id='workLabel'>Work Session</label> 
+            <select name='workTime' id='work-time'>
+                <option id='workOption25' value='25' selected>25</option>
+                <option id='workOption30' value='30'>30</option>
+                <option id='workOption45' value='45'>45</option>
+                <option id='workOption60' value='60'>60</option>
+            </select>
+            <label id='shortBreakLabel'>Short Break</label>
+            <select name='shortBreakTime' id='shortBreakTime'>
+                <option id='sbOption5' value='5' selected>5</option>
+                <option id='sbOption10' value='10'>10</option>
+                <option id='sbOption15' value='15'>15</option>
+            </select>
+            <label id='longBreakLabel'>Long Break</label>
+            <select name='longBreakTime' id='longBreakTime'>
+                <option id='lbOption15' value='15' selected>15</option>
+                <option id='lbOption20' value='20'>20</option>
+                <option id='lbOption25' value='25'>25</option>
+                <option id='lbOption30' value='30'>30</option>
+            </select>
+        </fieldset>
         `;
         timer.counter.totalPomos = 0;
         timer.counter.stateCtr = 0;
@@ -606,11 +776,17 @@ describe('Test updateState function', () => {
 
     test('sets state to short break state if current state is work state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
-            <h2 id='state'>Work State</h2>
-            <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
-            <button type=button class='timer-button' id='reset-button'>Reset</button>
-            <div class='progress-container' state='pomo'>
+        <main>
+
+            <!-- Break Reminder -->
+            <p id='break-reminder' style='color:#464646; visibility: hidden'></p>
+            <p id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></p>  
+
+            <!-- Current State  -->
+            <h2 class='text-center' id='state' hidden>Work State</h2> 
+
+            <!-- Progress Bar -->
+            <div class='progress-container' hidden>
                 <div class='circle pomo'></div>
                 <div class='circle short'></div>
                 <div class='circle pomo'></div>
@@ -620,8 +796,66 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
-            <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
+
+            <!-- Timer -->
+            <div class='timer'>
+                <p id="timer-display" data-state='pomo'>25:00</p>
+                <p>Streak: <span id="streak">0</span></p>
+                <p>Completed: <span id="total">0</span></p>
+            </div>
+            
+            <!-- Start Reset Button -->
+            <div id='start-reset'>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
+            </div>
+
+            <!-- Current Task -->
+            <section class="current-task">
+                <h2>Current Task</h2>
+                <p id="current-task"></p>
+            </section>
+            
+            <!-- Task List -->
+            <section class="tasks" id="tasks">
+                <h2>Tasks</h2>
+
+                <!-- List Options -->
+                <div id="task-options">
+                    <button type="button" id="add-tasks-button">Add</button>
+                    <button type="button" id="clear-tasks-button">Clear</button>
+                    <button type="button" id="clear-completed-tasks-button">Completed</button>
+                </div>
+
+                <hr />
+
+                <ul id="task-list"></ul>
+            </section>
+
+        </main>
+        <p id='warning' style='display:none'>Wait until the end of your next break to change the times!</p>
+        <fieldset id='form-enabler'>
+            <label id='workLabel'>Work Session</label> 
+            <select name='workTime' id='work-time'>
+                <option id='workOption25' value='25' selected>25</option>
+                <option id='workOption30' value='30'>30</option>
+                <option id='workOption45' value='45'>45</option>
+                <option id='workOption60' value='60'>60</option>
+            </select>
+            <label id='shortBreakLabel'>Short Break</label>
+            <select name='shortBreakTime' id='shortBreakTime'>
+                <option id='sbOption5' value='5' selected>5</option>
+                <option id='sbOption10' value='10'>10</option>
+                <option id='sbOption15' value='15'>15</option>
+            </select>
+            <label id='longBreakLabel'>Long Break</label>
+            <select name='longBreakTime' id='longBreakTime'>
+                <option id='lbOption15' value='15' selected>15</option>
+                <option id='lbOption20' value='20'>20</option>
+                <option id='lbOption25' value='25'>25</option>
+                <option id='lbOption30' value='30'>30</option>
+            </select>
+        </fieldset>
         `;
         timer.counter.totalPomos = 2;
         timer.currState = 'Work State';
@@ -636,11 +870,17 @@ describe('Test updateState function', () => {
 
     test('sets state to long break state if current state is work state', () => {
         document.body.innerHTML = `
-            <div id = 'timer-display'>25:00</div>
-            <h2 id='state'>Work State</h2>
-            <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
-            <button type=button class='timer-button' id='reset-button'>Reset</button>
-            <div class='progress-container' state='pomo'>
+        <main>
+
+            <!-- Break Reminder -->
+            <p id='break-reminder' style='color:#464646; visibility: hidden'></p>
+            <p id='reminder' onload='breakReminders()' style='color:#464646; visibility: hidden'></p>  
+
+            <!-- Current State  -->
+            <h2 class='text-center' id='state' hidden>Work State</h2> 
+
+            <!-- Progress Bar -->
+            <div class='progress-container' hidden>
                 <div class='circle pomo'></div>
                 <div class='circle short'></div>
                 <div class='circle pomo'></div>
@@ -650,8 +890,66 @@ describe('Test updateState function', () => {
                 <div class='circle pomo'></div>
                 <div class='circle long'></div>
             </div>
-            <div id='break-reminder' style='color:#464646;'></div>
-            <div id='reminder' onload='breakReminders()' style='color:#464646;'></div>
+
+            <!-- Timer -->
+            <div class='timer'>
+                <p id="timer-display" data-state='pomo'>25:00</p>
+                <p>Streak: <span id="streak">0</span></p>
+                <p>Completed: <span id="total">0</span></p>
+            </div>
+            
+            <!-- Start Reset Button -->
+            <div id='start-reset'>
+                <button type=button class='timer-button' id='start-button'>Start</button>
+                <button type=button class='timer-button' id='reset-button' disabled>Reset</button>
+            </div>
+
+            <!-- Current Task -->
+            <section class="current-task">
+                <h2>Current Task</h2>
+                <p id="current-task"></p>
+            </section>
+            
+            <!-- Task List -->
+            <section class="tasks" id="tasks">
+                <h2>Tasks</h2>
+
+                <!-- List Options -->
+                <div id="task-options">
+                    <button type="button" id="add-tasks-button">Add</button>
+                    <button type="button" id="clear-tasks-button">Clear</button>
+                    <button type="button" id="clear-completed-tasks-button">Completed</button>
+                </div>
+
+                <hr />
+
+                <ul id="task-list"></ul>
+            </section>
+
+        </main>
+        <p id='warning' style='display:none'>Wait until the end of your next break to change the times!</p>
+        <fieldset id='form-enabler'>
+            <label id='workLabel'>Work Session</label> 
+            <select name='workTime' id='work-time'>
+                <option id='workOption25' value='25' selected>25</option>
+                <option id='workOption30' value='30'>30</option>
+                <option id='workOption45' value='45'>45</option>
+                <option id='workOption60' value='60'>60</option>
+            </select>
+            <label id='shortBreakLabel'>Short Break</label>
+            <select name='shortBreakTime' id='shortBreakTime'>
+                <option id='sbOption5' value='5' selected>5</option>
+                <option id='sbOption10' value='10'>10</option>
+                <option id='sbOption15' value='15'>15</option>
+            </select>
+            <label id='longBreakLabel'>Long Break</label>
+            <select name='longBreakTime' id='longBreakTime'>
+                <option id='lbOption15' value='15' selected>15</option>
+                <option id='lbOption20' value='20'>20</option>
+                <option id='lbOption25' value='25'>25</option>
+                <option id='lbOption30' value='30'>30</option>
+            </select>
+        </fieldset>
         `;
         timer.counter.totalPomos = 2;
         timer.currState = 'Work State';
