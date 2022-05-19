@@ -26,7 +26,7 @@ describe('Test progress bar', () => {
 
     test('first dot is deactivated after one work session is completed', () => {
         document.body.innerHTML = `
-            <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
             <h2 id='state'>Work State</h2>
             <div class='container'>
@@ -61,7 +61,7 @@ describe('Test progress bar', () => {
 
     test('second dot is deactivated after one short break session is completed', () => {
         document.body.innerHTML = `
-            <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
             <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
             <h2 id='state'>Work State</h2>
@@ -98,7 +98,7 @@ describe('Test progress bar', () => {
 
     test('all dots are deactivated after long break is completed', () => {
         document.body.innerHTML = `
-            <div id='breakReminder' style='color:#464646;' style='visibility: hidden;'></div>
+            <div id='break-reminder' style='color:#464646;' style='visibility: hidden;'></div>
             <div id='totalCounter'><b>Total Pomos Completed:</b> <span id='total'>0</span></div>
             <div id='reminder' onload='breakReminders()' style='color:#464646;' style='visibility: hidden;'></div>   <!-- ensures divs are hidden on init load-->
             <h2 id='state'>Work State</h2>
