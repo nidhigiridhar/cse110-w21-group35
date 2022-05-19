@@ -121,33 +121,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -155,6 +148,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -197,19 +197,19 @@ function breakReminders(){
             document.getElementById('reminder').style.visibility = 'hidden';
             break;
  
-        case SHORT_STATE:
-            document.getElementById('break-reminder').innerHTML = 'An idea for how to spend your break:';
-            document.getElementById('break-reminder').style.visibility = 'visible';
-            document.getElementById('reminder').style.visibility = 'visible'; 
-           document.getElementById('reminder').innerHTML = randomIdea;
-            break;
-        
-<span class="branch-2 cbranch-no" title="branch not covered" >        case LONG_STATE:</span>
+<span class="branch-1 cbranch-no" title="branch not covered" >        case SHORT_STATE:</span>
 <span class="cstat-no" title="statement not covered" >            document.getElementById('break-reminder').innerHTML = 'An idea for how to spend your break:';</span>
 <span class="cstat-no" title="statement not covered" >            document.getElementById('break-reminder').style.visibility = 'visible';</span>
-<span class="cstat-no" title="statement not covered" >            document.getElementById('reminder').style.visibility = 'visible';</span>
-<span class="cstat-no" title="statement not covered" >            document.getElementById('reminder').innerHTML = randomIdea;</span>
+<span class="cstat-no" title="statement not covered" >            document.getElementById('reminder').style.visibility = 'visible'; </span>
+<span class="cstat-no" title="statement not covered" >           document.getElementById('reminder').innerHTML = randomIdea;</span>
 <span class="cstat-no" title="statement not covered" >            break;</span>
+        
+        case LONG_STATE:
+            document.getElementById('break-reminder').innerHTML = 'An idea for how to spend your break:';
+            document.getElementById('break-reminder').style.visibility = 'visible';
+            document.getElementById('reminder').style.visibility = 'visible';
+            document.getElementById('reminder').innerHTML = randomIdea;
+            break;
         
 <span class="branch-3 cbranch-no" title="branch not covered" >        default:</span>
 <span class="cstat-no" title="statement not covered" >            document.getElementById('break-reminder').innerHTML = '';</span>
@@ -229,7 +229,7 @@ export { breakReminders };</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon May 16 2022 23:43:26 GMT-0700 (Pacific Daylight Time)
+                at Thu May 19 2022 00:48:10 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="prettify.js"></script>
