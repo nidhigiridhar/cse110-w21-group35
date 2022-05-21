@@ -19,6 +19,14 @@
     "test": "jest --env=jsdom",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --check"
+  },
   "jest": {
     "collectCoverage": true,
     "coverageReporters": [
