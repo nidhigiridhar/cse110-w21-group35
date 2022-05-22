@@ -1,10 +1,9 @@
-import { circles, reset } from '../../source/modules/progress-bar.js';
-import { timer, WORK_STATE, updateState } from '../../source/modules/timer.js';
-const html = 
+import { circles, reset } from "../../source/modules/progress-bar.js";
+import { timer, WORK_STATE, updateState } from "../../source/modules/timer.js";
 
-describe('Test progress bar', () => {
-    test('all dots are active at beginning of four pomo cycle', () => {
-        document.body.innerText = `
+describe("Test progress bar", () => {
+  test("all dots are active at beginning of four pomo cycle", () => {
+    document.body.innerText = `
             <div class='container'>
             <div class='progress-container'>
                 <div class='circle pomo'></div>
@@ -19,14 +18,13 @@ describe('Test progress bar', () => {
             <div id='timer-display' state='pomo'>25:00</div> <!-- displays the timer countdown -->
             </div>        
         `;
-        reset();
-        circles.forEach(circle => {
-            expect(circle.classList.contains('deactive')).toBeFalsy();
-        });
-    }),
-
-    test('first dot is deactivated after one work session is completed', () => {
-        document.body.innerHTML = `
+    reset();
+    circles.forEach((circle) => {
+      expect(circle.classList.contains("deactive")).toBeFalsy();
+    });
+  }),
+    test("first dot is deactivated after one work session is completed", () => {
+      document.body.innerHTML = `
         <main>
 
             <!-- Break Reminder -->
@@ -85,20 +83,18 @@ describe('Test progress bar', () => {
 
         </main>      
         `;
-        timer.currState = WORK_STATE;
-        updateState();
-        circles.forEach((circle,idx) => {
-            if(idx == 0) {
-                expect(circle.classList.contains('deactive')).toBeTruthy();
-            }
-            else {
-                expect(circle.classList.contains('deactive')).toBeFalsy();
-            }
-        });
+      timer.currState = WORK_STATE;
+      updateState();
+      circles.forEach((circle, idx) => {
+        if (idx == 0) {
+          expect(circle.classList.contains("deactive")).toBeTruthy();
+        } else {
+          expect(circle.classList.contains("deactive")).toBeFalsy();
+        }
+      });
     }),
-
-    test('second dot is deactivated after one short break session is completed', () => {
-        document.body.innerHTML = `
+    test("second dot is deactivated after one short break session is completed", () => {
+      document.body.innerHTML = `
         <main>
 
             <!-- Break Reminder -->
@@ -157,21 +153,20 @@ describe('Test progress bar', () => {
 
         </main>
         `;
-        timer.currState = WORK_STATE;
-        updateState();
-        updateState();
-        circles.forEach((circle,idx) => {
-            if((idx == 0) || (idx == 1)) {
-                expect(circle.classList.contains('deactive')).toBeTruthy();
-            }
-            else {
-                expect(circle.classList.contains('deactive')).toBeFalsy();
-            }
-        });
+      timer.currState = WORK_STATE;
+      updateState();
+      updateState();
+      circles.forEach((circle, idx) => {
+        if (idx == 0 || idx == 1) {
+          expect(circle.classList.contains("deactive")).toBeTruthy();
+        } else {
+          expect(circle.classList.contains("deactive")).toBeFalsy();
+        }
+      });
     });
 
-    test('all dots are deactivated after long break is completed', () => {
-        document.body.innerHTML = `
+  test("all dots are deactivated after long break is completed", () => {
+    document.body.innerHTML = `
         <main>
 
             <!-- Break Reminder -->
@@ -230,17 +225,17 @@ describe('Test progress bar', () => {
 
         </main>
         `;
-        timer.currState = WORK_STATE;
-        updateState();
-        updateState();
-        updateState();
-        updateState();
-        updateState();
-        updateState();
-        updateState();
-        updateState(); // long break is completed
-        circles.forEach((circle) => {
-            expect(circle.classList.contains('deactive')).toBeTruthy();
-        });
+    timer.currState = WORK_STATE;
+    updateState();
+    updateState();
+    updateState();
+    updateState();
+    updateState();
+    updateState();
+    updateState();
+    updateState(); // long break is completed
+    circles.forEach((circle) => {
+      expect(circle.classList.contains("deactive")).toBeTruthy();
     });
+  });
 });
