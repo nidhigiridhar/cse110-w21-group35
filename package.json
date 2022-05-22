@@ -44,6 +44,6 @@
   "homepage": "https://github.com/nidhigiridhar/cse110-w21-group35#readme",
   "lint-staged": {
     "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --check"
+    "*.{js,css}": "prettier --write"
   }
 }
