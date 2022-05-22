@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ['jasmine'],
+  plugins: ["jasmine"],
   env: {
     browser: true,
     es2021: true,
@@ -8,16 +8,14 @@ module.exports = {
     node: true,
   },
   globals: {
-    global: 'writable',
+    global: "writable",
   },
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ["eslint:recommended", "prettier"],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
   },
   rules: {
-    semi: ['error', 'always'],
-    quotes: ['error', 'single'],
-    'no-unused-vars': 'error',
+    "no-unused-vars": "error",
   },
 };
