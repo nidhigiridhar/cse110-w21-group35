@@ -8,6 +8,7 @@
     "babel-jest": "^26.6.3",
     "cypress": "^6.5.0",
     "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jasmine": "^4.1.2",
     "husky": "^8.0.1",
     "jest": "^26.6.3",
@@ -43,7 +44,7 @@
   },
   "homepage": "https://github.com/nidhigiridhar/cse110-w21-group35#readme",
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css}": "prettier --write"
+    "*.js": "eslint --fix",
+    "*.{js,css}": "prettier --write --ignore-unknown"
   }
 }
