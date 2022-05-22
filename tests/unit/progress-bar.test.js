@@ -157,7 +157,7 @@ describe("Test progress bar", () => {
       updateState();
       updateState();
       circles.forEach((circle, idx) => {
-        if (idx == 0 || idx == 1) {
+        if (idx === 0 || idx === 1) {
           expect(circle.classList.contains("deactive")).toBeTruthy();
         } else {
           expect(circle.classList.contains("deactive")).toBeFalsy();
