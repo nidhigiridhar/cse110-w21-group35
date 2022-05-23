@@ -140,27 +140,43 @@
             <div id='current-mix' style='display: none;'>
                 <p id='track-name'></p>
                 <audio id='background-audio' controls></audio>
-                <button type=button id='prevTrackButton' style='position: relative;'>Prev</button>
-                <button type=button id='nxtTrackButton'  style='position: relative;'>Nxt</button>
+                <button type=button id='prev-track-button' style='position: relative;'>Prev</button>
+                <button type=button id='nxt-track-button'  style='position: relative;'>Nxt</button>
             </div>
 
             
 
             <ul class='switches'>
                 <li>
-                  <input type='checkbox' id='notifToggle' checked>
-                  <label for='notifToggle'>
-                    <span>Audio Alarm</span>
-                    <span></span>
-                  </label>
+                    <input type='checkbox' id='notif-toggle' checked>
+                    <label for='notif-toggle'>
+                        <span>Audio Alarm</span>
+                        <span></span>
+                    </label>
                 </li>
                 <li>
-                    <input type='checkbox' id='keyboardToggle' checked>
-                    <label for='keyboardToggle'>
-                      <span>Keyboard Shortcuts</span>
-                      <span></span>
+                    <input type='checkbox' id='keyboard-toggle' checked>
+                    <label for='keyboard-toggle'>
+                        <span>Keyboard Shortcuts</span>
+                        <span></span>
                     </label>
-                  </li>
+                </li>
+            </ul>
+
+            <ul class='alarm-settings'>
+                <li>
+                    <label for='alarm-volume'>Alarm Volume</label>
+                    <input type='range' min='0' max='100' value='100' name='alarm-volume' id='alarm-volume'>
+                </li>
+                <li>
+                    <label id='alarm-sounds-label'>Alarm Sounds</label>
+                    <select name='alarm-sounds' id='alarm-sounds'>
+                        <option id='alarm-sound-option1' value='1' selected>Default</option>
+                        <option id='alarm-sound-option2' value='2'>Sound 2</option>
+                        <option id='alarm-sound-option3' value='3'>Sound 3</option>
+                    </select>
+                    <br>
+                </li>
             </ul>
         </form>    
     </dialog>
@@ -168,7 +184,7 @@
     <!-- Add Task Dialog -->
     <dialog id="task-add-modal">
         <form onsubmit="return false;" id="add-task-form">
-            <label for="taskName">Task:</label><br>
+            <label for="task-name">Task:</label><br>
             <input type="text" id="task-name" name="taskName" placeholder="What are you doing?"><br>
             <div class="form-buttons">
                 <button id="cancel-button">Cancel</button>
