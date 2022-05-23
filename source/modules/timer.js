@@ -242,19 +242,19 @@ function setCustomTime() {
     lbTimeOutput.innerHTML = lbTime.value;
 
     if(Number(wTime.value) <= Number(sbTime.value) || Number(wTime.value) <= Number(lbTime.value)) {
-      // enable a warning
-      warning.innerText = 'Work Periods must be greater than Break Periods';
-      warning.style.display = 'block';
+        // enable a warning
+        warning.innerText = 'Work Periods must be greater than Break Periods';
+        warning.style.display = 'block';
 
-      // keep the drop down values the same as the current timer settings
-      wTime.value = POMO_MINS.toString();
-      sbTime.value = SHORT_MINS.toString();
-      lbTime.value = LONG_MINS.toString();
-      wTimeOutput.innerHTML = wTime.value;
-      sbTimeOutput.innerHTML = sbTime.value;
-      lbTimeOutput.innerHTML = lbTime.value;
-      return;
-  }
+        // keep the drop down values the same as the current timer settings
+        wTime.value = POMO_MINS.toString();
+        sbTime.value = SHORT_MINS.toString();
+        lbTime.value = LONG_MINS.toString();
+        wTimeOutput.innerHTML = wTime.value;
+        sbTimeOutput.innerHTML = sbTime.value;
+        lbTimeOutput.innerHTML = lbTime.value;
+        return;
+    }
 
     // otherwise do not display a warning
     warning.style.display = 'none';
