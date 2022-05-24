@@ -23,9 +23,10 @@
   --clr-gray: #a8a8a8;
   --clr-faded-black: rgba(0, 0, 0, 0.4);
 
-  --ff-timer: "Helvetica Neue", sans-serif;
-  --ff-primary: "Raleway", sans-serif;
-  --ff-secondary: "Roboto", sans-serif;
+  /* sans-serif was secondary fallback font, but cant have this in variable */
+  --ff-timer: "Helvetica Neue";
+  --ff-primary: "Raleway";
+  --ff-secondary: "Roboto";
 
   --fs-timer-large: 160px;
   --fs-timer-small: 100px;
