@@ -146,7 +146,7 @@ button:active {
 }
 
 /******** PROGRESS BAR ********/
-.circle {
+/* .circle {
   background-color: var(--clr-light);
   border-radius: 50%;
   border: 3px solid;
@@ -178,6 +178,43 @@ button:active {
   margin-top: 20px;
   margin-bottom: 30px;
   width: 80%;
+} */
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  overflow: hidden;
+}
+
+.progress-bar div {
+  width: 30%;
+  height: 32px;
+  background: white;
+  border-radius: 5px;
+  border: 2px solid #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-bar img {
+  height: 24px;
+  width: auto;
+}
+
+body[data-state="pomo"] #progress-pomo {
+  background: #ed6663;
+}
+
+body[data-state="short"] #progress-break {
+  background: #b8f1b0;
+}
+/* body[data-state="short"] #progress-long-break{
+  background: linear-gradient(to right, #FFD24C 30%, #fff 50%); 
+} */
+
+body[data-state="long"] #progress-long-break {
+  background: linear-gradient(to right, #ffd24c 100%);
 }
 
 /******** TIMER ********/
