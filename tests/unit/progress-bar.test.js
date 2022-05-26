@@ -1,3 +1,5 @@
+import { timer, updateState, WORK_STATE } from "../../source/modules/timer.js";
+
 let html = `<main>
 
 <!-- Break Reminder -->
@@ -58,11 +60,18 @@ let html = `<main>
 </main>`;
 
 describe("Test Progress bar", () => {
-  test("all dots are active at beginning of four pomo cycle", () => {
-    document.body.innerHTML = html;
-    let pomo = document.getElementById("progress-pomo");
-    // let short = document.getElementById("progress-short");
+  document.body.innerHTML = html;
+
+  timer.currState = "WORK_STATE";
+  updateState();
+
+  test("beginning state", () => {
+    expect(timer.currState).toBe(WORK_STATE);
+    // let pomo = document.getElementById("progress-pomo");
+    // let short = document.getElementById("progress-break");
     // let long = document.getElementById("progress-long-break");
-    expect(pomo.style.background).toBe("#ed6663");
+    // expect(getComputedStyle(pomo)).toBe("asdf");
+    // expect(getComputedStyle(short)).toBe("asdf");
+    // expect(getComputedStyle(long)).toBe("asdf");
   });
 });
