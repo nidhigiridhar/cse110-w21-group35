@@ -20,8 +20,6 @@ const
     LONG_STATE = 'Long Break State';
 
 const 
-    /** @constant @type {number} */
-    MS = 1000,
     /** @constant @type {number} **/ 
     NUM_SEC = 60;
 
@@ -31,11 +29,12 @@ const
     /** @constant @type {string} **/ 
     LONG_MOD = 4;
 
+let worker;
 /** 
  * Stores the set interval
  * @type {number} 
  */
-let timerId;
+//let timerId;
 
 /**
  * A timer
@@ -162,10 +161,18 @@ function updateState() {
  * @param {number} duration The total number of seconds the timer should run
  */
 function updateTimer(duration) {
-    var start = Date.now(),
+    worker = new Worker('./worker.js', {
+        type: 'module'
+    });
+    worker.postMessage({
+        msg: 'counts down timer',
+        payload: timer.currDuration
+    });
+
+    /*var start = Date.now(),
         diff,
         minutes,
-        seconds;
+        seconds;*/
 
     /**
      * @name timerCountdown
@@ -174,22 +181,41 @@ function updateTimer(duration) {
      */
     function timerCountdown() {
         // get the number of seconds that have elapsed since updateTimer() was called
-        diff = duration - (((Date.now() - start) / MS) | 0);
+        //diff = duration - (((Date.now() - start) / MS) | 0);
 
         // truncates the float
-        minutes = (diff / NUM_SEC) | 0;
-        seconds = (diff % NUM_SEC) | 0;
+        //minutes = (diff / NUM_SEC) | 0;
+        //seconds = (diff % NUM_SEC) | 0;
 
         // add extra 0 to minutes/seconds if they are less than 10
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
+        //minutes = minutes < 10 ? '0' + minutes : minutes;
+        //seconds = seconds < 10 ? '0' + seconds : seconds;
 
+        //document.getElementById('timer-display').innerText= 
+           // `${minutes}:${seconds}`;
+
+        /////// f timer reach 0
+        /////
+
+
+        /*if (diff <= 0) {
+            // add one second so that the countdown starts at the full duration
+            // example 05:00 not 04:59
+            start = Date.now() + 1000;
+        }*/
+    }
+
+    //timerCountdown(); // don't wait a full second before the timer starts
+    //timerId = setInterval(timerCountdown, 10); // fires set interval often to give time to update
+    worker.onmessage = function(e) {
+        //result.textContent = e.data;
+        let minutes = e.data.minutes;
+        let seconds = e.data.seconds;
         document.getElementById('timer-display').innerText= 
             `${minutes}:${seconds}`;
-
         // stop timer when minutes and seconds reach 0
         if(minutes == 0 && seconds == 0) {
-            clearInterval(timerId);
+            //clearInterval(timerId);
 
             // if curr state is work state, update the streak and total pomo count
             if(timer.currState === WORK_STATE) {                
@@ -213,15 +239,8 @@ function updateTimer(duration) {
                 playSound();
             }
         }
-        if (diff <= 0) {
-            // add one second so that the countdown starts at the full duration
-            // example 05:00 not 04:59
-            start = Date.now() + 1000;
-        }
+        //console.log('Message received from worker');
     }
-
-    timerCountdown(); // don't wait a full second before the timer starts
-    timerId = setInterval(timerCountdown, 10); // fires set interval often to give time to update
 }
 
 /**
@@ -283,6 +302,14 @@ function onStart() {
     document.getElementById('reset-button').disabled = false; // enable reset button
 
     checkState();
+
+    /*let worker = new Worker('./worker.js', {
+        type: 'module'
+    });
+    worker.postMessage({
+        msg: 'counts down timer',
+        payload: timer.currDuration
+    });*/
     updateTimer(timer.currDuration); // update the timer display
 }
 
@@ -299,7 +326,9 @@ function onReset() {
     timer.counter.streak = 0;
     document.getElementById('streak').innerText = 
                     timer.counter.streak;
-    clearInterval(timerId);
+    worker.postMessage({
+        msg: 'resets timer',
+    });
     checkState();
     document.getElementById('tasks').className = 'tasks';
 
@@ -352,5 +381,5 @@ function keyboardShortcut(event) {
 
 // export functions and variables for testing
 export {onStart, onReset, checkState,updateState, timer, setCustomTime, 
-    keyboardShortcut, revealSettings, hideSettings, SHORT_STATE, LONG_STATE, 
+    keyboardShortcut, revealSettings, hideSettings, updateTimer, SHORT_STATE, LONG_STATE, 
     WORK_STATE, POMO_MINS, SHORT_MINS, LONG_MINS}; 
