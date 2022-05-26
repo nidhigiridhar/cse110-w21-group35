@@ -5,6 +5,7 @@ import {
   playSound,
 } from "./notifications.js";
 import { breakReminders } from "./break-reminder.js";
+import { updateProgress } from "./progress-bar.js";
 
 let /** @type {number} **/
   POMO_MINS = 0.05,
@@ -148,19 +149,7 @@ function updateState() {
   }
   colorChange();
   breakReminders();
-
-  // Update Progress Bar
-  if (timer.currState == SHORT_STATE) {
-    let gradientstart = (timer.counter.streak % 4) * 25 - 10;
-    let gradientend = (timer.counter.streak % 4) * 25;
-    document.getElementById(
-      "progress-long-break"
-    ).style.background = `linear-gradient(to right, #FFD24C ${gradientstart}%, #fff ${gradientend}%)`;
-  } else if (timer.currState == LONG_STATE) {
-    document.getElementById("progress-long-break").style.background = `#FFD24C`;
-  } else if (timer.currState == WORK_STATE) {
-    document.getElementById("progress-long-break").style.background = `#fff`;
-  }
+  updateProgress();
 }
 
 /**
