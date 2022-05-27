@@ -1,5 +1,3 @@
-//import { updateTimer } from './modules/timer.js';
-
 const 
     /** @constant @type {number} */
     MS = 1000,
@@ -10,23 +8,24 @@ const
  * Stores the set interval
  * @type {number} 
  */
- let timerId;
+let timerId;
 
-//self.addEventListener('message', function(e) {
-    onmessage= function(e) {
-
+onmessage = function(e) {
     if(e.data.msg === 'counts down timer') {
-
         let duration = Number(e.data.payload);
         let start = Date.now(),
         diff,
         minutes,
         seconds;
 
+        /**
+         * @name calcTimer
+         * @function
+         * @description Calculates time remaining for updating the timer display
+         */
         function calcTimer() {
             // get the number of seconds that have elapsed since updateTimer() was called
             diff = duration - (((Date.now() - start) / MS) | 0);
-            console.log(diff);///////////////////
             // truncates the float
             minutes = (diff / NUM_SEC) | 0;
             seconds = (diff % NUM_SEC) | 0;
@@ -38,6 +37,7 @@ const
             if(minutes == 0 && seconds == 0) {
                 clearInterval(timerId);
             }
+            // notify the main thread to update timer display
             self.postMessage({
                 minutes: minutes,
                 seconds: seconds
@@ -51,10 +51,8 @@ const
 
         calcTimer(); // don't wait a full second before the timer starts
         timerId = setInterval(calcTimer, 10); // fires set interval often to give time to update
-        //updateTimer(Number(e.data.payload));
         
     } else if(e.data.msg === 'resets timer' ) {
         clearInterval(timerId);
     }
 }
-//});
